@@ -1,0 +1,22 @@
+<ion-header-bar class="bar-stable">
+  <h1 class="title">{{name}}</h1>
+</ion-header-bar>
+
+<ion-content>
+<img class="profile-pic"src="{{ava}}">
+<div class="card">
+  <div class="item item-divider center">
+    {{name}}
+  </div>
+  <div class="item item-text-wrap" ng-click="repo()">
+    Public Repos: <span class="pull-right">{{pub_count}}</span>
+  </div>
+  <div class="item item-text-wrap">
+    Public Gists: <span class="pull-right">{{gists}}</span>
+  </div>
+</div>
+<div class="button-bar">
+  <a class="button button-light" ng-click="reset()">Back</a>
+  <a class="button button-dark">That's me!</a>
+</div>
+</ion-content>

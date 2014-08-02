@@ -1,0 +1,23 @@
+/* Empty. Add your own CSS if you like */
+.pull-right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.profile-pic {
+	height: 100px;
+	width: 100px;
+	border-radius: 60px;
+	margin: 20px auto;
+	display: block; 
+	box-shadow: 0px 0px 5px #555;
+}
+
+.bttn-block {
+	width: 95%;
+	margin: 0 auto;
+	display: block;
+}

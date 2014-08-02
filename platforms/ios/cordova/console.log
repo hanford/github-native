@@ -1,0 +1,20 @@
+2014-08-01 16:57:28.817 GitMOB[11519:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-01 16:57:28.822 GitMOB[11519:70b] Unlimited access to network resources
+2014-08-01 16:57:28.835 GitMOB[11519:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-01 16:57:28.835 GitMOB[11519:70b] [CDVTimer][keyboard] 0.346005ms
+2014-08-01 16:57:28.836 GitMOB[11519:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-01 16:57:28.836 GitMOB[11519:70b] [CDVTimer][statusbar] 0.331044ms
+2014-08-01 16:57:28.836 GitMOB[11519:70b] [CDVTimer][TotalPluginStartup] 1.306951ms
+2014-08-01 16:57:28.881 GitMOB[11519:70b] Resetting plugins due to page load.
+2014-08-01 16:57:29.017 GitMOB[11519:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/533F77EC-9D03-4306-A8DE-68C2AF0ED413/GitMOB.app/www/index.html#/login
+2014-08-01 16:57:29.031 GitMOB[11519:70b] CDVPlugin class CDVDevice (pluginName: Device) does not exist.
+2014-08-01 16:57:29.031 GitMOB[11519:70b] ERROR: Plugin 'Device' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-01 16:57:29.032 GitMOB[11519:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "Device747727166",
+  "Device",
+  "getDeviceInfo",
+  [
+
+  ]
+]
+Terminating in response to SpringBoard's termination.
