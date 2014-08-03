@@ -89,7 +89,7 @@ angular.module('controller', [])
 		
 		$state.go('login');
 	}
-	
+
 
 	if ($rootScope.ginfo != undefined) {
 		$scope.name = $rootScope.ginfo.name;
@@ -98,6 +98,8 @@ angular.module('controller', [])
 		$scope.followers = $rootScope.ginfo.followers;
 		$scope.blog = $rootScope.ginfo.blog;
 		$scope.company = $rootScope.ginfo.company;
+		var created = $rootScope.ginfo.created_at;
+		$scope.created_at = created.substring(0, 10);
 		$scope.following = $rootScope.ginfo.following;
 		$scope.ava = $rootScope.ginfo.avatar_url;
 	}
