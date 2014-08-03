@@ -23,6 +23,11 @@ angular.module('controller', [])
 		templateUrl: "../views/fullscreen.tpl.html",
 		controller: 'fullscreenCtrl'
 	})
+	.state('followers', {
+		url: "/followers",
+		templateUrl: "../views/followers.tpl.html",
+		controller: 'followerCtrl'
+	})
 
 	$urlRouterProvider.otherwise("/login");
 })
@@ -84,6 +89,7 @@ angular.module('controller', [])
 		
 		$state.go('login');
 	}
+	
 
 	if ($rootScope.ginfo != undefined) {
 		$scope.name = $rootScope.ginfo.name;
@@ -112,6 +118,24 @@ angular.module('controller', [])
 			console.log(data, headers, status, config)
 		})
 	}
+
+	$scope.toFollowerState = function () {
+		var url = 'https://api.github.com/users/' + $rootScope.uname + '/followers'
+
+		$http.get(url)
+
+		.success(function(data, headers, status, config){
+			$rootScope.followers = data;
+			if ($rootScope.followers.length > 0) {
+				$state.go('followers')
+			}
+		})
+
+		.error(function(data, headers, status, config){
+			console.log(data, headers, status, config)
+		})
+	}
+
 })
 
 .controller('publicRepos', function($scope, $http, $rootScope, $state) {
@@ -150,4 +174,25 @@ if ($.cookie() == undefined) {
 	}
 
 	$scope.web = $rootScope.web;
+})
+
+.controller('followerCtrl', function($scope, $http, $rootScope, $state) {
+	$scope.followers = $rootScope.followers;
+
+	$scope.back = function () {
+		$state.go('verify')
+	}
+
+	$scope.tofollower = function(fName) {
+
+		var url = 'https://api.github.com/users/' + fName;
+
+		$http.get(url)
+
+		.success(function(data, headers, status, config){
+			debugger
+			$rootScope.ginfo = data;
+			$state.go('verify')
+		})
+	}
 })
