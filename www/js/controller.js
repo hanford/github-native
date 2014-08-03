@@ -31,19 +31,13 @@ angular.module('controller', [])
 	$sceDelegateProvider.resourceUrlWhitelist(['https://github.com/**']);
 })
 
-.controller('loginCtrl', function($scope, $http, $rootScope, $state) {
+.controller('loginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
 	// $http.get('https://api.github.com/authorizations')
 	$rootScope.ginfo;
 
 	$scope.login	= function(uname) {
 		$rootScope.uname = uname;
 		$.cookie('username', uname)
-
-		// var github = new Github({
-		// 	username:  uname,
-		// 	password: pword,
-		// 	auth: "basic"
-		// });
 
 		var github = new Github({
 			token: '09ce798b46fac389b6056e1350490135bd9b80d0',
@@ -59,13 +53,23 @@ angular.module('controller', [])
 			$state.go('verify')
 		})
 
-		.error(function(data, headers, status, config){
-			console.log(data, headers, status, config)
+		.error(function(data) {
+			console.log(data)
+			$scope.showAlert = function() {
+				var alertPopup = $ionicPopup.alert({
+					title: 'Sorry!',
+					template: "We coudln't find any users named " + uname
+				});
+				alertPopup.then(function(res) {
+					console.log('no users');
+				});
+			};
+			$scope.showAlert()
 		})
 	}
 })
 
-.controller('verifyCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
+.controller('verifyCtrl', function($scope, $http, $rootScope, $state) {
 	if ($.cookie() == undefined) {
 		$state.go('login')
 	} else {
@@ -98,19 +102,10 @@ angular.module('controller', [])
 		$http.get(url)
 
 		.success(function(data, headers, status, config){
-			// var confirmPopup = $ionicPopup.confirm({
-			// 	title: 'Public Repos',
-			// 	template: 'Are sure you want to view public repos?'
-			// });
-			// confirmPopup.then(function(res) {
-			// 	if(res) {
-					$rootScope.publicReps = data;
-					if ($rootScope.publicReps.length > 0) {
-						$state.go('publicRepos')
-					}
-				// } else {
-				// 	console.log('cancel');
-				// }
+			$rootScope.publicReps = data;
+			if ($rootScope.publicReps.length > 0) {
+				$state.go('publicRepos')
+			}
 		})
 
 		.error(function(data, headers, status, config){
