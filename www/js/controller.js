@@ -28,16 +28,32 @@ angular.module('controller', [])
 		templateUrl: "../views/followers.tpl.html",
 		controller: 'followerCtrl'
 	})
+	.state('following', {
+		url: "/following",
+		templateUrl: "../views/following.tpl.html",
+		controller: 'followingCtrl'
+	})
 
 	$urlRouterProvider.otherwise("/login");
 })
 
-.config(function($sceDelegateProvider) {
-	$sceDelegateProvider.resourceUrlWhitelist(['https://github.com/**']);
-})
-
 .controller('loginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
-	// $http.get('https://api.github.com/authorizations')
+	if ($.cookie('pass') != 'complete') {
+		$scope.showAlert = function() {
+			var alertPopup = $ionicPopup.alert({
+				title: 'Mobile Github',
+				template: "Welcome to a small project I have been working on for seeing some of Github from a mobile device!"
+			});
+			alertPopup.then(function(res) {
+				$.cookie('pass', 'complete')
+			});
+		};
+		$scope.showAlert()
+	} else {
+		console.log('not a n00b')
+	}
+
+
 	$rootScope.ginfo;
 
 	$scope.login	= function(uname) {
@@ -78,11 +94,11 @@ angular.module('controller', [])
 	if ($.cookie() == undefined) {
 		$state.go('login')
 	} else {
-		var url = 'https://api.github.com/users/' + $.cookie('username')
+		var url = 'https://api.github.com/users/' + $rootScope.uname
 		$http.get(url)
 	}
 
-		$scope.reset = function () {
+	$scope.reset = function () {
 		if ($.cookie() != undefined) {
 			$.removeCookie('username');
 		}
@@ -92,7 +108,6 @@ angular.module('controller', [])
 
 
 	if ($rootScope.ginfo != undefined) {
-		$scope.name = $rootScope.ginfo.name;
 		$scope.pub_count = $rootScope.ginfo.public_repos;
 		$scope.gists = $rootScope.ginfo.public_gists;
 		$scope.followers = $rootScope.ginfo.followers;
@@ -102,6 +117,15 @@ angular.module('controller', [])
 		$scope.created_at = created.substring(0, 10);
 		$scope.following = $rootScope.ginfo.following;
 		$scope.ava = $rootScope.ginfo.avatar_url;
+		$scope.location = $rootScope.ginfo.location;
+
+		// identity 
+		$scope.name = $rootScope.ginfo.name;
+		$scope.id = $rootScope.ginfo.id;
+		if ($scope.name == "") {
+			console.log('blank name')
+		}
+		$scope.login = $rootScope.ginfo.login;
 	}
 
 	$scope.repo = function () {
@@ -138,10 +162,28 @@ angular.module('controller', [])
 		})
 	}
 
+	$scope.toFollowingState = function () {
+		var url = 'https://api.github.com/users/' + $rootScope.uname + '/following'
+
+		$http.get(url)
+
+		.success(function(data, headers, status, config){
+			$rootScope.following = data;
+			if ($rootScope.following.length > 0) {
+				$state.go('following')
+			}
+		})
+
+		.error(function(data, headers, status, config){
+			console.log(data, headers, status, config)
+			debugger;
+		})
+	}
 })
 
+
 .controller('publicRepos', function($scope, $http, $rootScope, $state) {
-if ($.cookie() == undefined) {
+	if ($.cookie() == undefined) {
 		$state.go('login')
 	} else {
 		var url = 'https://api.github.com/users/' + $rootScope.uname
@@ -161,8 +203,10 @@ if ($.cookie() == undefined) {
 		$rootScope.web = html_url;
 		$state.go('fullscreen')
 	}
+
 })
 
+// Potential code view? (This controller is init after public repos)
 .controller('fullscreenCtrl', function($scope, $http, $rootScope, $state) {
 	if ($.cookie() == undefined) {
 		$state.go('login')
@@ -178,6 +222,7 @@ if ($.cookie() == undefined) {
 	$scope.web = $rootScope.web;
 })
 
+
 .controller('followerCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.followers = $rootScope.followers;
 
@@ -186,13 +231,31 @@ if ($.cookie() == undefined) {
 	}
 
 	$scope.tofollower = function(fName) {
-
 		var url = 'https://api.github.com/users/' + fName;
 
 		$http.get(url)
 
 		.success(function(data, headers, status, config){
-			debugger
+			$rootScope.ginfo = data;
+			$state.go('verify')
+		})
+	}
+})
+
+.controller('followingCtrl', function($scope, $http, $rootScope, $state) {
+	$scope.followings = $rootScope.following;
+
+	debugger;
+	$scope.back = function () {
+		$state.go('verify')
+	}
+
+	$scope.tofollower = function(fName) {
+		var url = 'https://api.github.com/users/' + fName;
+
+		$http.get(url)
+
+		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
 			$state.go('verify')
 		})

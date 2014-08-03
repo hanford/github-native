@@ -7,17 +7,20 @@
 <ion-content>
 <img class="profile-pic"src="{{ava}}">
 <div class="card">
-  <div class="item item-divider center">
+  <div class="item item-divider center" ng-click="swap()">
     {{name}}
   </div>
   <div class="item item-text-wrap">
     Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>
   </div>
   <div class="item item-text-wrap">
+    Location: <span class="pull-right">{{location}}</span>
+  </div>
+  <div class="item item-text-wrap">
     Company <span class="pull-right">{{company}}</span>
   </div>
   <div class="item item-text-wrap" ng-click="repo()">
-    Public Repos: <span class="pull-right">{{pub_count}}</span>
+    Public Repos: <span class="pull-right">{{pub_count}} </span>
   </div>
   <div class="item item-text-wrap">
     Public Gists: <span class="pull-right">{{gists}}</span>
@@ -25,7 +28,7 @@
   <div class="item item-text-wrap" ng-click="toFollowerState()">
     Followers: <span class="pull-right">{{followers}}</span>
   </div>
-  <div class="item item-text-wrap">
+  <div class="item item-text-wrap" ng-click="toFollowingState()">
     Following: <span class="pull-right">{{following}}</span>
   </div>
   <div class="item item-text-wrap">
