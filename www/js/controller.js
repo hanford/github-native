@@ -137,7 +137,6 @@ if ($.cookie() == undefined) {
 	$scope.select = function(html_url) {
 		console.log('click')
 
-		$sceDelegateProvider.resourceUrlWhitelist([html_url])
 		$rootScope.web = html_url;
 		$state.go('fullscreen')
 	}
