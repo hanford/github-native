@@ -8,10 +8,10 @@ angular.module('controller', [])
 		controller: 'loginCtrl',
 		templateUrl: "../index.html"
 	})
-	.state('verify', {
-		url: "/verify",
-		templateUrl: "../views/verify.tpl.html",
-		controller: 'verifyCtrl'
+	.state('profile', {
+		url: "/profile",
+		templateUrl: "../views/profile.tpl.html",
+		controller: 'profileCtrl'
 	})
 	.state('publicRepos', {
 		url: "/publicRepos",
@@ -71,7 +71,7 @@ angular.module('controller', [])
 
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
-			$state.go('verify')
+			$state.go('profile')
 		})
 
 		.error(function(data) {
@@ -90,7 +90,7 @@ angular.module('controller', [])
 	}
 })
 
-.controller('verifyCtrl', function($scope, $http, $rootScope, $state) {
+.controller('profileCtrl', function($scope, $http, $rootScope, $state) {
 	if ($.cookie() == undefined) {
 		$state.go('login')
 	} else {
@@ -113,19 +113,20 @@ angular.module('controller', [])
 		$scope.followers = $rootScope.ginfo.followers;
 		$scope.blog = $rootScope.ginfo.blog;
 		$scope.company = $rootScope.ginfo.company;
+
 		var created = $rootScope.ginfo.created_at;
 		$scope.created_at = created.substring(0, 10);
+
 		$scope.following = $rootScope.ginfo.following;
 		$scope.ava = $rootScope.ginfo.avatar_url;
 		$scope.location = $rootScope.ginfo.location;
 
-		// identity 
 		$scope.name = $rootScope.ginfo.name;
 		$scope.id = $rootScope.ginfo.id;
-		if ($scope.name == "") {
-			console.log('blank name')
+
+		if ($scope.name == null ) {
+			$scope.name = $rootScope.ginfo.login;
 		}
-		$scope.login = $rootScope.ginfo.login;
 	}
 
 	$scope.repo = function () {
@@ -194,7 +195,7 @@ angular.module('controller', [])
 	$scope.reps = $rootScope.publicReps;
 
 	$scope.back = function () {
-		$state.go('verify')
+		$state.go('profile')
 	}
 
 	$scope.select = function(html_url) {
@@ -227,7 +228,7 @@ angular.module('controller', [])
 	$scope.followers = $rootScope.followers;
 
 	$scope.back = function () {
-		$state.go('verify')
+		$state.go('profile')
 	}
 
 	$scope.tofollower = function(fName) {
@@ -237,7 +238,7 @@ angular.module('controller', [])
 
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
-			$state.go('verify')
+			$state.go('profile')
 		})
 	}
 })
@@ -247,7 +248,7 @@ angular.module('controller', [])
 
 	debugger;
 	$scope.back = function () {
-		$state.go('verify')
+		$state.go('profile')
 	}
 
 	$scope.tofollower = function(fName) {
@@ -257,7 +258,7 @@ angular.module('controller', [])
 
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
-			$state.go('verify')
+			$state.go('profile')
 		})
 	}
 })
