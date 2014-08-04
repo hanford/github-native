@@ -194,6 +194,8 @@ angular.module('controller', [])
 
 	$scope.reps = $rootScope.publicReps;
 
+	debugger
+
 	$scope.back = function () {
 		$state.go('profile')
 	}
