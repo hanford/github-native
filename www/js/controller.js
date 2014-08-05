@@ -177,7 +177,6 @@ angular.module('controller', [])
 
 		.error(function(data, headers, status, config){
 			console.log(data, headers, status, config)
-			debugger;
 		})
 	}
 })
@@ -194,17 +193,16 @@ angular.module('controller', [])
 
 	$scope.reps = $rootScope.publicReps;
 
-	debugger
-
 	$scope.back = function () {
 		$state.go('profile')
 	}
 
 	$scope.select = function(html_url) {
 		console.log('click')
+		debugger;
 
 		$rootScope.web = html_url;
-		$state.go('fullscreen')
+		// $state.go('fullscreen')
 	}
 
 })
