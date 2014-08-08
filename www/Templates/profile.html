@@ -1,0 +1,38 @@
+<ion-header-bar class="bar-stable">
+  <div class="buttons">
+    <button class="button button-clear button-positive" ng-click="reset()"><i class="ion-ios7-arrow-back"></i> Back</button>
+  </div>
+  <h1 class="title">Profile</h1>
+</ion-header-bar>
+<ion-content scroll="true">
+<img class="profile-pic"src="{{ava}}">
+<div class="card">
+  <div class="item item-divider center">
+    {{name}}
+  </div>
+  <div class="item item-text-wrap">
+    Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>
+  </div>
+  <div class="item item-text-wrap">
+    Location: <span class="pull-right">{{location}}</span>
+  </div>
+  <div class="item item-text-wrap">
+    Company <span class="pull-right">{{company}}</span>
+  </div>
+  <div class="item item-text-wrap" ng-click="repo()">
+    Public Repos: <span class="pull-right">{{pub_count}} </span>
+  </div>
+  <div class="item item-text-wrap">
+    Public Gists: <span class="pull-right">{{gists}}</span>
+  </div>
+  <div class="item item-text-wrap" ng-click="toFollowerState()">
+    Followers: <span class="pull-right">{{followers}}</span>
+  </div>
+  <div class="item item-text-wrap" ng-click="toFollowingState()">
+    Following: <span class="pull-right">{{following}}</span>
+  </div>
+  <div class="item item-text-wrap">
+    Memeber Since: <span class="pull-right">{{created_at}}</span>
+  </div>
+</div>
+</ion-content>

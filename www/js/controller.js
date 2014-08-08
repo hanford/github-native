@@ -32,6 +32,8 @@ angular.module('controller', [])
 				});
 			};
 			$scope.showAlert()
+
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 		})
 	}
 })

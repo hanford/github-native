@@ -352,3 +352,697 @@ Terminating in response to SpringBoard's termination.
     true
   ]
 ]
+2014-08-07 18:34:27.965 GitMOB[15650:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 18:34:27.971 GitMOB[15650:70b] Unlimited access to network resources
+2014-08-07 18:34:27.984 GitMOB[15650:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 18:34:27.985 GitMOB[15650:70b] [CDVTimer][keyboard] 0.472963ms
+2014-08-07 18:34:27.985 GitMOB[15650:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 18:34:27.985 GitMOB[15650:70b] [CDVTimer][statusbar] 0.399947ms
+2014-08-07 18:34:27.986 GitMOB[15650:70b] [CDVTimer][TotalPluginStartup] 1.577973ms
+2014-08-07 18:34:28.017 GitMOB[15650:70b] Resetting plugins due to page load.
+2014-08-07 18:34:28.811 GitMOB[15650:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/07DBF650-5EAF-43E4-B901-623396FADE63/GitMOB.app/www/index.html#/login
+2014-08-07 18:34:28.828 GitMOB[15650:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 18:34:28.828 GitMOB[15650:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 18:34:28.828 GitMOB[15650:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 18:35:02.245 GitMOB[15832:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 18:35:02.250 GitMOB[15832:70b] Unlimited access to network resources
+2014-08-07 18:35:02.265 GitMOB[15832:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 18:35:02.265 GitMOB[15832:70b] [CDVTimer][keyboard] 0.429988ms
+2014-08-07 18:35:02.265 GitMOB[15832:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 18:35:02.266 GitMOB[15832:70b] [CDVTimer][statusbar] 0.411034ms
+2014-08-07 18:35:02.266 GitMOB[15832:70b] [CDVTimer][TotalPluginStartup] 1.616001ms
+2014-08-07 18:35:02.329 GitMOB[15832:70b] Resetting plugins due to page load.
+2014-08-07 18:35:18.546 GitMOB[15832:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 18:35:18.562 GitMOB[15832:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 18:35:18.563 GitMOB[15832:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 18:35:18.563 GitMOB[15832:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "deviceready has not fired after 5 seconds."
+  ]
+]
+2014-08-07 18:35:18.563 GitMOB[15832:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 18:35:18.563 GitMOB[15832:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 18:35:18.563 GitMOB[15832:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "Channel not fired: onDOMContentLoaded"
+  ]
+]
+2014-08-07 18:35:18.563 GitMOB[15832:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 18:35:18.564 GitMOB[15832:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 18:35:18.564 GitMOB[15832:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "Channel not fired: onCordovaInfoReady"
+  ]
+]
+2014-08-07 18:35:18.564 GitMOB[15832:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 18:35:18.564 GitMOB[15832:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 18:35:18.564 GitMOB[15832:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 20:33:00.627 GitMOB[16850:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 20:33:00.632 GitMOB[16850:70b] Unlimited access to network resources
+2014-08-07 20:33:00.646 GitMOB[16850:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 20:33:00.646 GitMOB[16850:70b] [CDVTimer][keyboard] 0.520051ms
+2014-08-07 20:33:00.647 GitMOB[16850:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 20:33:00.647 GitMOB[16850:70b] [CDVTimer][statusbar] 0.290990ms
+2014-08-07 20:33:00.647 GitMOB[16850:70b] [CDVTimer][TotalPluginStartup] 1.447976ms
+2014-08-07 20:33:00.686 GitMOB[16850:70b] Resetting plugins due to page load.
+2014-08-07 20:33:01.015 GitMOB[16850:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 20:33:01.028 GitMOB[16850:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 20:33:01.028 GitMOB[16850:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 20:33:01.028 GitMOB[16850:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:22:33.958 GitMOB[18607:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:22:33.966 GitMOB[18607:70b] Unlimited access to network resources
+2014-08-07 21:22:33.984 GitMOB[18607:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:22:33.984 GitMOB[18607:70b] [CDVTimer][keyboard] 0.347018ms
+2014-08-07 21:22:33.985 GitMOB[18607:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:22:33.985 GitMOB[18607:70b] [CDVTimer][statusbar] 0.315011ms
+2014-08-07 21:22:33.985 GitMOB[18607:70b] [CDVTimer][TotalPluginStartup] 1.326978ms
+2014-08-07 21:22:34.069 GitMOB[18607:70b] Resetting plugins due to page load.
+2014-08-07 21:22:34.799 GitMOB[18607:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:22:34.822 GitMOB[18607:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:22:34.822 GitMOB[18607:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:22:34.823 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:22:49.537 GitMOB[18607:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:22:49.537 GitMOB[18607:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:22:49.537 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"message\":\"Not Found\",\"documentation_url\":\"https:\/\/developer.github.com\/v3\"}"
+  ]
+]
+2014-08-07 21:22:50.458 GitMOB[18607:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:22:50.458 GitMOB[18607:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:22:50.458 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "no users"
+  ]
+]
+2014-08-07 21:22:55.545 GitMOB[18607:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:22:55.545 GitMOB[18607:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:22:55.545 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"message\":\"Not Found\",\"documentation_url\":\"https:\/\/developer.github.com\/v3\"}"
+  ]
+]
+2014-08-07 21:22:57.031 GitMOB[18607:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:22:57.031 GitMOB[18607:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:22:57.031 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "no users"
+  ]
+]
+2014-08-07 21:23:34.808 GitMOB[18607:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:23:34.808 GitMOB[18607:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:23:34.808 GitMOB[18607:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:25:17.759 GitMOB[18797:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:25:17.764 GitMOB[18797:70b] Unlimited access to network resources
+2014-08-07 21:25:17.777 GitMOB[18797:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:25:17.778 GitMOB[18797:70b] [CDVTimer][keyboard] 0.416994ms
+2014-08-07 21:25:17.778 GitMOB[18797:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:25:17.778 GitMOB[18797:70b] [CDVTimer][statusbar] 0.333011ms
+2014-08-07 21:25:17.779 GitMOB[18797:70b] [CDVTimer][TotalPluginStartup] 1.329005ms
+2014-08-07 21:25:17.809 GitMOB[18797:70b] Resetting plugins due to page load.
+2014-08-07 21:25:18.093 GitMOB[18797:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:25:18.104 GitMOB[18797:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:25:18.104 GitMOB[18797:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:25:18.104 GitMOB[18797:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:25:32.524 GitMOB[18797:70b] Resetting plugins due to page load.
+2014-08-07 21:25:32.757 GitMOB[18797:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:25:32.790 GitMOB[18797:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:25:32.790 GitMOB[18797:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:25:32.790 GitMOB[18797:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:26:03.686 GitMOB[19029:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:26:03.692 GitMOB[19029:70b] Unlimited access to network resources
+2014-08-07 21:26:03.708 GitMOB[19029:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:26:03.708 GitMOB[19029:70b] [CDVTimer][keyboard] 0.414014ms
+2014-08-07 21:26:03.709 GitMOB[19029:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:26:03.709 GitMOB[19029:70b] [CDVTimer][statusbar] 0.374019ms
+2014-08-07 21:26:03.709 GitMOB[19029:70b] [CDVTimer][TotalPluginStartup] 1.533985ms
+2014-08-07 21:26:03.801 GitMOB[19029:70b] Resetting plugins due to page load.
+2014-08-07 21:26:04.101 GitMOB[19029:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:26:04.124 GitMOB[19029:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:26:04.124 GitMOB[19029:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:26:04.124 GitMOB[19029:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:26:50.077 GitMOB[19361:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:26:50.083 GitMOB[19361:70b] Unlimited access to network resources
+2014-08-07 21:26:50.097 GitMOB[19361:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:26:50.097 GitMOB[19361:70b] [CDVTimer][keyboard] 0.440001ms
+2014-08-07 21:26:50.098 GitMOB[19361:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:26:50.098 GitMOB[19361:70b] [CDVTimer][statusbar] 0.381052ms
+2014-08-07 21:26:50.099 GitMOB[19361:70b] [CDVTimer][TotalPluginStartup] 1.635969ms
+2014-08-07 21:26:50.129 GitMOB[19361:70b] Resetting plugins due to page load.
+2014-08-07 21:26:50.413 GitMOB[19361:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:26:50.426 GitMOB[19361:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:26:50.426 GitMOB[19361:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:26:50.427 GitMOB[19361:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:30:05.516 GitMOB[19698:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:30:05.521 GitMOB[19698:70b] Unlimited access to network resources
+2014-08-07 21:30:05.534 GitMOB[19698:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:30:05.535 GitMOB[19698:70b] [CDVTimer][keyboard] 0.472009ms
+2014-08-07 21:30:05.535 GitMOB[19698:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:30:05.536 GitMOB[19698:70b] [CDVTimer][statusbar] 0.410020ms
+2014-08-07 21:30:05.536 GitMOB[19698:70b] [CDVTimer][TotalPluginStartup] 1.748979ms
+2014-08-07 21:30:05.565 GitMOB[19698:70b] Resetting plugins due to page load.
+2014-08-07 21:30:05.964 GitMOB[19698:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:30:05.985 GitMOB[19698:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:30:05.985 GitMOB[19698:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:30:05.986 GitMOB[19698:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:30:58.504 GitMOB[20173:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 21:30:58.509 GitMOB[20173:70b] Unlimited access to network resources
+2014-08-07 21:30:58.523 GitMOB[20173:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 21:30:58.524 GitMOB[20173:70b] [CDVTimer][keyboard] 0.472963ms
+2014-08-07 21:30:58.524 GitMOB[20173:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 21:30:58.525 GitMOB[20173:70b] [CDVTimer][statusbar] 0.410974ms
+2014-08-07 21:30:58.525 GitMOB[20173:70b] [CDVTimer][TotalPluginStartup] 1.573026ms
+2014-08-07 21:30:58.553 GitMOB[20173:70b] Resetting plugins due to page load.
+2014-08-07 21:30:58.807 GitMOB[20173:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 21:30:58.821 GitMOB[20173:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 21:30:58.821 GitMOB[20173:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:30:58.821 GitMOB[20173:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 21:31:08.929 GitMOB[20173:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:31:08.929 GitMOB[20173:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:31:08.930 GitMOB[20173:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 21:31:20.099 GitMOB[20173:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 21:31:20.099 GitMOB[20173:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 21:31:20.099 GitMOB[20173:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:00:41.505 GitMOB[20596:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:00:41.510 GitMOB[20596:70b] Unlimited access to network resources
+2014-08-07 23:00:41.523 GitMOB[20596:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:00:41.523 GitMOB[20596:70b] [CDVTimer][keyboard] 0.371993ms
+2014-08-07 23:00:41.524 GitMOB[20596:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:00:41.524 GitMOB[20596:70b] [CDVTimer][statusbar] 0.280976ms
+2014-08-07 23:00:41.524 GitMOB[20596:70b] [CDVTimer][TotalPluginStartup] 1.280010ms
+2014-08-07 23:00:41.554 GitMOB[20596:70b] Resetting plugins due to page load.
+2014-08-07 23:00:42.416 GitMOB[20596:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:00:42.440 GitMOB[20596:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:00:42.440 GitMOB[20596:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:00:42.440 GitMOB[20596:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:00:48.005 GitMOB[20771:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:00:48.011 GitMOB[20771:70b] Unlimited access to network resources
+2014-08-07 23:00:48.024 GitMOB[20771:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:00:48.024 GitMOB[20771:70b] [CDVTimer][keyboard] 0.342965ms
+2014-08-07 23:00:48.024 GitMOB[20771:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:00:48.025 GitMOB[20771:70b] [CDVTimer][statusbar] 0.371993ms
+2014-08-07 23:00:48.025 GitMOB[20771:70b] [CDVTimer][TotalPluginStartup] 1.461029ms
+2014-08-07 23:00:48.079 GitMOB[20771:70b] Resetting plugins due to page load.
+2014-08-07 23:00:49.348 GitMOB[20771:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:00:49.372 GitMOB[20771:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:00:49.372 GitMOB[20771:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:00:49.372 GitMOB[20771:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:02:05.654 GitMOB[21099:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:02:05.660 GitMOB[21099:70b] Unlimited access to network resources
+2014-08-07 23:02:05.673 GitMOB[21099:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:02:05.673 GitMOB[21099:70b] [CDVTimer][keyboard] 0.443995ms
+2014-08-07 23:02:05.674 GitMOB[21099:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:02:05.674 GitMOB[21099:70b] [CDVTimer][statusbar] 0.320971ms
+2014-08-07 23:02:05.674 GitMOB[21099:70b] [CDVTimer][TotalPluginStartup] 1.443982ms
+2014-08-07 23:02:05.733 GitMOB[21099:70b] Resetting plugins due to page load.
+2014-08-07 23:02:09.326 GitMOB[21099:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:02:09.353 GitMOB[21099:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:02:09.353 GitMOB[21099:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:02:09.353 GitMOB[21099:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:03:02.647 GitMOB[21274:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:03:02.654 GitMOB[21274:70b] Unlimited access to network resources
+2014-08-07 23:03:02.667 GitMOB[21274:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:03:02.667 GitMOB[21274:70b] [CDVTimer][keyboard] 0.445008ms
+2014-08-07 23:03:02.667 GitMOB[21274:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:03:02.668 GitMOB[21274:70b] [CDVTimer][statusbar] 0.409007ms
+2014-08-07 23:03:02.668 GitMOB[21274:70b] [CDVTimer][TotalPluginStartup] 1.639962ms
+2014-08-07 23:03:02.732 GitMOB[21274:70b] Resetting plugins due to page load.
+2014-08-07 23:03:06.337 GitMOB[21274:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:03:06.359 GitMOB[21274:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:03:06.359 GitMOB[21274:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:03:06.359 GitMOB[21274:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:03:27.166 GitMOB[21274:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:03:27.166 GitMOB[21274:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:03:27.167 GitMOB[21274:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:04:25.792 GitMOB[21274:70b] Resetting plugins due to page load.
+2014-08-07 23:04:26.105 GitMOB[21274:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/profile
+2014-08-07 23:04:26.167 GitMOB[21274:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:04:26.167 GitMOB[21274:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:04:26.167 GitMOB[21274:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:04:30.588 GitMOB[21274:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:04:30.588 GitMOB[21274:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:04:30.588 GitMOB[21274:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:04:42.853 GitMOB[21450:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:04:42.858 GitMOB[21450:70b] Unlimited access to network resources
+2014-08-07 23:04:42.872 GitMOB[21450:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:04:42.873 GitMOB[21450:70b] [CDVTimer][keyboard] 0.478029ms
+2014-08-07 23:04:42.873 GitMOB[21450:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:04:42.874 GitMOB[21450:70b] [CDVTimer][statusbar] 0.414014ms
+2014-08-07 23:04:42.874 GitMOB[21450:70b] [CDVTimer][TotalPluginStartup] 1.807988ms
+2014-08-07 23:04:42.903 GitMOB[21450:70b] Resetting plugins due to page load.
+2014-08-07 23:04:43.739 GitMOB[21450:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:04:43.762 GitMOB[21450:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:04:43.763 GitMOB[21450:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:04:43.763 GitMOB[21450:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:06:33.780 GitMOB[21780:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:06:33.786 GitMOB[21780:70b] Unlimited access to network resources
+2014-08-07 23:06:33.799 GitMOB[21780:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:06:33.799 GitMOB[21780:70b] [CDVTimer][keyboard] 0.354052ms
+2014-08-07 23:06:33.799 GitMOB[21780:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:06:33.800 GitMOB[21780:70b] [CDVTimer][statusbar] 0.285983ms
+2014-08-07 23:06:33.800 GitMOB[21780:70b] [CDVTimer][TotalPluginStartup] 1.209021ms
+2014-08-07 23:06:33.832 GitMOB[21780:70b] Resetting plugins due to page load.
+2014-08-07 23:06:34.744 GitMOB[21780:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:06:35.471 GitMOB[21780:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:06:35.471 GitMOB[21780:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:06:35.471 GitMOB[21780:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:06:45.711 GitMOB[21780:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:06:45.711 GitMOB[21780:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:06:45.711 GitMOB[21780:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:19:47.358 GitMOB[22312:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:19:47.363 GitMOB[22312:70b] Unlimited access to network resources
+2014-08-07 23:19:47.377 GitMOB[22312:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:19:47.378 GitMOB[22312:70b] [CDVTimer][keyboard] 0.344992ms
+2014-08-07 23:19:47.378 GitMOB[22312:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:19:47.378 GitMOB[22312:70b] [CDVTimer][statusbar] 0.289023ms
+2014-08-07 23:19:47.379 GitMOB[22312:70b] [CDVTimer][TotalPluginStartup] 1.271009ms
+2014-08-07 23:19:47.414 GitMOB[22312:70b] Resetting plugins due to page load.
+2014-08-07 23:19:48.110 GitMOB[22312:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:19:48.137 GitMOB[22312:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:19:48.137 GitMOB[22312:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:19:48.137 GitMOB[22312:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:20:00.671 GitMOB[22312:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:20:00.671 GitMOB[22312:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:00.671 GitMOB[22312:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:20:45.578 GitMOB[22726:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:20:45.583 GitMOB[22726:70b] Unlimited access to network resources
+2014-08-07 23:20:45.597 GitMOB[22726:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:20:45.597 GitMOB[22726:70b] [CDVTimer][keyboard] 0.501990ms
+2014-08-07 23:20:45.598 GitMOB[22726:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:20:45.598 GitMOB[22726:70b] [CDVTimer][statusbar] 0.411034ms
+2014-08-07 23:20:45.599 GitMOB[22726:70b] [CDVTimer][TotalPluginStartup] 1.695991ms
+2014-08-07 23:20:45.657 GitMOB[22726:70b] Resetting plugins due to page load.
+2014-08-07 23:20:46.511 GitMOB[22726:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:20:46.534 GitMOB[22726:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:20:46.535 GitMOB[22726:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:46.535 GitMOB[22726:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:20:57.889 GitMOB[22726:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:20:57.889 GitMOB[22726:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:57.889 GitMOB[22726:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:20:58.484 GitMOB[22726:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:20:58.484 GitMOB[22726:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:58.484 GitMOB[22726:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:20:59.244 GitMOB[22726:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:20:59.244 GitMOB[22726:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:59.244 GitMOB[22726:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:20:59.445 GitMOB[22726:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:20:59.445 GitMOB[22726:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:20:59.445 GitMOB[22726:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:21:45.217 GitMOB[23140:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:21:45.223 GitMOB[23140:70b] Unlimited access to network resources
+2014-08-07 23:21:45.236 GitMOB[23140:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:21:45.236 GitMOB[23140:70b] [CDVTimer][keyboard] 0.334978ms
+2014-08-07 23:21:45.236 GitMOB[23140:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:21:45.237 GitMOB[23140:70b] [CDVTimer][statusbar] 0.281990ms
+2014-08-07 23:21:45.237 GitMOB[23140:70b] [CDVTimer][TotalPluginStartup] 1.222014ms
+2014-08-07 23:21:45.292 GitMOB[23140:70b] Resetting plugins due to page load.
+2014-08-07 23:21:46.097 GitMOB[23140:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:21:46.117 GitMOB[23140:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:21:46.117 GitMOB[23140:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:21:46.118 GitMOB[23140:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:22:09.021 GitMOB[23140:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:22:09.021 GitMOB[23140:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:22:09.021 GitMOB[23140:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:22:09.203 GitMOB[23140:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-07 23:22:09.203 GitMOB[23140:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:22:09.203 GitMOB[23140:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "click"
+  ]
+]
+2014-08-07 23:25:18.095 GitMOB[23562:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:25:18.101 GitMOB[23562:70b] Unlimited access to network resources
+2014-08-07 23:25:18.115 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:25:18.116 GitMOB[23562:70b] [CDVTimer][keyboard] 0.505984ms
+2014-08-07 23:25:18.116 GitMOB[23562:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:25:18.117 GitMOB[23562:70b] [CDVTimer][statusbar] 0.441968ms
+2014-08-07 23:25:18.117 GitMOB[23562:70b] [CDVTimer][TotalPluginStartup] 1.931012ms
+2014-08-07 23:25:18.152 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:18.849 GitMOB[23562:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:25:18.878 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:25:18.878 GitMOB[23562:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:25:18.878 GitMOB[23562:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:25:30.423 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:31.116 GitMOB[23562:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:25:31.148 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:25:31.148 GitMOB[23562:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:25:31.148 GitMOB[23562:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:25:32.068 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:32.432 GitMOB[23562:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:25:32.472 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:25:32.472 GitMOB[23562:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:25:32.472 GitMOB[23562:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:25:32.996 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:33.238 GitMOB[23562:70b] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2014-08-07 23:25:33.238 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:33.451 GitMOB[23562:70b] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2014-08-07 23:25:33.452 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:33.618 GitMOB[23562:70b] Failed to load webpage with error: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2014-08-07 23:25:33.618 GitMOB[23562:70b] Resetting plugins due to page load.
+2014-08-07 23:25:34.258 GitMOB[23562:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:25:34.277 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:25:34.278 GitMOB[23562:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:25:34.278 GitMOB[23562:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:25:38.604 GitMOB[23562:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:25:38.605 GitMOB[23562:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:25:38.605 GitMOB[23562:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:29:21.401 GitMOB[24023:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:29:21.407 GitMOB[24023:70b] Unlimited access to network resources
+2014-08-07 23:29:21.423 GitMOB[24023:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:29:21.424 GitMOB[24023:70b] [CDVTimer][keyboard] 0.339031ms
+2014-08-07 23:29:21.424 GitMOB[24023:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:29:21.424 GitMOB[24023:70b] [CDVTimer][statusbar] 0.307977ms
+2014-08-07 23:29:21.425 GitMOB[24023:70b] [CDVTimer][TotalPluginStartup] 1.329958ms
+2014-08-07 23:29:21.497 GitMOB[24023:70b] Resetting plugins due to page load.
+2014-08-07 23:29:22.703 GitMOB[24023:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:29:22.725 GitMOB[24023:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:29:22.725 GitMOB[24023:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:29:22.725 GitMOB[24023:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-07 23:29:29.601 GitMOB[24023:70b] Resetting plugins due to page load.
+2014-08-07 23:29:31.617 GitMOB[24023:70b] Finished load of: http://jackhanford.com/
+2014-08-07 23:29:38.581 GitMOB[24250:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-07 23:29:38.586 GitMOB[24250:70b] Unlimited access to network resources
+2014-08-07 23:29:38.600 GitMOB[24250:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-07 23:29:38.600 GitMOB[24250:70b] [CDVTimer][keyboard] 0.396013ms
+2014-08-07 23:29:38.601 GitMOB[24250:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-07 23:29:38.601 GitMOB[24250:70b] [CDVTimer][statusbar] 0.299990ms
+2014-08-07 23:29:38.601 GitMOB[24250:70b] [CDVTimer][TotalPluginStartup] 1.362026ms
+2014-08-07 23:29:38.657 GitMOB[24250:70b] Resetting plugins due to page load.
+2014-08-07 23:29:39.430 GitMOB[24250:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/login
+2014-08-07 23:29:39.453 GitMOB[24250:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-07 23:29:39.453 GitMOB[24250:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-07 23:29:39.453 GitMOB[24250:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
