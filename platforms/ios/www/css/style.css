@@ -3,6 +3,10 @@
 	float: right;
 }
 
+.pull-left {
+	float: left;
+}
+
 .center {
 	text-align: center;
 }
@@ -20,4 +24,14 @@
 	width: 95%;
 	margin: 0 auto;
 	display: block;
+}
+
+.info {
+	padding-left: 35px;
+}
+
+.icon {
+	font-size: 30px;
+	margin: 5px 0;
+	padding-right: 15px;
 }

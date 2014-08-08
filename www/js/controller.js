@@ -1,64 +1,10 @@
 angular.module('controller', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
-
-	$stateProvider
-	.state('login', {
-		url: "/login",
-		controller: 'loginCtrl',
-		templateUrl: "../index.html"
-	})
-	.state('profile', {
-		url: "/profile",
-		templateUrl: "../views/profile.tpl.html",
-		controller: 'profileCtrl'
-	})
-	.state('publicRepos', {
-		url: "/publicRepos",
-		templateUrl: "../views/publicRepos.tpl.html",
-		controller: 'publicRepos'
-	})
-	.state('fullscreen', {
-		url: "/fullscreen",
-		templateUrl: "../views/fullscreen.tpl.html",
-		controller: 'fullscreenCtrl'
-	})
-	.state('followers', {
-		url: "/followers",
-		templateUrl: "../views/followers.tpl.html",
-		controller: 'followerCtrl'
-	})
-	.state('following', {
-		url: "/following",
-		templateUrl: "../views/following.tpl.html",
-		controller: 'followingCtrl'
-	})
-
-	$urlRouterProvider.otherwise("/login");
-})
-
 .controller('loginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
-	if ($.cookie('pass') != 'complete') {
-		$scope.showAlert = function() {
-			var alertPopup = $ionicPopup.alert({
-				title: 'Mobile Github',
-				template: "Welcome to a small project I have been working on for seeing some of Github from a mobile device!"
-			});
-			alertPopup.then(function(res) {
-				$.cookie('pass', 'complete')
-			});
-		};
-		$scope.showAlert()
-	} else {
-		console.log('not a n00b')
-	}
-
-
 	$rootScope.ginfo;
 
 	$scope.login	= function(uname) {
 		$rootScope.uname = uname;
-		$.cookie('username', uname)
 
 		var github = new Github({
 			token: '09ce798b46fac389b6056e1350490135bd9b80d0',
@@ -91,18 +37,7 @@ angular.module('controller', [])
 })
 
 .controller('profileCtrl', function($scope, $http, $rootScope, $state) {
-	if ($.cookie() == undefined) {
-		$state.go('login')
-	} else {
-		var url = 'https://api.github.com/users/' + $rootScope.uname
-		$http.get(url)
-	}
-
 	$scope.reset = function () {
-		if ($.cookie() != undefined) {
-			$.removeCookie('username');
-		}
-		
 		$state.go('login');
 	}
 
@@ -183,14 +118,6 @@ angular.module('controller', [])
 
 
 .controller('publicRepos', function($scope, $http, $rootScope, $state) {
-	if ($.cookie() == undefined) {
-		$state.go('login')
-	} else {
-		var url = 'https://api.github.com/users/' + $rootScope.uname
-		$http.get(url)
-	}
-
-
 	$scope.reps = $rootScope.publicReps;
 
 	$scope.back = function () {
@@ -209,13 +136,6 @@ angular.module('controller', [])
 
 // Potential code view? (This controller is init after public repos)
 .controller('fullscreenCtrl', function($scope, $http, $rootScope, $state) {
-	if ($.cookie() == undefined) {
-		$state.go('login')
-	} else {
-		var url = 'https://api.github.com/users/' + $rootScope.uname
-		$http.get(url)
-	}
-
 	$scope.back = function () {
 		$state.go('publicRepos')
 	}
@@ -246,7 +166,6 @@ angular.module('controller', [])
 .controller('followingCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.followings = $rootScope.following;
 
-	debugger;
 	$scope.back = function () {
 		$state.go('profile')
 	}

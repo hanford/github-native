@@ -27,13 +27,13 @@
     },
     "installed_plugins": {
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.mobgit719637"
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
         },
         "org.apache.cordova.console": {
-            "PACKAGE_NAME": "com.ionicframework.mobgit719637"
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
         },
         "org.apache.cordova.device": {
-            "PACKAGE_NAME": "com.ionicframework.mobgit719637"
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
         }
     },
     "dependent_plugins": {}
