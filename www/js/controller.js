@@ -67,7 +67,7 @@ angular.module('controller', [])
 		$scope.id = $rootScope.ginfo.id;
 
 		if ($scope.name == null ) {
-			$scope.name = $rootScope.ginfo.search;
+			$scope.name = $rootScope.ginfo.login;
 		}
 	}
 
