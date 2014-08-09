@@ -47,6 +47,7 @@ angular.module('controller', [])
 		$state.go('search');
 	}
 
+	$scope.loading = false;
 
 	if ($rootScope.ginfo != undefined) {
 		$scope.pub_count = $rootScope.ginfo.public_repos;
@@ -72,28 +73,31 @@ angular.module('controller', [])
 
 	$scope.repo = function () {
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/repos'
+		$scope.loading = true;
 
 		$http.get(url)
-
 		.success(function(data, headers, status, config){
 			$rootScope.publicReps = data;
+			$scope.loading = false;
 			if ($rootScope.publicReps.length > 0) {
-				$state.go('publicRepos')
+				$state.go('repos')
 			}
 		})
 
 		.error(function(data, headers, status, config){
+			$scope.loading = false;
 			console.log(data, headers, status, config)
 		})
 	}
 
 	$scope.toFollowerState = function () {
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/followers'
+		$scope.loading = true;
 
 		$http.get(url)
-
 		.success(function(data, headers, status, config){
 			$rootScope.followers = data;
+			$scope.loading = false;
 			if ($rootScope.followers.length > 0) {
 				$state.go('followers')
 			}
@@ -101,34 +105,33 @@ angular.module('controller', [])
 
 		.error(function(data, headers, status, config){
 			console.log(data, headers, status, config)
+			$scope.loading = false;
 		})
 	}
 
 	$scope.toFollowingState = function () {
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/following'
+		$scope.loading = true;
 
 		$http.get(url)
-
 		.success(function(data, headers, status, config){
 			$rootScope.following = data;
+			$scope.loading = false;
 			if ($rootScope.following.length > 0) {
 				$state.go('following')
 			}
 		})
 
 		.error(function(data, headers, status, config){
+			$scope.loading = false;
 			console.log(data, headers, status, config)
 		})
 	}
 })
 
 
-.controller('publicRepos', function($scope, $http, $rootScope, $state) {
+.controller('repoCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.reps = $rootScope.publicReps;
-
-	$scope.back = function () {
-		$state.go('profile')
-	}
 
 	$scope.select = function(html_url) {
 		console.log('click')
@@ -142,9 +145,6 @@ angular.module('controller', [])
 
 // Potential code view? (This controller is init after public repos)
 .controller('fullscreenCtrl', function($scope, $http, $rootScope, $state) {
-	$scope.back = function () {
-		$state.go('publicRepos')
-	}
 
 	$scope.web = $rootScope.web;
 })
@@ -152,18 +152,17 @@ angular.module('controller', [])
 
 .controller('followerCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.followers = $rootScope.followers;
-
-	$scope.back = function () {
-		$state.go('profile')
-	}
+	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
 		var url = 'https://api.github.com/users/' + fName;
 
+		$scope.loading = true;
 		$http.get(url)
 
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
+			$scope.loading = false;
 			$state.go('profile')
 		})
 	}
@@ -171,18 +170,16 @@ angular.module('controller', [])
 
 .controller('followingCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.followings = $rootScope.following;
-
-	$scope.back = function () {
-		$state.go('profile')
-	}
+	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
 		var url = 'https://api.github.com/users/' + fName;
+		$scope.loading = true;
 
 		$http.get(url)
-
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
+			$scope.loading = false;
 			$state.go('profile')
 		})
 	}

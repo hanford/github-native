@@ -1,34 +1,39 @@
 <ion-view title="Profile">
-<ion-content>
-<img class="profile-pic" src="{{ava}}">
-<div class="card">
-  <div class="item item-divider center">
-    {{name}}
+<ion-content has-header="true">
+<div class="profile-blob" ng-hide="loading">
+  <img class="profile-pic" src="{{ava}}">
+  <div class="card">
+    <div class="item item-divider center">
+      {{name}}
+    </div>
+    <div class="item item-text-wrap">
+      Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>
+    </div>
+    <div class="item item-text-wrap">
+      Location: <span class="pull-right">{{location}}</span>
+    </div>
+    <div class="item item-text-wrap">
+      Company <span class="pull-right">{{company}}</span>
+    </div>
+    <div class="item item-text-wrap" ng-click="repo()">
+      Public Repos: <span class="pull-right">{{pub_count}} </span>
+    </div>
+    <div class="item item-text-wrap">
+      Public Gists: <span class="pull-right">{{gists}}</span>
+    </div>
+    <div class="item item-text-wrap" ng-click="toFollowerState()">
+      Followers: <span class="pull-right">{{followers}}</span>
+    </div>
+    <div class="item item-text-wrap" ng-click="toFollowingState()">
+      Following: <span class="pull-right">{{following}}</span>
+    </div>
+    <div class="item item-text-wrap">
+      Memeber Since: <span class="pull-right">{{created_at}}</span>
+    </div>
   </div>
-  <div class="item item-text-wrap">
-    Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>
-  </div>
-  <div class="item item-text-wrap">
-    Location: <span class="pull-right">{{location}}</span>
-  </div>
-  <div class="item item-text-wrap">
-    Company <span class="pull-right">{{company}}</span>
-  </div>
-  <div class="item item-text-wrap" ng-click="repo()">
-    Public Repos: <span class="pull-right">{{pub_count}} </span>
-  </div>
-  <div class="item item-text-wrap">
-    Public Gists: <span class="pull-right">{{gists}}</span>
-  </div>
-  <div class="item item-text-wrap" ng-click="toFollowerState()">
-    Followers: <span class="pull-right">{{followers}}</span>
-  </div>
-  <div class="item item-text-wrap" ng-click="toFollowingState()">
-    Following: <span class="pull-right">{{following}}</span>
-  </div>
-  <div class="item item-text-wrap">
-    Memeber Since: <span class="pull-right">{{created_at}}</span>
-  </div>
+</div>
+<div ng-show="loading" class="center-loading-icon">
+  <i class="ion-loading-c"></i>
 </div>
 </ion-content>
 </ion-view>

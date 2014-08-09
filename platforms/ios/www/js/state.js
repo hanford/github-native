@@ -13,10 +13,10 @@ angular.module('state', [])
 		templateUrl: "templates/profile.html",
 		controller: 'profileCtrl'
 	})
-	.state('publicRepos', {
-		url: "/publicRepos",
-		templateUrl: "templates/publicRepos.html",
-		controller: 'publicRepos'
+	.state('repos', {
+		url: "/repos",
+		templateUrl: "templates/repos.html",
+		controller: 'repoCtrl'
 	})
 	.state('fullscreen', {
 		url: "/fullscreen",
