@@ -1,10 +1,12 @@
 angular.module('controller', [])
 
-.controller('loginCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
 	$rootScope.ginfo;
+	$scope.loading = false;
 
-	$scope.login	= function(uname) {
+	$scope.search	= function(uname) {
 		$rootScope.uname = uname;
+		$scope.loading = true;
 
 		var github = new Github({
 			token: '09ce798b46fac389b6056e1350490135bd9b80d0',
@@ -17,11 +19,13 @@ angular.module('controller', [])
 
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
+			$scope.loading = false;
 			$state.go('profile')
 		})
 
 		.error(function(data) {
 			console.log(data)
+			$scope.loading = false;
 			$scope.showAlert = function() {
 				var alertPopup = $ionicPopup.alert({
 					title: 'Sorry!',
@@ -40,7 +44,7 @@ angular.module('controller', [])
 
 .controller('profileCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.reset = function () {
-		$state.go('login');
+		$state.go('search');
 	}
 
 
@@ -62,7 +66,7 @@ angular.module('controller', [])
 		$scope.id = $rootScope.ginfo.id;
 
 		if ($scope.name == null ) {
-			$scope.name = $rootScope.ginfo.login;
+			$scope.name = $rootScope.ginfo.search;
 		}
 	}
 

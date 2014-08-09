@@ -3,10 +3,10 @@ angular.module('state', [])
 .config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-	.state('login', {
-		url: "/login",
-		controller: 'loginCtrl',
-		templateUrl: "index.html"
+	.state('search', {
+		url: "/search",
+		controller: 'searchCtrl',
+		templateUrl: "templates/search.html"
 	})
 	.state('profile', {
 		url: "/profile",
@@ -34,5 +34,5 @@ angular.module('state', [])
 		controller: 'followingCtrl'
 	})
 
-	$urlRouterProvider.otherwise("/login");
+	$urlRouterProvider.otherwise("/search");
 })
