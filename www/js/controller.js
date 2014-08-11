@@ -16,7 +16,6 @@ angular.module('controller', [])
 		var url = 'https://api.github.com/users/' + uname;
 
 		$http.get(url)
-
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
 			$scope.loading = false;
@@ -62,6 +61,7 @@ angular.module('controller', [])
 
 		$scope.name = $rootScope.ginfo.name;
 		$scope.id = $rootScope.ginfo.id;
+		$scope.login = $rootScope.ginfo.login;
 
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
@@ -130,20 +130,28 @@ angular.module('controller', [])
 .controller('repoCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.reps = $rootScope.publicReps;
 
-	$scope.select = function(html_url) {
+	$scope.select = function(rep) {
 		console.log('click')
-		debugger;
-
-		$rootScope.web = html_url;
-		// $state.go('fullscreen')
+		// https://api.github.com/repos/jackhanford/BackgroundChanger
+		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name; 
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$rootScope.repo = data;
+			$state.go('PublicRep')
+			})
+		.error(function(data, headers, status, config){
+			$scope.loading = false;
+			console.log(data, headers, status, config)
+		})
 	}
+		// $state.go('PublicRep')
 
 })
 
-// Potential code view? (This controller is init after public repos)
-.controller('fullscreenCtrl', function($scope, $http, $rootScope, $state) {
-
-	$scope.web = $rootScope.web;
+.controller('repoViewCtrl', function($scope, $http, $rootScope, $state) {
+	console.log($rootScope.repo)
+	$scope.repo = $rootScope.repo;
+	
 })
 
 

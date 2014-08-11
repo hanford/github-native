@@ -1,10 +1,10 @@
-<ion-view title="Profile">
+<ion-view title="{{name}}">
 <ion-content has-header="true">
 <div class="profile-blob" ng-hide="loading">
   <img class="profile-pic" src="{{ava}}">
   <div class="card">
     <div class="item item-divider center">
-      {{name}}
+      {{login}}
     </div>
     <div class="item item-text-wrap">
       Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>

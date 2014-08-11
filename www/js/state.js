@@ -18,10 +18,10 @@ angular.module('state', [])
 		templateUrl: "templates/repos.html",
 		controller: 'repoCtrl'
 	})
-	.state('fullscreen', {
-		url: "/fullscreen",
-		templateUrl: "templates/fullscreen.html",
-		controller: 'fullscreenCtrl'
+	.state('PublicRep', {
+		url: "/PublicRepo",
+		templateUrl: "templates/PublicRepo.html",
+		controller: 'repoViewCtrl'
 	})
 	.state('followers', {
 		url: "/followers",
