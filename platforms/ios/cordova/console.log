@@ -1289,3 +1289,99 @@ Terminating in response to SpringBoard's termination.
   ]
 ]
 Terminating in response to SpringBoard's termination.
+2014-08-09 15:16:24.844 GitMOB[54127:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-09 15:16:24.849 GitMOB[54127:70b] Unlimited access to network resources
+2014-08-09 15:16:24.864 GitMOB[54127:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-09 15:16:24.864 GitMOB[54127:70b] [CDVTimer][keyboard] 0.432968ms
+2014-08-09 15:16:24.865 GitMOB[54127:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-09 15:16:24.865 GitMOB[54127:70b] [CDVTimer][statusbar] 0.376999ms
+2014-08-09 15:16:24.865 GitMOB[54127:70b] [CDVTimer][TotalPluginStartup] 1.520991ms
+2014-08-09 15:16:24.935 GitMOB[54127:70b] Resetting plugins due to page load.
+2014-08-09 15:16:25.340 GitMOB[54127:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/search
+2014-08-09 15:16:25.353 GitMOB[54127:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-09 15:16:25.353 GitMOB[54127:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-09 15:16:25.353 GitMOB[54127:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:06.660 GitMOB[875:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-10 18:17:06.682 GitMOB[875:70b] Unlimited access to network resources
+2014-08-10 18:17:06.814 GitMOB[875:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-10 18:17:06.814 GitMOB[875:70b] [CDVTimer][statusbar] 0.454009ms
+2014-08-10 18:17:06.815 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-10 18:17:06.815 GitMOB[875:70b] [CDVTimer][keyboard] 0.306010ms
+2014-08-10 18:17:06.815 GitMOB[875:70b] [CDVTimer][TotalPluginStartup] 1.469016ms
+2014-08-10 18:17:06.947 GitMOB[875:70b] Resetting plugins due to page load.
+2014-08-10 18:17:07.318 GitMOB[875:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/search
+2014-08-10 18:17:07.333 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:07.334 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:07.334 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:35.643 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:35.643 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:35.643 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:45.322 GitMOB[875:70b] Resetting plugins due to page load.
+2014-08-10 18:17:45.563 GitMOB[875:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/profile
+2014-08-10 18:17:45.598 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:45.598 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:45.598 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:47.698 GitMOB[875:70b] Resetting plugins due to page load.
+2014-08-10 18:17:47.959 GitMOB[875:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/profile
+2014-08-10 18:17:47.978 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:47.979 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:47.979 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:49.803 GitMOB[875:70b] Resetting plugins due to page load.
+2014-08-10 18:17:50.058 GitMOB[875:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/profile
+2014-08-10 18:17:50.078 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:50.078 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:50.078 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]
+2014-08-10 18:17:50.619 GitMOB[875:70b] Resetting plugins due to page load.
+2014-08-10 18:17:50.870 GitMOB[875:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/4EC10112-DA49-4CFD-83C8-08F8605C2827/GitMOB.app/www/index.html#/profile
+2014-08-10 18:17:50.889 GitMOB[875:70b] CDVPlugin class IonicKeyboard (pluginName: Keyboard) does not exist.
+2014-08-10 18:17:50.889 GitMOB[875:70b] ERROR: Plugin 'Keyboard' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-10 18:17:50.889 GitMOB[875:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Keyboard",
+  "hideKeyboardAccessoryBar",
+  [
+    true
+  ]
+]

@@ -19,9 +19,6 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <feature name="Keyboard">
-        <param name="ios-package" onload="true" value="IonicKeyboard" />
-    </feature>
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
@@ -30,11 +27,11 @@
     </feature>
     <name>GitMOB</name>
     <description>
-        GitMOB
-    </description>
+    GitMOB
+  </description>
     <author email="jackhanford@gmail.com" href="http://jackhanford.com/">
-      Jack Hanford
-    </author>
+    Jack Hanford
+  </author>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
@@ -43,5 +40,8 @@
     <preference name="BackupWebStorage" value="none" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
 </widget>

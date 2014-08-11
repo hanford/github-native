@@ -43,9 +43,6 @@ angular.module('controller', [])
 })
 
 .controller('profileCtrl', function($scope, $http, $rootScope, $state) {
-	$scope.reset = function () {
-		$state.go('search');
-	}
 
 	$scope.loading = false;
 
@@ -155,6 +152,7 @@ angular.module('controller', [])
 	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
+		$rootScope.uname = fName;
 		var url = 'https://api.github.com/users/' + fName;
 
 		$scope.loading = true;
@@ -173,6 +171,7 @@ angular.module('controller', [])
 	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
+		$rootScope.uname = fName;
 		var url = 'https://api.github.com/users/' + fName;
 		$scope.loading = true;
 
