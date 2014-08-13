@@ -1,17 +1,12 @@
 <ion-view title="{{repo.name}}">
-	<ion-header-bar class="bar-stable">
-	  <div class="buttons">
-    <button class="button button-clear button-positive" ng-click="back()"><i class="ion-ios7-arrow-back"></i> Back</button>
-  </div>
-	</ion-header-bar>
-
 <ion-content>
 <div class="repo-cont"><span class="repo-title">{{repo.full_name}}</span> <span class="repo-lang">({{repo.language}})</span></div>
 <div></div>
-<p>{{repo.description}}</p>
+<p class="repo-cont">{{repo.description}}</p>
+<p>{{repo.source.fullname}}</p>
 
 <div class="bttn-block">
 	<button type="submit" ng-click="recentActivity()" class="button button-block button-dark">Recent Activity</button>
 </div>
 </ion-content>
-</ion-pane>
+</ion-view>

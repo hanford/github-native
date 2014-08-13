@@ -1,12 +1,13 @@
 <ion-view title="Github <i class='ion-social-github'></i>"  animation="slide-left-right-ios7">
-  <ion-content ng-controller="searchCtrl" has-header="true">
+  <ion-content has-header="true" overflow-scroll="true">
     <form name="form" ng-hide="loading">
       <label class="item item-input">
-        <span class="input-label">Github User</span>
-        <input type="text" ng-model="uname" placeholder="User Name" required autofocus/>
+        <span class="input-label">Github</span>
+        <input type="text" ng-model="uname" placeholder="Search" required autofocus/>
       </label>
-      <div class="bttn-block">
-        <button type="submit" ng-click="search(uname)" ng-disabled="form.$invalid" class="button button-block button-dark">Search Users</button>
+      <div class="button-bar">
+        <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-block button-dark">Search Users</button>
+        <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-block button-dark">Search Projects</button>
       </div>
     </form>
     <div ng-show="loading" class="center-loading-icon">

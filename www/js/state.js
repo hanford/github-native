@@ -33,6 +33,11 @@ angular.module('state', [])
 		templateUrl: "templates/following.html",
 		controller: 'followingCtrl'
 	})
+	.state('searchview', {
+		url: "/searchview",
+		templateUrl: "templates/searchview.html",
+		controller: 'searchviewCtrl'
+	})
 
 	$urlRouterProvider.otherwise("/search");
 })

@@ -4,14 +4,37 @@ angular.module('controller', [])
 	$rootScope.ginfo;
 	$scope.loading = false;
 
-	$scope.search	= function(uname) {
-		$rootScope.uname = uname;
+	$scope.searchProject	= function(uname) {
+		var url = 'https://api.github.com/search/repositories?q=' + uname;
 		$scope.loading = true;
 
-		var github = new Github({
-			token: '09ce798b46fac389b6056e1350490135bd9b80d0',
-			auth: "oauth"
-		});
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$scope.loading = false;
+			$rootScope.searchProject = data;
+			$state.go('searchview')
+		})
+		.error(function(data) {
+			console.log(data)
+			$scope.loading = false;
+			$scope.showAlert = function() {
+				var alertPopup = $ionicPopup.alert({
+					title: 'Sorry!',
+					template: "We coudln't find any users named " + uname
+				});
+				alertPopup.then(function(res) {
+					console.log('no users');
+				});
+			};
+			$scope.showAlert()
+		})
+	}
+
+
+
+	$scope.searchUser	= function(uname) {
+		$rootScope.uname = uname;
+		$scope.loading = true;
 
 		var url = 'https://api.github.com/users/' + uname;
 
@@ -35,8 +58,6 @@ angular.module('controller', [])
 				});
 			};
 			$scope.showAlert()
-
-			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 		})
 	}
 })
@@ -61,6 +82,7 @@ angular.module('controller', [])
 
 		$scope.name = $rootScope.ginfo.name;
 		$scope.id = $rootScope.ginfo.id;
+		$scope.login = $rootScope.ginfo.login;
 
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
@@ -189,4 +211,11 @@ angular.module('controller', [])
 			$state.go('profile')
 		})
 	}
+})
+
+.controller('searchviewCtrl', function($scope, $http, $rootScope, $state) {
+	console.log($rootScope.searchProject)
+	var items = $rootScope.searchProject.items;
+	$scope.items = items;
+	debugger
 })
