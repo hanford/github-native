@@ -1,4 +1,4 @@
-angular.module('state', [])
+angular.module('state', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -8,10 +8,15 @@ angular.module('state', [])
 		controller: 'searchCtrl',
 		templateUrl: "templates/search.html"
 	})
+	.state('searchlist', {
+		url: "/list",
+		templateUrl: "templates/searchlist.html",
+		controller: 'searchviewCtrl'
+	})
 	.state('profile', {
 		url: "/profile",
-		templateUrl: "templates/profile.html",
-		controller: 'profileCtrl'
+				templateUrl: "templates/profile.html",
+				controller: 'profileCtrl'
 	})
 	.state('repos', {
 		url: "/repos",
@@ -32,11 +37,6 @@ angular.module('state', [])
 		url: "/following",
 		templateUrl: "templates/following.html",
 		controller: 'followingCtrl'
-	})
-	.state('searchview', {
-		url: "/searchview",
-		templateUrl: "templates/searchview.html",
-		controller: 'searchviewCtrl'
 	})
 
 	$urlRouterProvider.otherwise("/search");

@@ -1,53 +1,54 @@
 angular.module('controller', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup) {
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
 	$rootScope.ginfo;
 	$scope.loading = false;
 
 	$scope.searchProject	= function(uname) {
 		var url = 'https://api.github.com/search/repositories?q=' + uname;
-		$scope.loading = true;
+		$ionicLoading.show({
+      template: 'Loading...'
+    });
 
 		$http.get(url)
-		.success(function(data, headers, status, config){
-			$scope.loading = false;
-			$rootScope.searchProject = data;
-			$state.go('searchview')
-		})
-		.error(function(data) {
-			console.log(data)
-			$scope.loading = false;
-			$scope.showAlert = function() {
-				var alertPopup = $ionicPopup.alert({
-					title: 'Sorry!',
-					template: "We coudln't find any users named " + uname
-				});
-				alertPopup.then(function(res) {
-					console.log('no users');
-				});
-			};
-			$scope.showAlert()
-		})
+			.success(function(data, headers, status, config){
+				$ionicLoading.hide();
+				$rootScope.sItems = data.items;
+				$state.go('searchlist')
+			}).error(function(data) {
+				console.log(data)
+				$ionicLoading.hide();
+				$scope.showAlert = function() {
+					var alertPopup = $ionicPopup.alert({
+						title: 'Sorry!',
+						template: "We coudln't find any users named " + uname
+					});
+					alertPopup.then(function(res) {
+						console.log('no users');
+					});
+				};
+				$scope.showAlert()
+			})
 	}
 
 
 
 	$scope.searchUser	= function(uname) {
 		$rootScope.uname = uname;
-		$scope.loading = true;
+		$ionicLoading.show({
+      template: 'Loading...'
+    });
 
 		var url = 'https://api.github.com/users/' + uname;
 
 		$http.get(url)
 		.success(function(data, headers, status, config){
+			$ionicLoading.hide();
 			$rootScope.ginfo = data;
-			$scope.loading = false;
 			$state.go('profile')
-		})
-
-		.error(function(data) {
+		}).error(function(data) {
+			$ionicLoading.hide();
 			console.log(data)
-			$scope.loading = false;
 			$scope.showAlert = function() {
 				var alertPopup = $ionicPopup.alert({
 					title: 'Sorry!',
@@ -62,10 +63,7 @@ angular.module('controller', [])
 	}
 })
 
-.controller('profileCtrl', function($scope, $http, $rootScope, $state) {
-
-	$scope.loading = false;
-
+.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	if ($rootScope.ginfo != undefined) {
 		$scope.pub_count = $rootScope.ginfo.public_repos;
 		$scope.gists = $rootScope.ginfo.public_gists;
@@ -87,81 +85,84 @@ angular.module('controller', [])
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
 		}
+	} else {
+		$state.go('search')
 	}
 
 	$scope.repo = function () {
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
+
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/repos'
-		$scope.loading = true;
 
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.publicReps = data;
-			$scope.loading = false;
-			if ($rootScope.publicReps.length > 0) {
-				$state.go('repos')
-			}
-		})
-
-		.error(function(data, headers, status, config){
-			$scope.loading = false;
+			$ionicLoading.hide();
+			$state.go('repos')
+		}).error(function(data, headers, status, config){
+			$ionicLoading.hide();
 			console.log(data, headers, status, config)
 		})
 	}
 
 	$scope.toFollowerState = function () {
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/followers'
-		$scope.loading = true;
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
 
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.followers = data;
-			$scope.loading = false;
+			$ionicLoading.hide();
 			if ($rootScope.followers.length > 0) {
 				$state.go('followers')
 			}
-		})
-
-		.error(function(data, headers, status, config){
+		}).error(function(data, headers, status, config){
 			console.log(data, headers, status, config)
-			$scope.loading = false;
+			$ionicLoading.hide();
 		})
 	}
 
 	$scope.toFollowingState = function () {
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/following'
-		$scope.loading = true;
-
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.following = data;
-			$scope.loading = false;
+			$ionicLoading.hide();
 			if ($rootScope.following.length > 0) {
 				$state.go('following')
 			}
-		})
-
-		.error(function(data, headers, status, config){
-			$scope.loading = false;
+		}).error(function(data, headers, status, config){
+			$ionicLoading.hide();
 			console.log(data, headers, status, config)
 		})
 	}
 })
 
 
-.controller('repoCtrl', function($scope, $http, $rootScope, $state) {
+.controller('repoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.reps = $rootScope.publicReps;
 
 	$scope.select = function(rep) {
-		console.log('click')
-		// https://api.github.com/repos/jackhanford/BackgroundChanger
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
 		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name; 
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.repo = data;
-			$state.go('PublicRep')
-			})
-		.error(function(data, headers, status, config){
-			$scope.loading = false;
+			$ionicLoading.hide();
+			if ($rootScope.repo.length > 0) {
+				$state.go('PublicRep')
+			}
+		}).error(function(data, headers, status, config){
+			$ionicLoading.hide();
 			console.log(data, headers, status, config)
 		})
 	}
@@ -176,46 +177,55 @@ angular.module('controller', [])
 })
 
 
-.controller('followerCtrl', function($scope, $http, $rootScope, $state) {
+.controller('followerCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.followers = $rootScope.followers;
-	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
 		$rootScope.uname = fName;
 		var url = 'https://api.github.com/users/' + fName;
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
 
-		$scope.loading = true;
 		$http.get(url)
-
-		.success(function(data, headers, status, config){
-			$rootScope.ginfo = data;
-			$scope.loading = false;
-			$state.go('profile')
-		})
+			.success(function(data, headers, status, config){
+				$rootScope.ginfo = data;
+				$ionicLoading.hide()
+				$state.go('profile')
+			})
 	}
 })
 
 .controller('followingCtrl', function($scope, $http, $rootScope, $state) {
 	$scope.followings = $rootScope.following;
-	$scope.loading = false;
 
 	$scope.tofollower = function(fName) {
 		$rootScope.uname = fName;
+
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
+
 		var url = 'https://api.github.com/users/' + fName;
-		$scope.loading = true;
 
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.ginfo = data;
-			$scope.loading = false;
+			$ionicLoading.hide()
 			$state.go('profile')
 		})
 	}
 })
 
 .controller('searchviewCtrl', function($scope, $http, $rootScope, $state) {
-	console.log($rootScope.searchProject)
-	var items = $rootScope.searchProject.items;
-	$scope.items = items;
-	debugger
+	$scope.items = $rootScope.sItems;
+
+	$scope.getItemHeight = function(item, index) {
+    //Make evenly indexed items be 10px taller, for the sake of example
+    return (index % 2) === 0 ? 50 : 60;
+  };
+
+  if ($scope.items == undefined) {
+  	$state.go('search')
+  }
 })

@@ -10,7 +10,7 @@ angular.module('MobGit', ['ionic', 'state', 'controller'])
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova) {
-
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();

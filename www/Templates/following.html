@@ -4,15 +4,12 @@
 		<span class="input-label">Search</span>
 		<input type="search" ng-model="search" placeholder="Search {{uname}}'s followers" />
 	</label>
-	<ion-list ng-hide="loading">
+	<ion-list>
 	  <ion-item ng-repeat="following in followings | filter:search" ng-click="tofollower(following.login)" class="item item-avatar">
 	    <img src="{{following.avatar_url}}">
 	    <h2>{{following.login}}</h2>
 	    <p>{{following.html_url}}</p>
 	  </ion-item>
 	</ion-list>
-	<div ng-show="loading" class="center-loading-icon">
-		<i class="ion-loading-c"></i>
-	</div>
 </ion-content>
 </ion-view>
