@@ -20,11 +20,8 @@ angular.module('controller', [])
 				$ionicLoading.hide();
 				$scope.showAlert = function() {
 					var alertPopup = $ionicPopup.alert({
-						title: 'Sorry!',
+				  	title: 'Sorry!',
 						template: "We coudln't find any users named " + uname
-					});
-					alertPopup.then(function(res) {
-						console.log('no users');
 					});
 				};
 				$scope.showAlert()
@@ -82,8 +79,6 @@ angular.module('controller', [])
 		$scope.name = $rootScope.ginfo.name;
 		$scope.id = $rootScope.ginfo.id;
 		$scope.login = $rootScope.ginfo.login;
-
-		debugger
 
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
@@ -157,15 +152,18 @@ angular.module('controller', [])
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
+
 		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name; 
 		$http.get(url)
 		.success(function(data, headers, status, config){
+			debugger;
 			$rootScope.repo = data;
 			$ionicLoading.hide();
 			if ($rootScope.repo.length > 0) {
 				$state.go('PublicRep')
 			}
 		}).error(function(data, headers, status, config){
+			debugger;
 			$ionicLoading.hide();
 			console.log(data, headers, status, config)
 		})
@@ -186,7 +184,11 @@ angular.module('controller', [])
 
 	$scope.toFollower = function(fName) {
 		$rootScope.uname = fName;
+
 		var url = 'https://api.github.com/users/' + fName;
+
+		console.log(url)
+
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
@@ -196,7 +198,9 @@ angular.module('controller', [])
 				$rootScope.ginfo = data;
 				$ionicLoading.hide()
 				$state.go('profile')
-			})
+			}).error(function(data, headers, status, config) {
+				console.log(data, headers, status)
+			});
 	}
 })
 
@@ -228,5 +232,4 @@ angular.module('controller', [])
   	$state.go('search')
   }
 
-  debugger;
 })
