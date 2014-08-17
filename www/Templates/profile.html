@@ -7,18 +7,18 @@
       {{login}}
     </div>
     <div class="item item-text-wrap">
-      Blog: <span class="pull-right"><a href="{{blog}}">{{blog}}</a></span>
+      Blog: <span class="pull-right" ng-hide="{{blog == ''}}"><a href="{{blog}}">{{blog}}</a></span>
     </div>
-    <div class="item item-text-wrap">
+    <div class="item item-text-wrap" ng-hide="{{location == ''}}">
       Location: <span class="pull-right">{{location}}</span>
     </div>
-    <div class="item item-text-wrap">
+    <div class="item item-text-wrap" ng-hide="{{company == ''}}">
       Company <span class="pull-right">{{company}}</span>
     </div>
     <div class="item item-text-wrap" ng-click="repo()">
       Public Repos: <span class="pull-right">{{pub_count}} </span>
     </div>
-    <div class="item item-text-wrap">
+    <div class="item item-text-wrap" ng-hide="{{gists == ''}}">
       Public Gists: <span class="pull-right">{{gists}}</span>
     </div>
     <div class="item item-text-wrap" ng-click="toFollowerState()">
@@ -27,8 +27,11 @@
     <div class="item item-text-wrap" ng-click="toFollowingState()">
       Following: <span class="pull-right">{{following}}</span>
     </div>
-    <div class="item item-text-wrap">
+    <div class="item item-text-wrap" ng-hide="{{created_at == ''}}">
       Memeber Since: <span class="pull-right">{{created_at}}</span>
+    </div>
+    <div class="item item-text-wrap" ng-hide="{{hireable == ''}}">
+      Hireable: <span class="pull-right">{{hireable}}</span>
     </div>
   </div>
 </div>
