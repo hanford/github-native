@@ -70,6 +70,7 @@ angular.module('controller', [])
 		$scope.followers = $rootScope.ginfo.followers;
 		$scope.blog = $rootScope.ginfo.blog;
 		$scope.company = $rootScope.ginfo.company;
+		$scope.hireable = $rootScope.ginfo.hireable;
 
 		var created = $rootScope.ginfo.created_at;
 		$scope.created_at = created.substring(0, 10);
@@ -82,9 +83,12 @@ angular.module('controller', [])
 		$scope.id = $rootScope.ginfo.id;
 		$scope.login = $rootScope.ginfo.login;
 
+		debugger
+
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
 		}
+
 	} else {
 		$state.go('search')
 	}
@@ -180,7 +184,7 @@ angular.module('controller', [])
 .controller('followerCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.followers = $rootScope.followers;
 
-	$scope.tofollower = function(fName) {
+	$scope.toFollower = function(fName) {
 		$rootScope.uname = fName;
 		var url = 'https://api.github.com/users/' + fName;
 		$ionicLoading.show({
@@ -196,10 +200,10 @@ angular.module('controller', [])
 	}
 })
 
-.controller('followingCtrl', function($scope, $http, $rootScope, $state) {
+.controller('followingCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.followings = $rootScope.following;
 
-	$scope.tofollower = function(fName) {
+	$scope.toFollower = function(fName) {
 		$rootScope.uname = fName;
 
 		$ionicLoading.show({
