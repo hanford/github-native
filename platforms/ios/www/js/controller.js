@@ -148,6 +148,10 @@ angular.module('controller', [])
 .controller('repoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.reps = $rootScope.publicReps;
 
+	if ($scope.reps == null) {
+		state.go('search')
+	}
+
 	$scope.select = function(rep) {
 		$ionicLoading.show({
 			template: 'Loading...'
@@ -156,14 +160,10 @@ angular.module('controller', [])
 		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name; 
 		$http.get(url)
 		.success(function(data, headers, status, config){
-			debugger;
 			$rootScope.repo = data;
 			$ionicLoading.hide();
-			if ($rootScope.repo.length > 0) {
-				$state.go('PublicRep')
-			}
+			$state.go('PublicRep')
 		}).error(function(data, headers, status, config){
-			debugger;
 			$ionicLoading.hide();
 			console.log(data, headers, status, config)
 		})
@@ -174,6 +174,8 @@ angular.module('controller', [])
 
 .controller('repoViewCtrl', function($scope, $http, $rootScope, $state) {
 	console.log($rootScope.repo)
+	var updated = $rootScope.repo.updated_at;
+	$scope.updated = updated.substring(0, 10);
 	$scope.repo = $rootScope.repo;
 	
 })
@@ -225,8 +227,20 @@ angular.module('controller', [])
 	}
 })
 
-.controller('searchviewCtrl', function($scope, $http, $rootScope, $state) {
+.controller('searchviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.items = $rootScope.sItems;
+
+	console.log($scope.items)
+
+	$scope.select = function(html) {
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$rootScope.repo = data;
+		}).error(function(data, headers, status, config){
+			$ionicLoading.hide();
+			console.log(data, headers, status, config)
+		})
+	}
 
   if ($scope.items == undefined) {
   	$state.go('search')

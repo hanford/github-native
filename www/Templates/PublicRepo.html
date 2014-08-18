@@ -1,9 +1,17 @@
 <ion-view title="{{repo.name}}">
 <ion-content>
-<div class="repo-cont"><span class="repo-title">{{repo.full_name}}</span> <span class="repo-lang">({{repo.language}})</span></div>
+<div class="repo-cont"><span class="repo-title">{{repo.full_name}}</span> <span ng-hide="{{repo.language == null}}" class="repo-lang">({{repo.language}})</span></div>
 <div></div>
 <p class="repo-cont">{{repo.description}}</p>
 <p>{{repo.source.fullname}}</p>
+<div class="card">
+	<div class="item item-text-wrap" ng-hide="{{stargazers_count == ''}}">
+		Stars: <span class="pull-right">{{repo.stargazers_count}}</span>
+	</div>
+	<div class="item item-text-wrap" ng-hide="{{updated == ''}}">
+		Last Updated: <span class="pull-right">{{updated}}</span>
+	</div>
+</div>
 
 <div class="bttn-block">
 	<button type="submit" ng-click="recentActivity()" class="button button-block button-dark">Recent Activity</button>
