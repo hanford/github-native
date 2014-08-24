@@ -2690,3 +2690,22 @@ Terminating in response to SpringBoard's termination.
 2014-08-17 14:45:33.690 GitMOB[32635:70b] Resetting plugins due to page load.
 2014-08-17 14:45:33.779 GitMOB[32635:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
 Terminating in response to SpringBoard's termination.
+2014-08-21 18:59:38.648 GitMOB[782:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-21 18:59:38.676 GitMOB[782:70b] Unlimited access to network resources
+2014-08-21 18:59:39.000 GitMOB[782:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-21 18:59:39.000 GitMOB[782:70b] [CDVTimer][keyboard] 0.527024ms
+2014-08-21 18:59:39.001 GitMOB[782:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-21 18:59:39.001 GitMOB[782:70b] [CDVTimer][statusbar] 0.387013ms
+2014-08-21 18:59:39.002 GitMOB[782:70b] [CDVTimer][TotalPluginStartup] 1.718044ms
+2014-08-21 18:59:39.110 GitMOB[782:70b] Resetting plugins due to page load.
+2014-08-21 18:59:39.317 GitMOB[782:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-21 19:00:04.315 GitMOB[782:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-21 19:00:04.315 GitMOB[782:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-21 19:00:04.316 GitMOB[782:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+Terminating in response to SpringBoard's termination.

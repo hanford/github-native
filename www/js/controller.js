@@ -42,6 +42,7 @@ angular.module('controller', [])
 		.success(function(data, headers, status, config){
 			$ionicLoading.hide();
 			$rootScope.ginfo = data;
+			console.log(data)
 			$state.go('profile')
 		}).error(function(data) {
 			$ionicLoading.hide();
@@ -233,6 +234,7 @@ angular.module('controller', [])
 	console.log($scope.items)
 
 	$scope.select = function(html) {
+		debugger
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.repo = data;
