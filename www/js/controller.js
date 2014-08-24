@@ -7,25 +7,25 @@ angular.module('controller', [])
 	$scope.searchProject	= function(uname) {
 		var url = 'https://api.github.com/search/repositories?q=' + uname;
 		$ionicLoading.show({
-      template: 'Loading...'
-    });
+			template: 'Loading...'
+		});
 
 		$http.get(url)
-			.success(function(data, headers, status, config){
-				$ionicLoading.hide();
-				$rootScope.sItems = data.items;
-				$state.go('searchlist')
-			}).error(function(data) {
-				console.log(data)
-				$ionicLoading.hide();
-				$scope.showAlert = function() {
-					var alertPopup = $ionicPopup.alert({
-				  	title: 'Sorry!',
-						template: "We coudln't find any users named " + uname
-					});
-				};
-				$scope.showAlert()
-			})
+		.success(function(data, headers, status, config){
+			$ionicLoading.hide();
+			$rootScope.sItems = data.items;
+			$state.go('searchlist')
+		}).error(function(data) {
+			console.log(data)
+			$ionicLoading.hide();
+			$scope.showAlert = function() {
+				var alertPopup = $ionicPopup.alert({
+					title: 'Sorry!',
+					template: "We coudln't find any users named " + uname
+				});
+			};
+			$scope.showAlert()
+		})
 	}
 
 
@@ -33,8 +33,8 @@ angular.module('controller', [])
 	$scope.searchUser	= function(uname) {
 		$rootScope.uname = uname;
 		$ionicLoading.show({
-      template: 'Loading...'
-    });
+			template: 'Loading...'
+		});
 
 		var url = 'https://api.github.com/users/' + uname;
 
@@ -171,7 +171,7 @@ angular.module('controller', [])
 	}
 		// $state.go('PublicRep')
 
-})
+	})
 
 .controller('repoViewCtrl', function($scope, $http, $rootScope, $state) {
 	console.log($rootScope.repo)
@@ -197,13 +197,13 @@ angular.module('controller', [])
 		});
 
 		$http.get(url)
-			.success(function(data, headers, status, config){
-				$rootScope.ginfo = data;
-				$ionicLoading.hide()
-				$state.go('profile')
-			}).error(function(data, headers, status, config) {
-				console.log(data, headers, status)
-			});
+		.success(function(data, headers, status, config){
+			$rootScope.ginfo = data;
+			$ionicLoading.hide()
+			$state.go('profile')
+		}).error(function(data, headers, status, config) {
+			console.log(data, headers, status)
+		});
 	}
 })
 
@@ -228,24 +228,56 @@ angular.module('controller', [])
 	}
 })
 
-.controller('searchviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('searchviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal) {
 	$scope.items = $rootScope.sItems;
 
 	console.log($scope.items)
 
-	$scope.select = function(html) {
-		debugger
-		$http.get(url)
-		.success(function(data, headers, status, config){
-			$rootScope.repo = data;
-		}).error(function(data, headers, status, config){
-			$ionicLoading.hide();
-			console.log(data, headers, status, config)
-		})
-	}
+	$ionicModal.fromTemplateUrl('my-modal.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.modal = modal;
 
-  if ($scope.items == undefined) {
-  	$state.go('search')
-  }
+		$scope.commits = function(fullname) {
+			var url = 'https://api.github.com/repos/' + fullname + '/commits' 
+			$http.get(url)
+			.success(function(data, headers, status, config){
+				console.log(data)
+				debugger;
+			}).error(function(data, headers, status, config){
+				$ionicLoading.hide();
+				console.log(data, headers, status, config)
+			})
+		}
+
+		$scope.owner = function(login) {
+			$rootScope.uname = login
+			debugger
+
+			var url = 'https://api.github.com/users/' + login
+			$http.get(url)
+			.success(function(data, headers, status, config){
+				$rootScope.ginfo = data;
+				$scope.modal.hide();
+				$state.go('profile')
+			}).error(function() {
+				console.log('fuck')
+			})
+		}
+	});
+
+	$scope.openModal = function(item) {
+		$scope.fullname = item.full_name
+		$scope.login = item.owner.login
+		$scope.modal.show();
+	};
+	$scope.closeModal = function() {
+		$scope.modal.hide();
+	};
+
+	if ($scope.items == undefined) {
+		$state.go('search')
+	}
 
 })

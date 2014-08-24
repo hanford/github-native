@@ -5,10 +5,24 @@
 		<input type="search" ng-model="search" placeholder="Filter Projects" />
 	</label>
 	<ion-list>
-	  <ion-item ng-repeat="item in items | filter:search" class="item" ng-click="select(item.html_url)">
-	  	<span class="pull-right"><i class="ion-fork-repo"></i>{{item.forks_count}} <br /><i class="ion-eye"></i>{{item.watchers}}</span>
+	  <ion-item ng-repeat="item in items | filter:search" class="item" ng-click="openModal(item)">
+	  	<div class="pull-left icon icon-{{item.language | lowercase}}"></div>
+	  	<span class="pull-right"><i class="ion-fork-repo"></i>{{item.forks_count}}</span>
 	    <h2>{{item.name}}</h2>
 	    <p>{{item.description}}</p>
+	    <script id="my-modal.html" type="text/ng-template">
+	    <ion-modal-view>
+	    <ion-header-bar>
+	    <h1 class="title">{{fullname}}</h1>
+	    </ion-header-bar>
+	    <ion-content>
+
+	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-dark">Recent Commits</button>
+	    	<button type="submit" ng-click="owner(login)" class="button button-block button-dark">Repo Owner</button>
+	    	<button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
+	    </ion-content>
+	    </ion-modal-view>
+	    </script>
 	  </ion-item>
 	</ion-list>
 </ion-content>
