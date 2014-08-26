@@ -1,6 +1,13 @@
 angular.module('controller', [])
 
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
+	if (navigator.splashscreen) {
+		navigator.splashscreen.show();
+		setTimeout(function() {
+			navigator.splashscreen.hide();
+		}, 5000)
+	}
+
 	$rootScope.ginfo;
 	$scope.loading = false;
 	$scope.uname = "jackhanford";
@@ -82,6 +89,14 @@ angular.module('controller', [])
 		if ($scope.name == null ) {
 			$scope.name = $rootScope.ginfo.login;
 		}
+
+		var url = "https://api.github.com/users/" + $scope.login + "/events"
+		$http.get(url).success(function(data, headers){
+			console.log(data)
+			debugger
+		}).error(function(data, headers){
+			console.log(headers)
+		})
 
 	} else {
 		$state.go('search')

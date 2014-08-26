@@ -40,6 +40,7 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		C39FE6071D2A48598BCE8CC4 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FC0446B864A04B0CC03B7 /* CDVDevice.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		9554BAFB7F394F6CA87ECD38 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = GitMOB/config.xml; sourceTree = "<group>"; };
+		ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSplashScreen.m"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		1A51A3FCCA0F4BD8B15CD9EA /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 			children = (
 				748FC0446B864A04B0CC03B7 /* CDVDevice.m */,
 				0F5C0514DC9D41B9B74484D6 /* CDVDevice.h */,
+				ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */,
+				1A51A3FCCA0F4BD8B15CD9EA /* CDVSplashScreen.h */,
 			);
 			name = Plugins;
 			path = GitMOB/Plugins;
@@ -431,6 +436,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				C39FE6071D2A48598BCE8CC4 /* CDVDevice.m in Sources */,
+				9554BAFB7F394F6CA87ECD38 /* CDVSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
