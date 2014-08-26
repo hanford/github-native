@@ -26,11 +26,11 @@
     </div>
   </div>
   <div class="mid-profile">
-    <button class="button button-balanced button-block action-button">LOL</button>
+    <button class="button button-balanced button-block action-button">Save User</button>
     <div class="row">
-    <div class="col action-numbers center">{{followers}}<br /><span class="center action-text">Followers</span></div>
-    <div class="col action-numbers center">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
-    <div class="col action-numbers center">{{following}}<br /><span class="center action-text">Following</span></div>
+    <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
+    <div class="col action-numbers center" ng-click="repo()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
+    <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}<br /><span class="center action-text">Following</span></div>
     </div>
     <!-- <div class="card">
       <div class="item item-divider center">
