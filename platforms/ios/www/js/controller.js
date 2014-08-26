@@ -28,8 +28,6 @@ angular.module('controller', [])
 		})
 	}
 
-
-
 	$scope.searchUser	= function(uname) {
 		$rootScope.uname = uname;
 		$ionicLoading.show({
@@ -244,7 +242,9 @@ angular.module('controller', [])
 			$http.get(url)
 			.success(function(data, headers, status, config){
 				console.log(data)
-				debugger;
+				$rootScope.commits = data;
+				$scope.modal.hide();
+				$state.go('commits')
 			}).error(function(data, headers, status, config){
 				$ionicLoading.hide();
 				console.log(data, headers, status, config)
@@ -253,8 +253,6 @@ angular.module('controller', [])
 
 		$scope.owner = function(login) {
 			$rootScope.uname = login
-			debugger
-
 			var url = 'https://api.github.com/users/' + login
 			$http.get(url)
 			.success(function(data, headers, status, config){
@@ -279,5 +277,16 @@ angular.module('controller', [])
 	if ($scope.items == undefined) {
 		$state.go('search')
 	}
+})
+
+.controller('commitsCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+	$scope.commits = $rootScope.commits;
+
+	console.log($scope.commits)
+
+	if ($scope.commits == undefined) {
+		$state.go('search')
+	}
 
 })
+

@@ -9,15 +9,25 @@
 	  	<div class="pull-left icon icon-{{item.language | lowercase}}"></div>
 	  	<span class="pull-right"><i class="ion-fork-repo"></i>{{item.forks_count}}</span>
 	    <h2>{{item.name}}</h2>
-	    <p>{{item.description}}</p>
+	    <p class="branch">{{item.default_branch}}</p>
 	    <script id="my-modal.html" type="text/ng-template">
 	    <ion-modal-view>
 	    <ion-header-bar>
-	    <h1 class="title">{{fullname}}</h1>
+	    <h1 class="title">Project Info</h1>
 	    </ion-header-bar>
 	    <ion-content>
-	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-light">Commits</button>
-	    	<button type="submit" ng-click="owner(login)" class="button button-block button-light">Creator</button>
+	    	<div class="list card">
+	    	<div class='item'>
+	    		<div class="pull-right">
+	    			<i class='ion-android-star'></i>: <span class="subdued">{{starcount}}</span>
+	    		</div>
+					<h2>{{name}}</h2>
+	    		<p>{{description}}</p>
+	    		<p>{{full_name}}</p>
+	    	</div>
+	    	</div>
+	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-stable">Commits</button>
+	    	<button type="submit" ng-click="owner(login)" class="button button-block button-stable">Creator</button>
 	    	<button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
 	    </ion-content>
 	    </ion-modal-view>

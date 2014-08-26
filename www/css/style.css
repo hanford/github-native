@@ -70,3 +70,7 @@
 	font-size: 18px;
 	line-height: 22px;
 }
+
+.branch {
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
