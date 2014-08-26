@@ -1,38 +1,69 @@
-<ion-view title="{{name}}">
+<ion-view title="Profile">
 <ion-content has-header="true">
 <div class="profile-blob">
-  <img class="profile-pic" ng-src="{{ava}}">
-  <div class="card">
-    <div class="item item-divider center">
-      {{login}}
+  <div class="row profile-row">
+    <div class="col">
+      <img class="profile-pic" ng-src="{{ava}}">
     </div>
-    <div class="item item-text-wrap">
-      Blog: <span class="pull-right" ng-hide="{{blog == ''}}"><a href="{{blog}}">{{blog}}</a></span>
+    <div class="col" style="position: relative;right: 25px;">
+      <div class="row" stlye="padding-left:0px;">
+        <div class="name">{{name}}</div>
+      </div>
+      <div class="other-info">
+        <div class="row">
+          <p class="subdue no-margin">{{login}}</p>
+        </div>
+        <!-- <div class="row"> -->
+          <!-- <p class="subdue no-margin"><i class="ion-person-stalker"></i>  {{hireable}}</p>  -->
+        <!-- </div> -->
+        <div class="row">
+          <p class="subdue no-margin"><i class="ion-location ico"></i>  {{location}}</p> 
+        </div>
+        <div class="row">
+          <p class="subdue no-margin"><i class="ion-edit link-item-icon ico" style="display:table-cell;"></i>  <a href="" class="link-item-" style="display:table-cell;color:#548FCA;">  {{blog}}</a></p> 
+        </div>
+      </div>
     </div>
-    <div class="item item-text-wrap" ng-hide="{{location == ''}}">
-      Location: <span class="pull-right">{{location}}</span>
+  </div>
+  <div class="mid-profile">
+    <button class="button button-balanced button-block action-button">LOL</button>
+    <div class="row">
+    <div class="col action-numbers center">{{followers}}<br /><span class="center action-text">Followers</span></div>
+    <div class="col action-numbers center">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
+    <div class="col action-numbers center">{{following}}<br /><span class="center action-text">Following</span></div>
     </div>
-    <div class="item item-text-wrap" ng-hide="{{company == ''}}">
-      Company <span class="pull-right">{{company}}</span>
-    </div>
-    <div class="item item-text-wrap" ng-click="repo()">
-      Public Repos: <span class="pull-right">{{pub_count}} </span>
-    </div>
-    <div class="item item-text-wrap" ng-hide="{{gists == ''}}">
-      Public Gists: <span class="pull-right">{{gists}}</span>
-    </div>
-    <div class="item item-text-wrap" ng-click="toFollowerState()">
-      Followers: <span class="pull-right">{{followers}}</span>
-    </div>
-    <div class="item item-text-wrap" ng-click="toFollowingState()">
-      Following: <span class="pull-right">{{following}}</span>
-    </div>
-    <div class="item item-text-wrap" ng-hide="{{created_at == ''}}">
-      Memeber Since: <span class="pull-right">{{created_at}}</span>
-    </div>
-    <div class="item item-text-wrap" ng-hide="{{hireable == ''}}">
-      Hireable: <span class="pull-right">{{hireable}}</span>
-    </div>
+    <!-- <div class="card">
+      <div class="item item-divider center">
+        {{login}}
+      </div>
+      <div class="item item-text-wrap">
+        Blog: <span class="pull-right" ng-hide="{{blog == ''}}"><a href="{{blog}}">{{blog}}</a></span>
+      </div>
+      <div class="item item-text-wrap" ng-hide="{{location == ''}}">
+        Location: <span class="pull-right">{{location}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-hide="{{company == ''}}">
+        Company <span class="pull-right">{{company}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-click="repo()">
+        Public Repos: <span class="pull-right">{{pub_count}} </span>
+      </div>
+      <div class="item item-text-wrap" ng-hide="{{gists == ''}}">
+        Public Gists: <span class="pull-right">{{gists}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-click="toFollowerState()">
+        Followers: <span class="pull-right">{{followers}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-click="toFollowingState()">
+        Following: <span class="pull-right">{{following}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-hide="{{created_at == ''}}">
+        Memeber Since: <span class="pull-right">{{created_at}}</span>
+      </div>
+      <div class="item item-text-wrap" ng-hide="{{hireable == ''}}">
+        Hireable: <span class="pull-right">{{hireable}}</span>
+      </div>
+    </div> -->
   </div>
 </div>
 </ion-content>

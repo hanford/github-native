@@ -3,7 +3,7 @@ angular.module('controller', [])
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
 	$rootScope.ginfo;
 	$scope.loading = false;
-	$scope.uname = "jack";
+	$scope.uname = "jackhanford";
 
 	$scope.searchProject	= function(uname) {
 		var url = 'https://api.github.com/search/repositories?q=' + uname;

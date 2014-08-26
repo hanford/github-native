@@ -2845,3 +2845,93 @@ Terminating in response to SpringBoard's termination.
     "LOG",
     "[{\"sha\":\"21f2d21ae9daed723b912492ecb8fb8f00340c55\",\"commit\":{\"author\":{\"name\":\"Marco Ceppi\",\"email\":\"marco@ceppi.net\",\"date\":\"2014-01-16T03:04:09Z\"},\"committer\":{\"name\":\"Marco Ceppi\",\"email\":\"marco@ceppi.net\",\"date\":\"2014-01-16T03:04:09Z\"},\"message\":\"Merge pull request #9 from ubermajestix\/transparent-sprite\\n\\nMake sprite transparent\",\"tree\":{\"sha\":\"aa11275f7cfdae1963514ac2cf5c06500a14f5df\",\"url\":\"https:\/\/api.github.com\/repos\/marcoceppi\/bootstrap-glyphicons\/git\/trees\/aa11275f7cfdae1963514ac2cf5c06500a14f5df\"},\"url\":\"https:\/\/api.github.com\/repos\/marcoceppi\/bootstrap-glyphicons\/git\/commits\/21f2d21ae9daed723b912492ecb8fb8f00340c55\",\"comment_count\":0},\"url\":\"https:\/\/api.github.com\/repos\/marcoceppi\/bootstrap-glyphicons\/commits\/21f2d21ae9daed723b912492ecb8fb8f00340c55\",\"html_url\":\"https:\/\/github.com\/marcoceppi\/bootstrap-glyphicons\/commit\/21f2d21ae9daed723b912492[...]
 Terminating in response to SpringBoard's termination.
+2014-08-25 23:15:29.469 GitMOB[3563:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-25 23:15:29.489 GitMOB[3563:70b] Unlimited access to network resources
+2014-08-25 23:15:29.614 GitMOB[3563:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-25 23:15:29.614 GitMOB[3563:70b] [CDVTimer][keyboard] 0.365973ms
+2014-08-25 23:15:29.615 GitMOB[3563:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-25 23:15:29.615 GitMOB[3563:70b] [CDVTimer][statusbar] 0.317991ms
+2014-08-25 23:15:29.615 GitMOB[3563:70b] [CDVTimer][TotalPluginStartup] 1.363039ms
+2014-08-25 23:15:29.770 GitMOB[3563:70b] Resetting plugins due to page load.
+2014-08-25 23:15:29.963 GitMOB[3563:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-25 23:15:31.108 GitMOB[3563:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-25 23:15:31.109 GitMOB[3563:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-25 23:15:31.109 GitMOB[3563:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jack\",\"id\":3663558,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/3663558?v=2\",\"gravatar_id\":\"959eebd842e6fac4f7df5254c25eec12\",\"url\":\"https:\/\/api.github.com\/users\/jack\",\"html_url\":\"https:\/\/github.com\/jack\",\"followers_url\":\"https:\/\/api.github.com\/users\/jack\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jack\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jack\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jack\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jack\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jack\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jack\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jack\/events{\/privacy}\",\"received_events_url\":\"https:\/\/api.github.com\/users\/jack\/received_events\",\"type\":\"User\",\"[...]
+2014-08-25 23:16:19.113 GitMOB[3992:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-25 23:16:19.118 GitMOB[3992:70b] Unlimited access to network resources
+2014-08-25 23:16:19.132 GitMOB[3992:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-25 23:16:19.133 GitMOB[3992:70b] [CDVTimer][keyboard] 0.438988ms
+2014-08-25 23:16:19.133 GitMOB[3992:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-25 23:16:19.133 GitMOB[3992:70b] [CDVTimer][statusbar] 0.419974ms
+2014-08-25 23:16:19.134 GitMOB[3992:70b] [CDVTimer][TotalPluginStartup] 1.675010ms
+2014-08-25 23:16:19.162 GitMOB[3992:70b] Resetting plugins due to page load.
+2014-08-25 23:16:19.251 GitMOB[3992:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-25 23:16:23.259 GitMOB[3992:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-25 23:16:23.260 GitMOB[3992:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-25 23:16:23.260 GitMOB[3992:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jack\",\"id\":3663558,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/3663558?v=2\",\"gravatar_id\":\"959eebd842e6fac4f7df5254c25eec12\",\"url\":\"https:\/\/api.github.com\/users\/jack\",\"html_url\":\"https:\/\/github.com\/jack\",\"followers_url\":\"https:\/\/api.github.com\/users\/jack\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jack\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jack\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jack\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jack\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jack\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jack\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jack\/events{\/privacy}\",\"received_events_url\":\"https:\/\/api.github.com\/users\/jack\/received_events\",\"type\":\"User\",\"[...]
+2014-08-25 23:48:52.208 GitMOB[4552:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-25 23:48:52.213 GitMOB[4552:70b] Unlimited access to network resources
+2014-08-25 23:48:52.226 GitMOB[4552:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-25 23:48:52.227 GitMOB[4552:70b] [CDVTimer][keyboard] 0.467002ms
+2014-08-25 23:48:52.227 GitMOB[4552:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-25 23:48:52.228 GitMOB[4552:70b] [CDVTimer][statusbar] 0.451982ms
+2014-08-25 23:48:52.228 GitMOB[4552:70b] [CDVTimer][TotalPluginStartup] 1.818001ms
+2014-08-25 23:48:52.257 GitMOB[4552:70b] Resetting plugins due to page load.
+2014-08-25 23:48:52.352 GitMOB[4552:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-25 23:48:57.368 GitMOB[4552:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-25 23:48:57.369 GitMOB[4552:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-25 23:48:57.369 GitMOB[4552:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+2014-08-25 23:49:07.003 GitMOB[4552:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-25 23:49:07.003 GitMOB[4552:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-25 23:49:07.004 GitMOB[4552:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+2014-08-25 23:52:54.381 GitMOB[4808:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-25 23:52:54.386 GitMOB[4808:70b] Unlimited access to network resources
+2014-08-25 23:52:54.399 GitMOB[4808:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-25 23:52:54.399 GitMOB[4808:70b] [CDVTimer][keyboard] 0.357032ms
+2014-08-25 23:52:54.400 GitMOB[4808:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-25 23:52:54.400 GitMOB[4808:70b] [CDVTimer][statusbar] 0.360012ms
+2014-08-25 23:52:54.400 GitMOB[4808:70b] [CDVTimer][TotalPluginStartup] 1.383007ms
+2014-08-25 23:52:54.464 GitMOB[4808:70b] Resetting plugins due to page load.
+2014-08-25 23:52:54.553 GitMOB[4808:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-25 23:52:56.498 GitMOB[4808:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-25 23:52:56.498 GitMOB[4808:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-25 23:52:56.498 GitMOB[4808:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+2014-08-25 23:54:12.523 GitMOB[5051:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-25 23:54:12.529 GitMOB[5051:70b] Unlimited access to network resources
+2014-08-25 23:54:12.543 GitMOB[5051:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-25 23:54:12.543 GitMOB[5051:70b] [CDVTimer][keyboard] 0.358045ms
+2014-08-25 23:54:12.543 GitMOB[5051:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-25 23:54:12.543 GitMOB[5051:70b] [CDVTimer][statusbar] 0.293970ms
+2014-08-25 23:54:12.544 GitMOB[5051:70b] [CDVTimer][TotalPluginStartup] 1.303971ms
+2014-08-25 23:54:12.572 GitMOB[5051:70b] Resetting plugins due to page load.
+2014-08-25 23:54:12.665 GitMOB[5051:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search

@@ -12,13 +12,72 @@
 	text-align: center;
 }
 
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
 .profile-pic {
-	height: 100px;
-	width: 100px;
-	border-radius: 60px;
-	margin: 20px auto;
-	display: block; 
-	box-shadow: 0px 1px 5px #555;
+	height: 110px;
+	width: 110px;
+	display: block;
+	border-radius: 4px;
+	margin: 20px auto 0;;
+}
+
+.action-numbers {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.action-text {
+	font-size: 14px;
+	color: #A8A7A6;
+	font-weight: 400;
+}
+
+.action-button {
+	width: 95% !important;
+	margin: 5px auto;
+}
+
+.link-item-icon{
+	display: table-cell;
+	padding-right: 3px;
+}
+
+.link-item-link{
+	display: table-cell;
+	color:#548FCA
+}
+
+.name {
+	margin-top: 20px;
+	font-weight: 900;
+	color: #343434;
+	font-size: 16pt;
+}
+
+.other-info {
+	color: #101113;
+	padding-left: 4px;
+}
+
+.other-info .ico {
+	color: #989898;
+}
+
+.profile-row {
+	border-bottom: 1px solid #DDDDDD;
+	padding: 0;
+}
+
+.mid-profile {
+	padding-top: 1px;
+	background-color: #FAFAFA;
 }
 
 .bttn-block {
@@ -57,8 +116,8 @@
 }
 
 .my-item {
-  left: 0;
-  right: 0;
+	left: 0;
+	right: 0;
 }
 
 .github-icon {
