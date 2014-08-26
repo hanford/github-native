@@ -6,10 +6,10 @@
 	</label>
 	<ion-list>
 	  <ion-item ng-repeat="commit in commits | filter:search" class="item item-avatar">
-	  	<img ng-src="{{commit.author.avatar_url}}">
+	  	<img ng-src="{{commit.commit.author.avatar_url}}">
 	  	<!-- <span class="pull-right">{{commit.commit.author.date}}</span> -->
 	    <h2>{{commit.commit.message}}</h2>
-	    <p>by: {{commit.commit.committer.name}}</p>
+	    <p>by: {{commit.commit.committer.name}} - {{commit.commit.committer.email}}</p>
 	  </ion-item>
 	</ion-list>
 </ion-content>

@@ -3,13 +3,13 @@ angular.module('controller', [])
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
 	$rootScope.ginfo;
 	$scope.loading = false;
+	$scope.uname = "jack";
 
 	$scope.searchProject	= function(uname) {
 		var url = 'https://api.github.com/search/repositories?q=' + uname;
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
-
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$ionicLoading.hide();
@@ -176,6 +176,18 @@ angular.module('controller', [])
 	var updated = $rootScope.repo.updated_at;
 	$scope.updated = updated.substring(0, 10);
 	$scope.repo = $rootScope.repo;
+
+	$scope.recentActivity = function (repo) {
+		$scope.repo = repo;
+		var url = 'https://api.github.com/repos/' + $scope.repo.full_name + '/commits' 
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$rootScope.commits = data;
+			$state.go('commits')
+		}).error(function(data, headers, status, config){
+			console.log(data, headers, status, config)
+		})
+	}
 	
 })
 
@@ -238,6 +250,8 @@ angular.module('controller', [])
 		$scope.modal = modal;
 
 		$scope.commits = function(fullname) {
+			debugger
+			console.log(fullname);
 			var url = 'https://api.github.com/repos/' + fullname + '/commits' 
 			$http.get(url)
 			.success(function(data, headers, status, config){
@@ -266,8 +280,11 @@ angular.module('controller', [])
 	});
 
 	$scope.openModal = function(item) {
-		$scope.fullname = item.full_name
-		$scope.login = item.owner.login
+		$scope.name = item.name;
+		$scope.starcount = item.stargazers_count;
+		$scope.login = item.owner.login;
+		$scope.description = item.description;
+		$scope.fullname = item.full_name;
 		$scope.modal.show();
 	};
 	$scope.closeModal = function() {
