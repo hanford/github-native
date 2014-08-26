@@ -1,11 +1,15 @@
 angular.module('controller', [])
 
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
-	if (navigator.splashscreen) {
-		navigator.splashscreen.show();
-		setTimeout(function() {
-			navigator.splashscreen.hide();
-		}, 5000)
+	$rootScope.count;
+	if ($rootScope.count < 0) {
+		if (navigator.splashscreen) {
+			navigator.splashscreen.show();
+			setTimeout(function() {
+				navigator.splashscreen.hide();
+			}, 5000)
+			$rootScope.count++
+		}
 	}
 
 	$rootScope.ginfo;
