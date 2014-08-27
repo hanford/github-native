@@ -47,10 +47,30 @@
     <ion-list>
       <ion-item ng-repeat="recentEvent in recentEvents">
        <span ng-switch="recentEvent.type">
-        <span ng-switch-when='PushEvent'>Pushed to {{recentEvent.repo.name}}</span>
-        <span ng-switch-when='Created'>Created {{recentEvent.repo.name}}</span>
-        <span ng-switch-when='ForkEvent'>Forked {{recentEvent.repo.name}}</span>
-        <span ng-switch-when='WatchEvent'>Watching {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="CommitCommentEvent">Commented on commit {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="CreateEvent">Created {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="DeleteEvent">Deleted {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="DeploymentEvent">Deploy event for {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="DeploymentStatusEvent"> </span>
+         <span ng-switch-when="DownloadEvent">Downloaded {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="FollowEvent">Following {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="ForkEvent">Forked {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="ForkApplyEvent"> </span>
+         <span ng-switch-when="GistEvent">Gist Event</span>
+         <span ng-switch-when="GollumEvent"> </span>
+         <span ng-switch-when="IssueCommentEvent">Commented on issue for {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="IssuesEvent">issue for {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="MemberEvent"> </span>
+         <span ng-switch-when="PageBuildEvent"> </span>
+         <span ng-switch-when="PublicEvent"> </span>
+         <span ng-switch-when="PullRequestEvent">Pull request for {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="PullRequestReviewCommentEvent">Commented on {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="PushEvent">Pushed to {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="ReleaseEvent">Released {{recentEvent.repo.name}}</span>
+         <span ng-switch-when="StatusEvent"> </span>
+         <span ng-switch-when="TeamAddEvent"> </span>
+         <span ng-switch-when="WatchEvent">Watching {{recentEvent.repo.name}}</span>
+        </span>
       </ion-item>
     </ion-list>
   <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
