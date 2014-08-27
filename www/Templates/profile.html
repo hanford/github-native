@@ -5,7 +5,7 @@
     <div class="col">
       <img class="profile-pic" ng-src="{{ava}}">
     </div>
-    <div class="col" style="position: relative;right: 25px;">
+    <div class="col right-bump">
       <div class="row" stlye="padding-left:0px;">
         <div class="name">{{name}}</div>
       </div>
@@ -13,29 +13,38 @@
         <div class="row">
           <p class="subdue no-margin">{{login}}</p>
         </div>
-        <!-- <div class="row"> -->
-          <!-- <p class="subdue no-margin"><i class="ion-person-stalker"></i>  {{hireable}}</p>  -->
-        <!-- </div> -->
         <div class="row">
           <p class="subdue no-margin"><i class="ion-location ico"></i>  {{location}}</p> 
         </div>
         <div class="row">
-          <p class="subdue no-margin"><i class="ion-edit link-item-icon ico" style="display:table-cell;"></i>  <a href="" class="link-item-" style="display:table-cell;color:#548FCA;">  {{blog}}</a></p> 
+          <p class="subdue no-margin"><i class="ion-edit link-item-icon ico"></i>  <a href="" class="link-item-link">  {{blog}}</a></p> 
         </div>
       </div>
     </div>
   </div>
   <div class="mid-profile">
-    <button class="button button-balanced button-block action-button">Save User</button>
+    <button class="button githubgreen button-block action-button">Recent Activity</button>
     <div class="row">
-    <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
-    <div class="col action-numbers center" ng-click="repo()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
-    <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}<br /><span class="center action-text">Following</span></div>
+      <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
+      <div class="col action-numbers center" ng-click="repo()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
+      <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}<br /><span class="center action-text">Following</span></div>
     </div>
   </div>
-  <div>
-    
+  <div class="bottom-profile">
+  <div class="bubble">
+    <h3 class="bubble-header">Popular repositories</h3>
+    <ion-item ng-repeat="popularRepo in popularRepos">
+      <span class="small-repo pull-left">{{popularRepo.full_name}}</span>
+      <span class="pull-right stargazer">{{popularRepo.stargazers_count}} <i class="ion-android-star"></i></span>
+    </ion-item>
   </div>
+  <!--     <ion-list>
+    <ion-item ng-repeat="recentEvent in recentEvents">
+    {{recentEvent.type}} to {{recentEvent.repo.name}}
+    </ion-item>
+    </ion-list>
+ -->  
+
     <!-- <div class="card">
       <div class="item item-divider center">
         {{login}}

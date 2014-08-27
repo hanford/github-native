@@ -75,6 +75,11 @@
 	padding: 0;
 }
 
+.profile-row .right-bump {
+	position: relative;
+	right: 25px;
+}
+
 .mid-profile {
 	padding-top: 1px;
 	background-color: #FAFAFA;
@@ -95,6 +100,7 @@
 	font-size: 30px;
 	margin: 5px 0;
 	padding-right: 15px;
+	display: table-cell;
 }
 
 .center-loading-icon {
@@ -133,4 +139,74 @@
 
 .branch {
 	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+
+.githubgreen {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #60b044;
+	background-image: -moz-linear-gradient(#8add6d, #60b044);
+	background-image: -webkit-linear-gradient(#8add6d, #60b044);
+	background-image: linear-gradient(#8add6d, #60b044);
+	background-repeat: repeat-x;
+	border-color: #5ca941;
+	font-family: Helvetica, arial, freesans, clean, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.githubgreen:hover {
+	color: #fff;
+	background-color: #569e3d;
+	background-image: -moz-linear-gradient(#79d858, #569e3d);
+	background-image: -webkit-linear-gradient(#79d858, #569e3d);
+	background-image: linear-gradient(#79d858, #569e3d);
+	background-repeat: repeat-x;
+	border-color: #4a993e;
+}
+
+.bar-github-color {
+	background-color: #F5F5F5 !important; 
+}
+
+.bubble-header{
+margin: 0;
+padding: 16px;
+border-bottom: 1px solid #ddd;
+color: #010101;
+font-weight: bold;
+font-size: 14px;
+display: block;
+background-color: #F5F5F5;
+}
+
+.bubble {
+margin: 0 15px 15px;
+padding: 0;
+border: 1px solid #ddd;
+border-radius: 3px;
+background: #fff;
+white-space: normal;
+word-wrap: break-word;
+word-break: break-word;
+overflow: hidden;
+}
+
+.bottom-profile {
+	background-color: #FAFAFA;
+	padding-top: 15px;
+}
+
+.small-repo {
+	font-size: 14px;
+	max-width: 220px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+	color: #4183C4;
+}
+
+.stargazer {
+	color: #888888;
 }

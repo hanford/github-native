@@ -53,14 +53,21 @@ angular.module('controller', [])
 			$rootScope.ginfo = data;
 			console.log(data)
 			$state.go('profile')
-		}).error(function(data) {
+		}).error(function(data, headers) {
 			$ionicLoading.hide();
 			console.log(data)
 			$scope.showAlert = function() {
-				var alertPopup = $ionicPopup.alert({
-					title: 'Sorry!',
-					template: "We coudln't find any users named " + uname
-				});
+				if (headers == 403) {
+					var alertPopup = $ionicPopup.alert({
+						title: 'Uh Oh!',
+						template: "Looks like we got rate limited, try again in a little while"					
+					});
+				} else {
+					var alertPopup = $ionicPopup.alert({
+						title: 'Sorry!',
+						template: "We coudln't find any users named " + uname
+					});
+				}
 				alertPopup.then(function(res) {
 					console.log('no users');
 				});
@@ -94,12 +101,22 @@ angular.module('controller', [])
 			$scope.name = $rootScope.ginfo.login;
 		}
 
-		var url = "https://api.github.com/users/" + $scope.login + "/events"
-		$http.get(url).success(function(data, headers){
-			console.log(data)
-			debugger
-		}).error(function(data, headers){
-			console.log(headers)
+		// Events Request
+		// var url = "https://api.github.com/users/" + $scope.login + "/events"
+		// $http.get(url).success(function(data, headers){
+		// 	console.log(data)
+		// 	$scope.recentEvents = data.splice(0,9)
+		// }).error(function(data, headers){
+		// 	console.log(headers)
+		// })
+
+		var url = 'https://api.github.com/users/' + $rootScope.uname + '/repos'
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$scope.popularRepos = data.splice(0,9)
+			console.log($scope.popularRepos)
+		}).error(function(data, headers, status, config){
+			alert(headers)
 		})
 
 	} else {
@@ -112,7 +129,6 @@ angular.module('controller', [])
 		});
 
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/repos'
-
 		$http.get(url)
 		.success(function(data, headers, status, config){
 			$rootScope.publicReps = data;
