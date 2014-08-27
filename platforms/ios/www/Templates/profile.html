@@ -38,27 +38,23 @@
       <span class="pull-right stargazer">{{popularRepo.stargazers_count}} <i class="ion-android-star"></i></span>
     </ion-item>
   </div>
-  <!--     <ion-list>
-    <ion-item ng-repeat="recentEvent in recentEvents">
-    {{recentEvent.type}} to {{recentEvent.repo.name}}
-    </ion-item>
-    </ion-list>
- -->  
-
-
  <script id="activity.html" type="text/ng-template">
  <ion-modal-view>
- <ion-header-bar>
- <h1 class="title">Project Info</h1>
- </ion-header-bar>
- <ion-content>
- <ion-list>
- <ion-item ng-repeat="recentEvent in recentEvents">
- {{recentEvent.type}} to {{recentEvent.repo.name}}
- </ion-item>
- </ion-list>
- <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
- </ion-content>
+  <ion-header-bar>
+    <h1 class="title">Project Info</h1>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="recentEvent in recentEvents">
+       <span ng-switch="recentEvent.type">
+        <span ng-switch-when='PushEvent'>Pushed to {{recentEvent.repo.name}}</span>
+        <span ng-switch-when='Created'>Created {{recentEvent.repo.name}}</span>
+        <span ng-switch-when='ForkEvent'>Forked {{recentEvent.repo.name}}</span>
+        <span ng-switch-when='WatchEvent'>Watching {{recentEvent.repo.name}}</span>
+      </ion-item>
+    </ion-list>
+  <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
+  </ion-content>
  </ion-modal-view>
  </script>
 

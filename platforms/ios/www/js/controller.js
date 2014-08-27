@@ -32,7 +32,7 @@ angular.module('controller', [])
 			$scope.showAlert = function() {
 				var alertPopup = $ionicPopup.alert({
 					title: 'Sorry!',
-					template: "We coudln't find any users named " + uname
+					template: "We couldn't find any projects named " + uname
 				});
 			};
 			$scope.showAlert()
@@ -62,7 +62,7 @@ angular.module('controller', [])
 						title: 'Uh Oh!',
 						template: "Looks like we got rate limited, try again in a little while"					
 					});
-				} else {
+				} else if (headers == 404){
 					var alertPopup = $ionicPopup.alert({
 						title: 'Sorry!',
 						template: "We coudln't find any users named " + uname
