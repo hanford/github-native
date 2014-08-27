@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="mid-profile">
-    <button class="button githubgreen button-block action-button">Recent Activity</button>
+    <button class="button githubgreen button-block action-button" ng-click="acitivty()">Recent Activity</button>
     <div class="row">
       <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
       <div class="col action-numbers center" ng-click="repo()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
@@ -44,6 +44,23 @@
     </ion-item>
     </ion-list>
  -->  
+
+
+ <script id="activity.html" type="text/ng-template">
+ <ion-modal-view>
+ <ion-header-bar>
+ <h1 class="title">Project Info</h1>
+ </ion-header-bar>
+ <ion-content>
+ <ion-list>
+ <ion-item ng-repeat="recentEvent in recentEvents">
+ {{recentEvent.type}} to {{recentEvent.repo.name}}
+ </ion-item>
+ </ion-list>
+ <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
+ </ion-content>
+ </ion-modal-view>
+ </script>
 
     <!-- <div class="card">
       <div class="item item-divider center">

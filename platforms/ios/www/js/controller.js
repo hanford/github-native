@@ -77,7 +77,7 @@ angular.module('controller', [])
 	}
 })
 
-.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal) {
 	if ($rootScope.ginfo != undefined) {
 		$scope.pub_count = $rootScope.ginfo.public_repos;
 		$scope.gists = $rootScope.ginfo.public_gists;
@@ -102,13 +102,29 @@ angular.module('controller', [])
 		}
 
 		// Events Request
-		// var url = "https://api.github.com/users/" + $scope.login + "/events"
-		// $http.get(url).success(function(data, headers){
-		// 	console.log(data)
-		// 	$scope.recentEvents = data.splice(0,9)
-		// }).error(function(data, headers){
-		// 	console.log(headers)
-		// })
+		var url = "https://api.github.com/users/" + $scope.login + "/events"
+		$http.get(url).success(function(data, headers){
+			console.log(data)
+			$scope.recentEvents = data.splice(0,9)
+		}).error(function(data, headers){
+			console.log(headers)
+		})
+
+
+		$ionicModal.fromTemplateUrl('activity.html', {
+			scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function(modal) {
+			$scope.modal = modal;
+
+			$scope.acitivty = function() {
+				$scope.modal.show();
+			};
+			$scope.closeModal = function() {
+				$scope.modal.hide();
+			}
+		});
+
 
 		var url = 'https://api.github.com/users/' + $rootScope.uname + '/repos'
 		$http.get(url)
