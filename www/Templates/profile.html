@@ -33,7 +33,7 @@
   <div class="bottom-profile">
   <div class="bubble">
     <h3 class="bubble-header">Popular repositories</h3>
-    <ion-item ng-repeat="popularRepo in popularRepos">
+    <ion-item ng-repeat="popularRepo in popularRepos" ng-click="repoinfo(popularRepo)">
       <span class="small-repo pull-left">{{popularRepo.full_name}}</span>
       <span class="pull-right stargazer">{{popularRepo.stargazers_count}} <i class="ion-android-star"></i></span>
     </ion-item>
