@@ -139,6 +139,24 @@ angular.module('controller', [])
 		$state.go('search')
 	}
 
+	$scope.repoinfo = function(popularRepo) {
+		debugger
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
+
+		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + popularRepo.name; 
+		$http.get(url)
+		.success(function(data, headers, status, config){
+			$rootScope.repo = data;
+			$ionicLoading.hide();
+			$state.go('PublicRep')
+		}).error(function(data, headers, status, config){
+			$ionicLoading.hide();
+			console.log(data, headers, status, config)
+		})
+	}
+
 	$scope.repo = function () {
 		$ionicLoading.show({
 			template: 'Loading...'
