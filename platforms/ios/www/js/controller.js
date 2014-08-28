@@ -105,7 +105,8 @@ angular.module('controller', [])
 		var url = "https://api.github.com/users/" + $scope.login + "/events"
 		$http.get(url).success(function(data, headers){
 			console.log(data)
-			$scope.recentEvents = data.splice(0,9)
+			$scope.recentEvents = data;
+			// .splice(0,9)
 		}).error(function(data, headers){
 			console.log(headers)
 		})
@@ -354,6 +355,8 @@ angular.module('controller', [])
 		$scope.login = item.owner.login;
 		$scope.description = item.description;
 		$scope.fullname = item.full_name;
+		$scope.language = item.language;
+		$scope.forks = item.forks;
 		$scope.modal.show();
 	};
 	$scope.closeModal = function() {

@@ -214,3 +214,8 @@ overflow: hidden;
 .grey-icon {
 	color: #666666;
 }
+
+.modal-closer {
+	width: 95%;
+	margin: 0 auto;
+}
