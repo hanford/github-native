@@ -1,6 +1,6 @@
 angular.module('controller', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicPopup, $ionicLoading) {
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
 	$rootScope.count;
 	if ($rootScope.count < 0) {
 		if (navigator.splashscreen) {
@@ -13,29 +13,18 @@ angular.module('controller', [])
 	}
 
 	$rootScope.ginfo;
-	$scope.loading = false;
+
 	$scope.uname = "jackhanford";
 
 	$scope.searchProject	= function(uname) {
-		var url = 'https://api.github.com/search/repositories?q=' + uname;
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
-		$http.get(url)
-		.success(function(data, headers, status, config){
+		githubservice.getprojects(uname).then(function(response) {
+			console.log(response)
 			$ionicLoading.hide();
-			$rootScope.sItems = data.items;
+			$rootScope.sItems = response.items;
 			$state.go('searchlist')
-		}).error(function(data) {
-			console.log(data)
-			$ionicLoading.hide();
-			$scope.showAlert = function() {
-				var alertPopup = $ionicPopup.alert({
-					title: 'Sorry!',
-					template: "We couldn't find any projects named " + uname
-				});
-			};
-			$scope.showAlert()
 		})
 	}
 
@@ -44,45 +33,26 @@ angular.module('controller', [])
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
-
-		var url = 'https://api.github.com/users/' + uname;
-
-		$http.get(url)
-		.success(function(data, headers, status, config){
+		githubservice.getperson(uname).then(function(response) {
 			$ionicLoading.hide();
-			$rootScope.ginfo = data;
-			console.log(data)
+			$rootScope.ginfo = response;
+			console.log(response)
 			$state.go('profile')
-		}).error(function(data, headers) {
-			$ionicLoading.hide();
-			console.log(data)
-			$scope.showAlert = function() {
-				if (headers == 403) {
-					var alertPopup = $ionicPopup.alert({
-						title: 'Uh Oh!',
-						template: "Looks like we got rate limited, try again in a little while"					
-					});
-				} else if (headers == 404){
-					var alertPopup = $ionicPopup.alert({
-						title: 'Sorry!',
-						template: "We coudln't find any users named " + uname
-					});
-				}
-				alertPopup.then(function(res) {
-					console.log('no users');
-				});
-			};
-			$scope.showAlert()
 		})
 	}
 })
 
-.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal) {
+.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
 	if ($rootScope.ginfo != undefined) {
 		$scope.pub_count = $rootScope.ginfo.public_repos;
 		$scope.gists = $rootScope.ginfo.public_gists;
 		$scope.followers = $rootScope.ginfo.followers;
-		$scope.blog = $rootScope.ginfo.blog;
+		if ($rootScope.ginfo.blog) {
+			$scope.hideLink = false;
+			$scope.blog = $rootScope.ginfo.blog;
+		} else {
+			$scope.hideLink = true;
+		}
 		$scope.company = $rootScope.ginfo.company;
 		$scope.hireable = $rootScope.ginfo.hireable;
 
@@ -91,7 +61,12 @@ angular.module('controller', [])
 
 		$scope.following = $rootScope.ginfo.following;
 		$scope.ava = $rootScope.ginfo.avatar_url;
-		$scope.location = $rootScope.ginfo.location;
+		if ($rootScope.ginfo.location) {
+			$scope.hideLocation = false;
+			$scope.location = $rootScope.ginfo.location;
+		} else {
+			$scope.hideLocation = true;
+		}
 
 		$scope.name = $rootScope.ginfo.name;
 		$scope.id = $rootScope.ginfo.id;
@@ -101,16 +76,9 @@ angular.module('controller', [])
 			$scope.name = $rootScope.ginfo.login;
 		}
 
-		// Events Request
-		var url = "https://api.github.com/users/" + $scope.login + "/events"
-		$http.get(url).success(function(data, headers){
-			console.log(data)
-			$scope.recentEvents = data;
-			// .splice(0,9)
-		}).error(function(data, headers){
-			console.log(headers)
-		})
-
+		githubservice.getevents($scope.login).then(function(response) {
+			$scope.recentEvents = response;
+		});
 
 		$ionicModal.fromTemplateUrl('activity.html', {
 			scope: $scope,
@@ -379,3 +347,27 @@ angular.module('controller', [])
 
 })
 
+
+.factory('githubservice', function($http, $rootScope) {
+	var baseurl = 'https://api.github.com/'
+	return {
+		getperson: function(uname) {
+			var promise = $http.get(baseurl + 'users/' + uname).then(function(response) {
+				return response.data;
+			})
+			return promise;
+		},
+		getprojects: function(uname) {
+			var promise = $http.get(baseurl + 'search/repositories?q=' + uname).then(function(response) {
+				return response.data;
+			})
+			return promise;
+		},
+		getevents: function(login) {
+			var promise = $http.get(baseurl + 'users/' + login + '/events').then(function(response) {
+				return response.data;
+			})
+			return promise;
+		}
+	}
+});

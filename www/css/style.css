@@ -45,13 +45,12 @@
 }
 
 .link-item-icon{
-	display: table-cell;
 	padding-right: 3px;
 }
 
-.link-item-link{
-	display: table-cell;
+.profile-link {
 	color:#548FCA
+	display: table-cell;
 }
 
 .name {
@@ -68,6 +67,7 @@
 
 .other-info .ico {
 	color: #989898;
+	margin-right: 4px;
 }
 
 .profile-row {

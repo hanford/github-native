@@ -45,7 +45,6 @@
 }
 
 .link-item-icon{
-	display: table-cell;
 	padding-right: 3px;
 }
 
@@ -68,6 +67,7 @@
 
 .other-info .ico {
 	color: #989898;
+	display: inline-block;
 }
 
 .profile-row {
