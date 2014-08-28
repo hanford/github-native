@@ -26,13 +26,13 @@
     <button class="button githubgreen button-block action-button" ng-click="acitivty()">Recent Activity</button>
     <div class="row">
       <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
-      <div class="col action-numbers center" ng-click="repo()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
+      <div class="col action-numbers center">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
       <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}<br /><span class="center action-text">Following</span></div>
     </div>
   </div>
   <div class="bottom-profile">
   <div class="bubble">
-    <h3 class="bubble-header">Popular repositories</h3>
+    <h3 class="bubble-header">Public Repositories</h3>
     <ion-item ng-repeat="popularRepo in popularRepos" ng-click="repoinfo(popularRepo)">
       <span class="small-repo pull-left"><span class="octicon octicon-repo grey-icon"></span> {{popularRepo.full_name}}</span>
       <span class="pull-right stargazer">{{popularRepo.stargazers_count}} <i class="ion-android-star"></i></span>
