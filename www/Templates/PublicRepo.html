@@ -1,20 +1,17 @@
 <ion-view title="{{repo.name}}">
 <ion-content>
-	<div class="repo-cont">
-		<span class="repo-title">{{repo.full_name}}</span> <span ng-hide="{{repo.language == null}}" class="repo-lang">({{repo.language}})</span>
-	</div>
-	<p class="repo-cont">{{repo.description}}</p>
-	<p>{{repo.source.fullname}}</p>
-	<div class="card">
-		<div class="item item-text-wrap" ng-hide="{{stargazers_count == ''}}">
-			Stars: <span class="pull-right">{{repo.stargazers_count}}</span>
+<div class="list card">
+	<div class='item'>
+		<div class="pull-right">
+			<span class="subdued">{{repo.forks}} <span class="octicon octicon-git-branch"></span> {{repo.starcount}} <i class='ion-android-star'></i> </span>
 		</div>
-		<div class="item item-text-wrap" ng-hide="{{updated == ''}}">
-			Last Updated: <span class="pull-right">{{updated}}</span>
-		</div>
+		<div class="pull-left icon icon-{{repo.language | lowercase}}"></div>
+		<h2>{{repo.full_name}}</h2>
+		<p>{{repo.description}}</p>
+		<p>{{full_name}}</p>
 	</div>
-	<div class="bttn-block">
-		<button type="submit" ng-click="recentActivity(repo.full_name)" class="button button-block button-dark">Recent Activity</button>
-	</div>
+</div>
+<button type="submit" ng-click="recentActivity(repo.full_name)" class="button button-block button-stable">Commits</button>
+<!-- <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button> -->
 </ion-content>
 </ion-view>
