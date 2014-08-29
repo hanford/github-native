@@ -49,8 +49,13 @@
 }
 
 .profile-link {
-	color:#548FCA
+	color:#548FCA;
 	display: table-cell;
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 110px;
 }
 
 .name {
