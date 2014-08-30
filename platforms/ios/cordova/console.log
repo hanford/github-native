@@ -3081,3 +3081,31 @@ Terminating in response to SpringBoard's termination.
   [
     "LOG",
     "[{\"id\":\"2253902466\",\"type\":\"PushEvent\",\"actor\":{\"id\":2148168,\"login\":\"jackhanford\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?\"},\"repo\":{\"id\":22538770,\"name\":\"jackhanford\/Mobile-Github-Client\",\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Mobile-Github-Client\"},\"payload\":{\"push_id\":436945799,\"size\":1,\"distinct_size\":1,\"ref\":\"refs\/heads\/master\",\"head\":\"45bb1e2bec8b6dc8d06d1f0b00e25ac3b6f89e89\",\"before\":\"b5e602c3bc72e85965df6455f69d7286fca54775\",\"commits\":[{\"sha\":\"45bb1e2bec8b6dc8d06d1f0b00e25ac3b6f89e89\",\"author\":{\"email\":\"jackhanford@gmail.com\",\"name\":\"Jack Hanford\"},\"message\":\"fixed logic for splash\",\"distinct\":true,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Mobile-Github-Client\/commits\/45bb1e2bec8b6dc8d06d1f0b00e25ac3b[...]
+2014-08-29 15:49:07.716 GitMOB[33948:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-29 15:49:07.743 GitMOB[33948:70b] Unlimited access to network resources
+2014-08-29 15:49:07.893 GitMOB[33948:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-29 15:49:07.894 GitMOB[33948:70b] [CDVTimer][keyboard] 0.479996ms
+2014-08-29 15:49:07.965 GitMOB[33948:70b] [CDVTimer][splashscreen] 70.926011ms
+2014-08-29 15:49:07.965 GitMOB[33948:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-29 15:49:07.966 GitMOB[33948:70b] [CDVTimer][statusbar] 0.312984ms
+2014-08-29 15:49:07.966 GitMOB[33948:70b] [CDVTimer][TotalPluginStartup] 72.854042ms
+2014-08-29 15:49:08.070 GitMOB[33948:70b] Resetting plugins due to page load.
+2014-08-29 15:49:08.274 GitMOB[33948:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-29 15:49:30.940 GitMOB[33948:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-29 15:49:30.941 GitMOB[33948:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-29 15:49:30.941 GitMOB[33948:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+2014-08-29 18:46:13.758 GitMOB[33948:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-08-29 18:46:13.758 GitMOB[33948:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-08-29 18:46:13.758 GitMOB[33948:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"id\":21959334,\"name\":\"5-Second-game--iPhone-\",\"full_name\":\"jackhanford\/5-Second-game--iPhone-\",\"owner\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/[...]

@@ -192,8 +192,8 @@ angular.module('controller', [])
 	$scope.recentActivity = function (repo) {
 		$scope.repo = repo;
 		githubservice.getCommits(repo).then(function(response){
-			$rootScope.commits = response;
 			$state.go('commits')
+			$rootScope.commits = response;
 		})
 	}
 	
