@@ -237,3 +237,7 @@ overflow: hidden;
 .item-input-wrapper input {
 	padding-left: 5px;
 }
+
+.button-bar-hidden {
+	visibility: hidden;
+}

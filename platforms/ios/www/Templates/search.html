@@ -1,13 +1,13 @@
 <ion-view title="<i class='github-icon ion-pull-request'></i>"  animation="slide-left-right-ios7">
   <ion-content has-header="true">
     <form name="form">
-      <div class="list list-inset">
+      <div class="list list-inset animated fadeInDown">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
           <input type="text" placeholder="Search" ng-model="uname" required class="bigput">
         </label>
       </div>
-      <div class="button-bar">
+      <div class="button-bar animated fadeInUpBig">
         <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-positive button-large">People</button>
         <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-balanced button-large">Projects</button>
       </div>
