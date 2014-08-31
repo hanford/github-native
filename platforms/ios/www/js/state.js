@@ -38,6 +38,11 @@ angular.module('state', ['ionic'])
 		templateUrl: "templates/commits.html",
 		controller: 'commitsCtrl'
 	})
+	.state('codeview', {
+		url: "/codeview",
+		templateUrl: "templates/codeview.html",
+		controller: 'codeCtrl'
+	})
 
 	$urlRouterProvider.otherwise("/search");
 })

@@ -1,4 +1,4 @@
- Empty. Add your own CSS if you like */
+/* Empty. Add your own CSS if you like */
 
 .pull-right {
 	float: right;
@@ -176,26 +176,26 @@
 }
 
 .bubble-header{
-	margin: 0;
-	padding: 16px;
-	border-bottom: 1px solid #ddd;
-	color: #010101;
-	font-weight: bold;
-	font-size: 14px;
-	display: block;
-	background-color: #F5F5F5;
+margin: 0;
+padding: 16px;
+border-bottom: 1px solid #ddd;
+color: #010101;
+font-weight: bold;
+font-size: 14px;
+display: block;
+background-color: #F5F5F5;
 }
 
 .bubble {
-	margin: 0 15px 15px;
-	padding: 0;
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	background: #fff;
-	white-space: normal;
-	word-wrap: break-word;
-	word-break: break-word;
-	overflow: hidden;
+margin: 0 15px 15px;
+padding: 0;
+border: 1px solid #ddd;
+border-radius: 3px;
+background: #fff;
+white-space: normal;
+word-wrap: break-word;
+word-break: break-word;
+overflow: hidden;
 }
 
 .bottom-profile {
@@ -236,11 +236,4 @@
 
 .item-input-wrapper input {
 	padding-left: 5px;
-}
-
-/*-------------*/
-/* Search Page */
-/*-------------*/
-.search-button {
-	box-shadow: 0 1px 3px #555;
 }

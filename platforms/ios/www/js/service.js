@@ -40,8 +40,13 @@ angular.module('service', [])
 			return promise;
 		},
 		getCommits: function(fullname) {
-			debugger
 			var promise = $http.get(baseurl + 'repos/' + fullname + '/commits').then(function(response) {
+				return response.data
+			})
+			return promise
+		},
+		getTree: function(fullname) {
+			var promise = $http.get(baseurl + 'repos/' + fullname + '/contents').then(function(response) {
 				return response.data
 			})
 			return promise
