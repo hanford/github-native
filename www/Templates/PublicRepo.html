@@ -7,11 +7,16 @@
 		</div>
 		<div class="pull-left icon icon-{{repo.language | lowercase}}"></div>
 		<h2>{{repo.full_name}}</h2>
+	</div>
+		<div class="item item-body">
 		<p>{{repo.description}}</p>
-		<p>{{full_name}}</p>
+		<p>Last updated {{updated}}</p>
+		</div>
 	</div>
 </div>
-<button type="submit" ng-click="recentActivity(repo.full_name)" class="button button-block button-stable">Commits</button>
-<!-- <button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button> -->
+<div class="button-bar">
+	<button type="submit" ng-click="seeTree(repo.full_name)" ng-disabled="form.$invalid" class="button button-balanced button-large button-clear ">Code</button>
+	<button type="submit" ng-click="recentActivity(repo.full_name)" ng-disabled="form.$invalid" class="button button-positive button-large button-clear">Commits</button>
+</div>
 </ion-content>
 </ion-view>

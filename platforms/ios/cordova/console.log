@@ -3109,3 +3109,23 @@ Terminating in response to SpringBoard's termination.
   [
     "LOG",
     "{\"id\":21959334,\"name\":\"5-Second-game--iPhone-\",\"full_name\":\"jackhanford\/5-Second-game--iPhone-\",\"owner\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/[...]
+2014-08-31 15:11:42.039 GitMOB[38879:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-31 15:11:42.062 GitMOB[38879:70b] Unlimited access to network resources
+2014-08-31 15:11:42.175 GitMOB[38879:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-31 15:11:42.176 GitMOB[38879:70b] [CDVTimer][keyboard] 0.526011ms
+2014-08-31 15:11:42.215 GitMOB[38879:70b] [CDVTimer][splashscreen] 38.816988ms
+2014-08-31 15:11:42.216 GitMOB[38879:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-31 15:11:42.216 GitMOB[38879:70b] [CDVTimer][statusbar] 0.491977ms
+2014-08-31 15:11:42.216 GitMOB[38879:70b] [CDVTimer][TotalPluginStartup] 41.144967ms
+2014-08-31 15:11:42.316 GitMOB[38879:70b] Resetting plugins due to page load.
+2014-08-31 15:11:42.486 GitMOB[38879:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-08-31 15:32:50.502 GitMOB[39323:70b] Multi-tasking -> Device: YES, App: YES
+2014-08-31 15:32:50.508 GitMOB[39323:70b] Unlimited access to network resources
+2014-08-31 15:32:50.521 GitMOB[39323:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-08-31 15:32:50.521 GitMOB[39323:70b] [CDVTimer][keyboard] 0.355005ms
+2014-08-31 15:32:50.528 GitMOB[39323:70b] [CDVTimer][splashscreen] 6.283998ms
+2014-08-31 15:32:50.528 GitMOB[39323:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-08-31 15:32:50.528 GitMOB[39323:70b] [CDVTimer][statusbar] 0.289977ms
+2014-08-31 15:32:50.529 GitMOB[39323:70b] [CDVTimer][TotalPluginStartup] 7.870018ms
+2014-08-31 15:32:50.561 GitMOB[39323:70b] Resetting plugins due to page load.
+2014-08-31 15:32:50.658 GitMOB[39323:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search

@@ -196,6 +196,13 @@ angular.module('controller', [])
 			$rootScope.commits = response;
 		})
 	}
+
+	$scope.seeTree = function(fullname) {
+		githubservice.getTree(fullname).then(function(response){
+			$state.go('codeview')
+			$rootScope.tree = response;
+		})
+	}
 	
 })
 
@@ -297,10 +304,16 @@ angular.module('controller', [])
 .controller('commitsCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
 	$scope.commits = $rootScope.commits;
 
-	console.log($scope.commits)
-
 	if ($scope.commits == undefined) {
 		$state.go('search')
 	}
+})
 
+.controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+	$scope.repo = $rootScope.repo;
+	$scope.items = $rootScope.tree;
+
+	if (!$scope.items) {
+		$state.go('search')
+	}
 })
