@@ -50,6 +50,12 @@ angular.module('service', [])
 				return response.data
 			})
 			return promise
+		},
+		getRate: function() {
+			var promise = $http.get(baseurl + 'rate_limit').then(function(response) {
+				return response.data
+			})
+			return promise
 		}
 	}
 });

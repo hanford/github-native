@@ -12,6 +12,14 @@ angular.module('controller', [])
 		}
 	}
 
+	$scope.hiderate = true
+
+	githubservice.getRate().then(function(response) {
+		console.log(response)
+		$scope.hiderate = false
+		$scope.ratelimit = response.rate.remaining;
+	})
+
 	$rootScope.ginfo;
 
 	$scope.uname = "jackhanford";
