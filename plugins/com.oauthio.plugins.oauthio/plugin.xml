@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.oauthio.plugins.oauthio"
+    version="0.2.4">
+
+    <name>OAuth.io</name>
+    <license>Apache 2.0</license>
+
+    <description>
+      &lt;p&gt;This is the official plugin for OAuth.io in Apache Cordova/PhoneGap!&lt;/p&gt;
+
+      &lt;p&gt;The OAuth.io plugin for Apache Cordova/PhoneGap allows you to use the same JavaScript code in your PhoneGap application as you use in your web application, to connect any OAuth provider available on OAuth.io.&lt;/p&gt;
+    </description>
+
+    <asset src="www/dist/oauth.js" target="oauth.js" />
+  
+    <js-module src="www/dist/oauth.js" name="OAuth">
+        <merges target="OAuth" />
+    </js-module>
+
+    <platform name="android">        
+        <config-file target="res/xml/config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+        </config-file>
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+        </config-file>
+    </platform>
+
+    <platform name="wp7">
+      <config-file target="config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+      </config-file>
+    </platform>
+
+    <platform name="wp8">
+      <config-file target="config.xml" parent="/*">
+          <access origin="https://oauth.io" />
+      </config-file>  
+    </platform>
+
+    <engines>
+      <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <dependency id="org.apache.cordova.inappbrowser" />
+</plugin>

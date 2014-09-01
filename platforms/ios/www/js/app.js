@@ -6,14 +6,22 @@
 angular.module('MobGit', ['ionic', 'state', 'controller', 'service'])
 
 .run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
+	$ionicPlatform.ready(function() {
 
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  })
+		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		OAuth.popup('github', {
+			cache: true
+		})
+		.done(function (result) {
+				// https://github.com/login/oauth/
+				$rootScope.access_token = result.access_token;
+      })
+		.fail(function (error) {
+        alert(error)
+      })
+
+		if(window.StatusBar) {
+			StatusBar.styleDefault();
+		}
+	})
 })
-
-
-
-

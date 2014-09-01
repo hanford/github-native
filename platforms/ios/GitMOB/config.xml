@@ -32,6 +32,10 @@
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <access origin="https://oauth.io" />
     <name>GitMOB</name>
     <description>
     GitMOB
@@ -48,4 +52,5 @@
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
+    <access origin="github.com" />
 </widget>

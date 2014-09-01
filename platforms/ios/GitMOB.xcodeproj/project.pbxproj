@@ -41,6 +41,7 @@
 		C39FE6071D2A48598BCE8CC4 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 748FC0446B864A04B0CC03B7 /* CDVDevice.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		9554BAFB7F394F6CA87ECD38 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */; };
+		0D3AEAD6C67E4A7F91DA3FB3 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 362682300CC54EB1B663E035 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,8 @@
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = GitMOB/config.xml; sourceTree = "<group>"; };
 		ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVSplashScreen.m"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		1A51A3FCCA0F4BD8B15CD9EA /* CDVSplashScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVSplashScreen.h"; path = "org.apache.cordova.splashscreen/CDVSplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		362682300CC54EB1B663E035 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		115A4702DC664D199927BDDE /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 				0F5C0514DC9D41B9B74484D6 /* CDVDevice.h */,
 				ED9E09EA4C5B4BEBA0D97176 /* CDVSplashScreen.m */,
 				1A51A3FCCA0F4BD8B15CD9EA /* CDVSplashScreen.h */,
+				362682300CC54EB1B663E035 /* CDVInAppBrowser.m */,
+				115A4702DC664D199927BDDE /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = GitMOB/Plugins;
@@ -437,6 +442,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				C39FE6071D2A48598BCE8CC4 /* CDVDevice.m in Sources */,
 				9554BAFB7F394F6CA87ECD38 /* CDVSplashScreen.m in Sources */,
+				0D3AEAD6C67E4A7F91DA3FB3 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
