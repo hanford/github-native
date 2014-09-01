@@ -8,17 +8,15 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'service'])
 .run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
 
-		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-		OAuth.popup('github', {
-			cache: true
-		})
-		.done(function (result) {
-				// https://github.com/login/oauth/
-				$rootScope.access_token = result.access_token;
-      })
-		.fail(function (error) {
-        alert(error)
-      })
+		// OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		// OAuth.popup('github')
+		// .done(function (result) {
+		// 		// https://github.com/login/oauth/
+		// 		$rootScope.access_token = result.access_token;
+  //     })
+		// .fail(function (error) {
+  //       alert(error)
+  //     })
 
 		if(window.StatusBar) {
 			StatusBar.styleDefault();
