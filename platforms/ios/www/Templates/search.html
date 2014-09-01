@@ -13,6 +13,8 @@
       </div>
     </form>
     <br />
-    <h4 class="center" ng-hide="hiderate">Requests left {{ratelimit}}</h4>
+    <div class="center" ng-hide="hiderate">
+      <b>{{ratelimit}}</b> Requests left until rate limit
+    </div>
   </ion-content>
 </ion-view>

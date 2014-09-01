@@ -15,10 +15,11 @@ angular.module('controller', [])
 	$scope.hiderate = true
 
 	githubservice.getRate().then(function(response) {
-		console.log(response)
 		$scope.hiderate = false
 		$scope.ratelimit = response.rate.remaining;
 	})
+
+
 
 	$rootScope.ginfo;
 
@@ -115,27 +116,10 @@ angular.module('controller', [])
 			template: 'Loading...'
 		});
 
-		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + popularRepo.name; 
-		$http.get(url)
-		.success(function(data, headers, status, config){
-			$rootScope.repo = data;
+		githubservice.getTree(popularRepo.full_name).then(function(response){
 			$ionicLoading.hide();
-			$state.go('PublicRep')
-		}).error(function(data, headers, status, config){
-			$ionicLoading.hide();
-			console.log(data, headers, status, config)
-		})
-	}
-
-	$scope.repo = function () {
-		$ionicLoading.show({
-			template: 'Loading...'
-		});
-
-		githubservice.userRepo($rootScope.uname).then(function(response){
-			$ionicLoading.hide();
-			$scope.publicReps = response;
-			$state.go('repos')
+			$state.go('codeview')
+			$rootScope.tree = response;
 		})
 	}
 
