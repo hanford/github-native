@@ -336,7 +336,7 @@ $scope.newAuth = function() {
 		cache: true
 	})
 	.done(function (result) {
-		console.log('accesstoken' + result.access_token)
+
 		$rootScope.access_token = result.access_token;
 	})
 	.fail(function (error) {
@@ -345,10 +345,10 @@ $scope.newAuth = function() {
 		// $http.get('http://api.github.com/authorizations').success(function(data){
 		// });
 }
-$scope.loading = true
+$scope.hiderate = true;
+
 githubservice.getRate().then(function(response) {
-	$scope.loading = false
-	$scope.hiderate = false
+	$scope.hiderate = false;
 	$scope.ratelimit = response.rate.remaining;
 })
 })

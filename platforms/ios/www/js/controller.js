@@ -332,12 +332,11 @@ if (!$scope.items) {
 
 $scope.newAuth = function() {
 	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-	debugger
 	OAuth.popup('github', {
 		cache: true
 	})
 	.done(function (result) {
-		console.log('accesstoken' + result.access_token)
+
 		$rootScope.access_token = result.access_token;
 	})
 	.fail(function (error) {
@@ -346,9 +345,10 @@ $scope.newAuth = function() {
 		// $http.get('http://api.github.com/authorizations').success(function(data){
 		// });
 }
+$scope.hiderate = true;
 
 githubservice.getRate().then(function(response) {
-	$scope.hiderate = false
+	$scope.hiderate = false;
 	$scope.ratelimit = response.rate.remaining;
 })
 })
