@@ -50,6 +50,7 @@ angular.module('service', [])
 			return promise;
 		},
 		getCommits: function(fullname) {
+			debugger
 			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/commits')
 			return promise
 		},

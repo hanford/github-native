@@ -107,6 +107,7 @@ angular.module('controller', [])
 	})
 
 	$scope.repoinfo = function(popularRepo) {
+		$rootScope.repo = popularRepo;
 		$ionicLoading.show({
 			template: 'Loading...'
 		});
@@ -125,7 +126,6 @@ angular.module('controller', [])
 		githubservice.getFollowers($rootScope.uname).then(function(response){
 			$ionicLoading.hide();
 			$state.go('followers')
-			debugger
 			$rootScope.followers = response;
 		})
 	}
@@ -298,17 +298,18 @@ angular.module('controller', [])
 
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
 	$scope.repo = $rootScope.repo;
+	$scope.branch = $scope.repo.default_branch;
 	$scope.items = $rootScope.tree;
 
-	// githubservice.getCommits($scope.repo.full_name).then(function(response) {
-		// $scope.commits = response.length;
-	// })
+	githubservice.getCommits($scope.repo.full_name).then(function(response) {
+		$scope.commits = response.length;
+	})
 
-console.log($scope.items, $scope.repo)
+	console.log($scope.items, $scope.repo)
 
-if (!$scope.items) {
-	$state.go('search')
-}
+	if (!$scope.items) {
+		$state.go('search')
+	}
 })
 
 .controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
@@ -325,7 +326,6 @@ if (!$scope.items) {
 
 	$scope.removeAuth = function(OAuth) {
 		window.OAuth == false;
-		debugger
 		// $http.get('http://api.github.com/authorizations').success(function(data){
 		// });
 }
@@ -335,21 +335,21 @@ $scope.newAuth = function() {
 	OAuth.popup('github', {
 		cache: true
 	})
-	.done(function (result) {
+		.done(function (result) {
 
-		$rootScope.access_token = result.access_token;
-	})
-	.fail(function (error) {
-		$state.go('info')
-	})
-		// $http.get('http://api.github.com/authorizations').success(function(data){
-		// });
-}
-$scope.hiderate = true;
+			$rootScope.access_token = result.access_token;
+		})
+		.fail(function (error) {
+			$state.go('info')
+		})
+			// $http.get('http://api.github.com/authorizations').success(function(data){
+			// });
+	}
+	$scope.hiderate = true;
 
-githubservice.getRate().then(function(response) {
-	$scope.hiderate = false;
-	$scope.ratelimit = response.rate.remaining;
-})
+	githubservice.getRate().then(function(response) {
+		$scope.hiderate = false;
+		$scope.ratelimit = response.rate.remaining;
+	})
 })
 
