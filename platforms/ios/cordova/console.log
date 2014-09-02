@@ -3324,3 +3324,82 @@ Terminating in response to SpringBoard's termination.
 2014-09-01 16:36:58.725 GitMOB[48512:70b] Resetting plugins due to page load.
 2014-09-01 16:36:58.879 GitMOB[48512:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
 2014-09-01 16:36:59.063 GitMOB[48512:70b] THREAD WARNING: ['InAppBrowser'] took '37.839111' ms. Plugin should use a background thread.
+2014-09-01 16:49:00.107 GitMOB[49059:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 16:49:00.116 GitMOB[49059:70b] Unlimited access to network resources
+2014-09-01 16:49:00.133 GitMOB[49059:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 16:49:00.134 GitMOB[49059:70b] [CDVTimer][keyboard] 0.862002ms
+2014-09-01 16:49:00.141 GitMOB[49059:70b] [CDVTimer][splashscreen] 6.758034ms
+2014-09-01 16:49:00.142 GitMOB[49059:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 16:49:00.142 GitMOB[49059:70b] [CDVTimer][statusbar] 0.397980ms
+2014-09-01 16:49:00.142 GitMOB[49059:70b] [CDVTimer][TotalPluginStartup] 9.154022ms
+2014-09-01 16:49:00.239 GitMOB[49059:70b] Resetting plugins due to page load.
+2014-09-01 16:49:00.384 GitMOB[49059:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 16:49:00.530 GitMOB[49059:70b] THREAD WARNING: ['InAppBrowser'] took '16.488770' ms. Plugin should use a background thread.
+2014-09-01 16:59:12.280 GitMOB[49351:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 16:59:12.286 GitMOB[49351:70b] Unlimited access to network resources
+2014-09-01 16:59:12.299 GitMOB[49351:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 16:59:12.300 GitMOB[49351:70b] [CDVTimer][keyboard] 0.445008ms
+2014-09-01 16:59:12.306 GitMOB[49351:70b] [CDVTimer][splashscreen] 6.044984ms
+2014-09-01 16:59:12.306 GitMOB[49351:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 16:59:12.307 GitMOB[49351:70b] [CDVTimer][statusbar] 0.355005ms
+2014-09-01 16:59:12.307 GitMOB[49351:70b] [CDVTimer][TotalPluginStartup] 8.015037ms
+2014-09-01 16:59:12.342 GitMOB[49351:70b] Resetting plugins due to page load.
+2014-09-01 16:59:12.449 GitMOB[49351:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 16:59:12.548 GitMOB[49351:70b] THREAD WARNING: ['InAppBrowser'] took '16.228027' ms. Plugin should use a background thread.
+2014-09-01 17:30:24.143 GitMOB[50070:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 17:30:24.149 GitMOB[50070:70b] Unlimited access to network resources
+2014-09-01 17:30:24.163 GitMOB[50070:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 17:30:24.163 GitMOB[50070:70b] [CDVTimer][keyboard] 0.442982ms
+2014-09-01 17:30:24.170 GitMOB[50070:70b] [CDVTimer][splashscreen] 6.363988ms
+2014-09-01 17:30:24.170 GitMOB[50070:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 17:30:24.171 GitMOB[50070:70b] [CDVTimer][statusbar] 0.402987ms
+2014-09-01 17:30:24.171 GitMOB[50070:70b] [CDVTimer][TotalPluginStartup] 8.361042ms
+2014-09-01 17:30:24.206 GitMOB[50070:70b] Resetting plugins due to page load.
+2014-09-01 17:30:24.315 GitMOB[50070:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 17:30:24.417 GitMOB[50070:70b] THREAD WARNING: ['InAppBrowser'] took '18.341064' ms. Plugin should use a background thread.
+2014-09-01 17:31:18.216 GitMOB[50070:70b] webView:didFailLoadWithError - -1004: Could not connect to the server.
+2014-09-01 17:33:25.819 GitMOB[50321:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 17:33:25.825 GitMOB[50321:70b] Unlimited access to network resources
+2014-09-01 17:33:25.839 GitMOB[50321:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 17:33:25.839 GitMOB[50321:70b] [CDVTimer][keyboard] 0.330031ms
+2014-09-01 17:33:25.845 GitMOB[50321:70b] [CDVTimer][splashscreen] 5.822003ms
+2014-09-01 17:33:25.845 GitMOB[50321:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 17:33:25.846 GitMOB[50321:70b] [CDVTimer][statusbar] 0.258029ms
+2014-09-01 17:33:25.846 GitMOB[50321:70b] [CDVTimer][TotalPluginStartup] 7.213056ms
+2014-09-01 17:33:25.880 GitMOB[50321:70b] Resetting plugins due to page load.
+2014-09-01 17:33:25.987 GitMOB[50321:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 17:33:26.086 GitMOB[50321:70b] THREAD WARNING: ['InAppBrowser'] took '16.264893' ms. Plugin should use a background thread.
+2014-09-01 17:37:12.873 GitMOB[50574:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 17:37:12.878 GitMOB[50574:70b] Unlimited access to network resources
+2014-09-01 17:37:12.892 GitMOB[50574:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 17:37:12.892 GitMOB[50574:70b] [CDVTimer][keyboard] 0.469983ms
+2014-09-01 17:37:12.899 GitMOB[50574:70b] [CDVTimer][splashscreen] 6.999969ms
+2014-09-01 17:37:12.900 GitMOB[50574:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 17:37:12.900 GitMOB[50574:70b] [CDVTimer][statusbar] 0.545979ms
+2014-09-01 17:37:12.901 GitMOB[50574:70b] [CDVTimer][TotalPluginStartup] 9.156048ms
+2014-09-01 17:37:12.936 GitMOB[50574:70b] Resetting plugins due to page load.
+2014-09-01 17:37:13.042 GitMOB[50574:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 17:37:13.141 GitMOB[50574:70b] THREAD WARNING: ['InAppBrowser'] took '16.853271' ms. Plugin should use a background thread.
+2014-09-01 17:37:39.867 GitMOB[50574:70b] webView:didFailLoadWithError - -1004: Could not connect to the server.
+2014-09-01 17:37:43.696 GitMOB[50574:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-01 17:37:43.696 GitMOB[50574:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-01 17:37:43.696 GitMOB[50574:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "[\"https:\/\/api.github.com\/users\/jackhanford\"] "
+  ]
+]
+2014-09-01 17:39:36.723 GitMOB[50826:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-01 17:39:36.729 GitMOB[50826:70b] Unlimited access to network resources
+2014-09-01 17:39:36.745 GitMOB[50826:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-01 17:39:36.745 GitMOB[50826:70b] [CDVTimer][keyboard] 0.338972ms
+2014-09-01 17:39:36.753 GitMOB[50826:70b] [CDVTimer][splashscreen] 7.517993ms
+2014-09-01 17:39:36.754 GitMOB[50826:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-01 17:39:36.754 GitMOB[50826:70b] [CDVTimer][statusbar] 0.714958ms
+2014-09-01 17:39:36.755 GitMOB[50826:70b] [CDVTimer][TotalPluginStartup] 9.912014ms
+2014-09-01 17:39:36.814 GitMOB[50826:70b] Resetting plugins due to page load.
+2014-09-01 17:39:36.946 GitMOB[50826:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/29233FDA-141B-4431-9D80-1FE2EA6853DC/GitMOB.app/www/index.html#/search
+2014-09-01 17:39:37.072 GitMOB[50826:70b] THREAD WARNING: ['InAppBrowser'] took '19.052246' ms. Plugin should use a background thread.
