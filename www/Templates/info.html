@@ -1,0 +1,20 @@
+<ion-view title="Info"  animation="slide-left-right-ios7">
+  <ion-content has-header="true">
+  <ul class="list">
+  	<li class="item">Authenticated <span class="pull-right">{{authenticated}}</span></li>
+  	<li class="item">Github Rate limit <span class="pull-right"><i class="ion-loading-b" ng-show="loading"></i>{{ratelimit}}</span></li>
+  </ul>
+  <div class="button-bar">
+    <button class="button button-assertive" ng-click="removeAuth()">Remove Auth</button>
+    <button class="button button-dark" ng-click="newAuth()">New Auth</button>
+  </div>
+  <br />
+  <span class="center">Made by <a href="http://jackhanford.com">Jack Hanford</a>
+   <br />
+   	Open Sourced under <a href="http://en.wikipedia.org/wiki/MIT_License">MIT</a>
+   </span>
+   <br />
+
+    <button class="button button-dark center" ng-click="search()"><i class="ion-arrow-left-c"></i> Back</button>
+  </ion-content>
+</ion-view>

@@ -3,23 +3,26 @@ angular.module('service', [])
 .factory('githubservice', function($http, $rootScope) {
 	var baseurl = 'https://api.github.com/';
 
-  var $ajax = {
-  	get: function(route) {
-  		var query = '';
-  		var args = Array.prototype.slice.call(arguments);
+	var $ajax = {
+		get: function(route) {
+			var query = '';
+			var args = Array.prototype.slice.call(arguments);
 
-  		if (args.length > 1) {
-  			console.log(args)
-  			query = '&' + args[1];
-  		}
+			if (args.length > 1) {
+				query = '&' + args[1];
+			}
 
-  		console.log(args, $rootScope.access_token);
-
-  		return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
-				return response.data;
-			});
-  	}
-  };
+			if (window.OAuth) {
+				return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
+					return response.data;
+				});
+			} else {
+				return $http.get(route).then(function(response) {
+					return response.data;
+				})
+			}
+		}
+	};
 
 	return {
 		getPerson: function(uname) {
@@ -53,6 +56,7 @@ angular.module('service', [])
 		getTree: function(fullname) {
 			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents')
 			return promise
+			debugger
 		},
 		getRate: function() {
 			var promise = $ajax.get(baseurl + 'rate_limit')

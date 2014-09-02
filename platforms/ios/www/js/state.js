@@ -41,7 +41,12 @@ angular.module('state', ['ionic'])
 	.state('codeview', {
 		url: "/codeview",
 		templateUrl: "templates/codeview.html",
-		controller: 'codeCtrl'
+		controller: 'treeCtrl'
+	})
+	.state('info', {
+		url: "/info",
+		templateUrl: "templates/info.html",
+		controller: 'infoCtrl'
 	})
 
 	$urlRouterProvider.otherwise("/search");

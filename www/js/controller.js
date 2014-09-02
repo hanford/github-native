@@ -12,15 +12,6 @@ angular.module('controller', [])
 		}
 	}
 
-	$scope.hiderate = true
-
-	githubservice.getRate().then(function(response) {
-		$scope.hiderate = false
-		$scope.ratelimit = response.rate.remaining;
-	})
-
-
-
 	$rootScope.ginfo;
 
 	$scope.uname = "jackhanford";
@@ -48,6 +39,10 @@ angular.module('controller', [])
 			console.log(response)
 			$state.go('profile')
 		})
+	}
+
+	$scope.info = function() {
+		$state.go('info')
 	}
 })
 
@@ -301,11 +296,60 @@ angular.module('controller', [])
 	}
 })
 
-.controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
 	$scope.repo = $rootScope.repo;
 	$scope.items = $rootScope.tree;
 
-	if (!$scope.items) {
+	// githubservice.getCommits($scope.repo.full_name).then(function(response) {
+		// $scope.commits = response.length;
+	// })
+
+console.log($scope.items, $scope.repo)
+
+if (!$scope.items) {
+	$state.go('search')
+}
+})
+
+.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+	$scope.search = function() {
 		$state.go('search')
 	}
+
+
+	if ($rootScope.access_token) {
+		$scope.authenticated = 'Yes'
+	} else {
+		$scope.authenticated = 'No'
+	}
+
+	$scope.removeAuth = function(OAuth) {
+		window.OAuth == false;
+		debugger
+		// $http.get('http://api.github.com/authorizations').success(function(data){
+		// });
+}
+
+$scope.newAuth = function() {
+	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+	OAuth.popup('github', {
+		cache: true
+	})
+	.done(function (result) {
+		console.log('accesstoken' + result.access_token)
+		$rootScope.access_token = result.access_token;
+	})
+	.fail(function (error) {
+		$state.go('info')
+	})
+		// $http.get('http://api.github.com/authorizations').success(function(data){
+		// });
+}
+$scope.loading = true
+githubservice.getRate().then(function(response) {
+	$scope.loading = false
+	$scope.hiderate = false
+	$scope.ratelimit = response.rate.remaining;
 })
+})
+

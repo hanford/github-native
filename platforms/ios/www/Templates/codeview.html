@@ -1,6 +1,7 @@
 <ion-view title="{{repo.full_name}}"  animation="slide-left-right-ios7">
   <ion-content has-header="true">
   	<ion-list>
+      <ion-item class="commit-count"><span class="octicon octicon-history"></span> {{commits}} total commits</ion-item>
   		<ion-item ng-repeat="item in items | filter:search">
   			<span class="small-repo pull-left">
   				<span ng-switch="item.type">

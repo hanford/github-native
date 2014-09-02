@@ -17,7 +17,7 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'service'])
 				$rootScope.access_token = result.access_token;
 			})
 			.fail(function (error) {
-				
+				$state.go('info')
 			})
 		}
 

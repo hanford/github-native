@@ -12,9 +12,8 @@
         <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-balanced button-large ">Projects</button>
       </div>
     </form>
-    <br />
-    <div class="center" ng-hide="hiderate">
-      <b>{{ratelimit}}</b> Requests left until rate limit
-    </div>
   </ion-content>
+  <ion-footer-bar align-title="center" ng-click="info()">
+  <div class="about-button">Info</div>
+  </ion-footer-bar>
 </ion-view>
