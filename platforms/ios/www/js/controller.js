@@ -328,27 +328,26 @@ angular.module('controller', [])
 		window.OAuth == false;
 		// $http.get('http://api.github.com/authorizations').success(function(data){
 		// });
-}
+	}
 
-$scope.newAuth = function() {
-	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-	OAuth.popup('github', {
-		cache: true
-	})
-		.done(function (result) {
-
+	$scope.newAuth = function() {
+		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		OAuth.popup('github', {
+			cache: true
+		}).done(function (result) {
 			$rootScope.access_token = result.access_token;
-		})
-		.fail(function (error) {
+		}).fail(function (error) {
 			$state.go('info')
 		})
 			// $http.get('http://api.github.com/authorizations').success(function(data){
 			// });
 	}
-	$scope.hiderate = true;
+
+	$scope.rate = false;
 
 	githubservice.getRate().then(function(response) {
-		$scope.hiderate = false;
+		$scope.rate = true;
+
 		$scope.ratelimit = response.rate.remaining;
 	})
 })

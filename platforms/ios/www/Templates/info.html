@@ -5,7 +5,7 @@
       Github Stats
     </div>
   	<li class="item">Authenticated <span class="pull-right">{{authenticated}}</span></li>
-  	<li class="item">Github Rate limit <span class="pull-right"><i class="ion-loading-b" ng-show="hiderate"></i>{{ratelimit}}</span></li>
+  	<li class="item">Github Rate limit <span class="pull-right"><i class="ion-loading-c" ng-hide="rate"></i><span ng-show="rate">{{ratelimit}}</span></span></li>
   </ul>
   <div class="button-bar">
     <button class="button button-assertive" ng-click="removeAuth()">Remove Auth</button>

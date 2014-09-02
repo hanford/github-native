@@ -1,4 +1,4 @@
-angular.module('service', [])
+angular.module('factory', [])
 
 .factory('githubservice', function($http, $rootScope) {
 	var baseurl = 'https://api.github.com/';
