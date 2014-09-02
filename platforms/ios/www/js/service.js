@@ -1,11 +1,7 @@
 angular.module('service', [])
 
-.factory('githubservice', function($http, $rootScope, $base64) {
+.factory('githubservice', function($http, $rootScope) {
 	var baseurl = 'https://api.github.com/';
-
-	 // $http.defaults.headers.common = {"Access-Control-Request-Headers": "accept, origin, authorization"};
-   // $http.defaults.headers.common['Authorization'] = 'Basic  ' + $base64.encode($rootScope.access_token);
-   // console.log($http.defaults.headers.common['Authorization'])
 
   var $ajax = {
   	get: function(route) {
