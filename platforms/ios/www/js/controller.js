@@ -245,7 +245,7 @@ angular.module('controller', [])
 
 	console.log($scope.items)
 
-	$ionicModal.fromTemplateUrl('my-modal.html', {
+	$ionicModal.fromTemplateUrl('search-modal.html', {
 		scope: $scope,
 		animation: 'slide-in-up'
 	}).then(function(modal) {
@@ -256,6 +256,14 @@ angular.module('controller', [])
 				$rootScope.commits = response;
 				$scope.modal.hide();
 				$state.go('commits')
+			})
+		}
+
+		$scope.code = function(fullname) {
+			githubservice.getTree(fullname).then(function(response){
+				$rootScope.repo = { default_branch: "master" }
+				$state.go('treeview')
+				$rootScope.tree = response;
 			})
 		}
 

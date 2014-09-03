@@ -9,7 +9,7 @@
       <span class="small-repo pull-left"><span class="octicon octicon-repo grey-icon"></span> {{item.full_name}}</span>
       <span class="pull-right stargazer">{{item.stargazers_count}} <i class="ion-android-star"></i></span>
     </ion-item>
-	    <script id="my-modal.html" type="text/ng-template">
+	    <script id="search-modal.html" type="text/ng-template">
 	    <ion-modal-view>
 	    <ion-header-bar>
 	    <h1 class="title">Project Info</h1>
@@ -26,8 +26,9 @@
 	    		<p>{{full_name}}</p>
 	    	</div>
 	    	</div>
-	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-stable">Commits</button>
-	    	<button type="submit" ng-click="owner(login)" class="button button-block button-stable">Creator</button>
+	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-light">Commits</button>
+	    	<button type="submit" ng-click="owner(login)" class="button button-block button-light">Creator</button>
+	    	<button type="submit" ng-click="code(fullname)" class="button button-block button-stable">Code</button>
 	    	<button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
 	    </ion-content>
 	    </ion-modal-view>
