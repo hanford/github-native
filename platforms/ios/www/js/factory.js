@@ -50,14 +50,20 @@ angular.module('factory', [])
 			return promise;
 		},
 		getCommits: function(fullname) {
-			debugger
 			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/commits')
 			return promise
 		},
 		getTree: function(fullname) {
 			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents')
 			return promise
-			debugger
+		},
+		getStats: function(fullname) {
+			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors')
+			return promise
+		},
+		getCode: function(fullname, path) {
+			var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path)
+			return promise
 		},
 		getRate: function() {
 			var promise = $ajax.get(baseurl + 'rate_limit')

@@ -114,7 +114,7 @@ angular.module('controller', [])
 
 		githubservice.getTree(popularRepo.full_name).then(function(response){
 			$ionicLoading.hide();
-			$state.go('codeview')
+			$state.go('treeview')
 			$rootScope.tree = response;
 		})
 	}
@@ -186,7 +186,7 @@ angular.module('controller', [])
 
 	$scope.seeTree = function(fullname) {
 		githubservice.getTree(fullname).then(function(response){
-			$state.go('codeview')
+			$state.go('treeview')
 			$rootScope.tree = response;
 		})
 	}
@@ -296,7 +296,7 @@ angular.module('controller', [])
 	}
 })
 
-.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
 	$scope.repo = $rootScope.repo;
 	$scope.branch = $scope.repo.default_branch;
 	$scope.items = $rootScope.tree;
@@ -304,6 +304,37 @@ angular.module('controller', [])
 	githubservice.getCommits($scope.repo.full_name).then(function(response) {
 		$scope.commits = response.length;
 	})
+
+	githubservice.getStats($scope.repo.full_name).then(function(response) {
+		console.log('first call for for contribs')
+	})
+
+	$scope.file = function(path) {
+
+		githubservice.getCode($scope.repo.full_name, path).then(function(response) {
+			console.log(response.content)
+			$rootScope.code = atob(response.content.replace(/\s/g, ''))
+			$state.go('code')
+		})
+	}
+
+	$ionicModal.fromTemplateUrl('contribs.html', {
+		scope: $scope,
+		animation: 'slide-in-up'
+	}).then(function(modal) {
+		$scope.modal = modal;
+
+		$scope.contribs = function() {
+			$scope.modal.show();
+			githubservice.getStats($scope.repo.full_name).then(function(response) {
+				$scope.contributors = response;
+			})
+		};
+		$scope.closeModal = function() {
+			$scope.modal.hide();
+		}
+	});
+
 
 	console.log($scope.items, $scope.repo)
 
@@ -352,3 +383,9 @@ angular.module('controller', [])
 	})
 })
 
+.controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+	hljs.initHighlightingOnLoad();
+	$scope.code = $rootScope.code;
+
+
+})
