@@ -309,6 +309,14 @@ angular.module('controller', [])
 	$scope.branch = $scope.repo.default_branch;
 	$scope.items = $rootScope.tree;
 
+	if($scope.branch == undefined) {
+		$state.go('search')
+	} else if ($rootScope.repo == undefined) {
+		$state.go('search')
+	} else if ($rootScope.tree == undefined) {
+		$state.go('search')
+	}
+
 	githubservice.getCommits($scope.repo.full_name).then(function(response) {
 		$scope.commits = response.length;
 	})
@@ -317,14 +325,33 @@ angular.module('controller', [])
 		console.log('first call for for contribs')
 	})
 
-	$scope.file = function(path) {
-
-		githubservice.getCode($scope.repo.full_name, path).then(function(response) {
-			console.log(response.content)
-			$rootScope.code = atob(response.content.replace(/\s/g, ''))
-			$state.go('code')
-		})
+	$scope.file = function(item) {
+		if (item.type == "file") {
+			githubservice.getCode($scope.repo.full_name, item.path).then(function(response) {
+				console.log(response.content)
+				$rootScope.code = atob(response.content.replace(/\s/g, ''))
+				$state.go('code')
+			})
+		} else if (item.type == "dir") {
+			var url = item.git_url;
+			console.log(url)
+			githubservice.getDir(url).then(function(response) {
+				console.log(response)
+				$rootScope.nesteddir = response.tree;
+				$state.go('nestedview')
+			})
+			// $http.get(url)
+			// .success(function(data, headers, status, config){
+			// 	$rootScope.nesteddir = data;
+			// 	debugger
+			// 	$state.go('nestedview')
+			// }).error(function(status){
+			// 	alert(status)
+			// 	console.log(status)
+			// })
+		}
 	}
+
 
 	$ionicModal.fromTemplateUrl('contribs.html', {
 		scope: $scope,
@@ -364,36 +391,68 @@ angular.module('controller', [])
 	}
 
 	$scope.removeAuth = function(OAuth) {
-		window.OAuth == false;
+		$rootScope.access_token = '';
+		$scope.authenticated = 'no'	
 		// $http.get('http://api.github.com/authorizations').success(function(data){
 		// });
-	}
+}
 
-	$scope.newAuth = function() {
-		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-		OAuth.popup('github', {
-			cache: true
-		}).done(function (result) {
-			$rootScope.access_token = result.access_token;
-		}).fail(function (error) {
-			$state.go('info')
-		})
-			// $http.get('http://api.github.com/authorizations').success(function(data){
-			// });
-	}
-
-	$scope.rate = false;
-
-	githubservice.getRate().then(function(response) {
-		$scope.rate = true;
-
-		$scope.ratelimit = response.rate.remaining;
+$scope.newAuth = function() {
+	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+	OAuth.popup('github', {
+		cache: true
+	}).done(function (result) {
+		$rootScope.access_token = result.access_token;
+	}).fail(function (error) {
+		alert('Error authenticating!')
 	})
+}
+
+$scope.rate = false;
+
+githubservice.getRate().then(function(response) {
+	$scope.rate = true;
+
+	$scope.ratelimit = response.rate.remaining;
+})
 })
 
-.controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
-	hljs.initHighlightingOnLoad();
+.controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
 	$scope.code = $rootScope.code;
+	hljs.initHighlightingOnLoad();
 
-
+	if (!$rootScope.code) {
+		$state.go('search')
+	}
+})
+.controller('nestedviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
+	$scope.items = $rootScope.nesteddir;
+	console.log($scope.items)
+	$scope.file = function(item) {
+		console.log(item)
+		if (item.type == "dir") {
+			var url = item.git_url;
+			githubservice.getDir(url).then(function(response) {
+				console.log(response)
+				$rootScope.nesteddir = response;
+				$state.go('nestedview')
+			})
+			// $http.get(url)
+			// .success(function(data, headers, status, config){
+			// 	$rootScope.nesteddir = data;
+			// 	debugger
+			// 	$state.go('nestedview')
+			// }).error(function(status){
+			// 	alert(status)
+			// 	console.log(status)
+			// })
+		} else {
+			githubservice.getCode($rootScope.repo.full_name, item.path).then(function(response) {
+				console.log(response.content)
+				debugger
+				$rootScope.code = response.content
+				$state.go('code')
+			})
+		}
+	}
 })

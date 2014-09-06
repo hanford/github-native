@@ -3,9 +3,10 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('MobGit', ['ionic', 'state', 'controller', 'factory'])
+angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 
-.run(function($ionicPlatform, $rootScope) {
+.run(function($ionicPlatform, $rootScope, $state, $ionicPopup) {
+
 	$ionicPlatform.ready(function() {
 		if (window.OAuth) {
 			OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');

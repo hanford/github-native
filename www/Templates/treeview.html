@@ -24,7 +24,7 @@
    </ion-modal-view>
    </script>
     	<ion-list>
-    		<ion-item ng-repeat="item in items | filter:search" ng-click="file(item.path)">
+    		<ion-item ng-repeat="item in items | filter:search" ng-click="file(item)">
     			<span class="small-repo pull-left">
     				<span ng-switch="item.type">
     					<span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>
