@@ -12,11 +12,16 @@ angular.module('factory', [])
 				query = '&' + args[1];
 			}
 
+
 			if (window.OAuth) {
 				return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
-					return response.data;
-				});
-			} else {
+					if (response.status = 200) {
+						return response.data;
+					} else {
+						alert(response.status)
+					}
+				})
+			} else if ($rootScope.access_token == undefined) {
 				return $http.get(route).then(function(response) {
 					return response.data;
 				})
@@ -66,7 +71,6 @@ angular.module('factory', [])
 			return promise
 		},
 		getDir: function(url) {
-			console.log(url)
 			var promise = $ajax.get(url)
 			return promise
 		},

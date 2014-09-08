@@ -146,6 +146,7 @@
 
 .branch {
 	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	color: #555 !important;
 }
 
 
@@ -256,4 +257,8 @@ overflow: hidden;
 
 .commit-count {
 	font-size: 14px;
+}
+
+.code-wrapper {
+	tab-size: 2;
 }

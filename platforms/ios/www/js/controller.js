@@ -307,7 +307,12 @@ angular.module('controller', [])
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
 	$scope.repo = $rootScope.repo;
 	$scope.branch = $scope.repo.default_branch;
-	$scope.items = $rootScope.tree;
+
+	if ($rootScope.tree.tree) {
+		$scope.items = $rootScope.tree.tree;
+	} else {
+		$scope.items = $rootScope.tree
+	}
 
 	if($scope.branch == undefined) {
 		$state.go('search')
@@ -340,15 +345,6 @@ angular.module('controller', [])
 				$rootScope.nesteddir = response.tree;
 				$state.go('nestedview')
 			})
-			// $http.get(url)
-			// .success(function(data, headers, status, config){
-			// 	$rootScope.nesteddir = data;
-			// 	debugger
-			// 	$state.go('nestedview')
-			// }).error(function(status){
-			// 	alert(status)
-			// 	console.log(status)
-			// })
 		}
 	}
 
@@ -412,9 +408,8 @@ $scope.rate = false;
 
 githubservice.getRate().then(function(response) {
 	$scope.rate = true;
-
 	$scope.ratelimit = response.rate.remaining;
-})
+	})
 })
 
 .controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
@@ -427,30 +422,26 @@ githubservice.getRate().then(function(response) {
 })
 .controller('nestedviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
 	$scope.items = $rootScope.nesteddir;
-	console.log($scope.items)
+
+	if (!$scope.items) {
+		$state.go('search')
+	}
+
 	$scope.file = function(item) {
 		console.log(item)
-		if (item.type == "dir") {
-			var url = item.git_url;
+		debugger
+		if (item.type == "tree") {
+			var url = item.url;
 			githubservice.getDir(url).then(function(response) {
 				console.log(response)
-				$rootScope.nesteddir = response;
-				$state.go('nestedview')
+				$rootScope.tree = response;
+				$state.go('treeview')
 			})
-			// $http.get(url)
-			// .success(function(data, headers, status, config){
-			// 	$rootScope.nesteddir = data;
-			// 	debugger
-			// 	$state.go('nestedview')
-			// }).error(function(status){
-			// 	alert(status)
-			// 	console.log(status)
-			// })
-		} else {
+		} else if (item.type == "blob") {
 			githubservice.getCode($rootScope.repo.full_name, item.path).then(function(response) {
 				console.log(response.content)
 				debugger
-				$rootScope.code = response.content
+				$rootScope.code = atob(response.content.replace(/\s/g, ''))
 				$state.go('code')
 			})
 		}

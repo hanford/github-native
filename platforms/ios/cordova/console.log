@@ -9823,3 +9823,122 @@ objc[1894]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.ap
   ]
 ]
 2014-09-05 13:54:13.306 GitMOB[1894:70b] webView:didFailLoadWithError - -1004: Could not connect to the server.
+objc[10715]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-06 17:39:03.334 GitMOB[10715:70b] Cannot find executable for CFBundle 0xa694b30 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-06 17:39:03.338 GitMOB[10715:70b] Cannot find executable for CFBundle 0xa783650 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-06 17:39:03.375 GitMOB[10715:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-06 17:39:03.380 GitMOB[10715:70b] Unlimited access to network resources
+2014-09-06 17:39:03.394 GitMOB[10715:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-06 17:39:03.394 GitMOB[10715:70b] [CDVTimer][keyboard] 0.347018ms
+2014-09-06 17:39:03.400 GitMOB[10715:70b] [CDVTimer][splashscreen] 5.665004ms
+2014-09-06 17:39:03.400 GitMOB[10715:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-06 17:39:03.401 GitMOB[10715:70b] [CDVTimer][statusbar] 0.297010ms
+2014-09-06 17:39:03.401 GitMOB[10715:70b] [CDVTimer][TotalPluginStartup] 7.215977ms
+2014-09-06 17:39:03.473 GitMOB[10715:70b] Resetting plugins due to page load.
+2014-09-06 17:39:03.521 GitMOB[10715:1203] ERROR: unable to get the receiver data from the DB!
+2014-09-06 17:39:04.220 GitMOB[10715:70b] Finished load of: http://10.0.0.87:8100/#/search
+2014-09-06 17:39:04.281 GitMOB[10715:70b] THREAD WARNING: ['InAppBrowser'] took '49.204834' ms. Plugin should use a background thread.
+2014-09-06 17:42:52.286 GitMOB[10715:70b] Resetting plugins due to page load.
+2014-09-06 17:42:52.287 GitMOB[10715:70b] IAB.close() called but it was already closed.
+2014-09-06 17:42:53.025 GitMOB[10715:70b] Finished load of: http://10.0.0.87:8100/#/info
+2014-09-06 17:42:55.808 GitMOB[10715:70b] Resetting plugins due to page load.
+2014-09-06 17:42:56.228 GitMOB[10715:70b] Finished load of: http://10.0.0.87:8100/#/info
+2014-09-06 17:42:56.244 GitMOB[10715:70b] Warning: Attempt to present <CDVInAppBrowserNavigationController: 0xa6bca50> on <MainViewController: 0xbaab570> while a presentation is in progress!
+2014-09-06 17:42:57.621 GitMOB[10715:70b] Resetting plugins due to page load.
+2014-09-06 17:42:58.037 GitMOB[10715:70b] Finished load of: http://10.0.0.87:8100/#/info
+objc[16616]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-07 20:15:16.332 GitMOB[16616:70b] Cannot find executable for CFBundle 0xa483060 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-07 20:15:16.338 GitMOB[16616:70b] Cannot find executable for CFBundle 0xa27b690 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-07 20:15:16.390 GitMOB[16616:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-07 20:15:16.406 GitMOB[16616:70b] Unlimited access to network resources
+2014-09-07 20:15:16.485 GitMOB[16616:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-07 20:15:16.487 GitMOB[16616:70b] [CDVTimer][keyboard] 1.933992ms
+2014-09-07 20:15:16.526 GitMOB[16616:70b] [CDVTimer][splashscreen] 38.186014ms
+2014-09-07 20:15:16.526 GitMOB[16616:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-07 20:15:16.526 GitMOB[16616:70b] [CDVTimer][statusbar] 0.386000ms
+2014-09-07 20:15:16.527 GitMOB[16616:70b] [CDVTimer][TotalPluginStartup] 41.837990ms
+2014-09-07 20:15:16.620 GitMOB[16616:70b] Resetting plugins due to page load.
+2014-09-07 20:15:16.638 GitMOB[16616:70b] Failed to load webpage with error: Could not connect to the server.
+objc[16852]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-07 20:15:23.007 GitMOB[16852:70b] Cannot find executable for CFBundle 0xa3288a0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-07 20:15:23.011 GitMOB[16852:70b] Cannot find executable for CFBundle 0xb12f260 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-07 20:15:23.030 GitMOB[16852:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-07 20:15:23.035 GitMOB[16852:70b] Unlimited access to network resources
+2014-09-07 20:15:23.048 GitMOB[16852:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-07 20:15:23.049 GitMOB[16852:70b] [CDVTimer][keyboard] 0.455976ms
+2014-09-07 20:15:23.055 GitMOB[16852:70b] [CDVTimer][splashscreen] 5.851030ms
+2014-09-07 20:15:23.055 GitMOB[16852:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-07 20:15:23.056 GitMOB[16852:70b] [CDVTimer][statusbar] 0.334978ms
+2014-09-07 20:15:23.056 GitMOB[16852:70b] [CDVTimer][TotalPluginStartup] 7.749975ms
+2014-09-07 20:15:23.101 GitMOB[16852:70b] Resetting plugins due to page load.
+2014-09-07 20:15:23.153 GitMOB[16852:70b] Finished load of: http://10.0.0.87:8100/
+objc[17090]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-07 20:16:01.131 GitMOB[17090:70b] Cannot find executable for CFBundle 0xa28f8e0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-07 20:16:01.135 GitMOB[17090:70b] Cannot find executable for CFBundle 0xa6650e0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-07 20:16:01.170 GitMOB[17090:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-07 20:16:01.175 GitMOB[17090:70b] Unlimited access to network resources
+2014-09-07 20:16:01.189 GitMOB[17090:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-07 20:16:01.190 GitMOB[17090:70b] [CDVTimer][keyboard] 0.447035ms
+2014-09-07 20:16:01.196 GitMOB[17090:70b] [CDVTimer][splashscreen] 6.007016ms
+2014-09-07 20:16:01.197 GitMOB[17090:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-07 20:16:01.197 GitMOB[17090:70b] [CDVTimer][statusbar] 0.388980ms
+2014-09-07 20:16:01.197 GitMOB[17090:70b] [CDVTimer][TotalPluginStartup] 8.094966ms
+2014-09-07 20:16:01.262 GitMOB[17090:70b] Resetting plugins due to page load.
+2014-09-07 20:16:01.987 GitMOB[17090:70b] Finished load of: http://10.0.0.87:8100/#/search
+2014-09-07 20:16:02.054 GitMOB[17090:70b] THREAD WARNING: ['InAppBrowser'] took '34.550049' ms. Plugin should use a background thread.
+2014-09-07 20:40:43.103 GitMOB[17090:70b] THREAD WARNING: ['InAppBrowser'] took '280760.176025' ms. Plugin should use a background thread.
+2014-09-07 20:40:43.104 GitMOB[17090:3f07] void SendDelegateMessage(NSInvocation *): delegate (webView:decidePolicyForNavigationAction:request:frame:decisionListener:) failed to return after waiting 10 seconds. main run loop mode: kCFRunLoopDefaultMode
+2014-09-07 20:41:09.410 GitMOB[17090:70b] IAB.close() called but it was already closed.
+Terminating in response to SpringBoard's termination.
+objc[1817]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-08 09:11:01.643 GitMOB[1817:70b] Cannot find executable for CFBundle 0xa967410 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-08 09:11:01.648 GitMOB[1817:70b] Cannot find executable for CFBundle 0xa98e1e0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-08 09:11:01.700 GitMOB[1817:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-08 09:11:01.720 GitMOB[1817:70b] Unlimited access to network resources
+2014-09-08 09:11:01.855 GitMOB[1817:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-08 09:11:01.856 GitMOB[1817:70b] [CDVTimer][keyboard] 0.455976ms
+2014-09-08 09:11:01.911 GitMOB[1817:70b] [CDVTimer][splashscreen] 54.807007ms
+2014-09-08 09:11:01.911 GitMOB[1817:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-08 09:11:01.912 GitMOB[1817:70b] [CDVTimer][statusbar] 0.397980ms
+2014-09-08 09:11:01.912 GitMOB[1817:70b] [CDVTimer][TotalPluginStartup] 56.841969ms
+2014-09-08 09:11:02.007 GitMOB[1817:70b] Resetting plugins due to page load.
+2014-09-08 09:11:02.955 GitMOB[1817:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 09:11:03.022 GitMOB[1817:70b] THREAD WARNING: ['InAppBrowser'] took '33.344971' ms. Plugin should use a background thread.
+2014-09-08 09:13:21.069 GitMOB[1817:70b] Resetting plugins due to page load.
+2014-09-08 09:13:21.069 GitMOB[1817:70b] IAB.close() called but it was already closed.
+2014-09-08 09:13:21.643 GitMOB[1817:70b] Finished load of: http://10.10.10.181:8100/#/info
+objc[2098]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-08 09:16:13.219 GitMOB[2098:70b] Cannot find executable for CFBundle 0xb8d3140 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-08 09:16:13.222 GitMOB[2098:70b] Cannot find executable for CFBundle 0xa65e2c0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-08 09:16:13.254 GitMOB[2098:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-08 09:16:13.260 GitMOB[2098:70b] Unlimited access to network resources
+2014-09-08 09:16:13.273 GitMOB[2098:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-08 09:16:13.273 GitMOB[2098:70b] [CDVTimer][keyboard] 0.473976ms
+2014-09-08 09:16:13.280 GitMOB[2098:70b] [CDVTimer][splashscreen] 5.870998ms
+2014-09-08 09:16:13.280 GitMOB[2098:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-08 09:16:13.280 GitMOB[2098:70b] [CDVTimer][statusbar] 0.307024ms
+2014-09-08 09:16:13.281 GitMOB[2098:70b] [CDVTimer][TotalPluginStartup] 7.731020ms
+2014-09-08 09:16:13.352 GitMOB[2098:70b] Resetting plugins due to page load.
+2014-09-08 09:16:13.977 GitMOB[2098:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 09:16:14.027 GitMOB[2098:70b] THREAD WARNING: ['InAppBrowser'] took '15.961182' ms. Plugin should use a background thread.
+2014-09-08 09:16:27.409 GitMOB[2098:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 09:16:27.409 GitMOB[2098:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 09:16:27.409 GitMOB[2098:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "accesstoken2d1882074dc4774e0a58329fec5c0d1f1c49f284"
+  ]
+]
+2014-09-08 09:16:27.417 GitMOB[2098:70b] webView:didFailLoadWithError - -1004: Could not connect to the server.
+2014-09-08 09:16:27.935 GitMOB[2098:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 09:16:27.935 GitMOB[2098:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 09:16:27.936 GitMOB[2098:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"name\":\"Jack Hanford\",\"company\":\"\",\"alias\":\"jackhanford\",\"bio\":null,\"avatar\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"email\":\"jackhanford@gmail.com\",\"location\":\"Palo Alto, CA\",\"raw\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"htt[...]

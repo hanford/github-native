@@ -1,6 +1,6 @@
 angular.module('controller', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
 	$rootScope.count;
 	if ($rootScope.count < 0) {
 		if (navigator.splashscreen) {
@@ -12,9 +12,17 @@ angular.module('controller', [])
 		}
 	}
 
+	$timeout(function(){
+		if ($rootScope.authname) {
+			$scope.authname
+		} else {
+			$scope.authname = $rootScope.authalias;
+		}
+	}, 750)
+
 	$rootScope.ginfo;
 
-	$scope.uname = "jackhanford";
+	$scope.uname = '';
 
 	$scope.searchProject	= function(uname) {
 		$ionicLoading.show({
@@ -307,7 +315,12 @@ angular.module('controller', [])
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
 	$scope.repo = $rootScope.repo;
 	$scope.branch = $scope.repo.default_branch;
-	$scope.items = $rootScope.tree;
+
+	if ($rootScope.tree.tree) {
+		$scope.items = $rootScope.tree.tree;
+	} else {
+		$scope.items = $rootScope.tree
+	}
 
 	if($scope.branch == undefined) {
 		$state.go('search')
@@ -340,15 +353,6 @@ angular.module('controller', [])
 				$rootScope.nesteddir = response.tree;
 				$state.go('nestedview')
 			})
-			// $http.get(url)
-			// .success(function(data, headers, status, config){
-			// 	$rootScope.nesteddir = data;
-			// 	debugger
-			// 	$state.go('nestedview')
-			// }).error(function(status){
-			// 	alert(status)
-			// 	console.log(status)
-			// })
 		}
 	}
 
@@ -383,6 +387,8 @@ angular.module('controller', [])
 		$state.go('search')
 	}
 
+	$scope.alias = $rootScope.authlogin;
+
 
 	if ($rootScope.access_token) {
 		$scope.authenticated = 'Yes'
@@ -390,31 +396,29 @@ angular.module('controller', [])
 		$scope.authenticated = 'No'
 	}
 
-	$scope.removeAuth = function(OAuth) {
-		$rootScope.access_token = '';
-		$scope.authenticated = 'no'	
-		// $http.get('http://api.github.com/authorizations').success(function(data){
-		// });
-}
+	// $scope.removeAuth = function(OAuth) {
+	// 	$rootScope.access_token = '';
+	// 	$scope.authenticated = 'No'	
+	// 	$rootScope.meFun();
+	// }
 
-$scope.newAuth = function() {
-	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-	OAuth.popup('github', {
-		cache: true
-	}).done(function (result) {
-		$rootScope.access_token = result.access_token;
-	}).fail(function (error) {
-		alert('Error authenticating!')
+	$scope.newAuth = function() {
+		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		OAuth.popup('github', {
+			cache: true
+		}).done(function (result) {
+			$rootScope.access_token = result.access_token;
+		}).fail(function (error) {
+			alert('Error authenticating!')
+		})
+	}
+
+	$scope.rate = false;
+
+	githubservice.getRate().then(function(response) {
+		$scope.rate = true;
+		$scope.ratelimit = response.rate.remaining;
 	})
-}
-
-$scope.rate = false;
-
-githubservice.getRate().then(function(response) {
-	$scope.rate = true;
-
-	$scope.ratelimit = response.rate.remaining;
-})
 })
 
 .controller('codeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
@@ -427,30 +431,25 @@ githubservice.getRate().then(function(response) {
 })
 .controller('nestedviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
 	$scope.items = $rootScope.nesteddir;
-	console.log($scope.items)
+
+	if (!$scope.items) {
+		$state.go('search')
+	}
+
 	$scope.file = function(item) {
 		console.log(item)
-		if (item.type == "dir") {
-			var url = item.git_url;
+		if (item.type == "tree") {
+			var url = item.url;
 			githubservice.getDir(url).then(function(response) {
 				console.log(response)
-				$rootScope.nesteddir = response;
-				$state.go('nestedview')
+				$rootScope.tree = response;
+				$state.go('treeview')
 			})
-			// $http.get(url)
-			// .success(function(data, headers, status, config){
-			// 	$rootScope.nesteddir = data;
-			// 	debugger
-			// 	$state.go('nestedview')
-			// }).error(function(status){
-			// 	alert(status)
-			// 	console.log(status)
-			// })
-		} else {
+		} else if (item.type == "blob") {
 			githubservice.getCode($rootScope.repo.full_name, item.path).then(function(response) {
 				console.log(response.content)
 				debugger
-				$rootScope.code = response.content
+				$rootScope.code = atob(response.content.replace(/\s/g, ''))
 				$state.go('code')
 			})
 		}

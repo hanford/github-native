@@ -257,3 +257,7 @@ overflow: hidden;
 .commit-count {
 	font-size: 14px;
 }
+
+.code-wrapper {
+	tab-size: 2;
+}

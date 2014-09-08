@@ -14,6 +14,20 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 				cache: true
 			})
 			.done(function (result) {
+				result.me()
+				.done(function (user_info) {
+					console.log(user_info)
+					if(user_info.name) {
+						$rootScope.authname = user_info.name;
+						$rootScope.authlogin = user_info.alias;
+					} else {
+						$rootScope.authname = user_info.alias;
+						$rootScope.authlogin = user_info.alias;
+					}
+      	})
+				.fail(function (error) {
+					console.log(error)
+				})
 				console.log('accesstoken' + result.access_token)
 				$rootScope.access_token = result.access_token;
 			})

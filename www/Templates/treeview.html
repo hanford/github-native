@@ -29,9 +29,12 @@
     				<span ng-switch="item.type">
     					<span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>
     					<span ng-switch-when="file" class="octicon octicon-file-text icon"></span>
+              <span ng-switch-when="tree" class="octicon octicon-file-directory icon"></span>
+              <span ng-switch-when="blob" class="octicon octicon-file-text icon"></span>
     				</span>
     			</span>
-    			<span class="">{{item.name}}</span>
+    			<span>{{item.name}}</span>
+          <span ng-if="!item.name">{{item.path}}</span>
     		</ion-item>
     	</ion-list>
   </ion-content>
