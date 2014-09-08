@@ -4,14 +4,16 @@
       <div class="list list-inset">
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="uname" required class="bigput">
+          <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput">
         </label>
       </div>
       <div class="button-bar">
-        <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-positive button-large ">People</button>
-        <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-balanced button-large ">Projects</button>
+        <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-positive button-large">People</button>
+        <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-balanced button-large">Projects</button>
       </div>
     </form>
+    <!-- <h5 class="center" ng-if="authname">Welcome, {{authname}}</h5> -->
+    <button class="button button-block button-light button-large" ng-show="authname" ng-click="searchUser(authlogin)">Your Account</button>
   </ion-content>
   <ion-footer-bar align-title="center" ng-click="info()">
   <div class="about-button">Info</div>

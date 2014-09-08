@@ -1,6 +1,6 @@
 angular.module('controller', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
 	$rootScope.count;
 	if ($rootScope.count < 0) {
 		if (navigator.splashscreen) {
@@ -12,9 +12,17 @@ angular.module('controller', [])
 		}
 	}
 
+	$timeout(function(){
+		if ($rootScope.authname) {
+			$scope.authname
+		} else {
+			$scope.authname = $rootScope.authalias;
+		}
+	}, 1200)
+
 	$rootScope.ginfo;
 
-	$scope.uname = "jackhanford";
+	$scope.uname = '';
 
 	$scope.searchProject	= function(uname) {
 		$ionicLoading.show({
@@ -379,6 +387,8 @@ angular.module('controller', [])
 		$state.go('search')
 	}
 
+	$scope.alias = $rootScope.authlogin;
+
 
 	if ($rootScope.access_token) {
 		$scope.authenticated = 'Yes'
@@ -386,29 +396,28 @@ angular.module('controller', [])
 		$scope.authenticated = 'No'
 	}
 
-	$scope.removeAuth = function(OAuth) {
-		$rootScope.access_token = '';
-		$scope.authenticated = 'no'	
-		// $http.get('http://api.github.com/authorizations').success(function(data){
-		// });
-}
+	// $scope.removeAuth = function(OAuth) {
+	// 	$rootScope.access_token = '';
+	// 	$scope.authenticated = 'No'	
+	// 	$rootScope.meFun();
+	// }
 
-$scope.newAuth = function() {
-	OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-	OAuth.popup('github', {
-		cache: true
-	}).done(function (result) {
-		$rootScope.access_token = result.access_token;
-	}).fail(function (error) {
-		alert('Error authenticating!')
-	})
-}
+	$scope.newAuth = function() {
+		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		OAuth.popup('github', {
+			cache: true
+		}).done(function (result) {
+			$rootScope.access_token = result.access_token;
+		}).fail(function (error) {
+			alert('Error authenticating!')
+		})
+	}
 
-$scope.rate = false;
+	$scope.rate = false;
 
-githubservice.getRate().then(function(response) {
-	$scope.rate = true;
-	$scope.ratelimit = response.rate.remaining;
+	githubservice.getRate().then(function(response) {
+		$scope.rate = true;
+		$scope.ratelimit = response.rate.remaining;
 	})
 })
 
@@ -429,7 +438,6 @@ githubservice.getRate().then(function(response) {
 
 	$scope.file = function(item) {
 		console.log(item)
-		debugger
 		if (item.type == "tree") {
 			var url = item.url;
 			githubservice.getDir(url).then(function(response) {

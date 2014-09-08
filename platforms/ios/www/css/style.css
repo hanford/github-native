@@ -146,6 +146,7 @@
 
 .branch {
 	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	color: #555 !important;
 }
 
 

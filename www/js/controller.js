@@ -18,7 +18,7 @@ angular.module('controller', [])
 		} else {
 			$scope.authname = $rootScope.authalias;
 		}
-	}, 750)
+	}, 1200)
 
 	$rootScope.ginfo;
 

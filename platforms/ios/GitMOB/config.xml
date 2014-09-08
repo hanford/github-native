@@ -43,7 +43,7 @@
     <author email="jackhanford@gmail.com" href="http://jackhanford.com/">
     Jack Hanford
   </author>
-    <content original-src="index.html" src="http://10.10.10.181:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <access origin="github.com" />
     <preference name="webviewbounce" value="false" />
