@@ -8,6 +8,12 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 .run(function($ionicPlatform, $rootScope, $state, $ionicPopup) {
 
 	$ionicPlatform.ready(function() {
+		// var type = $cordovaNetwork.getNetwork();
+		// var isOnline = $cordovaNetwork.isOnline();
+		// var isOffline = $cordovaNetwork.isOffline();
+
+		// console.log(type, isOnline, isOffline)
+
 		if (window.OAuth) {
 			OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
 			OAuth.popup('github', {

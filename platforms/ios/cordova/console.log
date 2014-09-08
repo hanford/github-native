@@ -9942,3 +9942,347 @@ objc[2098]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.ap
   [
     "LOG",
     "{\"name\":\"Jack Hanford\",\"company\":\"\",\"alias\":\"jackhanford\",\"bio\":null,\"avatar\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"email\":\"jackhanford@gmail.com\",\"location\":\"Palo Alto, CA\",\"raw\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"htt[...]
+objc[4513]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-08 12:09:19.050 GitMOB[4513:70b] Cannot find executable for CFBundle 0xb852ab0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-08 12:09:19.055 GitMOB[4513:70b] Cannot find executable for CFBundle 0xb883e80 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-08 12:09:19.085 GitMOB[4513:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-08 12:09:19.090 GitMOB[4513:70b] Unlimited access to network resources
+2014-09-08 12:09:19.104 GitMOB[4513:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-08 12:09:19.104 GitMOB[4513:70b] [CDVTimer][keyboard] 0.366986ms
+2014-09-08 12:09:19.110 GitMOB[4513:70b] [CDVTimer][splashscreen] 5.560040ms
+2014-09-08 12:09:19.111 GitMOB[4513:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-08 12:09:19.111 GitMOB[4513:70b] [CDVTimer][statusbar] 0.258029ms
+2014-09-08 12:09:19.111 GitMOB[4513:70b] [CDVTimer][TotalPluginStartup] 6.999016ms
+2014-09-08 12:09:19.175 GitMOB[4513:70b] Resetting plugins due to page load.
+2014-09-08 12:09:19.745 GitMOB[4513:70b] Finished load of: file:///Users/jack/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/574FA40C-2DFC-4848-8643-6FACDE68C3EF/GitMOB.app/www/index.html#/search
+2014-09-08 12:09:19.843 GitMOB[4513:70b] THREAD WARNING: ['InAppBrowser'] took '16.252930' ms. Plugin should use a background thread.
+2014-09-08 12:09:36.864 GitMOB[4513:70b] webView:didFailLoadWithError - -1004: Could not connect to the server.
+objc[5513]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-08 13:47:37.648 GitMOB[5513:70b] Cannot find executable for CFBundle 0xa41bd20 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-08 13:47:37.651 GitMOB[5513:70b] Cannot find executable for CFBundle 0xa2457f0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-08 13:47:37.685 GitMOB[5513:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-08 13:47:37.691 GitMOB[5513:70b] Unlimited access to network resources
+2014-09-08 13:47:37.704 GitMOB[5513:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-08 13:47:37.704 GitMOB[5513:70b] [CDVTimer][keyboard] 0.473976ms
+2014-09-08 13:47:37.711 GitMOB[5513:70b] [CDVTimer][splashscreen] 5.906045ms
+2014-09-08 13:47:37.711 GitMOB[5513:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-08 13:47:37.711 GitMOB[5513:70b] [CDVTimer][statusbar] 0.318050ms
+2014-09-08 13:47:37.712 GitMOB[5513:70b] [CDVTimer][TotalPluginStartup] 7.768989ms
+2014-09-08 13:47:37.786 GitMOB[5513:70b] Resetting plugins due to page load.
+2014-09-08 13:47:38.379 GitMOB[5513:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:48:16.933 GitMOB[5513:70b] Resetting plugins due to page load.
+2014-09-08 13:48:17.502 GitMOB[5513:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:48:29.935 GitMOB[5513:70b] Resetting plugins due to page load.
+2014-09-08 13:48:30.345 GitMOB[5513:70b] Finished load of: http://10.10.10.181:8100/#/search
+objc[5754]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-09-08 13:48:38.382 GitMOB[5754:70b] Cannot find executable for CFBundle 0xa3abcf0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-09-08 13:48:38.386 GitMOB[5754:70b] Cannot find executable for CFBundle 0xa3c8440 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-09-08 13:48:38.405 GitMOB[5754:70b] Multi-tasking -> Device: YES, App: YES
+2014-09-08 13:48:38.410 GitMOB[5754:70b] Unlimited access to network resources
+2014-09-08 13:48:38.423 GitMOB[5754:70b] CDVPlugin class IonicKeyboard (pluginName: keyboard) does not exist.
+2014-09-08 13:48:38.423 GitMOB[5754:70b] [CDVTimer][keyboard] 0.348985ms
+2014-09-08 13:48:38.429 GitMOB[5754:70b] [CDVTimer][splashscreen] 5.636036ms
+2014-09-08 13:48:38.429 GitMOB[5754:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-09-08 13:48:38.430 GitMOB[5754:70b] [CDVTimer][statusbar] 0.396013ms
+2014-09-08 13:48:38.430 GitMOB[5754:70b] [CDVTimer][TotalPluginStartup] 7.394016ms
+2014-09-08 13:48:38.475 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:48:39.107 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:49:54.393 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:49:54.926 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:50:05.589 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:50:05.957 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:50:09.624 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:50:10.010 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:50:10.039 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:50:10.039 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:50:10.039 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "accesstoken2d1882074dc4774e0a58329fec5c0d1f1c49f284"
+  ]
+]
+2014-09-08 13:50:10.536 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:50:10.536 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:50:10.536 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"name\":\"Jack Hanford\",\"company\":\"\",\"alias\":\"jackhanford\",\"bio\":null,\"avatar\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"email\":\"jackhanford@gmail.com\",\"location\":\"Palo Alto, CA\",\"raw\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"htt[...]
+2014-09-08 13:50:12.952 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:50:13.333 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:50:13.357 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:50:13.357 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:50:13.357 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "accesstoken2d1882074dc4774e0a58329fec5c0d1f1c49f284"
+  ]
+]
+2014-09-08 13:50:13.488 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:50:13.488 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:50:13.488 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"name\":\"Jack Hanford\",\"company\":\"\",\"alias\":\"jackhanford\",\"bio\":null,\"avatar\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"email\":\"jackhanford@gmail.com\",\"location\":\"Palo Alto, CA\",\"raw\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"htt[...]
+2014-09-08 13:55:31.973 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:31.974 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:31.974 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"https:\/\/api.github.com\/users\/jackhanford\/orgs\",\"repos_url\":\"https:\/\/api.github.com\/users\/jackhanford\/repos\",\"events_url\":\"https:\/\/api.github.com\/users\/jackhanford\/events{\/privacy}\",\"received_events_url\":\"[...]
+2014-09-08 13:55:33.230 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:33.231 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:33.231 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "[{\"name\":\".DS_Store\",\"path\":\".DS_Store\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"html_url\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\",\"git_url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"type\":\"file\",\"_links\":{\"self\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"git\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"html\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\"}},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\"size\":0,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/README.md?ref=m[...]
+2014-09-08 13:55:33.384 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:33.384 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:33.384 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "first call for for contribs"
+  ]
+]
+2014-09-08 13:55:35.086 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:35.086 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:35.086 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/b26b6ad5f0176b0b7c869abdab3b40b598b13a7c"
+  ]
+]
+2014-09-08 13:55:35.203 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:35.203 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:35.204 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"sha\":\"b26b6ad5f0176b0b7c869abdab3b40b598b13a7c\",\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/b26b6ad5f0176b0b7c869abdab3b40b598b13a7c\",\"tree\":[{\"path\":\".DS_Store\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\"},{\"path\":\"SarahandI.jpg\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"3a4ebf56e872bb4e51f24d8535e9c341f962928b\",\"size\":478434,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/3a4ebf56e872bb4e51f24d8535e9c341f962928b\"},{\"path\":\"aiden.jpg\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"9c7a165e9ffc1d11449388f8448f304cae1f7ad2\",\"size\":86084,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/9c7a165e9ffc1d11449388f8448f304cae1f7ad2\"},{\"path\":\"claco[...]
+2014-09-08 13:55:37.889 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:37.889 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:37.890 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "[{\"name\":\".DS_Store\",\"path\":\".DS_Store\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"html_url\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\",\"git_url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"type\":\"file\",\"_links\":{\"self\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"git\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"html\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\"},\"$$hashKey\":\"05L\"},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\"size\":0,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/con[...]
+2014-09-08 13:55:37.904 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:37.904 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:37.905 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "first call for for contribs"
+  ]
+]
+2014-09-08 13:55:38.692 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:38.692 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:38.692 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/b26b6ad5f0176b0b7c869abdab3b40b598b13a7c"
+  ]
+]
+2014-09-08 13:55:38.712 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:38.712 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:38.712 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"sha\":\"b26b6ad5f0176b0b7c869abdab3b40b598b13a7c\",\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/b26b6ad5f0176b0b7c869abdab3b40b598b13a7c\",\"tree\":[{\"path\":\".DS_Store\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\"},{\"path\":\"SarahandI.jpg\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"3a4ebf56e872bb4e51f24d8535e9c341f962928b\",\"size\":478434,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/3a4ebf56e872bb4e51f24d8535e9c341f962928b\"},{\"path\":\"aiden.jpg\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"9c7a165e9ffc1d11449388f8448f304cae1f7ad2\",\"size\":86084,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/9c7a165e9ffc1d11449388f8448f304cae1f7ad2\"},{\"path\":\"claco[...]
+2014-09-08 13:55:39.688 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:39.688 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:39.688 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"SarahandI.jpg\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"3a4ebf56e872bb4e51f24d8535e9c341f962928b\",\"size\":478434,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/3a4ebf56e872bb4e51f24d8535e9c341f962928b\",\"$$hashKey\":\"07X\"}"
+  ]
+]
+2014-09-08 13:55:40.441 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:40.442 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:40.442 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "[{\"name\":\".DS_Store\",\"path\":\".DS_Store\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"html_url\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\",\"git_url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"type\":\"file\",\"_links\":{\"self\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"git\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"html\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\"},\"$$hashKey\":\"05L\"},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\"size\":0,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/con[...]
+2014-09-08 13:55:40.453 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:55:40.453 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:55:40.453 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "first call for for contribs"
+  ]
+]
+2014-09-08 13:56:04.896 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:04.896 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:04.897 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/7ebe05a12a4dca208479268ca076ca7cfa230a76"
+  ]
+]
+2014-09-08 13:56:05.331 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:05.331 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:05.331 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"sha\":\"7ebe05a12a4dca208479268ca076ca7cfa230a76\",\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/trees\/7ebe05a12a4dca208479268ca076ca7cfa230a76\",\"tree\":[{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\"}],\"truncated\":false}"
+  ]
+]
+2014-09-08 13:56:06.282 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:06.282 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:06.282 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"$$hashKey\":\"09H\"}"
+  ]
+]
+2014-09-08 13:56:07.199 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:07.199 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:07.200 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"$$hashKey\":\"09H\"}"
+  ]
+]
+2014-09-08 13:56:08.218 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:08.218 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:08.218 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"$$hashKey\":\"09H\"}"
+  ]
+]
+2014-09-08 13:56:08.412 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:08.412 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:08.412 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"$$hashKey\":\"09H\"}"
+  ]
+]
+2014-09-08 13:56:08.615 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:08.615 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:08.615 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"path\":\"main.js\",\"mode\":\"100644\",\"type\":\"blob\",\"sha\":\"bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"size\":175,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/bcc81650cc996ba6f59eb66dec9e3d0e8b99d1de\",\"$$hashKey\":\"09H\"}"
+  ]
+]
+2014-09-08 13:56:09.037 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:09.037 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:09.038 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "[{\"name\":\".DS_Store\",\"path\":\".DS_Store\",\"sha\":\"5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"size\":6148,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"html_url\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\",\"git_url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"type\":\"file\",\"_links\":{\"self\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/contents\/.DS_Store?ref=master\",\"git\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/git\/blobs\/5008ddfcf53c02e82d7eee2e57c38e5672ef89f6\",\"html\":\"https:\/\/github.com\/jackhanford\/Personal\/blob\/master\/.DS_Store\"},\"$$hashKey\":\"05L\"},{\"name\":\"README.md\",\"path\":\"README.md\",\"sha\":\"e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\",\"size\":0,\"url\":\"https:\/\/api.github.com\/repos\/jackhanford\/Personal\/con[...]
+2014-09-08 13:56:09.044 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:56:09.044 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:56:09.044 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "first call for for contribs"
+  ]
+]
+2014-09-08 13:57:06.267 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 13:57:06.834 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 13:57:06.867 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:57:06.868 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:57:06.868 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "accesstoken2d1882074dc4774e0a58329fec5c0d1f1c49f284"
+  ]
+]
+2014-09-08 13:57:07.379 GitMOB[5754:70b] CDVPlugin class CDVLogger (pluginName: Console) does not exist.
+2014-09-08 13:57:07.380 GitMOB[5754:70b] ERROR: Plugin 'Console' not found, or is not a CDVPlugin. Check your plugin mapping in config.xml.
+2014-09-08 13:57:07.380 GitMOB[5754:70b] -[CDVCommandQueue executePending] [Line 158] FAILED pluginJSON = [
+  "INVALID",
+  "Console",
+  "logLevel",
+  [
+    "LOG",
+    "{\"name\":\"Jack Hanford\",\"company\":\"\",\"alias\":\"jackhanford\",\"bio\":null,\"avatar\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"email\":\"jackhanford@gmail.com\",\"location\":\"Palo Alto, CA\",\"raw\":{\"login\":\"jackhanford\",\"id\":2148168,\"avatar_url\":\"https:\/\/avatars.githubusercontent.com\/u\/2148168?v=2\",\"gravatar_id\":\"194e8d62c38b487ec0744d2ccc0931fc\",\"url\":\"https:\/\/api.github.com\/users\/jackhanford\",\"html_url\":\"https:\/\/github.com\/jackhanford\",\"followers_url\":\"https:\/\/api.github.com\/users\/jackhanford\/followers\",\"following_url\":\"https:\/\/api.github.com\/users\/jackhanford\/following{\/other_user}\",\"gists_url\":\"https:\/\/api.github.com\/users\/jackhanford\/gists{\/gist_id}\",\"starred_url\":\"https:\/\/api.github.com\/users\/jackhanford\/starred{\/owner}{\/repo}\",\"subscriptions_url\":\"https:\/\/api.github.com\/users\/jackhanford\/subscriptions\",\"organizations_url\":\"htt[...]
+2014-09-08 14:00:00.115 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:00:00.647 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 14:00:08.267 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:00:08.674 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 14:00:48.084 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:00:48.615 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 14:00:52.620 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:00:52.986 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 14:01:14.312 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:01:14.845 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search
+2014-09-08 14:01:17.626 GitMOB[5754:70b] Resetting plugins due to page load.
+2014-09-08 14:01:18.018 GitMOB[5754:70b] Finished load of: http://10.10.10.181:8100/#/search

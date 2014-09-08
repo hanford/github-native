@@ -34,7 +34,13 @@
   <div class="bubble">
     <h3 class="bubble-header">Public Repositories</h3>
     <ion-item ng-repeat="popularRepo in popularRepos" ng-click="repoinfo(popularRepo)">
-      <span class="small-repo pull-left"><span class="octicon octicon-repo grey-icon"></span> {{popularRepo.full_name}}</span>
+      <span class="small-repo pull-left">
+        <span ng-switch="popularRepo.fork">
+          <span ng-switch-when="true" class="octicon octicon-repo-forked grey-icon"></span>
+          <span ng-switch-when="false" class="octicon octicon-repo grey-icon"></span>
+        </span>
+         {{popularRepo.full_name}}
+       </span>
       <span class="pull-right stargazer">{{popularRepo.stargazers_count}} <i class="ion-android-star"></i></span>
     </ion-item>
   </div>
