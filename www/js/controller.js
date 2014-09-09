@@ -1,16 +1,14 @@
 angular.module('controller', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
-	$rootScope.count;
-	if ($rootScope.count < 0) {
-		if (navigator.splashscreen) {
-			navigator.splashscreen.show();
-			setTimeout(function() {
-				navigator.splashscreen.hide();
-			}, 5000)
-			$rootScope.count++
-		}
-	}
+.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
+	// $rootScope.count;
+	// if ($rootScope.count < 0) {
+	// 	if (navigator.splashscreen) {
+	// 		navigator.splashscreen.show();
+	// 		navigator.splashscreen.hide();
+	// 		$rootScope.count++
+	// 	}
+	// }
 
 	$timeout(function(){
 		if ($rootScope.authname) {
@@ -54,10 +52,12 @@ angular.module('controller', [])
 	}
 })
 
-.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
+.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate) {
+
 	if (!$rootScope.ginfo) {
 		$state.go('search')
 	}
+
 	$scope.pub_count = $rootScope.ginfo.public_repos;
 	$scope.gists = $rootScope.ginfo.public_gists;
 	$scope.followers = $rootScope.ginfo.followers;
@@ -76,6 +76,11 @@ angular.module('controller', [])
 	} else {
 		$scope.hideLink = true;
 	}
+
+	$scope.blogClick = function(blog) {
+		var ref = window.open(blog, '_blank', 'location=yes');
+	}
+
 
 	if ($rootScope.ginfo.location) {
 		$scope.hideLocation = false;
@@ -125,6 +130,11 @@ angular.module('controller', [])
 			$state.go('treeview')
 			$rootScope.tree = response;
 		})
+	}
+
+
+	$scope.bottom = function() {
+		$ionicScrollDelegate.scrollBottom(true)
 	}
 
 	$scope.toFollowerState = function () {
@@ -314,17 +324,11 @@ angular.module('controller', [])
 
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
 	$scope.repo = $rootScope.repo;
-	$scope.branch = $scope.repo.default_branch;
 
-	if ($rootScope.tree.tree) {
-		$scope.items = $rootScope.tree.tree;
-	} else {
-		$scope.items = $rootScope.tree
-	}
+	$scope.items = $rootScope.tree;
+	debugger
 
-	if($scope.branch == undefined) {
-		$state.go('search')
-	} else if ($rootScope.repo == undefined) {
+	if ($rootScope.repo == undefined) {
 		$state.go('search')
 	} else if ($rootScope.tree == undefined) {
 		$state.go('search')
@@ -346,14 +350,12 @@ angular.module('controller', [])
 				$state.go('code')
 			})
 		} else if (item.type == "dir") {
-			var url = item.git_url;
-			console.log(url)
-			githubservice.getDir(url).then(function(response) {
-				console.log(response)
-				$rootScope.nesteddir = response.tree;
-				$state.go('nestedview')
-			})
+			var ref = window.open(item.html_url, '_blank', 'location=yes');
 		}
+	}
+
+	$scope.branch = function() {
+		var ref = window.open('https://github.com/'+ $rootScope.repo.full_name + '?files=1', '_blank', 'location=yes');
 	}
 
 
@@ -366,11 +368,35 @@ angular.module('controller', [])
 		$scope.contribs = function() {
 			$scope.modal.show();
 			githubservice.getStats($scope.repo.full_name).then(function(response) {
+				console.log(response)
 				$scope.contributors = response;
 			})
 		};
 		$scope.closeModal = function() {
 			$scope.modal.hide();
+		}
+
+		$scope.toContrib = function(login) {
+			debugger
+			$rootScope.uname = login;
+
+			var url = 'https://api.github.com/users/' + login;
+
+			console.log(url)
+
+			$ionicLoading.show({
+				template: 'Loading...'
+			});
+
+			$http.get(url)
+			.success(function(data, headers, status, config){
+				$rootScope.ginfo = data;
+				$ionicLoading.hide();
+				$scope.modal.hide();
+				$state.go('profile')
+			}).error(function(data, headers, status, config) {
+				console.log(data, headers, status)
+			});
 		}
 	});
 
@@ -385,6 +411,14 @@ angular.module('controller', [])
 .controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
 	$scope.search = function() {
 		$state.go('search')
+	}
+
+	$scope.personalwebsite = function() {
+		var ref = window.open('http://jackhanford.com', '_blank', 'location=yes');
+	}
+
+	$scope.mit = function() {
+		var ref = window.open('http://en.wikipedia.org/wiki/MIT_License', '_blank', 'location=yes');
 	}
 
 	$scope.alias = $rootScope.authlogin;
@@ -406,8 +440,19 @@ angular.module('controller', [])
 		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
 		OAuth.popup('github', {
 			cache: true
-		}).done(function (result) {
-			$rootScope.access_token = result.access_token;
+		}).done(function(result) {
+			result.me()
+			.done(function (user_info) {
+				console.log(user_info)
+				if(user_info.name) {
+					$rootScope.authname = user_info.name;
+					$rootScope.authlogin = user_info.alias;
+				} else {
+					$rootScope.authname = user_info.alias;
+					$rootScope.authlogin = user_info.alias;
+				}
+				$rootScope.access_token = result.access_token
+			})
 		}).fail(function (error) {
 			alert('Error authenticating!')
 		})
@@ -427,31 +472,5 @@ angular.module('controller', [])
 
 	if (!$rootScope.code) {
 		$state.go('search')
-	}
-})
-.controller('nestedviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
-	$scope.items = $rootScope.nesteddir;
-
-	if (!$scope.items) {
-		$state.go('search')
-	}
-
-	$scope.file = function(item) {
-		console.log(item)
-		if (item.type == "tree") {
-			var url = item.url;
-			githubservice.getDir(url).then(function(response) {
-				console.log(response)
-				$rootScope.tree = response;
-				$state.go('treeview')
-			})
-		} else if (item.type == "blob") {
-			githubservice.getCode($rootScope.repo.full_name, item.path).then(function(response) {
-				console.log(response.content)
-				debugger
-				$rootScope.code = atob(response.content.replace(/\s/g, ''))
-				$state.go('code')
-			})
-		}
 	}
 })

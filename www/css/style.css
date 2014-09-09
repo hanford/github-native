@@ -262,3 +262,7 @@ overflow: hidden;
 .code-wrapper {
 	tab-size: 2;
 }
+
+.authorize {
+	color: #555;
+}

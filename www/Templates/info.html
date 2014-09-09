@@ -10,14 +10,14 @@
         <span ng-show="rate">{{ratelimit}}</span>
       </span>
     </li>
-    <li class="item">Login <span class="pull-right">{{alias}}</span></li>
+    <li class="item" ng-if="alias">Login <span class="pull-right">{{alias}}</span></li>
   </ul>
     <!-- <button class="button button-assertive button-block" ng-click="removeAuth()" ng-show="authenticated">Remove Authentication</button> -->
     <button class="button button-dark button-block" ng-click="newAuth()" ng-hide="authenticated">New Authentication</button>
     <br />
-    <span class="center">Made by <a href="http://jackhanford.com">Jack Hanford</a>
+    <span class="center">Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a>
     <br />
-     	Open Sourced under <a href="http://en.wikipedia.org/wiki/MIT_License">MIT</a>
+     	Open Sourced under <a class="positive" ng-click="mit()">MIT</a>
     <br />
       version: 0.1
     </span>

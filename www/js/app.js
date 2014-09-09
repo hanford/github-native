@@ -5,8 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 
-.run(function($ionicPlatform, $rootScope, $state, $ionicPopup) {
-
+.run(function($ionicPlatform, $rootScope, $state, $ionicPopup, $ionicModal) {
 	$ionicPlatform.ready(function() {
 		// var type = $cordovaNetwork.getNetwork();
 		// var isOnline = $cordovaNetwork.isOnline();
@@ -15,32 +14,32 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 		// console.log(type, isOnline, isOffline)
 
 		if (window.OAuth) {
-			OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-			OAuth.popup('github', {
-				cache: true
-			})
-			.done(function (result) {
-				result.me()
-				.done(function (user_info) {
-					console.log(user_info)
-					if(user_info.name) {
-						$rootScope.authname = user_info.name;
-						$rootScope.authlogin = user_info.alias;
-					} else {
-						$rootScope.authname = user_info.alias;
-						$rootScope.authlogin = user_info.alias;
-					}
-      	})
-				.fail(function (error) {
-					console.log(error)
-				})
-				console.log('accesstoken' + result.access_token)
-				$rootScope.access_token = result.access_token;
+		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
+		OAuth.popup('github', {
+			cache: true
+		})
+		.done(function (result) {
+			result.me()
+			.done(function (user_info) {
+				console.log(user_info)
+				if(user_info.name) {
+					$rootScope.authname = user_info.name;
+					$rootScope.authlogin = user_info.alias;
+				} else {
+					$rootScope.authname = user_info.alias;
+					$rootScope.authlogin = user_info.alias;
+				}
 			})
 			.fail(function (error) {
-				$state.go('info')
+				console.log(error)
 			})
-		}
+			console.log('accesstoken' + result.access_token)
+			$rootScope.access_token = result.access_token;
+		})
+		.fail(function (error) {
+			$state.go('info')
+		})
+	}
 
 		if(window.StatusBar) {
 			StatusBar.styleDefault();

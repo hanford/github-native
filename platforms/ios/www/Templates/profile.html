@@ -1,4 +1,5 @@
 <ion-view title="Profile">
+
 <ion-content has-header="true">
 <div class="profile-blob">
   <div class="row profile-row">
@@ -17,7 +18,7 @@
           <i class="octicon octicon-location ico"></i> {{location}}
         </div>
         <div class="row" ng-hide="hideLink">
-          <i class="octicon octicon-link link-item-icon ico"></i>  <a href="{{blog}}" class="profile-link"> {{blog}}</a>
+          <i class="octicon octicon-link link-item-icon ico"></i>  <a ng-click="blogClick(blog)" class="profile-link"> {{blog}}</a>
         </div>
       </div>
     </div>
@@ -26,11 +27,11 @@
     <button class="button githubgreen button-block action-button" ng-click="acitivty()">Recent Activity</button>
     <div class="row">
       <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}<br /><span class="center action-text">Followers</span></div>
-      <div class="col action-numbers center">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
+      <div class="col action-numbers center" ng-click="bottom()">{{pub_count}}<br /><span class="center action-text">Public Repos</span></div>
       <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}<br /><span class="center action-text">Following</span></div>
     </div>
   </div>
-  <div class="bottom-profile">
+  <div class="bottom-profile" ng-if="popularRepos">
   <div class="bubble">
     <h3 class="bubble-header">Public Repositories</h3>
     <ion-item ng-repeat="popularRepo in popularRepos" ng-click="repoinfo(popularRepo)">
@@ -50,7 +51,8 @@
     <h1 class="title">{{name}} - Recent Activity</h1>
   </ion-header-bar>
   <ion-content>
-    <ion-list>
+  <br />
+    <ion-list ng-if="recentEvents">
       <ion-item ng-repeat="recentEvent in recentEvents">
        <span ng-switch="recentEvent.type">
         <span ng-switch-when="CommitCommentEvent"><span class="octicon octicon-mail-read grey-icon"></span> Commented on commit {{recentEvent.repo.name}}</span>
@@ -80,7 +82,7 @@
       </ion-item>
     </ion-list>
   </ion-content>
-  <ion-footer-bar align-title="center" class="bar-assertive" ng-click="closeModal()">
+  <ion-footer-bar align-title="center" class="bar-dark" ng-click="closeModal()">
   <h1 class="title">Close</h1>
 </ion-footer-bar>
  </ion-modal-view>
