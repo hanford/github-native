@@ -13,7 +13,7 @@
       </div>
     </form>
     <!-- <h5 class="center" ng-if="authname">Welcome, {{authname}}</h5> -->
-    <button class="button button-block button-stable" ng-click="searchUser(authlogin)">Your Account</button>
+    <button class="button button-block button-stable" ng-show="authlogin" ng-click="searchUser(authlogin)">Your Account</button>
   </ion-content>
   <ion-footer-bar align-title="center" ng-click="info()">
     <div class="about-button">Info</div>

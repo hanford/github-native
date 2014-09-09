@@ -368,11 +368,35 @@ angular.module('controller', [])
 		$scope.contribs = function() {
 			$scope.modal.show();
 			githubservice.getStats($scope.repo.full_name).then(function(response) {
+				console.log(response)
 				$scope.contributors = response;
 			})
 		};
 		$scope.closeModal = function() {
 			$scope.modal.hide();
+		}
+
+		$scope.toContrib = function(login) {
+			debugger
+			$rootScope.uname = login;
+
+			var url = 'https://api.github.com/users/' + login;
+
+			console.log(url)
+
+			$ionicLoading.show({
+				template: 'Loading...'
+			});
+
+			$http.get(url)
+			.success(function(data, headers, status, config){
+				$rootScope.ginfo = data;
+				$ionicLoading.hide();
+				$scope.modal.hide();
+				$state.go('profile')
+			}).error(function(data, headers, status, config) {
+				console.log(data, headers, status)
+			});
 		}
 	});
 
