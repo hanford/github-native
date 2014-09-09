@@ -53,10 +53,10 @@ angular.module('state', ['ionic'])
 		templateUrl: "templates/code.html",
 		controller: 'codeCtrl'
 	})
-	.state('nestedview', {
-		url: "/nestedview",
-		templateUrl: "templates/nestedview.html",
-		controller: 'nestedviewCtrl'
+	.state('intro', {
+		url: "/intro",
+		templateUrl: "templates/intro.html",
+		controller: 'introCtrl'
 	})
 
 	$urlRouterProvider.otherwise("/search");

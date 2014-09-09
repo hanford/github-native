@@ -9,6 +9,7 @@ angular.module('controller', [])
 	// 		$rootScope.count++
 	// 	}
 	// }
+	$rootScope.showBack = false
 
 	$timeout(function(){
 		if ($rootScope.authname) {
@@ -28,6 +29,7 @@ angular.module('controller', [])
 		});
 		githubservice.getProjects(uname).then(function(response) {
 			console.log(response)
+			$rootScope.showBack = true;
 			$ionicLoading.hide();
 			$rootScope.sItems = response.items;
 			$state.go('searchlist')
@@ -41,6 +43,7 @@ angular.module('controller', [])
 		});
 		githubservice.getPerson(uname).then(function(response) {
 			$ionicLoading.hide();
+			$rootScope.showBack = true;
 			$rootScope.ginfo = response;
 			console.log(response)
 			$state.go('profile')
@@ -48,6 +51,7 @@ angular.module('controller', [])
 	}
 
 	$scope.info = function() {
+		$rootScope.showBack = true;
 		$state.go('info')
 	}
 })
@@ -78,7 +82,7 @@ angular.module('controller', [])
 	}
 
 	$scope.blogClick = function(blog) {
-		var ref = window.open(blog, '_blank', 'location=yes');
+		var ref = window.open(blog, '_system');
 	}
 
 
@@ -472,5 +476,42 @@ angular.module('controller', [])
 
 	if (!$rootScope.code) {
 		$state.go('search')
+	}
+})
+
+.controller('introCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+
+	if($rootScope.access_token) {
+		$state.go('search')
+	}
+
+	$scope.authme = function() {
+		if($rootScope.access_token) {
+			$state.go('search')
+		}
+		OAuth.popup('github', {
+			cache: true
+		})
+		.done(function (result) {
+			$rootScope.access_token = result.access_token;
+			result.me()
+			.done(function (user_info) {
+				console.log(user_info)
+				if(user_info.name) {
+					$rootScope.authname = user_info.name;
+					$rootScope.authlogin = user_info.alias;
+				} else {
+					$rootScope.authname = user_info.alias;
+					$rootScope.authlogin = user_info.alias;
+				}
+			})
+			.fail(function (error) {
+				console.log(error)
+			})
+		})
+		.fail(function (error) {
+			alert(error)
+			$state.go('info')
+		})
 	}
 })

@@ -266,3 +266,13 @@ overflow: hidden;
 .authorize {
 	color: #555;
 }
+
+.hero-person {
+	text-align: center;
+	font-size: 100px;
+}
+
+.intro {
+	width: 80%;
+	margin: 0 auto;
+}
