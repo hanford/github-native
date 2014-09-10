@@ -179,26 +179,26 @@
 }
 
 .bubble-header{
-margin: 0;
-padding: 16px;
-border-bottom: 1px solid #ddd;
-color: #010101;
-font-weight: bold;
-font-size: 14px;
-display: block;
-background-color: #F5F5F5;
+	margin: 0;
+	padding: 16px;
+	border-bottom: 1px solid #ddd;
+	color: #010101;
+	font-weight: bold;
+	font-size: 14px;
+	display: block;
+	background-color: #F5F5F5;
 }
 
 .bubble {
-margin: 0 15px 15px;
-padding: 0;
-border: 1px solid #ddd;
-border-radius: 3px;
-background: #fff;
-white-space: normal;
-word-wrap: break-word;
-word-break: break-word;
-overflow: hidden;
+	margin: 0 15px 15px;
+	padding: 0;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	background: #fff;
+	white-space: normal;
+	word-wrap: break-word;
+	word-break: break-word;
+	overflow: hidden;
 }
 
 .bottom-profile {
@@ -275,4 +275,24 @@ overflow: hidden;
 .intro {
 	width: 80%;
 	margin: 0 auto;
+}
+
+.fakeautho {
+	margin-top: 30px;
+	color: #757575;
+}
+
+.search-bttn {
+	min-height: 100px;
+	margin: 0 auto;
+	color: #757575;
+	border: 1px solid #DDD;
+	display: inline-block;
+	background-color: white;
+	box-shadow: 0 0px 1px #DDD;
+	border-radius: 0;
+}
+
+.search-icon {
+	font-size: 30px !important;
 }

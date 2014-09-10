@@ -1,23 +1,26 @@
 angular.module('controller', [])
 
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
-	// $rootScope.count;
-	// if ($rootScope.count < 0) {
-	// 	if (navigator.splashscreen) {
-	// 		navigator.splashscreen.show();
-	// 		navigator.splashscreen.hide();
-	// 		$rootScope.count++
-	// 	}
-	// }
+	$rootScope.count;
+	if ($rootScope.count < 0) {
+		if (navigator.splashscreen) {
+			navigator.splashscreen.show();
+			$timeout(function(){
+			navigator.splashscreen.hide();
+			}, 3000)
+			$rootScope.count++
+		}
+	}
+
 	$rootScope.showBack = false
 
-	$timeout(function(){
+	$timeout(function() {
 		if ($rootScope.authname) {
 			$scope.authname
 		} else {
 			$scope.authname = $rootScope.authalias;
 		}
-	}, 1200)
+	}, 3000)
 
 	$rootScope.ginfo;
 
@@ -267,51 +270,64 @@ angular.module('controller', [])
 
 	console.log($scope.items)
 
-	$ionicModal.fromTemplateUrl('search-modal.html', {
-		scope: $scope,
-		animation: 'slide-in-up'
-	}).then(function(modal) {
-		$scope.modal = modal;
+	// $ionicModal.fromTemplateUrl('search-modal.html', {
+	// 	scope: $scope,
+	// 	animation: 'slide-in-up'
+	// }).then(function(modal) {
+	// 	$scope.modal = modal;
 
-		$scope.commits = function(fullname) {
-			githubservice.getCommits(fullname).then(function(response){
-				$rootScope.commits = response;
-				$scope.modal.hide();
-				$state.go('commits')
-			})
-		}
+	// 	$scope.commits = function(fullname) {
+	// 		githubservice.getCommits(fullname).then(function(response){
+	// 			$rootScope.commits = response;
+	// 			$scope.modal.hide();
+	// 			$state.go('commits')
+	// 		})
+	// 	}
 
-		$scope.code = function(fullname) {
-			githubservice.getTree(fullname).then(function(response){
-				$rootScope.repo = { default_branch: "master" }
-				$state.go('treeview')
-				$rootScope.tree = response;
-			})
-		}
+	// 	$scope.code = function(fullname) {
+	// 		githubservice.getTree(fullname).then(function(response){
+	// 			$rootScope.repo = { default_branch: "master" }
+	// 			$state.go('treeview')
+	// 			$rootScope.tree = response;
+	// 		})
+	// 	}
 
-		$scope.owner = function(login) {
-			$rootScope.uname = login
-			githubservice.getPerson(login).then(function(response) {
-				$scope.modal.hide();
-				$rootScope.ginfo = response;
-				$state.go('profile')
-			})
-		}
-	});
+	// 	$scope.owner = function(login) {
+	// 		$rootScope.uname = login
+	// 		githubservice.getPerson(login).then(function(response) {
+	// 			$scope.modal.hide();
+	// 			$rootScope.ginfo = response;
+	// 			$state.go('profile')
+	// 		})
+	// 	}
+	// });
 
-	$scope.openModal = function(item) {
-		$scope.name = item.name;
-		$scope.starcount = item.stargazers_count;
-		$scope.login = item.owner.login;
-		$scope.description = item.description;
-		$scope.fullname = item.full_name;
-		$scope.language = item.language;
-		$scope.forks = item.forks;
-		$scope.modal.show();
-	};
-	$scope.closeModal = function() {
-		$scope.modal.hide();
-	};
+	// $scope.openModal = function(item) {
+	// 	$scope.name = item.name;
+	// 	$scope.starcount = item.stargazers_count;
+	// 	$scope.login = item.owner.login;
+	// 	$scope.description = item.description;
+	// 	$scope.fullname = item.full_name;
+	// 	$scope.language = item.language;
+	// 	$scope.forks = item.forks;
+	// 	$scope.modal.show();
+	// };
+	// $scope.closeModal = function() {
+	// 	$scope.modal.hide();
+	// };
+
+	$scope.gotoTree = function(item) {
+		$rootScope.repo = item;
+		$ionicLoading.show({
+			template: 'Loading...'
+		});
+
+		githubservice.getTree(item.full_name).then(function(response){
+			$rootScope.tree = response;
+			$ionicLoading.hide();
+			$state.go('treeview')
+		})
+	}
 
 	if ($scope.items == undefined) {
 		$state.go('search')
@@ -418,11 +434,11 @@ angular.module('controller', [])
 	}
 
 	$scope.personalwebsite = function() {
-		var ref = window.open('http://jackhanford.com', '_blank', 'location=yes');
+		var ref = window.open('http://jackhanford.com', '_system');
 	}
 
 	$scope.mit = function() {
-		var ref = window.open('http://en.wikipedia.org/wiki/MIT_License', '_blank', 'location=yes');
+		var ref = window.open('http://opensource.org/licenses/MIT', '_system');
 	}
 
 	$scope.alias = $rootScope.authlogin;
@@ -486,14 +502,12 @@ angular.module('controller', [])
 	}
 
 	$scope.authme = function() {
-		if($rootScope.access_token) {
-			$state.go('search')
-		}
 		OAuth.popup('github', {
 			cache: true
 		})
 		.done(function (result) {
 			$rootScope.access_token = result.access_token;
+			$state.go('search')
 			result.me()
 			.done(function (user_info) {
 				console.log(user_info)
@@ -506,12 +520,11 @@ angular.module('controller', [])
 				}
 			})
 			.fail(function (error) {
-				console.log(error)
+				alert(error)
 			})
 		})
 		.fail(function (error) {
 			alert(error)
-			$state.go('info')
 		})
 	}
 })

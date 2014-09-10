@@ -5,34 +5,34 @@
 		<input type="search" ng-model="search" placeholder="Filter Projects" />
 	</label>
 	<ion-list>
-    <ion-item ng-repeat="item in items | filter:search" ng-click="openModal(item)">
+    <ion-item ng-repeat="item in items | filter:search" ng-click="gotoTree(item)">
       <span class="small-repo pull-left"><span class="octicon octicon-repo grey-icon"></span> {{item.full_name}}</span>
       <span class="pull-right stargazer">{{item.stargazers_count}} <i class="ion-android-star"></i></span>
     </ion-item>
-	    <script id="search-modal.html" type="text/ng-template">
-	    <ion-modal-view>
-	    <ion-header-bar>
-	    <h1 class="title">Project Info</h1>
-	    </ion-header-bar>
-	    <ion-content>
-	    	<div class="list card">
-	    	<div class='item'>
-	    		<div class="pull-right">
-	    			<span class="subdued">{{forks}} <span class="octicon octicon-git-branch"></span> {{starcount}} <i class='ion-android-star'></i> </span>
-	    		</div>
-	    		<div class="pull-left icon icon-{{language | lowercase}}"></div>
-					<h2>{{name}}</h2>
-	    		<p>{{description}}</p>
-	    		<p>{{full_name}}</p>
-	    	</div>
-	    	</div>
-	    	<button type="submit" ng-click="commits(fullname)" class="button button-block button-light">Commits</button>
-	    	<button type="submit" ng-click="owner(login)" class="button button-block button-light">Creator</button>
-	    	<button type="submit" ng-click="code(fullname)" class="button button-block button-stable">Code</button>
-	    	<button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
-	    </ion-content>
-	    </ion-modal-view>
-	    </script>
+	    <!--<script id="search-modal.html" type="text/ng-template">
+	    // <ion-modal-view>
+	    // <ion-header-bar>
+	    // <h1 class="title">Project Info</h1>
+	    // </ion-header-bar>
+	    // <ion-content>
+	    // 	<div class="list card">
+	    // 	<div class='item'>
+	    // 		<div class="pull-right">
+	    // 			<span class="subdued">{{forks}} <span class="octicon octicon-git-branch"></span> {{starcount}} <i class='ion-android-star'></i> </span>
+	    // 		</div>
+	    // 		<div class="pull-left icon icon-{{language | lowercase}}"></div>
+					// <h2>{{name}}</h2>
+	    // 		<p>{{description}}</p>
+	    // 		<p>{{full_name}}</p>
+	    // 	</div>
+	    // 	</div>
+	    // 	<button type="submit" ng-click="commits(fullname)" class="button button-block button-light">Commits</button>
+	    // 	<button type="submit" ng-click="owner(login)" class="button button-block button-light">Creator</button>
+	    // 	<button type="submit" ng-click="code(fullname)" class="button button-block button-stable">Code</button>
+	    // 	<button type="submit" ng-click="closeModal()" class="button button-block button-assertive">Cancel</button>
+	    // </ion-content>
+	    // </ion-modal-view>
+	    </script> -->
 	  </ion-item>
 	</ion-list>
 </ion-content>
