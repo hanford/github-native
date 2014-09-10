@@ -7,11 +7,11 @@
           <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput">
         </label>
       </div>
-      <div class="button-bar" style="width: 95%;margin:auto;">
-      <button type="submit" ng-click="searchUser(uname)" class="button button-large search-bttn">
+      <div class="button-bar" style="width:95%;margin:0 auto;">
+      <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-large search-bttn">
         <i class="octicon octicon-organization search-icon"></i>
       </button>
-      <button type="submit" ng-click="searchProject(uname)" class="button button-large search-bttn">
+      <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-large search-bttn">
         <i class="octicon octicon-file-code search-icon"></i>
       </button>
       </div>

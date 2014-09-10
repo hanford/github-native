@@ -36,6 +36,21 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/org.apache.cordova.network-information/www/network.js",
+        "id": "org.apache.cordova.network-information.network",
+        "clobbers": [
+            "navigator.connection",
+            "navigator.network.connection"
+        ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.network-information/www/Connection.js",
+        "id": "org.apache.cordova.network-information.Connection",
+        "clobbers": [
+            "Connection"
+        ]
+    },
+    {
         "file": "plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js",
         "id": "org.apache.cordova.inappbrowser.inappbrowser",
         "clobbers": [
@@ -50,6 +65,7 @@ module.exports.metadata =
     "org.apache.cordova.device": "0.2.10",
     "org.apache.cordova.splashscreen": "0.3.2",
     "com.oauthio.plugins.oauthio": "0.2.4",
+    "org.apache.cordova.network-information": "0.2.11",
     "org.apache.cordova.inappbrowser": "0.5.1"
 }
 // BOTTOM OF METADATA

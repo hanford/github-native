@@ -1,6 +1,6 @@
-angular.module('factory', [])
+angular.module('factory', ['ionic'])
 
-.factory('githubservice', function($http, $rootScope) {
+.factory('githubservice', function($http, $rootScope, $ionicPopup) {
 	var baseurl = 'https://api.github.com/';
 
 	var $ajax = {
@@ -15,15 +15,25 @@ angular.module('factory', [])
 
 			if (window.OAuth) {
 				return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
-					if (response.status = 200) {
-						return response.data;
-					} else {
-						alert(response.status)
+					return response.data;
+				}).catch(function(err) {
+					var message = err;
+					showAlert = function() {
+						var alertPopup = $ionicPopup.alert({
+							title: 'Hmmm..',
+							template: message
+						});
+						alertPopup.then(function(res) {
+
+						});
 					}
+					showAlert()
 				})
 			} else if ($rootScope.access_token == undefined) {
 				return $http.get(route).then(function(response) {
 					return response.data;
+				}).catch(function(error) {
+					alert(error)
 				})
 			}
 		}

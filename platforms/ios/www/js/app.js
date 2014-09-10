@@ -1,17 +1,23 @@
-// Ionic Starter App
+angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs', 'ngCordova.plugins.network'])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
-
-.run(function($ionicPlatform, $rootScope, $state, $timeout) {
+.run(function($ionicPlatform, $rootScope, $state, $timeout, $cordovaNetwork, $ionicPopup) {
 	$ionicPlatform.ready(function() {
-		// var type = $cordovaNetwork.getNetwork();
-		// var isOnline = $cordovaNetwork.isOnline();
-		// var isOffline = $cordovaNetwork.isOffline();
 
-		// console.log(type, isOnline, isOffline)
+		console.log($cordovaNetwork.isOffline())
+
+		// if ($cordovaNetwork.isOffline() == true) {
+		// 	showAlert = function() {
+		// 		var alertPopup = $ionicPopup.alert({
+		// 			title: 'Network Required',
+		// 			template: 'To use this Application you must first make sure you have access to the internet!'
+		// 		});
+		// 		alertPopup.then(function(res) {
+
+		// 		});
+		// 	}
+		// 	showAlert()
+		// 	alert('no internet!')
+		// }
 
 		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
 

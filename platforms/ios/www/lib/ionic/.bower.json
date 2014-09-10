@@ -1,7 +1,7 @@
 {
   "name": "ionic",
-  "version": "1.0.0-beta.11",
-  "codename": "indium-iguana",
+  "version": "1.0.0-beta.12",
+  "codename": "krypton-koala",
   "homepage": "https://github.com/driftyco/ionic",
   "authors": [
     "Max Lynch <max@drifty.com>",
@@ -35,13 +35,13 @@
     "angular-ui-router": "0.2.10",
     "collide": "1.0.0-beta.1"
   },
-  "_release": "1.0.0-beta.11",
+  "_release": "1.0.0-beta.12",
   "_resolution": {
     "type": "version",
-    "tag": "v1.0.0-beta.11",
-    "commit": "a220184091c788861273870dd10657e3629f33b2"
+    "tag": "v1.0.0-beta.12",
+    "commit": "e1fee0fbab52f6137c1d3da74a94d56e19fbaa6f"
   },
   "_source": "git://github.com/driftyco/ionic-bower.git",
-  "_target": "1.0.0-beta.11",
+  "_target": "1.0.0-beta.12",
   "_originalSource": "driftyco/ionic-bower"
 }

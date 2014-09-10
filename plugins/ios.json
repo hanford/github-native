@@ -31,13 +31,22 @@
                         {
                             "xml": "<access origin=\"https://oauth.io\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
             },
             "framework": {
                 "parents": {
-                    "SystemConfiguration.framework": [],
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
                     "CoreGraphics.framework": [
                         {
                             "xml": "false",
@@ -59,6 +68,9 @@
             "PACKAGE_NAME": "com.jackhanford.GitMOB"
         },
         "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
+        },
+        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "com.jackhanford.GitMOB"
         }
     },

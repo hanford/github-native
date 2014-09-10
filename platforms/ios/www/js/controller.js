@@ -12,23 +12,21 @@ angular.module('controller', [])
 		}
 	}
 
-	$rootScope.showBack = false
-
 	$timeout(function() {
 		if ($rootScope.authname) {
 			$scope.authname
 		} else {
 			$scope.authname = $rootScope.authalias;
 		}
-	}, 3000)
+	}, 2000)
 
+	$rootScope.showBack = false
 	$rootScope.ginfo;
-
-	$scope.uname = '';
+	$scope.uname;
 
 	$scope.searchProject	= function(uname) {
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 		githubservice.getProjects(uname).then(function(response) {
 			console.log(response)
@@ -42,7 +40,7 @@ angular.module('controller', [])
 	$scope.searchUser	= function(uname) {
 		$rootScope.uname = uname;
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 		githubservice.getPerson(uname).then(function(response) {
 			$ionicLoading.hide();
@@ -129,7 +127,7 @@ angular.module('controller', [])
 	$scope.repoinfo = function(popularRepo) {
 		$rootScope.repo = popularRepo;
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 
 		githubservice.getTree(popularRepo.full_name).then(function(response){
@@ -146,7 +144,7 @@ angular.module('controller', [])
 
 	$scope.toFollowerState = function () {
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 		githubservice.getFollowers($rootScope.uname).then(function(response){
 			$ionicLoading.hide();
@@ -157,7 +155,7 @@ angular.module('controller', [])
 
 	$scope.toFollowingState = function () {
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 		githubservice.getFollowing($rootScope.uname).then(function(response){
 			$ionicLoading.hide();
@@ -177,7 +175,7 @@ angular.module('controller', [])
 
 	$scope.select = function(rep) {
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 
 		var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name; 
@@ -230,7 +228,7 @@ angular.module('controller', [])
 		console.log(url)
 
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 
 		$http.get(url)
@@ -251,7 +249,7 @@ angular.module('controller', [])
 		$rootScope.uname = fName;
 
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 
 		var url = 'https://api.github.com/users/' + fName;
@@ -270,56 +268,10 @@ angular.module('controller', [])
 
 	console.log($scope.items)
 
-	// $ionicModal.fromTemplateUrl('search-modal.html', {
-	// 	scope: $scope,
-	// 	animation: 'slide-in-up'
-	// }).then(function(modal) {
-	// 	$scope.modal = modal;
-
-	// 	$scope.commits = function(fullname) {
-	// 		githubservice.getCommits(fullname).then(function(response){
-	// 			$rootScope.commits = response;
-	// 			$scope.modal.hide();
-	// 			$state.go('commits')
-	// 		})
-	// 	}
-
-	// 	$scope.code = function(fullname) {
-	// 		githubservice.getTree(fullname).then(function(response){
-	// 			$rootScope.repo = { default_branch: "master" }
-	// 			$state.go('treeview')
-	// 			$rootScope.tree = response;
-	// 		})
-	// 	}
-
-	// 	$scope.owner = function(login) {
-	// 		$rootScope.uname = login
-	// 		githubservice.getPerson(login).then(function(response) {
-	// 			$scope.modal.hide();
-	// 			$rootScope.ginfo = response;
-	// 			$state.go('profile')
-	// 		})
-	// 	}
-	// });
-
-	// $scope.openModal = function(item) {
-	// 	$scope.name = item.name;
-	// 	$scope.starcount = item.stargazers_count;
-	// 	$scope.login = item.owner.login;
-	// 	$scope.description = item.description;
-	// 	$scope.fullname = item.full_name;
-	// 	$scope.language = item.language;
-	// 	$scope.forks = item.forks;
-	// 	$scope.modal.show();
-	// };
-	// $scope.closeModal = function() {
-	// 	$scope.modal.hide();
-	// };
-
 	$scope.gotoTree = function(item) {
 		$rootScope.repo = item;
 		$ionicLoading.show({
-			template: 'Loading...'
+			template: '<i class="ion-loading-c"></i>'
 		});
 
 		githubservice.getTree(item.full_name).then(function(response){
@@ -405,7 +357,7 @@ angular.module('controller', [])
 			console.log(url)
 
 			$ionicLoading.show({
-				template: 'Loading...'
+				template: '<i class="ion-loading-c"></i>'
 			});
 
 			$http.get(url)
@@ -507,11 +459,11 @@ angular.module('controller', [])
 		})
 		.done(function (result) {
 			$rootScope.access_token = result.access_token;
-			$state.go('search')
 			result.me()
 			.done(function (user_info) {
 				console.log(user_info)
 				if(user_info.name) {
+					$state.go('search')
 					$rootScope.authname = user_info.name;
 					$rootScope.authlogin = user_info.alias;
 				} else {

@@ -1,6 +1,5 @@
-angular.module('ngCordova', [
-  'ngCordova.plugins'
-]);
+angular.module('ngCordova', ['ngCordova.plugins']);
+
 angular.module('ngCordova.plugins.network', [])
 
 .factory('$cordovaNetwork', [function () {
