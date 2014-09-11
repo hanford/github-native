@@ -17,11 +17,11 @@ angular.module('factory', ['ionic'])
 				return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
 					return response.data;
 				}).catch(function(err) {
-					var message = err;
+					console.log(err)
 					showAlert = function() {
 						var alertPopup = $ionicPopup.alert({
 							title: 'Hmmm..',
-							template: message
+							template: 'It Looks like something went wrong'
 						});
 						alertPopup.then(function(res) {
 

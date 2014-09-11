@@ -19,20 +19,20 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs', 'ng
 		// 	alert('no internet!')
 		// }
 
-		OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
+			OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
 
-		$timeout(function(){
-			if(!$rootScope.access_token) {
-				$rootScope.showBack = false
-				$state.go('intro')
-			} else {
-				$rootScope.showBack = true
-				$state.go('search')
+			$timeout(function(){
+				if(!$rootScope.access_token) {
+					$rootScope.showBack = false
+					$state.go('intro')
+				} else {
+					$rootScope.showBack = true
+					$state.go('search')
+				}
+			}, 500)
+
+			if(window.StatusBar) {
+				StatusBar.styleDefault();
 			}
-		}, 500)
-
-		if(window.StatusBar) {
-			StatusBar.styleDefault();
-		}
 	})
 })

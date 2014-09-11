@@ -7,3 +7,4 @@ gulpfile.js
 ionic.project
 package.json
 hooks/
+platforms/
