@@ -106,7 +106,7 @@ angular.module('controller', [])
     $scope.recentEvents = response;
   });
 
-  $ionicModal.fromTemplateUrl('activity.html', {
+  $ionicModal.fromTemplateUrl('templates/modals/recentActivity.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
@@ -331,7 +331,7 @@ angular.module('controller', [])
   }
 
 
-  $ionicModal.fromTemplateUrl('contribs.html', {
+  $ionicModal.fromTemplateUrl('templates/modals/contributors.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {

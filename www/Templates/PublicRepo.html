@@ -1,22 +1,23 @@
 <ion-view title="{{repo.name}}">
-<ion-content>
-<div class="list card">
-	<div class='item'>
-		<div class="pull-right">
-			<span class="subdued">{{repo.forks}} <span class="octicon octicon-git-branch"></span> {{repo.starcount}} <i class='ion-android-star'></i> </span>
-		</div>
-		<div class="pull-left icon icon-{{repo.language | lowercase}}"></div>
-		<h2>{{repo.full_name}}</h2>
-	</div>
-		<div class="item item-body">
-		<p>{{repo.description}}</p>
-		<p>Last updated {{updated}}</p>
-		</div>
-	</div>
-</div>
-<div class="button-bar">
-	<button type="submit" ng-click="seeTree(repo.full_name)" ng-disabled="form.$invalid" class="button button-calm button-large">Code</button>
-	<button type="submit" ng-click="recentActivity(repo.full_name)" ng-disabled="form.$invalid" class="button button-positive button-large">Commits</button>
-</div>
-</ion-content>
+  <ion-content>
+    <div class="list card">
+      <div class='item'>
+        <div class="pull-right">
+          <span class="subdued">{{repo.forks}} <span class="octicon octicon-git-branch"></span> {{repo.starcount}} <i class='ion-android-star'></i>
+          </span>
+        </div>
+        <div class="pull-left icon icon-{{repo.language | lowercase}}"></div>
+        <h2>{{repo.full_name}}</h2>
+      </div>
+      <div class="item item-body">
+        <p>{{repo.description}}</p>
+        <p>Last updated {{updated}}</p>
+      </div>
+    </div>
+    </div>
+    <div class="button-bar">
+      <button type="submit" ng-click="seeTree(repo.full_name)" ng-disabled="form.$invalid" class="button button-calm button-large">Code</button>
+      <button type="submit" ng-click="recentActivity(repo.full_name)" ng-disabled="form.$invalid" class="button button-positive button-large">Commits</button>
+    </div>
+  </ion-content>
 </ion-view>

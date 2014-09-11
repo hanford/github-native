@@ -1,75 +1,75 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {
-      "config.xml": {
-        "parents": {
-          "/*": [
-            {
-              "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
-              "count": 1
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<access origin=\"https://oauth.io\" />",
+                            "count": 1
+                        }
+                    ]
+                }
             },
-            {
-              "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<access origin=\"https://oauth.io\" />",
-              "count": 1
+            "framework": {
+                "parents": {
+                    "SystemConfiguration.framework": [
+                        {
+                            "xml": "true",
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": "false",
+                            "count": 2
+                        }
+                    ]
+                }
             }
-          ]
         }
-      },
-      "framework": {
-        "parents": {
-          "SystemConfiguration.framework": [
-            {
-              "xml": "true",
-              "count": 1
-            }
-          ],
-          "CoreGraphics.framework": [
-            {
-              "xml": "false",
-              "count": 2
-            }
-          ]
+    },
+    "installed_plugins": {
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
+        },
+        "org.apache.cordova.device": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
+        },
+        "org.apache.cordova.splashscreen": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
+        },
+        "com.oauthio.plugins.oauthio": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
         }
-      }
-    }
-  },
-  "installed_plugins": {
-    "org.apache.cordova.console": {
-      "PACKAGE_NAME": "com.jackhanford.GitMOB"
     },
-    "org.apache.cordova.device": {
-      "PACKAGE_NAME": "com.jackhanford.GitMOB"
-    },
-    "org.apache.cordova.splashscreen": {
-      "PACKAGE_NAME": "com.jackhanford.GitMOB"
-    },
-    "com.oauthio.plugins.oauthio": {
-      "PACKAGE_NAME": "com.jackhanford.GitMOB"
+    "dependent_plugins": {
+        "org.apache.cordova.inappbrowser": {
+            "PACKAGE_NAME": "com.jackhanford.GitMOB"
+        }
     }
-  },
-  "dependent_plugins": {
-    "org.apache.cordova.inappbrowser": {
-      "PACKAGE_NAME": "com.jackhanford.GitMOB"
-    }
-  }
 }
