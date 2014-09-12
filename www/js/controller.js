@@ -180,14 +180,14 @@ angular.module('controller', [])
 
     var url = "https://api.github.com/repos/" + $rootScope.uname + '/' + rep.name;
     $http.get(url)
-      .success(function(data, headers, status, config) {
-        $rootScope.repo = data;
-        $ionicLoading.hide();
-        $state.go('PublicRep')
-      }).error(function(data, headers, status, config) {
-        $ionicLoading.hide();
-        console.log(data, headers, status, config)
-      })
+    .success(function(data, headers, status, config) {
+      $rootScope.repo = data;
+      $ionicLoading.hide();
+      $state.go('PublicRep')
+    }).error(function(data, headers, status, config) {
+      $ionicLoading.hide();
+      console.log(data, headers, status, config)
+    })
   }
   // $state.go('PublicRep')
 
@@ -232,13 +232,13 @@ angular.module('controller', [])
     });
 
     $http.get(url)
-      .success(function(data, headers, status, config) {
-        $rootScope.ginfo = data;
-        $ionicLoading.hide()
-        $state.go('profile')
-      }).error(function(data, headers, status, config) {
-        console.log(data, headers, status)
-      });
+    .success(function(data, headers, status, config) {
+      $rootScope.ginfo = data;
+      $ionicLoading.hide()
+      $state.go('profile')
+    }).error(function(data, headers, status, config) {
+      console.log(data, headers, status)
+    });
   }
 })
 
@@ -255,11 +255,11 @@ angular.module('controller', [])
     var url = 'https://api.github.com/users/' + fName;
 
     $http.get(url)
-      .success(function(data, headers, status, config) {
-        $rootScope.ginfo = data;
-        $ionicLoading.hide()
-        $state.go('profile')
-      })
+    .success(function(data, headers, status, config) {
+      $rootScope.ginfo = data;
+      $ionicLoading.hide()
+      $state.go('profile')
+    })
   }
 })
 
@@ -322,12 +322,12 @@ angular.module('controller', [])
         $state.go('code')
       })
     } else if (item.type == "dir") {
-      var ref = window.open(item.html_url, '_blank', 'location=yes');
+      var ref = window.open(item.html_url, '_blank', 'location=no');
     }
   }
 
   $scope.branch = function() {
-    var ref = window.open('https://github.com/' + $rootScope.repo.full_name + '?files=1', '_blank', 'location=yes');
+    var ref = window.open('https://github.com/' + $rootScope.repo.full_name + '?files=1', '_blank', 'location=no');
   }
 
 
@@ -361,14 +361,14 @@ angular.module('controller', [])
       });
 
       $http.get(url)
-        .success(function(data, headers, status, config) {
-          $rootScope.ginfo = data;
-          $ionicLoading.hide();
-          $scope.modal.hide();
-          $state.go('profile')
-        }).error(function(data, headers, status, config) {
-          console.log(data, headers, status)
-        });
+      .success(function(data, headers, status, config) {
+        $rootScope.ginfo = data;
+        $ionicLoading.hide();
+        $scope.modal.hide();
+        $state.go('profile')
+      }).error(function(data, headers, status, config) {
+        console.log(data, headers, status)
+      });
     }
   });
 
@@ -414,17 +414,17 @@ angular.module('controller', [])
       cache: true
     }).done(function(result) {
       result.me()
-        .done(function(user_info) {
-          console.log(user_info)
-          if (user_info.name) {
-            $rootScope.authname = user_info.name;
-            $rootScope.authlogin = user_info.alias;
-          } else {
-            $rootScope.authname = user_info.alias;
-            $rootScope.authlogin = user_info.alias;
-          }
-          $rootScope.access_token = result.access_token
-        })
+      .done(function(user_info) {
+        console.log(user_info)
+        if (user_info.name) {
+          $rootScope.authname = user_info.name;
+          $rootScope.authlogin = user_info.alias;
+        } else {
+          $rootScope.authname = user_info.alias;
+          $rootScope.authlogin = user_info.alias;
+        }
+        $rootScope.access_token = result.access_token
+      })
     }).fail(function(error) {
       alert('Error authenticating!')
     })
@@ -457,26 +457,27 @@ angular.module('controller', [])
     OAuth.popup('github', {
       cache: true
     })
-      .done(function(result) {
-        $rootScope.access_token = result.access_token;
-        result.me()
-          .done(function(user_info) {
-            console.log(user_info)
-            if (user_info.name) {
-              $state.go('search')
-              $rootScope.authname = user_info.name;
-              $rootScope.authlogin = user_info.alias;
-            } else {
-              $rootScope.authname = user_info.alias;
-              $rootScope.authlogin = user_info.alias;
-            }
-          })
-          .fail(function(error) {
-            alert(error)
-          })
+    .done(function(result) {
+      $rootScope.access_token = result.access_token;
+      result.me()
+      .done(function(user_info) {
+        console.log(user_info)
+        if (user_info.name) {
+          $state.go('search')
+          $rootScope.authname = user_info.name;
+          $rootScope.authlogin = user_info.alias;
+        } else {
+          $rootScope.authname = user_info.alias;
+          $rootScope.authlogin = user_info.alias;
+        }
       })
       .fail(function(error) {
         alert(error)
       })
+    })
+    .fail(function(error) {
+      alert(error)
+    })
   }
+
 })

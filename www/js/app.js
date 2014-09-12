@@ -3,7 +3,9 @@ angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
 .run(function($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function() {
 
-    OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
+    if (window.OAuth) {
+      OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
+    }
 
     $timeout(function() {
       if (!$rootScope.access_token) {
