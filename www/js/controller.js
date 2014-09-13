@@ -63,11 +63,13 @@ angular.module('controller', [])
     $state.go('search')
   }
 
-  $scope.pub_count = $rootScope.ginfo.public_repos;
+  if ($rootScope.ginfo.public_repos) {
+    $scope.pub_count = parseInt($rootScope.ginfo.public_repos);
+  }
   $scope.gists = $rootScope.ginfo.public_gists;
   $scope.followers = $rootScope.ginfo.followers;
   $scope.company = $rootScope.ginfo.company;
-  $scope.hireable = $rootScope.ginfo.hireable;
+  // $scope.hireable = $rootScope.ginfo.hireable;
 
   var created = $rootScope.ginfo.created_at;
   $scope.created_at = created.substring(0, 10);
@@ -104,6 +106,7 @@ angular.module('controller', [])
 
   githubservice.getEvents($scope.login).then(function(response) {
     $scope.recentEvents = response;
+    debugger
   });
 
   $ionicModal.fromTemplateUrl('templates/modals/recentActivity.html', {

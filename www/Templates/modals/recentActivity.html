@@ -3,33 +3,30 @@
     <h1 class="title"> {{name}} - Recent Activity </h1>
   </ion-header-bar>
   <ion-content>
-    <ion-list ng-if="recentEvents">
+    <ion-list>
       <ion-item ng-repeat="recentEvent in recentEvents">
         <div ng-switch="recentEvent.type">
-          <span ng-switch-when="CommitCommentEvent"> <span class="octicon octicon-mail-read grey-icon"></span> Commented on commit {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="CreateEvent">
-          <span class="octicon octicon-plus grey-icon"></span> Created {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="DeleteEvent"><span class="octicon octicon-trashcan grey-icon"></span> Deleted {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="CommitCommentEvent"> <i class="octicon octicon-mail-read grey-icon"></i> Commented on commit {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="CreateEvent"><i class="octicon octicon-plus grey-icon"></i> Created File at {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="DeleteEvent"><i class="octicon octicon-trashcan grey-icon"></i> Deleted {{recentEvent.repo.name}}</span>
           <span ng-switch-when="DeploymentEvent">Deploy event for {{recentEvent.repo.name}}</span>
-          <!-- <span ng-switch-when="DeploymentStatusEvent"> </span > -- >
-          <span ng-switch-when = "DownloadEvent"> <span class="octicon octicon-move-down grey-icon"> </span> Downloaded {{recentEvent.repo.name}}</span>
-          <span ng-switch-when = "FollowEvent"> <span class="octicon octicon-person grey-icon"> </span> Following {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="ForkEvent"> <span class="octicon octicon-git-branch icon-grey"></span> Forked {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="ForkApplyEvent"> <span class="octicon octicon-git-branch icon-grey"></span> Forked {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="GistEvent">Gist Event</span>
-          <!-- <span ng-switch-when="GollumEvent"> </span > -->
-          <span ng-switch-when="IssueCommentEvent"><span class="octicon octicon-mail-read grey-icon"></span> Commented on issue for {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="IssuesEvent"><span class="octicon octicon-stop grey-icon"></span> Issue for {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="MemberEvent"><span class="octicon octicon-person"></span> Member Event {{recentEvent.repo.name}}</span>
-          <!-- <span ng-switch-when="PageBuildEvent"> </span> -->
-          <span ng-switch-when="PublicEvent"><span class="octicon octicon-podium"></span> Public event {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="PullRequestEvent"><span class="octicon octicon-git-compare grey-icon"></span> Pull request for {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="PullRequestReviewCommentEvent"><span class="octicon octicon-mail-read grey-icon"></span> Commented on {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="PushEvent"><span class="octicon octicon-git-commit grey-icon"></span> Pushed to {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="ReleaseEvent"><span class="octicon octicon-megaphone grey-icon"></span> Released {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="StatusEvent"><span class="octicon octicon-stop"></span> Status Event {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="TeamAddEvent"><span class="octicon octicon-person"></span> Team Add Event {{recentEvent.repo.name}}</span>
-          <span ng-switch-when="WatchEvent"><span class="octicon octicon-eye grey-icon"></span> Watching {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="DownloadEvent"> <i class="octicon octicon-move-down grey-icon"> </i> Downloaded {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="FollowEvent"> <i class="octicon octicon-person grey-icon"> </i> Following {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="ForkEvent"> <i class="octicon octicon-git-branch icon-grey"></i> Forked {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="ForkApplyEvent"> <i class="octicon octicon-git-branch icon-grey"></i> Forked {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="GollumEvent"><i class="octicon octicon-book"></i> Wiki Updated at {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="IssueCommentEvent"><i class="octicon octicon-mail-read grey-icon"></i> Commented on issue for {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="IssuesEvent"><i class="octicon octicon-stop grey-icon"></i> Issue for {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="MemberEvent"><i class="octicon octicon-person"></i> Member Event {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="PageBuildEvent"><i class="octicon octicon-unfold"></i> Github Page created {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="PublicEvent"><i class="octicon octicon-podium"></i> Public event {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="PullRequestEvent"><i class="octicon octicon-git-compare grey-icon"></i> Pull request for {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="PullRequestReviewCommentEvent"><i class="octicon octicon-mail-read grey-icon"></i> Commented on {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="PushEvent"><i class="octicon octicon-git-commit grey-icon"></i> Pushed to {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="ReleaseEvent"><i class="octicon octicon-megaphone grey-icon"></i> Released {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="StatusEvent"><i class="octicon octicon-stop"></i> Status Event {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="TeamAddEvent"><i class="octicon octicon-person"></i> Team Add Event {{recentEvent.repo.name}}</span>
+          <span ng-switch-when="WatchEvent"><i class="octicon octicon-eye grey-icon"></i> Watching {{recentEvent.repo.name}}</span>
         </div>
       </ion-item>
     </ion-list>
