@@ -320,18 +320,11 @@ angular.module('controller', [])
         $rootScope.code = atob(response.content.replace(/\s/g, ''))
         $state.go('code')
       } else {
-        // $rootScope.tree = response;
         console.log(response)
         $scope.items = response;
         $ionicScrollDelegate.scrollTop(true)
       }
-      
-
     })
-    // Needs Fullname for call item.path
-    // githubservice.getTree()
-    // var ref = window.open(item.html_url, '_blank', 'location=no');
-
   }
 
   $scope.branch = function() {
@@ -409,11 +402,11 @@ angular.module('controller', [])
     $scope.authenticated = 'No'
   }
 
-  // $scope.removeAuth = function(OAuth) {
-  // 	$rootScope.access_token = '';
-  // 	$scope.authenticated = 'No'
-  // 	$rootScope.meFun();
-  // }
+  $scope.removeAuth = function(OAuth) {
+  	$rootScope.access_token = '';
+  	$scope.authenticated = 'No'
+  	window.OAuth.clearCache();
+  }
 
   $scope.newAuth = function() {
     OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');

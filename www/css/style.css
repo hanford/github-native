@@ -235,3 +235,14 @@
 .search-icon {
 		font-size: 24px !important;
 }
+
+.code-wrapper,
+.code-wrapper span {
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.octicon-logo-github {
+	position: relative;
+	top: 2px;
+}

@@ -4,18 +4,18 @@
       <div class="item item-divider">
         Github Stats
       </div>
-      <li class="item">Authenticated <span class="pull-right">{{authenticated}}</span>
+      <li class="item" ng-if="authenticated">Authenticated <span class="pull-right">{{authenticated}}</span>
       </li>
       <li class="item" ng-if="ratelimit">Github Rate limit
         <span class="pull-right">
         <span ng-show="rate">{{ratelimit}}</span>
         </span>
       </li>
-      <li class="item" ng-if="alias">Login <span class="pull-right">{{alias}}</span>
+      <li class="item" ng-if="authenticated">Login <span class="pull-right">{{alias}}</span>
       </li>
     </ul>
-    <!-- <button class="button button-assertive button-block" ng-click="removeAuth()" ng-show="authenticated">Remove Authentication</button> -->
-    <button class="button button-dark button-block" ng-click="newAuth()" ng-hide="authenticated"><span class="octicon octicon-logo-github"></span>
+    <button class="button button-assertive button-block" ng-click="removeAuth()" ng-show="authenticated">Remove Authentication</button>
+    <button class="button button-dark button-block" ng-click="newAuth()" ng-hide="authenticated">Login to <span class="octicon octicon-logo-github"></span>
     </button>
     <br />
     <span class="center">Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a>
