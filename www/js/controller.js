@@ -14,22 +14,19 @@ angular.module('controller', [])
 
   $timeout(function() {
     if ($rootScope.authname) {
-      $scope.authname
+      $scope.authname = $rootScope.authname;
     } else {
       $scope.authname = $rootScope.authalias;
     }
   }, 2000)
 
-  $rootScope.showBack = false
-  $rootScope.ginfo;
-  $scope.uname;
+  $rootScope.showBack = false;
 
   $scope.searchProject = function(uname) {
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
     githubservice.getProjects(uname).then(function(response) {
-      console.log(response)
       $rootScope.showBack = true;
       $ionicLoading.hide();
       $rootScope.sItems = response.items;
@@ -212,8 +209,8 @@ angular.module('controller', [])
 
   $scope.seeTree = function(fullname) {
     githubservice.getTree(fullname).then(function(response) {
-      $state.go('treeview')
       $rootScope.tree = response;
+      $state.go('treeview')
     })
   }
 
@@ -297,11 +294,11 @@ angular.module('controller', [])
   }
 })
 
-.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
+.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate) {
   $scope.repo = $rootScope.repo;
 
+
   $scope.items = $rootScope.tree;
-  debugger
 
   if ($rootScope.repo == undefined) {
     $state.go('search')
@@ -318,15 +315,23 @@ angular.module('controller', [])
   })
 
   $scope.file = function(item) {
-    if (item.type == "file") {
-      githubservice.getCode($scope.repo.full_name, item.path).then(function(response) {
-        console.log(response.content)
+    githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
+      if (item.type == 'file') {
         $rootScope.code = atob(response.content.replace(/\s/g, ''))
         $state.go('code')
-      })
-    } else if (item.type == "dir") {
-      var ref = window.open(item.html_url, '_blank', 'location=no');
-    }
+      } else {
+        // $rootScope.tree = response;
+        console.log(response)
+        $scope.items = response;
+        $ionicScrollDelegate.scrollTop(true)
+      }
+      
+
+    })
+    // Needs Fullname for call item.path
+    // githubservice.getTree()
+    // var ref = window.open(item.html_url, '_blank', 'location=no');
+
   }
 
   $scope.branch = function() {
@@ -352,7 +357,6 @@ angular.module('controller', [])
     }
 
     $scope.toContrib = function(login) {
-      debugger
       $rootScope.uname = login;
 
       var url = 'https://api.github.com/users/' + login;
