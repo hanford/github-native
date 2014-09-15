@@ -1,4 +1,4 @@
-angular.module('MobGit', ['ionic', 'state', 'controller', 'factory', 'hljs'])
+angular.module('MobGit', ['ionic', 'state', 'factory', 'hljs', 'profile', 'search', 'info', 'commits', 'contents', 'follow', 'intro', 'searchlist', 'treeview'])
 
 .run(function($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function() {

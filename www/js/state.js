@@ -6,56 +6,56 @@ angular.module('state', ['ionic'])
     .state('search', {
       url: "/search",
       controller: 'searchCtrl',
-      templateUrl: "templates/search.html"
+      templateUrl: "js/search/search.html"
     })
     .state('searchlist', {
       url: "/list",
-      templateUrl: "templates/searchlist.html",
+      templateUrl: "js/searchResults/searchlist.html",
       controller: 'searchviewCtrl'
     })
     .state('profile', {
       url: "/profile",
-      templateUrl: "templates/profile.html",
+      templateUrl: "js/profile/profile.html",
       controller: 'profileCtrl'
     })
     .state('PublicRep', {
       url: "/PublicRepo",
-      templateUrl: "templates/PublicRepo.html",
+      templateUrl: "js/treeview/PublicRepo.html",
       controller: 'repoViewCtrl'
     })
     .state('followers', {
       url: "/followers",
-      templateUrl: "templates/followers.html",
+      templateUrl: "js/follow/followers.html",
       controller: 'followerCtrl'
     })
     .state('following', {
       url: "/following",
-      templateUrl: "templates/following.html",
+      templateUrl: "js/follow/following.html",
       controller: 'followingCtrl'
     })
     .state('commits', {
       url: "/commits",
-      templateUrl: "templates/commits.html",
+      templateUrl: "js/commits/commits.html",
       controller: 'commitsCtrl'
     })
     .state('treeview', {
       url: "/treeview",
-      templateUrl: "templates/treeview.html",
+      templateUrl: "js/treeview/treeview.html",
       controller: 'treeCtrl'
     })
     .state('info', {
       url: "/info",
-      templateUrl: "templates/info.html",
+      templateUrl: "js/info/info.html",
       controller: 'infoCtrl'
     })
-    .state('code', {
-      url: "/code",
-      templateUrl: "templates/code.html",
-      controller: 'codeCtrl'
+    .state('content', {
+      url: "/content",
+      templateUrl: "js/contents/contents.html",
+      controller: 'contentCtrl'
     })
     .state('intro', {
       url: "/intro",
-      templateUrl: "templates/intro.html",
+      templateUrl: "js/intro/intro.html",
       controller: 'introCtrl'
     })
 
