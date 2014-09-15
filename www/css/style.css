@@ -173,7 +173,7 @@
 }
 .small-repo {
 		font-size: 14px;
-		max-width: 220px;
+		max-width: 210px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		font-weight: bold;

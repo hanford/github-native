@@ -44,11 +44,16 @@ angular.module('treeview', [])
   })
 
   $scope.file = function(item) {
+    $ionicLoading.show({
+      template: '<i class="ion-loading-c"></i>'
+    });
     githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
       if (item.type == 'file') {
+        $ionicLoading.hide();
         $rootScope.code = atob(response.content.replace(/\s/g, ''))
         $state.go('content')
       } else {
+        $ionicLoading.hide();
         console.log(response)
         $scope.items = response;
         $ionicScrollDelegate.scrollTop(true)

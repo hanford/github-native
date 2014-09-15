@@ -17,8 +17,8 @@
             <div class="row" ng-hide="hideLocation">
               <i class="octicon octicon-location ico"></i> {{location}}
             </div>
-            <div class="row" ng-hide="hideLink">
-              <i class="octicon octicon-link link-item-icon ico"></i>  <a ng-click="blogClick(blog)" class="profile-link"> {{blog}}</a>
+            <div class="row" ng-hide="hideLink" ng-click="blogClick(blog)">
+              <i class="octicon octicon-link link-item-icon ico"></i>  <span class="profile-link"> {{blog}}</span>
             </div>
           </div>
         </div>
