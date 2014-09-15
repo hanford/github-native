@@ -5,7 +5,7 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="recentEvent in recentEvents">
-        <div ng-switch="recentEvent.type">
+        <div ng-switch="recentEvent.type" class="activity">
           <span ng-switch-when="CommitCommentEvent"> <i class="octicon octicon-mail-read grey-icon"></i> Commented on commit {{recentEvent.repo.name}}</span>
           <span ng-switch-when="CreateEvent"><i class="octicon octicon-plus grey-icon"></i> Created File at {{recentEvent.repo.name}}</span>
           <span ng-switch-when="DeleteEvent"><i class="octicon octicon-trashcan grey-icon"></i> Deleted {{recentEvent.repo.name}}</span>

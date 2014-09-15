@@ -246,3 +246,10 @@
 	position: relative;
 	top: 2px;
 }
+
+.activity {
+	max-width:290px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

@@ -60,6 +60,16 @@ angular.module('profile', [])
     $scope.acitivty = function() {
       $scope.modal.show();
     };
+    // $scope.repo = function(full_name) {
+    //   $ionicLoading.show({
+    //     template: '<i class="ion-loading-c"></i>'
+    //   });
+    //   githubservice.getTree(full_name).then(function(response) {
+    //     $ionicLoading.hide();
+    //     $state.go('treeview')
+    //     $rootScope.tree = response;
+    //   });
+    // }
     $scope.closeModal = function() {
       $scope.modal.hide();
     }
