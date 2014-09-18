@@ -80,10 +80,6 @@ angular.module('factory', ['ionic'])
       var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path)
       return promise
     },
-    getDir: function(url) {
-      var promise = $ajax.get(url)
-      return promise
-    },
     getRate: function() {
       var promise = $ajax.get(baseurl + 'rate_limit')
       return promise

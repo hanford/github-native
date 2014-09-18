@@ -1,3 +1,8 @@
+A small client-side ionic application for both iOS and android. Will submit to both app stores at somepoint ..
+<br />
+<br />
+**LICENSE:**
+<br />
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
