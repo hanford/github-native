@@ -253,3 +253,12 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+.into-list {
+	font-size: 20px;
+	text-align: center;
+}
+
+.api-status-good {
+	color: #299456;
+}

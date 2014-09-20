@@ -25,11 +25,11 @@ angular.module('intro', [])
         }
       })
       .fail(function(error) {
-        alert(error)
+        // alert(error)
       })
     })
     .fail(function(error) {
-      alert(error)
+      // alert(error)
     })
   }
 

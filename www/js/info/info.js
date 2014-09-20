@@ -13,6 +13,10 @@ angular.module('info', [])
     var ref = window.open('http://opensource.org/licenses/MIT', '_system');
   }
 
+  $http.get('https://status.github.com/api/status.json').then(function(response) {
+    $scope.api = response.data.status;
+  })
+
   $scope.alias = $rootScope.authlogin;
 
 
@@ -46,7 +50,7 @@ angular.module('info', [])
         $rootScope.access_token = result.access_token
       })
     }).fail(function(error) {
-      alert('Error authenticating!')
+      // alert('Error authenticating!')
     })
   }
 

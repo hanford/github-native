@@ -3,6 +3,8 @@ angular.module('MobGit', ['ionic', 'state', 'factory', 'hljs', 'profile', 'searc
 .run(function($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function() {
 
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
     if (window.OAuth) {
       OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
     }
