@@ -1,7 +1,9 @@
 angular.module('follow', [])
 
-.controller('followerCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('followerCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate) {
   $scope.followers = $rootScope.followers;
+
+  $ionicNavBarDelegate.setTitle('Followers');
 
   $scope.toFollower = function(fName) {
     $rootScope.uname = fName;
@@ -25,8 +27,10 @@ angular.module('follow', [])
   }
 })
 
-.controller('followingCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('followingCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate) {
   $scope.followings = $rootScope.following;
+
+  $ionicNavBarDelegate.setTitle('Following');
 
   $scope.toFollower = function(fName) {
     $rootScope.uname = fName;

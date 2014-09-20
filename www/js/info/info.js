@@ -1,9 +1,11 @@
 angular.module('info', [])
 
-.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice) {
+.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate) {
   $scope.search = function() {
     $state.go('search')
   }
+
+  $ionicNavBarDelegate.setTitle('Info');
 
   $scope.personalwebsite = function() {
     var ref = window.open('http://jackhanford.com', '_system');

@@ -1,10 +1,12 @@
 angular.module('intro', [])
 
-.controller('introCtrl', function($scope, $http, $rootScope, $state, $ionicLoading) {
+.controller('introCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate) {
 
   if ($rootScope.access_token) {
     $state.go('search')
   }
+
+  $ionicNavBarDelegate.setTitle('Welcome!');
 
   $scope.authme = function() {
     OAuth.popup('github', {

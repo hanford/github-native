@@ -1,9 +1,11 @@
 angular.module('profile', [])
-.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate) {
+.controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate) {
 
   if (!$rootScope.ginfo) {
     $state.go('search')
   }
+
+  $ionicNavBarDelegate.setTitle('Profile');
 
   if ($rootScope.ginfo.public_repos) {
     $scope.pub_count = parseInt($rootScope.ginfo.public_repos);
