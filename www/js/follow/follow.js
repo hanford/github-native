@@ -16,8 +16,7 @@ angular.module('follow', [])
       template: '<i class="ion-loading-c"></i>'
     });
 
-    $http.get(url)
-    .success(function(data, headers, status, config) {
+    $http.get(url).success(function(data, headers, status, config) {
       $rootScope.ginfo = data;
       $ionicLoading.hide()
       $state.go('profile')
@@ -41,8 +40,7 @@ angular.module('follow', [])
 
     var url = 'https://api.github.com/users/' + fName;
 
-    $http.get(url)
-    .success(function(data, headers, status, config) {
+    $http.get(url).success(function(data, headers, status, config) {
       $rootScope.ginfo = data;
       $ionicLoading.hide()
       $state.go('profile')

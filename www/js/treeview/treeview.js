@@ -35,22 +35,19 @@ angular.module('treeview', [])
     $state.go('search')
   }
 
-  githubservice.getCommits($scope.repo.full_name)
-    .then(function(response) {
-      $scope.commits = response.length;
-    })
+  githubservice.getCommits($scope.repo.full_name).then(function(response) {
+    $scope.commits = response.length;
+  })
 
-  githubservice.getStats($scope.repo.full_name)
-    .then(function(response) {
-      console.log('first call for for contribs')
-    })
+  githubservice.getStats($scope.repo.full_name).then(function(response) {
+    console.log('first call for for contribs')
+  })
 
   $scope.file = function(item) {
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
-    githubservice.getContents($scope.repo.full_name, item.path)
-      .then(function(response) {
+    githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
         if (item.type == 'file') {
           $ionicLoading.hide();
           $rootScope.code = atob(response.content.replace(/\s/g, ''))
@@ -71,45 +68,43 @@ angular.module('treeview', [])
   $ionicModal.fromTemplateUrl('js/modals/contributors.html', {
     scope: $scope,
     animation: 'slide-in-up'
-  })
-    .then(function(modal) {
-      $scope.modal = modal;
+  }).then(function(modal) {
+    $scope.modal = modal;
 
-      $scope.contribs = function() {
-        $scope.modal.show();
-        githubservice.getStats($scope.repo.full_name)
-          .then(function(response) {
-            console.log(response)
-            $scope.contributors = response;
-          })
-      };
-      $scope.closeModal = function() {
-        $scope.modal.hide();
-      }
+    $scope.contribs = function() {
+      $scope.modal.show();
+      githubservice.getStats($scope.repo.full_name).then(function(response) {
+        console.log(response)
+        $scope.contributors = response;
+      })
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    }
 
-      $scope.toContrib = function(login) {
-        $rootScope.uname = login;
+    $scope.toContrib = function(login) {
+      $rootScope.uname = login;
 
-        var url = 'https://api.github.com/users/' + login;
+      var url = 'https://api.github.com/users/' + login;
 
-        console.log(url)
+      console.log(url)
 
-        $ionicLoading.show({
-          template: '<i class="ion-loading-c"></i>'
+      $ionicLoading.show({
+        template: '<i class="ion-loading-c"></i>'
+      });
+
+      $http.get(url)
+        .success(function(data, headers, status, config) {
+          $rootScope.ginfo = data;
+          $ionicLoading.hide();
+          $scope.modal.hide();
+          $state.go('profile')
+        })
+        .error(function(data, headers, status, config) {
+          console.log(data, headers, status)
         });
-
-        $http.get(url)
-          .success(function(data, headers, status, config) {
-            $rootScope.ginfo = data;
-            $ionicLoading.hide();
-            $scope.modal.hide();
-            $state.go('profile')
-          })
-          .error(function(data, headers, status, config) {
-            console.log(data, headers, status)
-          });
-      }
-    });
+    }
+  });
 
   if (!$scope.items) {
     $state.go('search')
