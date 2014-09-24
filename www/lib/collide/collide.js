@@ -34,7 +34,6 @@
 }).call(this);
 
 /*
-//@ sourceMappingURL=performance-now.map
 */
 
 }).call(this,_dereq_("qhDIRT"))
@@ -121,13 +120,17 @@ var EventEmitter = _dereq_('./util/simple-emitter');
 
 function clamp(min, n, max) { return Math.max(min, Math.min(n, max)); }
 
-module.exports = Animator;
+var VELOCITY_MIN = 0.0075;
 
-function Animator(opts) {
+module.exports = Animation;
+
+function Animation(opts) {
   //if `new` keyword isn't provided, do it for user
-  if (!(this instanceof Animator)) {
-    return new Animator(opts);
+  if (!(this instanceof Animation)) {
+    return new Animation(opts);
   }
+  var self = this;
+
 
   opts = opts || {};
 
@@ -136,7 +139,9 @@ function Animator(opts) {
     id: uid(),
     percent: 0,
     duration: 500,
-    isReverse: false
+    reverse: false,
+    distance: 100,
+    deceleration: 0.998
   };
 
   var emitter = this._.emitter = new EventEmitter();
@@ -150,24 +155,65 @@ function Animator(opts) {
   this._.onStart = function() {
     emitter.emit('start');
   };
+
+  var precision = 10000;
   this._.onStep = function(v) {
-    emitter.emit('step', v);
+    emitter.emit('step', Math.round(v * precision) / precision);
   };
 
   opts.duration && this.duration(opts.duration);
   opts.percent && this.percent(opts.percent);
   opts.easing && this.easing(opts.easing);
   opts.reverse && this.reverse(opts.reverse);
+  opts.distance && this.distance(opts.distance);
+ 
+  //Put this here so we don't have to call _tick in the context of our object.
+  //Avoids having to use .bind() or .call() every frame.
+  self._tick = function(deltaT) {
+    var state = self._;
+    
+    state.onStep(animStepValue(self, state.percent));
+
+    if (Math.abs(state.velocity) < VELOCITY_MIN) {
+      state.velocity = 0;
+      return self.stop();
+    }
+    if (state.percent === animEndPercent(self)) {
+      return self.stop();
+    }
+
+    //First tick, don't up the percent
+    if (!deltaT) {
+      // Do nothing
+    } else if (state.velocity) {
+      var velocity = decayVelocity(state.velocity, deltaT, state.deceleration);
+      var currentDistance = state.percent * state.distance;
+      state.percent = (currentDistance - velocity) / state.distance;
+
+      if (state.percent > 1 || state.percent < 0) {
+        state.percent = clamp(0, state.percent, 1);
+        state.velocity = 0;
+      }
+      state.velocity = velocity;
+    } else {
+      if (state.reverse) {
+        state.percent = state.percent - (deltaT / state.duration);
+      } else {
+        state.percent = state.percent + (deltaT / state.duration);
+      }
+    }
+
+    state.percent = clamp(0, state.percent, 1);
+  };
 }
 
-Animator.prototype = {
-
+Animation.prototype = {
   reverse: function(reverse) {
     if (arguments.length) {
-      this._.isReverse = !!reverse;
+      this._.reverse = !!reverse;
       return this;
     }
-    return this._.isReverse;
+    return this._.reverse;
   },
 
   easing: function(easing) {
@@ -181,17 +227,45 @@ Animator.prototype = {
     return this._.easing;
   },
 
-  percent: function(percent) {
+  percent: function(percent, immediate) {
+    var self = this;
     if (arguments.length) {
       if (typeof percent === 'number') {
         this._.percent = clamp(0, percent, 1);
       }
       if (!this.isRunning()) {
-        this._.onStep(this._getValueForPercent(this._.percent));
+        if (immediate) {
+          this._tick();
+        } else {
+          timeline.tickAction(this._.id, function() {
+            self._tick();
+            timeline.untickAction(self._.id);
+          });
+        }
       }
       return this;
     }
     return this._.percent;
+  },
+
+  distance: function(distance) {
+    if (arguments.length) {
+      if (typeof distance === 'number' && distance > 0) {
+        this._.distance = distance;
+      }
+      return this;
+    }
+    return this._.distance;
+  },
+
+  deceleration: function(deceleration) {
+    if (arguments.length) {
+      if (typeof deceleration === 'number' && deceleration > 0 && deceleration < 1) {
+        this._.deceleration = deceleration;
+      }
+      return this;
+    }
+    return this._.deceleration;
   },
 
   duration: function(duration) {
@@ -203,27 +277,6 @@ Animator.prototype = {
     }
     return this._.duration;
   },
-
-  /**
-   * Interpolation is disabled for now.
-   */
-  // addInterpolation: function(el, startingStyles, endingStyles) {
-  //   var interpolators;
-  //   if (arguments.length) {
-  //     syncStyles(startingStyles, endingStyles, window.getComputedStyle(el));
-  //     interpolators = makePropertyInterpolators(startingStyles, endingStyles);
-
-  //     this.on('step', setStyles);
-  //     return function unbind() {
-  //       this.off('step', setStyles);
-  //     };
-  //   }
-  //   function setStyles(v) {
-  //     for (var property in interpolators) {
-  //       el.style[property] = interpolators[property](v);
-  //     }
-  //   }
-  // },
 
   isRunning: function() { 
     return !!this._.isRunning; 
@@ -262,74 +315,62 @@ Animator.prototype = {
     if (!this._.isRunning) return;
 
     this._.isRunning = false;
-    timeline.animationStopped(this);
+    timeline.untickAction(this._.id);
 
-    this._.onStop(this._isComplete());
+    this._.onStop(animIsComplete(this));
     return this;
   },
 
   restart: function(immediate) {
     if (this._.isRunning) return;
 
-    this._.percent = this._getStartPercent();
+    this._.percent = animStartPercent(this);
 
     return this.start(!!immediate);
   },
 
   start: function(immediate) {
-    if (this._.isRunning) return;
-
-    if (immediate) {
-      this._.onStep(this._getValueForPercent(this._.percent));
-    } else {
-      this._.isStarting = true;
-    }
-
-    this._.isRunning = true;
-    timeline.animationStarted(this);
-
-    this._.onStart();
-    return this;
+    return animBegin(this, immediate);
   },
 
-  _isComplete: function() {
-    return !this._.isRunning && 
-      this._.percent === this._getEndPercent();
+  velocity: function(velocity, immediate) {
+    this._.velocity = velocity;
+    return animBegin(this, immediate);
   },
-  _getEndPercent: function() {
-    return this._.isReverse ? 0 : 1;
-  },
-  _getStartPercent: function() {
-    return this._.isReverse ? 1 : 0;
-  },
-
-  _getValueForPercent: function(percent) {
-    if (this._.easing) {
-      return this._.easing(percent, this._.duration);
-    }
-    return percent;
-  },
-
-  _tick: function(deltaT) {
-    var state = this._;
-
-    //First tick, don't up the percent
-    if (state.isStarting) {
-      state.isStarting = false;
-    } else if (state.isReverse) {
-      state.percent = Math.max(0, state.percent - (deltaT / state.duration));
-    } else {
-      state.percent = Math.min(1, state.percent + (deltaT / state.duration));
-    }
-    
-    state.onStep(this._getValueForPercent(state.percent));
-
-    if (state.percent === this._getEndPercent()) {
-      this.stop();
-    }
-  },
-
 };
+
+function animBegin(animation, immediate) {
+  if (immediate) {
+    animation._tick();
+  }
+
+  animation._.isRunning = true;
+  timeline.tickAction(animation._.id, animation._tick);
+
+  animation._.onStart();
+  return animation;
+}
+function animIsComplete(animation) {
+  return !animation._.isRunning && 
+    animation._.percent === animEndPercent(animation);
+}
+function animEndPercent(animation) {
+  return animation._.reverse ? 0 : 1;
+}
+function animStartPercent(animation) {
+  return animation._.reverse ? 1 : 0;
+}
+function animStepValue(animation, value) {
+  if (animation._.easing) {
+    return animation._.easing(value, animation._.duration);
+  }
+  return value;
+}
+
+function decayVelocity(velocity, dt, deceleration) {
+  var kv = Math.pow(deceleration, dt);
+  return velocity * kv;
+}
 
 function figureOutEasing(easing) {
   if (typeof easing === 'object') {
@@ -882,18 +923,19 @@ var raf = _dereq_('raf');
 var time = _dereq_('performance-now');
 
 var self = module.exports = {
-  _running: {},
+  _actions: {},
+  isTicking: false,
 
-  animationStarted: function(instance) {
-    self._running[instance._.id] = instance;
+  tickAction: function(id, action) {
+    self._actions[id] = action;
 
     if (!self.isTicking) {
       self.tick();
     }
   },
 
-  animationStopped: function(instance) {
-    delete self._running[instance._.id];
+  untickAction: function(id) {
+    delete self._actions[id];
     self.maybeStopTicking();
   },
 
@@ -910,8 +952,8 @@ var self = module.exports = {
       var now = time();
       var deltaT = now - lastFrame;
 
-      for (var animationId in self._running) {
-        self._running[animationId]._tick(deltaT);
+      for (var id in self._actions) {
+        self._actions[id](deltaT);
       }
 
       lastFrame = now;
@@ -919,7 +961,7 @@ var self = module.exports = {
   },
 
   maybeStopTicking: function() {
-    if (self.isTicking && !Object.keys(self._running).length) {
+    if (self.isTicking && !Object.keys(self._actions).length) {
       raf.cancel(self._rafId);
       self.isTicking = false;
     }
@@ -930,10 +972,10 @@ var self = module.exports = {
 
 },{"performance-now":1,"raf":2}],9:[function(_dereq_,module,exports){
 module.exports = {
-  animator: _dereq_('./animator')
+  animation: _dereq_('./animation')
 };
 
-},{"./animator":4}],10:[function(_dereq_,module,exports){
+},{"./animation":4}],10:[function(_dereq_,module,exports){
 
 /*
  * There really is no tiny minimal extend() on npm to find,
@@ -962,10 +1004,10 @@ module.exports = function extend(obj) {
 module.exports = SimpleEventEmitter;
 
 function SimpleEventEmitter() {
+  this.listeners = [];
 }
 
 SimpleEventEmitter.prototype = {
-  listeners: [],
   on: function(eventType, fn) {
     if (typeof fn !== 'function') return;
     this.listeners[eventType] || (this.listeners[eventType] = []);

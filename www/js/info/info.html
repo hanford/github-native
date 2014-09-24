@@ -6,12 +6,9 @@
       </div>
       <li class="item">Authenticated <span class="pull-right">{{authenticated}}</span>
       </li>
-      <li class="item" ng-if="ratelimit">Github Rate limit
-        <span class="pull-right">
-        <span ng-show="rate">{{ratelimit}}</span>
-        </span>
+      <li class="item">Github Rate limit <span class="pull-right"> {{ratelimit}}</span></li>
+      <li class="item" ng-show="api">Github API <span class="pull-right api-status-good">{{api}}</span>
       </li>
-      <li class="item">Github API <span class="pull-right api-status-good">{{api}}</span></li>
       <li class="item" ng-if="authenticated">Login <span class="pull-right">{{alias}}</span>
       </li>
     </ul>

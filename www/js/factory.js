@@ -24,7 +24,7 @@ angular.module('factory', ['ionic'])
               template: 'It Looks like something went wrong'
             });
             alertPopup.then(function(res) {
-
+              // What should we do after the error?
             });
           }
           showAlert()

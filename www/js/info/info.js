@@ -21,7 +21,6 @@ angular.module('info', [])
 
   $scope.alias = $rootScope.authlogin;
 
-
   if ($rootScope.access_token) {
     $scope.authenticated = 'Yes'
   } else {
@@ -59,7 +58,6 @@ angular.module('info', [])
   $scope.rate = false;
 
   githubservice.getRate().then(function(response) {
-    $scope.rate = true;
     $scope.ratelimit = response.rate.remaining;
   })
 })
