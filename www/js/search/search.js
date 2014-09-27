@@ -2,7 +2,7 @@ angular.module('search', [])
 
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
   $rootScope.count;
-  
+
   if ($rootScope.count < 0) {
     if (navigator.splashscreen) {
       navigator.splashscreen.show();
@@ -44,7 +44,6 @@ angular.module('search', [])
       $ionicLoading.hide();
       $rootScope.showBack = true;
       $rootScope.ginfo = response;
-      console.log(response)
       $state.go('profile')
     })
   }

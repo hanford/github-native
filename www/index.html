@@ -17,9 +17,9 @@
   <script src="lib/base64.js"></script>
 
   <!-- Highlight JS -->
-  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/github.min.css">
-  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-  <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+  <link rel="stylesheet" href="lib/github-hljs.css">
+  <script src="lib/highlight.js"></script>
+  <script src="lib/angular-highlight.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
@@ -35,22 +35,24 @@
   <script src="js/commits/commits.js"></script>
   <script src="js/contents/contents.js"></script>
   <script src="js/factory.js"></script>
+  <script src="js/main-controller.js"></script>
   <script src="js/state.js"></script>
 
 
 </head>
 
 <body ng-app="MobGit">
+  <div ng-controller="mainCtrl">
+    <ion-nav-bar class="bar-stable bar-github-color nav-title-slide-ios7">
+      <div ng-if="showBack">
+        <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">
+          Back
+        </ion-nav-back-button>
+      </div>
+    </ion-nav-bar>
 
-  <ion-nav-bar class="bar-stable bar-github-color nav-title-slide-ios7">
-    <div ng-if="showBack">
-      <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">
-        Back
-      </ion-nav-back-button>
-    </div>
-  </ion-nav-bar>
-
-  <ion-nav-view></ion-nav-view>
+    <ion-nav-view></ion-nav-view>
+  </div>
 
   <script type="text/javascript">
     window.analytics = window.analytics || [], window.analytics.methods = ["identify", "group", "track", "page", "pageview", "alias", "ready", "on", "once", "off", "trackLink", "trackForm", "trackClick", "trackSubmit"], window.analytics.factory =
