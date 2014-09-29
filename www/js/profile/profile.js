@@ -50,7 +50,6 @@ angular.module('profile', [])
 
   githubservice.getEvents($scope.login).then(function(response) {
     $scope.recentEvents = response;
-    debugger
   });
 
   $ionicModal.fromTemplateUrl('js/modals/recentActivity.html', {

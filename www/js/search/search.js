@@ -52,4 +52,9 @@ angular.module('search', [])
     $rootScope.showBack = true;
     $state.go('info')
   }
+
+  $scope.clear = function() {
+    $scope.uname = '';
+  }
+
 })
