@@ -4,7 +4,7 @@
       <div class="list list-inset">
         <div class="item item-input" id="searchbar">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput" ng-focus="notEmpty = true">
+          <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput" ng-focus="notEmpty = true" ng-blur="notEmpty = false">
           <button ng-show="notEmpty" ng-click="uname = ''" class="button-clear clear-uname">
             <i class="ion-ios7-close"></i>
           </button>
@@ -20,7 +20,7 @@
       </div>
     </form>
     <!-- <h5 class="center" ng-if="authname">Welcome, {{authname}}</h5> -->
-    <h5 class="center fakeautho" ng-hide="authlogin">Authenticating <i class="ion-loading-b"></i></h5>
+    <h5 class="center fakeautho" ng-hide="authlogin">Checking Authentication <i class="ion-loading-b"></i></h5>
     <button class="button button-block button-light" ng-show="authlogin" ng-click="searchUser(authlogin)">Your Account</button>
   </ion-content>
   <ion-footer-bar align-title="center" ng-click="info()">

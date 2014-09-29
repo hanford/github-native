@@ -113,9 +113,9 @@
 		font-size: 35px;
 }
 .bigput {
-		height: 45px;
-		font-size: 18px;
-		line-height: 22px;
+		height: 45px !important;
+		font-size: 18px !important;
+		line-height: 22px !important;
 }
 .branch {
 		font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -235,35 +235,30 @@
 .search-icon {
 		font-size: 24px !important;
 }
-
 .code-wrapper,
 .code-wrapper span {
-	overflow-x: scroll;
-	white-space: nowrap;
+		overflow-x: scroll;
+		white-space: nowrap;
 }
-
 .octicon-logo-github {
-	position: relative;
-	top: 2px;
+		position: relative;
+		top: 2px;
 }
-
 .activity {
-	max-width:290px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+		max-width: 290px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 }
-
 .into-list {
-	font-size: 20px;
-	text-align: center;
+		font-size: 20px;
+		text-align: center;
 }
-
 .api-status-good {
-	color: #299456;
+		color: #299456;
 }
-
 .clear-uname {
-	margin-right: 10px;
-	z-index: 99999;
+		font-size: 22px;
+		margin-right: 5px;
+		z-index: 99999;
 }

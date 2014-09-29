@@ -55,6 +55,10 @@ angular.module('info', [])
     })
   }
 
+  $scope.privacy = function() {
+    var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_system');
+  }
+
   $scope.rate = false;
 
   githubservice.getRate().then(function(response) {

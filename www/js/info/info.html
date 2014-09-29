@@ -6,7 +6,8 @@
       </div>
       <li class="item">Authenticated <span class="pull-right">{{authenticated}}</span>
       </li>
-      <li class="item">Github Rate limit <span class="pull-right"> {{ratelimit}}</span></li>
+      <li class="item">Github Rate limit <span class="pull-right"> {{ratelimit}}</span>
+      </li>
       <li class="item" ng-show="api">Github API <span class="pull-right api-status-good">{{api}}</span>
       </li>
       <li class="item" ng-if="authenticated">Login <span class="pull-right">{{alias}}</span>
@@ -22,6 +23,8 @@
      	Open Sourced under <a class="positive" ng-click="mit()">MIT</a>
     <br />
       version: 0.0.6
+    <br />
+      <a ng-click="privacy()">Privacy Policy</a>
     </span>
     <br />
   </ion-content>
