@@ -262,3 +262,8 @@
 .api-status-good {
 	color: #299456;
 }
+
+.clear-uname {
+	margin-right: 10px;
+	z-index: 99999;
+}

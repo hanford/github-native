@@ -53,8 +53,9 @@ angular.module('search', [])
     $state.go('info')
   }
 
-  $scope.clear = function() {
-    $scope.uname = '';
-  }
+  // $scope.clearUname = function(uname) {
+  //   console.log('clicked')
+  //   $scope.uname = '';
+  // }
 
 })
