@@ -31,4 +31,8 @@ angular.module('intro', [])
     })
   }
 
+  $scope.privacy = function() {
+    var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
+  }
+
 })

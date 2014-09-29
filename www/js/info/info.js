@@ -56,7 +56,7 @@ angular.module('info', [])
   }
 
   $scope.privacy = function() {
-    var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_system');
+    var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
   }
 
   $scope.rate = false;
