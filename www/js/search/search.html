@@ -4,10 +4,11 @@
       <div class="list list-inset">
         <div class="item item-input" id="searchbar">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput" ng-focus="notEmpty = true" ng-blur="notEmpty = false">
-          <button ng-show="notEmpty" ng-click="uname = ''" class="button-clear clear-uname">
+          <!-- ng-focus="notEmpty = true" ng-blur="!notEmpty" -->
+          <input type="text" placeholder="Search Github" ng-model="uname" required class="bigput">
+          <!-- <button ng-show="notEmpty" ng-click="uname = ''" class="button-clear clear-uname">
             <i class="ion-ios7-close"></i>
-          </button>
+          </button> -->
         </div>
       </div>
       <div class="button-bar" style="width:95%;margin:0 auto;">

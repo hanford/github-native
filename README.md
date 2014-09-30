@@ -1,5 +1,6 @@
 A small client-side ionic application for both iOS and android. Will submit to both app stores at somepoint ..
 <br />
+<a href="http://jackhanford.com/MobileGit/">Landing Page for app</a>
 <br />
 **LICENSE:**
 <br />
