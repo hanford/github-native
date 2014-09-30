@@ -22,14 +22,14 @@ angular.module('info', [])
   $scope.alias = $rootScope.authlogin;
 
   if ($rootScope.access_token) {
-    $scope.authenticated = 'Yes'
+    $scope.authenticated = true;
   } else {
-    $scope.authenticated = 'No'
+    $scope.authenticated = false;
   }
 
   $scope.removeAuth = function(OAuth) {
   	$rootScope.access_token = '';
-  	$scope.authenticated = 'No'
+  	$scope.authenticated = false;
   	window.OAuth.clearCache();
   }
 
@@ -39,8 +39,8 @@ angular.module('info', [])
       cache: true
     }).done(function(result) {
       result.me()
+      $scope.authenticated = true
       .done(function(user_info) {
-        console.log(user_info)
         if (user_info.name) {
           $rootScope.authname = user_info.name;
           $rootScope.authlogin = user_info.alias;
