@@ -1,6 +1,6 @@
 angular.module('factory', ['ionic'])
 
-.factory('githubservice', function($http, $rootScope, $ionicPopup) {
+.factory('githubservice', function($http, $rootScope, $ionicPopup, $state) {
   var baseurl = 'https://api.github.com/';
 
   var $ajax = {
@@ -12,21 +12,20 @@ angular.module('factory', ['ionic'])
         query = '&' + args[1];
       }
 
+      showAlert = function(err) {
+        var alertPopup = $ionicPopup.alert({
+          title: 'Hmm..',
+          template: 'It looks like something went wrong'
+        });
+        alertPopup.then(function(res) {
+          $state.go('info')
+        });
+      }
 
       if (window.OAuth) {
         return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
           return response.data;
         }).catch(function(err) {
-          console.log(err)
-          showAlert = function() {
-            var alertPopup = $ionicPopup.alert({
-              title: 'Hmmm..',
-              template: 'It Looks like something went wrong'
-            });
-            alertPopup.then(function(res) {
-              // What should we do after the error?
-            });
-          }
           showAlert()
         })
       } else if ($rootScope.access_token == undefined) {

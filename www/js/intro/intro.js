@@ -14,7 +14,6 @@ angular.module('intro', [])
     }).done(function(result) {
       $rootScope.access_token = result.access_token;
       result.me().done(function(user_info) {
-        console.log(user_info)
         if (user_info.name) {
           $state.go('search')
           $rootScope.authname = user_info.name;
@@ -31,8 +30,8 @@ angular.module('intro', [])
     })
   }
 
-  $scope.privacy = function() {
-    var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
+  $scope.toInfo = function() {
+    $state.go('info')
   }
 
 })

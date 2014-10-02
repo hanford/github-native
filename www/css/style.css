@@ -215,7 +215,8 @@
 		font-size: 14px;
 }
 .code-wrapper {
-		tab-size: 2;
+		/*background-color: #F8F8F8;*/
+		font-size: 12px;
 }
 .authorize {
 		color: #555;
@@ -254,9 +255,6 @@
 		font-size: 20px;
 		text-align: center;
 }
-.api-status-good {
-		color: #299456;
-}
 .clear-uname {
 		font-size: 22px;
 		margin-right: 5px;
@@ -264,4 +262,10 @@
 }
 .privacy {
 	color: #777777;
+}
+.mild-green {
+		color: #299456;
+}
+.noauth {
+	color: red;
 }
