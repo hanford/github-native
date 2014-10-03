@@ -29,7 +29,15 @@ angular.module('intro', [])
       store.set('access_token', result.access_token);
       result.me().done(function(user_info) {
         if (user_info.name) {
-
+          mixpanel.identify(user_info.alias);
+          mixpanel.people.set({
+            "$email": user_info.email,
+            "name": user_info.name,
+            "$last_login": new Date(),
+            "avatar": user_info.avatar,
+            "location": user_info.location,
+            "company": user_info.company
+          })
           $rootScope.authname = user_info.name;
           $rootScope.authlogin = user_info.alias;
 
