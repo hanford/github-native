@@ -10,9 +10,10 @@ angular.module('intro', [])
 
   if (store.get('access_token')) {
     $rootScope.access_token = store.get('access_token');
-    $rootScope.authname = store.get('userlogin');
-    $rootScope.authlogin = store.get('username');
+    $rootScope.authname = store.get('name');
+    $rootScope.authlogin = store.get('login');
     $scope.authenticated = true;
+    $scope.authlogin = true;
     $state.go('search')
   } else {
     console.log('no access')
