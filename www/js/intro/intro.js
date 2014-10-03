@@ -23,9 +23,8 @@ angular.module('intro', [])
   }
 
   $scope.authme = function() {
-    OAuth.popup('github', {
-      cache: true
-    }).done(function(result) {
+    OAuth.popup('github')
+    .done(function(result) {
       $rootScope.access_token = result.access_token;
       store.set('access_token', result.access_token);
       result.me().done(function(user_info) {

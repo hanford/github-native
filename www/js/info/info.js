@@ -39,9 +39,7 @@ angular.module('info', [])
 
   $scope.newAuth = function() {
     OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-    OAuth.popup('github', {
-      cache: true
-    }).done(function(result) {
+    OAuth.popup('github').done(function(result) {
       $scope.authenticated = true;
       result.me()
       .done(function(user_info) {
