@@ -46,12 +46,13 @@ angular.module('info', [])
       result.me()
       .done(function(user_info) {
         if (user_info.name) {
-          $state.go('search');
           $rootScope.authname = user_info.name;
           $rootScope.authlogin = user_info.alias;
 
           store.set('name', $rootScope.authname);
           store.set('login', $rootScope.authlogin);
+
+          $state.go('search');
 
         } else {
 
