@@ -6,5 +6,6 @@
     <button class="button githubgreen button-block action-button" ng-click="authme()" ng-hide="authenticated">
       Login to <span class="octicon octicon-logo-github"></span>
     </button>
+    <button class="button button-block githubgrey action-button" ng-click="previousUser()" ng-if="name">Continue as {{name}}</button>
   </ion-content>
 </ion-view>

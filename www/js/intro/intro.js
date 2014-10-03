@@ -9,12 +9,15 @@ angular.module('intro', [])
   $ionicNavBarDelegate.setTitle('Welcome!');
 
   if (store.get('access_token')) {
-    $rootScope.access_token = store.get('access_token');
-    $rootScope.authname = store.get('name');
-    $rootScope.authlogin = store.get('login');
-    $scope.authenticated = true;
-    $scope.authlogin = true;
-    $state.go('search')
+    $scope.name = store.get('name');
+    $scope.previousUser = function() {
+      $rootScope.access_token = store.get('access_token');
+      $rootScope.authname = store.get('name');
+      $rootScope.authlogin = store.get('login');
+      $scope.authenticated = true;
+      $scope.authlogin = true;
+      $state.go('search')
+    }
   } else {
     console.log('no access')
   }
