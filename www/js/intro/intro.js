@@ -11,6 +11,7 @@ angular.module('intro', [])
   if (store.get('access_token')) {
     $scope.name = store.get('name');
     $scope.previousUser = function() {
+      mixpanel.track('Returning User');
       $rootScope.access_token = store.get('access_token');
       $rootScope.authname = store.get('name');
       $rootScope.authlogin = store.get('login');
@@ -23,6 +24,7 @@ angular.module('intro', [])
   }
 
   $scope.authme = function() {
+    mixpanel.track('New Authorization');
     OAuth.popup('github')
     .done(function(result) {
       $rootScope.access_token = result.access_token;
