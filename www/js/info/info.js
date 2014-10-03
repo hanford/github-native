@@ -42,13 +42,22 @@ angular.module('info', [])
     OAuth.popup('github', {
       cache: true
     }).done(function(result) {
+      $scope.authenticated = true;
       result.me()
-      $scope.authenticated = true
       .done(function(user_info) {
         if (user_info.name) {
+          $state.go('search');
           $rootScope.authname = user_info.name;
           $rootScope.authlogin = user_info.alias;
+
+          store.set('name', $rootScope.authname);
+          store.set('login', $rootScope.authlogin);
+
         } else {
+
+          store.set('name', $rootScope.authlogin);
+          store.set('login', $rootScope.authlogin);
+
           $rootScope.authname = user_info.alias;
           $rootScope.authlogin = user_info.alias;
         }

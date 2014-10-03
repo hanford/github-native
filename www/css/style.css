@@ -266,6 +266,9 @@
 .mild-green {
 		color: #299456;
 }
-.noauth {
-	color: red;
+.mild-yellow {
+		color: #ffd600;
+}
+.mild-red {
+		color: #dd2c00;
 }

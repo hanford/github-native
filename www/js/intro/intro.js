@@ -24,7 +24,7 @@ angular.module('intro', [])
       cache: true
     }).done(function(result) {
       $rootScope.access_token = result.access_token;
-      store.set('access_token', result.access_token)
+      store.set('access_token', result.access_token);
       result.me().done(function(user_info) {
         if (user_info.name) {
 
@@ -34,7 +34,7 @@ angular.module('intro', [])
           store.set('name', $rootScope.authname);
           store.set('login', $rootScope.authlogin);
 
-          $state.go('search')
+          $state.go('search');
 
         } else {
 

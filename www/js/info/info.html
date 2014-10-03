@@ -5,11 +5,11 @@
         Github Stats
         <span class="pull-right privacy">v0.7</span>
       </div>
-      <li class="item">Authenticated <span class="pull-right" ng-class="{false: 'noauth', true: 'mild-green'}[authenticated]">{{authenticated}}</span>
+      <li class="item">Authenticated <span class="pull-right" ng-class="{false: 'mild-red', true: 'mild-green'}[authenticated]">{{authenticated}}</span>
       </li>
       <li class="item" ng-if="authenticated">Github Rate limit <span class="pull-right"> {{ratelimit}}</span>
       </li>
-      <li class="item" ng-show="api">Github API <span ng-class="{good: 'mild-green'}[api]" class="pull-right">{{api}}</span>
+      <li class="item" ng-show="api">Github API <span ng-class="{good: 'mild-green', minor: 'mild-yellow', major: 'mild-red'}[api]" class="pull-right">{{api}}</span>
       </li>
       <li class="item" ng-if="authenticated">Username <span class="pull-right">{{alias}}</span>
       </li>
