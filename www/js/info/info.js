@@ -1,6 +1,6 @@
 angular.module('info', [])
 
-.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate) {
+.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate, store) {
   $scope.search = function() {
     $state.go('search')
   }
@@ -29,6 +29,10 @@ angular.module('info', [])
 
   $scope.removeAuth = function(OAuth) {
   	$rootScope.access_token = '';
+    store.remove('access_token');
+    store.remove('name');
+    store.remove('login');
+    console.log('removed storage');
   	$scope.authenticated = false;
   	window.OAuth.clearCache();
   }

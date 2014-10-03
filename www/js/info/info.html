@@ -18,13 +18,13 @@
     </button>
     <button class="button button-dark button-block" ng-click="newAuth()" ng-hide="authenticated">Login to <span class="octicon octicon-logo-github"></span>
     </button>
-    <p class="privacy center">To use this application, you'll need either a data or wifi connection and authentication from GitHub.</p>
+    <p class="privacy center" ng-if="!authenticated">To use this application, you'll need either a data or wifi connection and authentication from GitHub.</p>
     <br />
-    <span class="center">Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a>
-    <br />
-     	Open Sourced under <a class="positive" ng-click="mit()">MIT</a>
-    <br />
-    <a class="positive" ng-click="privacy()">Privacy Policy</a>
-    </span>
+    <div class="center">Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a>
+      <br />
+     	  Open Sourced under <a class="positive" ng-click="mit()">MIT</a>
+       <br />
+      <a class="positive" ng-click="privacy()">Privacy Policy</a>
+    </div>
   </ion-content>
 </ion-view>
