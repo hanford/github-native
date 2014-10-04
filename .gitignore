@@ -1,8 +1,4 @@
 node_modules/
 .DS_*
-.bowerrc
-bower.json
-config.xml
-ionic.project
 hooks/
 platforms/

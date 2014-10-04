@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.jackhanford.GitMobile" version="0.7.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>GitMobile</name>
+  <description>
+    A better way to browse through Github on a phone.
+  </description>
+  <author email="jackhanford@gmail.com" href="http://jackhanford.com/">
+    Jack Hanford
+  </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <feature name="InAppBrowser">
+    <param name="ios-package" value="CDVInAppBrowser"/>
+  </feature>
+  <feature name="Keyboard">
+    <param name="ios-package" value="IonicKeyboard" onload="true"/>
+  </feature>
+</widget>
