@@ -198,7 +198,7 @@
 		color: #888888;
 }
 .stargazer-starred {
-	color: #F0B840 !important;
+		color: #F0B840 !important;
 }
 .grey-icon {
 		color: #666666;
@@ -254,13 +254,8 @@
 .search-icon {
 		font-size: 24px !important;
 }
-.code-wrapper,
-.code-wrapper span {
-		overflow-x: scroll;
-		white-space: nowrap;
-}
-.cm-s-monokai.CodeMirror {
-	height: 100%;
+.cm-s-dope.CodeMirror {
+		height: 100%;
 }
 .octicon-logo-github {
 		position: relative;
@@ -292,4 +287,8 @@
 }
 .mild-red {
 		color: #dd2c00;
+}
+#editor {
+		position: relative;
+		height: 100%;
 }

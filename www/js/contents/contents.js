@@ -24,18 +24,16 @@ angular.module('contents', [])
       readOnly: 'nocursor',
       lineNumbers: true,
       mode: extName,
-      theme: 'monokai',
+      theme: 'dope',
       fixedGutter: false,
       indentWithTabs: true,
       indentSize: 2,
       flattenSpans: false,
       smartIndent: false,
       styleActiveLine: true,
-      profile: 'xhtml',
       extraKeys: {
-        Tab: function(cm) {
-          var spaces = Array(cm.getOption('indentUnit') + 1).join(' ');
-          cm.replaceSelection(spaces, 'end', '+input');
+        "Tab": function(cm) {
+          cm.replaceSelection("   ", "end");
         }
       }
     });
