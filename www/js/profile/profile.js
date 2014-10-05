@@ -48,6 +48,7 @@ angular.module('profile', [])
     $scope.followuser = function(login) {
       $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
         $scope.unfollow = true;
+        $scope.followers++;
         $scope.notCurrent = false;
       })
     }
@@ -55,6 +56,7 @@ angular.module('profile', [])
     $scope.unfollowUser = function(login) {
       $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
         $scope.unfollow = false;
+        $scope.followers--;
         $scope.notCurrent = true;
       })
     }
