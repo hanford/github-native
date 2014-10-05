@@ -17,13 +17,17 @@
               <i class="octicon octicon-location ico"></i> {{location}}
             </div>
             <div class="row" ng-hide="hideLink" ng-click="blogClick(blog)">
-              <i class="octicon octicon-link link-item-icon ico"></i>  <span class="profile-link"> {{blog}}</span>
+              <i class="octicon octicon-link link-item-icon ico"></i> <span class="profile-link"> {{blog}}</span>
             </div>
           </div>
         </div>
       </div>
       <div class="mid-profile">
-        <button class="button githubgreen button-block action-button" ng-click="acitivty()">Recent Activity</button>
+        <div class="button-bar">
+          <button class="button githubgreen button-block action-button" ng-click="acitivty()">Recent Activity</button>
+          <button class="button githubgrey button-block action-button" ng-show="notCurrent" ng-click="followuser(login)">Follow</button>
+          <button class="button githubgrey button-block action-button" ng-show="unfollow" ng-click="unfollowUser(login)">Unfollow</button>
+        </div>
         <div class="row">
           <div class="col action-numbers center" ng-click="toFollowerState()">{{followers}}
             <br /><span class="center action-text">Followers</span>
