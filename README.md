@@ -1,6 +1,11 @@
 A small client-side ionic application for both iOS and android. Will submit to both app stores at somepoint ..
 <br />
-<a href="http://jackhanford.com/MobileGit/">Landing Page for app</a>
+<br />
+<a href="http://jackhanford.com/MobileGit/">Landing Page</a>
+<br />
+<br />
+<a href="https://itunes.apple.com/us/app/mobilegit/id918733984?ls=1&mt=8">App Store Link</a>
+<br />
 <br />
 **LICENSE:**
 <br />
