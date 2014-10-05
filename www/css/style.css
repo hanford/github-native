@@ -233,7 +233,7 @@
 		font-size: 14px;
 }
 .code-wrapper {
-		/*background-color: #F8F8F8;*/
+		height:100%;
 		font-size: 12px;
 }
 .authorize {
@@ -287,8 +287,4 @@
 }
 .mild-red {
 		color: #dd2c00;
-}
-#editor {
-		position: relative;
-		height: 100%;
 }
