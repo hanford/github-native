@@ -197,6 +197,9 @@
 .stargazer {
 		color: #888888;
 }
+.stargazer-starred {
+	color: #F0B840 !important;
+}
 .grey-icon {
 		color: #666666;
 }
@@ -255,6 +258,9 @@
 .code-wrapper span {
 		overflow-x: scroll;
 		white-space: nowrap;
+}
+.cm-s-monokai.CodeMirror {
+	height: 100%;
 }
 .octicon-logo-github {
 		position: relative;

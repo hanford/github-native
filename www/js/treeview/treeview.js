@@ -1,32 +1,7 @@
 angular.module('treeview', [])
 
-.controller('repoViewCtrl', function($scope, $http, $rootScope, $state, githubservice) {
-  console.log($rootScope.repo)
-  var updated = $rootScope.repo.updated_at;
-  $scope.updated = updated.substring(0, 10);
-  $scope.repo = $rootScope.repo;
-
-  $scope.recentActivity = function(repo) {
-    $scope.repo = repo;
-    githubservice.getCommits(repo).then(function(response) {
-      $state.go('commits')
-      $rootScope.commits = response;
-    })
-  }
-
-  $scope.seeTree = function(fullname) {
-    githubservice.getTree(fullname).then(function(response) {
-      $rootScope.tree = response;
-      $state.go('treeview')
-    })
-  }
-
-})
-
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate) {
   $scope.repo = $rootScope.repo;
-
-
   $scope.items = $rootScope.tree;
 
   if ($rootScope.repo == undefined) {
@@ -47,6 +22,30 @@ angular.module('treeview', [])
     $scope.contributors = response.length + ' Contributors';
   })
 
+  var full_name = $scope.repo.full_name;
+  var starURL = 'https://api.github.com/user/starred/' + full_name + '?access_token=' + $rootScope.access_token;
+  $http.get(starURL)
+  .success(function(data, status) {
+    console.log(data, status)
+    $scope.starred = true;
+  }).error(function(data, status){
+    console.log(data, status)
+    $scope.starred = false;
+  })
+
+  $scope.starme = function(full_name) {
+    $http.put(starURL).then(function(response) {
+      $scope.starred = true;
+      console.log(response.status)
+    })
+  }
+  $scope.unstar = function(full_name) {
+    $http.delete(starURL).then(function(response) {
+      $scope.starred = false;
+      console.log(response.status)
+    })
+  }
+
   $scope.file = function(item) {
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
@@ -54,6 +53,7 @@ angular.module('treeview', [])
     githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
         if (item.type == 'file') {
           $ionicLoading.hide();
+          $rootScope.path = item.path;
           $rootScope.code = atob(response.content.replace(/\s/g, ''))
           $state.go('content')
         } else {

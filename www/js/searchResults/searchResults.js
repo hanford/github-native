@@ -3,7 +3,7 @@ angular.module('searchlist', [])
 .controller('searchviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
   $scope.items = $rootScope.sItems;
 
-  console.log($scope.items)
+  console.log($scope.items);
 
   $scope.gotoTree = function(item) {
     $rootScope.repo = item;

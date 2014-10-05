@@ -3,6 +3,8 @@ angular.module('search', [])
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
   $rootScope.count;
 
+  $scope.uname = 'bootstrap';
+
   if ($rootScope.count < 0) {
     if (navigator.splashscreen) {
       navigator.splashscreen.show();

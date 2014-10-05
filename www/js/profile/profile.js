@@ -43,7 +43,7 @@ angular.module('profile', [])
     $scope.name = $rootScope.ginfo.name;
     $scope.id = $rootScope.ginfo.id;
     $scope.login = $rootScope.ginfo.login;
-    console.log('LOGIN BULLSHIT', $rootScope.authlogin, $scope.login);
+    console.log('LOGIN', $rootScope.authlogin, $scope.login);
 
     $scope.followuser = function(login) {
       $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {

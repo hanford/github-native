@@ -18,11 +18,6 @@ angular.module('state', ['ionic'])
       templateUrl: "js/profile/profile.html",
       controller: 'profileCtrl'
     })
-    .state('PublicRep', {
-      url: "/PublicRepo",
-      templateUrl: "js/treeview/PublicRepo.html",
-      controller: 'repoViewCtrl'
-    })
     .state('followers', {
       url: "/followers",
       templateUrl: "js/follow/followers.html",
