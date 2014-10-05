@@ -4,7 +4,7 @@
   </ion-header-bar>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="recentEvent in recentEvents">
+      <ion-item ng-repeat="recentEvent in recentEvents" ng-click="recent(recentEvent)">
         <div ng-switch="recentEvent.type" class="activity">
           <span ng-switch-when="CommitCommentEvent"> <i class="octicon octicon-mail-read grey-icon"></i> Commented on commit {{recentEvent.repo.name}}</span>
           <span ng-switch-when="CreateEvent"><i class="octicon octicon-plus grey-icon"></i> Created File at {{recentEvent.repo.name}}</span>

@@ -24,6 +24,7 @@ angular.module('search', [])
   $rootScope.showBack = false;
 
   $scope.searchProject = function(uname) {
+    mixpanel.track('Search Project');
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
@@ -36,6 +37,7 @@ angular.module('search', [])
   }
 
   $scope.searchUser = function(uname) {
+    mixpanel.track('Search User');
     $rootScope.uname = uname;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'

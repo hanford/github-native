@@ -10,6 +10,7 @@ angular.module('intro', [])
 
   if (store.get('access_token')) {
     $scope.name = store.get('name');
+
     $scope.previousUser = function() {
       mixpanel.track('Returning User');
       $rootScope.access_token = store.get('access_token');

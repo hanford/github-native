@@ -43,6 +43,10 @@ angular.module('treeview', [])
     console.log('first call for for contribs')
   })
 
+  githubservice.getStats($scope.repo.full_name).then(function(response) {
+    $scope.contributors = response.length + ' Contributors';
+  })
+
   $scope.file = function(item) {
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'

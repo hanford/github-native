@@ -1,9 +1,8 @@
-<ion-view title="{{repo.full_name}}" animation="slide-left-right-ios7">
+<ion-view title="{{repo.full_name}}">
   <ion-content has-header="true">
     <div class="bar-subheader button-bar">
-      <button class="button button-clear button-light" ng-click="contribs()" style="color:#555;"><i class="octicon octicon-organization"></i>
-      </button>
-      <button class="button button-clear button-light branch" ng-click="branch()">master</button>
+      <button class="button button-stable" ng-click="contribs()" style="color:#555;">Contributors</button>
+      <button class="button button-stable branch" ng-click="branch()">master</button>
     </div>
 
     <ion-list>

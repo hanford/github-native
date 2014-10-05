@@ -29,6 +29,7 @@ angular.module('profile', [])
   }
 
   $scope.blogClick = function(blog) {
+    mixpanel.track('Personal Website Click')
     var ref = window.open(blog, '_system');
   }
 
@@ -59,18 +60,22 @@ angular.module('profile', [])
     $scope.modal = modal;
 
     $scope.acitivty = function() {
+      mixpanel.track('Recent Activity Modal')
       $scope.modal.show();
     };
-    // $scope.repo = function(full_name) {
-    //   $ionicLoading.show({
-    //     template: '<i class="ion-loading-c"></i>'
-    //   });
-    //   githubservice.getTree(full_name).then(function(response) {
-    //     $ionicLoading.hide();
-    //     $state.go('treeview')
-    //     $rootScope.tree = response;
-    //   });
-    // }
+
+    $scope.recent = function(recentEvent) {
+      console.log(JSON.stringify(recentEvent))
+      // $ionicLoading.show({
+      //   template: '<i class="ion-loading-c"></i>'
+      // });
+      // githubservice.getTree(full_name).then(function(response) {
+      //   $ionicLoading.hide();
+      //   $state.go('treeview')
+      //   $rootScope.tree = response;
+      // });
+    }
+
     $scope.closeModal = function() {
       $scope.modal.hide();
     }
@@ -81,6 +86,7 @@ angular.module('profile', [])
   })
 
   $scope.repoinfo = function(popularRepo) {
+    mixpanel.track('Repo Click');
     $rootScope.repo = popularRepo;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
@@ -88,7 +94,7 @@ angular.module('profile', [])
 
     githubservice.getTree(popularRepo.full_name).then(function(response) {
       $ionicLoading.hide();
-      $state.go('treeview')
+      $state.go('treeview');
       $rootScope.tree = response;
     })
   }
@@ -99,6 +105,7 @@ angular.module('profile', [])
   }
 
   $scope.toFollowerState = function() {
+    mixpanel.track('Click Follower');
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
@@ -110,6 +117,7 @@ angular.module('profile', [])
   }
 
   $scope.toFollowingState = function() {
+    mixpanel.track('Click Following');
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });

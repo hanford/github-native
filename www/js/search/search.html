@@ -8,14 +8,15 @@
         </div>
       </div>
       <div class="button-bar" style="width:95%;margin:0 auto;">
-        <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-large search-bttn">
+        <button type="submit" ng-click="searchUser(uname)" ng-disabled="form.$invalid" class="button button-large githubgrey">
           <i class="octicon octicon-organization search-icon"></i>
         </button>
-        <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-large search-bttn">
+        <button type="submit" ng-click="searchProject(uname)" ng-disabled="form.$invalid" class="button button-large githubgrey">
           <i class="octicon octicon-file-code search-icon"></i>
         </button>
       </div>
     </form>
+    <h5 class="center fakeautho" ng-hide="authlogin">Checking Authentication <i class="ion-loading-b"></i></h5>
     <button class="button button-block githubgrey action-button" ng-show="authlogin" ng-click="searchUser(authlogin)">Your Account</button>
   </ion-content>
   <ion-footer-bar align-title="center" ng-click="info()">
