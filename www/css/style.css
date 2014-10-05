@@ -288,3 +288,18 @@
 .mild-red {
 		color: #dd2c00;
 }
+.full-width {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.button-cont {
+	width: 50%;
+	float: left;
+	margin: 0 auto;
+}
+
+.button-full {
+	width: 95%;
+	margin: 0 auto;
+}

@@ -1,5 +1,5 @@
 angular.module('profile', [])
-  .controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate) {
+  .controller('profileCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store) {
 
     if (!$rootScope.ginfo) {
       $state.go('search')
@@ -43,34 +43,39 @@ angular.module('profile', [])
     $scope.name = $rootScope.ginfo.name;
     $scope.id = $rootScope.ginfo.id;
     $scope.login = $rootScope.ginfo.login;
-    console.log('LOGIN', $rootScope.authlogin, $scope.login);
+
 
     $scope.followuser = function(login) {
       $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
         $scope.unfollow = true;
         $scope.followers++;
         $scope.notCurrent = false;
+        $scope.half = true;
       })
     }
 
     $scope.unfollowUser = function(login) {
       $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
         $scope.unfollow = false;
+        $scope.half = true;
         $scope.followers--;
         $scope.notCurrent = true;
       })
     }
 
-    if ($rootScope.authlogin != $scope.login) {
+    var currentUser = store.get('login');
+    console.log('LOGIN', currentUser, $scope.login);
+    if (currentUser != $scope.login) {
       $http.get('https://api.github.com/user/following/' + $scope.login + '?access_token=' + $rootScope.access_token).then(function(response) {
-        console.log('following')
+        console.log('following');
+        $scope.half = true;
         $scope.notCurrent = false;
         $scope.unfollow = true;
       }).catch(function(err) {
+        $scope.half = true;
         $scope.unfollow = false;
         $scope.notCurrent = true;
         console.log('not following')
-
       })
     }
 
