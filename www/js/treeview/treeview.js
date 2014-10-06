@@ -58,7 +58,6 @@ angular.module('treeview', [])
           $state.go('content')
         } else {
           $ionicLoading.hide();
-          console.log(response)
           $scope.items = response;
           $ionicScrollDelegate.scrollTop(true)
         }

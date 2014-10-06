@@ -53,6 +53,6 @@ angular.module('state', ['ionic'])
       templateUrl: "js/intro/intro.html",
       controller: 'introCtrl'
     })
-
+    
   $urlRouterProvider.otherwise("/search");
 })

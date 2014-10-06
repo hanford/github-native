@@ -3,7 +3,7 @@ angular.module('contents', [])
 .controller('contentCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate) {
   $scope.code = $rootScope.code;
   $scope.path = $rootScope.path;
-  $ionicNavBarDelegate.setTitle('Code');
+  $ionicNavBarDelegate.setTitle($rootScope.path);
   console.log($scope.code);
 
   var ext = $scope.path.split('.').pop();

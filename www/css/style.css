@@ -254,6 +254,15 @@
 .search-icon {
 		font-size: 24px !important;
 }
+.cm-s-monokai.CodeMirror {
+		height: 100%;
+}
+.cm-s-eclipse.CodeMirror {
+		height: 100%;
+}
+.cm-s-pastel-on-dark.CodeMirror {
+		height: 100%;
+}
 .cm-s-dope.CodeMirror {
 		height: 100%;
 }

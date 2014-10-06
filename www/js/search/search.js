@@ -3,16 +3,6 @@ angular.module('search', [])
 .controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
   $rootScope.count;
 
-  if ($rootScope.count < 0) {
-    if (navigator.splashscreen) {
-      navigator.splashscreen.show();
-      $timeout(function() {
-        navigator.splashscreen.hide();
-      }, 3000)
-      $rootScope.count++
-    }
-  }
-
   $timeout(function() {
     if ($rootScope.authname) {
       $scope.authname = $rootScope.authname;

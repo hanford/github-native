@@ -1,10 +1,6 @@
 angular.module('info', [])
 
 .controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate, store) {
-  $scope.search = function() {
-    $state.go('search')
-  }
-
   $rootScope.showBack = true;
 
   $ionicNavBarDelegate.setTitle('Info');
@@ -72,8 +68,6 @@ angular.module('info', [])
   $scope.privacy = function() {
     var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
   }
-
-  $scope.rate = false;
 
   githubservice.getRate().then(function(response) {
     $scope.ratelimit = response.rate.remaining;

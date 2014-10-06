@@ -23,13 +23,17 @@ angular.module('factory', ['ionic'])
       }
 
       if (window.OAuth) {
-        return $http.get(route + '?access_token=' + $rootScope.access_token + query).then(function(response) {
+        return $http.get(route + '?access_token=' + $rootScope.access_token + query, {
+          timeout: 5000
+        }).then(function(response) {
           return response.data;
         }).catch(function(err) {
           showAlert()
         })
       } else if ($rootScope.access_token == undefined) {
-        return $http.get(route).then(function(response) {
+        return $http.get(route, {
+          timeout: 5000
+        }).then(function(response) {
           return response.data;
         }).catch(function(error) {
           alert(error)
