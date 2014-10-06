@@ -5,6 +5,8 @@ angular.module('info', [])
     $state.go('search')
   }
 
+  $rootScope.showBack = true;
+
   $ionicNavBarDelegate.setTitle('Info');
 
   $scope.personalwebsite = function() {
