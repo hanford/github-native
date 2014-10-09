@@ -1,6 +1,6 @@
 angular.module('info', [])
 
-.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate, store) {
+.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate, store, $timeout) {
   $rootScope.showBack = true;
 
   $ionicNavBarDelegate.setTitle('Info');
@@ -26,13 +26,13 @@ angular.module('info', [])
   }
 
   $scope.removeAuth = function(OAuth) {
-  	$rootScope.access_token = '';
+    $rootScope.access_token = '';
     store.remove('access_token');
     store.remove('name');
     store.remove('login');
     console.log('removed storage');
-  	$scope.authenticated = false;
-  	window.OAuth.clearCache();
+    $scope.authenticated = false;
+    window.OAuth.clearCache();
   }
 
   $scope.newAuth = function() {
@@ -40,26 +40,26 @@ angular.module('info', [])
     OAuth.popup('github').done(function(result) {
       $scope.authenticated = true;
       result.me()
-      .done(function(user_info) {
-        if (user_info.name) {
-          $rootScope.authname = user_info.name;
-          $rootScope.authlogin = user_info.alias;
+        .done(function(user_info) {
+          if (user_info.name) {
+            $rootScope.authname = user_info.name;
+            $rootScope.authlogin = user_info.alias;
 
-          store.set('name', $rootScope.authname);
-          store.set('login', $rootScope.authlogin);
+            store.set('name', $rootScope.authname);
+            store.set('login', $rootScope.authlogin);
 
-          $state.go('search');
+            $state.go('search');
 
-        } else {
+          } else {
 
-          store.set('name', $rootScope.authlogin);
-          store.set('login', $rootScope.authlogin);
+            store.set('name', $rootScope.authlogin);
+            store.set('login', $rootScope.authlogin);
 
-          $rootScope.authname = user_info.alias;
-          $rootScope.authlogin = user_info.alias;
-        }
-        $rootScope.access_token = result.access_token
-      })
+            $rootScope.authname = user_info.alias;
+            $rootScope.authlogin = user_info.alias;
+          }
+          $rootScope.access_token = result.access_token
+        })
     }).fail(function(error) {
       // alert('Error authenticating!')
     })
