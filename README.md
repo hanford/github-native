@@ -1,4 +1,4 @@
-A small client-side ionic application for both iOS and android. Will submit to both app stores at somepoint ..
+A small client-side mobile GitHub application for iOS (I am still working on android)
 <br />
 <br />
 <a href="http://jackhanford.com/MobileGit/">Landing Page</a>
