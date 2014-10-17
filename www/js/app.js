@@ -3,6 +3,10 @@ angular.module('MobileGit', ['ionic', 'state', 'factory', 'profile', 'search', '
 .run(function($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function() {
 
+    window.addEventListener('load', function() {
+      FastClick.attach(document.body);
+    }, false);
+
     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
     if (window.OAuth) {

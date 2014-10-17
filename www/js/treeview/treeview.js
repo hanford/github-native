@@ -24,11 +24,10 @@ angular.module('treeview', [])
 
   var full_name = $scope.repo.full_name;
   var starURL = 'https://api.github.com/user/starred/' + full_name + '?access_token=' + $rootScope.access_token;
-  $http.get(starURL)
-  .success(function(data, status) {
+  $http.get(starURL).success(function(data, status) {
     console.log(data, status)
     $scope.starred = true;
-  }).error(function(data, status){
+  }).error(function(data, status) {
     console.log(data, status)
     $scope.starred = false;
   })
@@ -51,17 +50,17 @@ angular.module('treeview', [])
       template: '<i class="ion-loading-c"></i>'
     });
     githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
-        if (item.type == 'file') {
-          $ionicLoading.hide();
-          $rootScope.path = item.path;
-          $rootScope.code = atob(response.content.replace(/\s/g, ''))
-          $state.go('content')
-        } else {
-          $ionicLoading.hide();
-          $scope.items = response;
-          $ionicScrollDelegate.scrollTop(true)
-        }
-      })
+      if (item.type == 'file') {
+        $ionicLoading.hide();
+        $rootScope.path = item.path;
+        $rootScope.code = atob(response.content.replace(/\s/g, ''))
+        $state.go('content')
+      } else {
+        $ionicLoading.hide();
+        $scope.items = response;
+        $ionicScrollDelegate.scrollTop(true)
+      }
+    })
   }
 
   $scope.branch = function() {
@@ -87,25 +86,18 @@ angular.module('treeview', [])
 
     $scope.toContrib = function(login) {
       $rootScope.uname = login;
-
       var url = 'https://api.github.com/users/' + login;
-
-      console.log(url)
-
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-
-      $http.get(url)
-        .success(function(data, headers, status, config) {
-          $rootScope.ginfo = data;
-          $ionicLoading.hide();
-          $scope.modal.hide();
-          $state.go('profile')
-        })
-        .error(function(data, headers, status, config) {
-          console.log(data, headers, status)
-        });
+      $http.get(url).success(function(data, headers, status, config) {
+        $rootScope.ginfo = data;
+        $ionicLoading.hide();
+        $scope.modal.hide();
+        $state.go('profile')
+      }).error(function(data, headers, status, config) {
+        console.log(data, headers, status)
+      });
     }
   });
 
