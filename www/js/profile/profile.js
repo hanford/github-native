@@ -45,8 +45,11 @@ angular.module('profile', [])
     $scope.login = $rootScope.ginfo.login;
 
 
-    $scope.followuser = function(login) {
+    $scope.followUser = function(login) {
       $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
+        mixpanel.track('Followed User', {
+          "followed": login
+        });
         $scope.unfollow = true;
         $scope.followers++;
         $scope.notCurrent = false;
@@ -55,6 +58,9 @@ angular.module('profile', [])
     }
 
     $scope.unfollowUser = function(login) {
+      mixpanel.track('unFollowed User', {
+        "unfollowed": login
+      });
       $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
         $scope.unfollow = false;
         $scope.half = true;
@@ -123,6 +129,9 @@ angular.module('profile', [])
 
     $scope.repoinfo = function(popularRepo) {
       mixpanel.track('Repo Click');
+      mixpanel.track('Repo Click', {
+        "Repo": popularRepo.full_name
+      });
       $rootScope.repo = popularRepo;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
