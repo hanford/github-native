@@ -1,6 +1,6 @@
 angular.module('intro', [])
 
-.controller('introCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, store) {
+.controller('introCtrl', function($scope, $rootScope, $state, $ionicNavBarDelegate, store) {
 
   if ($rootScope.access_token) {
     $state.go('search')
@@ -27,33 +27,33 @@ angular.module('intro', [])
   $scope.authme = function() {
     mixpanel.track('New Authorization');
     OAuth.popup('github')
-    .done(function(result) {
-      $rootScope.access_token = result.access_token;
-      store.set('access_token', result.access_token);
-      result.me().done(function(user_info) {
-        if (user_info.name) {
-          $rootScope.authname = user_info.name;
-          $rootScope.authlogin = user_info.alias;
+      .done(function(result) {
+        $rootScope.access_token = result.access_token;
+        store.set('access_token', result.access_token);
+        result.me().done(function(user_info) {
+          if (user_info.name) {
+            $rootScope.authname = user_info.name;
+            $rootScope.authlogin = user_info.alias;
 
-          store.set('name', $rootScope.authname);
-          store.set('login', $rootScope.authlogin);
+            store.set('name', $rootScope.authname);
+            store.set('login', $rootScope.authlogin);
 
-          $state.go('search');
+            $state.go('search');
 
-        } else {
+          } else {
 
-          store.set('name', user_info.alias);
-          store.set('login', user_info.alias);
+            store.set('name', user_info.alias);
+            store.set('login', user_info.alias);
 
-          $rootScope.authname = user_info.alias;
-          $rootScope.authlogin = user_info.alias;
+            $rootScope.authname = user_info.alias;
+            $rootScope.authlogin = user_info.alias;
 
-        }
+          }
+        }).fail(function(error) {
+          // alert(error)
+        })
       }).fail(function(error) {
         // alert(error)
       })
-    }).fail(function(error) {
-      // alert(error)
-    })
   }
 })

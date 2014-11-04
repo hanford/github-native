@@ -1,6 +1,6 @@
 angular.module('search', [])
 
-.controller('searchCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicModal) {
+.controller('searchCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout) {
   $rootScope.count;
 
   $timeout(function() {
@@ -18,6 +18,7 @@ angular.module('search', [])
       "Project": uname
     });
 
+    console.log('tracked ' + uname)
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
@@ -33,6 +34,7 @@ angular.module('search', [])
     mixpanel.track('Search User', {
       "User": uname
     });
+    console.log('tracked ' + uname)
     $rootScope.uname = uname;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'

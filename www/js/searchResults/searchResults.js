@@ -1,6 +1,6 @@
 angular.module('searchlist', [])
 
-.controller('searchviewCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice) {
+.controller('searchviewCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice) {
   $scope.items = $rootScope.sItems;
 
   console.log($scope.items);

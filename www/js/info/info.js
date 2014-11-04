@@ -1,6 +1,6 @@
 angular.module('info', [])
 
-.controller('infoCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $ionicNavBarDelegate, store, $timeout) {
+.controller('infoCtrl', function($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store) {
   $rootScope.showBack = true;
 
   $ionicNavBarDelegate.setTitle('Info');

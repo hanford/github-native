@@ -1,6 +1,6 @@
 angular.module('contents', [])
 
-.controller('contentCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate) {
+.controller('contentCtrl', function($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
   $scope.code = $rootScope.code;
   $scope.path = $rootScope.path;
   $ionicNavBarDelegate.setTitle($rootScope.path);

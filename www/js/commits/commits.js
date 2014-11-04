@@ -1,6 +1,6 @@
 angular.module('commits', [])
 
-.controller('commitsCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate) {
+.controller('commitsCtrl', function($scope, $rootScope, $state, $ionicNavBarDelegate) {
   $scope.commits = $rootScope.commits;
   $ionicNavBarDelegate.setTitle('Commits')
 
