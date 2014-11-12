@@ -106,25 +106,22 @@ angular.module('profile', [])
         $scope.modal.show();
       };
 
-      $scope.recent = function(recentEvent) {
-        console.log(JSON.stringify(recentEvent))
-          // $ionicLoading.show({
-          //   template: '<i class="ion-loading-c"></i>'
-          // });
-          // githubservice.getTree(full_name).then(function(response) {
-          //   $ionicLoading.hide();
-          //   $state.go('treeview')
-          //   $rootScope.tree = response;
-          // });
-      }
-
       $scope.closeModal = function() {
         $scope.modal.hide();
       }
     });
 
     githubservice.userRepo($rootScope.uname).then(function(response) {
-      $scope.popularRepos = response;
+      var recents = [];
+      function sortNumber(a, b) {
+        return a.stars - b.stars;
+      }
+      for (var star in response) {
+        var popularRepo = { "stars":  response[star].stargazers_count, "reponame": response[star].full_name, "fork": response[star].fork };
+        recents.push(popularRepo)
+      }
+      recents.sort(sortNumber);
+      $scope.pubRepos = recents.reverse();
     })
 
     $scope.repoinfo = function(popularRepo) {
