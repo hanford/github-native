@@ -10,20 +10,22 @@ angular.module('treeview', [])
     $state.go('search')
   }
 
-  githubservice.getCommits($scope.repo.full_name).then(function(response) {
+  githubservice.getCommits($scope.repo).then(function(response) {
+    debugger
     $scope.commits = response.length;
   })
 
-  githubservice.getStats($scope.repo.full_name).then(function(response) {
+  githubservice.getStats($scope.repo).then(function(response) {
+    debugger
     console.log('first call for for contribs')
   })
 
-  githubservice.getStats($scope.repo.full_name).then(function(response) {
+  githubservice.getStats($scope.repo).then(function(response) {
+    debugger
     $scope.contributors = response.length + ' Contributors';
   })
 
-  var full_name = $scope.repo.full_name;
-  var starURL = 'https://api.github.com/user/starred/' + full_name + '?access_token=' + $rootScope.access_token;
+  var starURL = 'https://api.github.com/user/starred/' + $scope.repo + '?access_token=' + $rootScope.access_token;
   $http.get(starURL).success(function(data, status) {
     console.log(data, status)
     $scope.starred = true;
@@ -49,7 +51,7 @@ angular.module('treeview', [])
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
-    githubservice.getContents($scope.repo.full_name, item.path).then(function(response) {
+    githubservice.getContents($scope.repo, item.path).then(function(response) {
       if (item.type == 'file') {
         $ionicLoading.hide();
         $rootScope.path = item.path;
@@ -64,7 +66,7 @@ angular.module('treeview', [])
   }
 
   $scope.branch = function() {
-    var ref = window.open('https://github.com/' + $rootScope.repo.full_name + '?files=1', '_blank', 'location=no');
+    var ref = window.open('https://github.com/' + $scope.repo + '?files=1', '_blank', 'location=no');
   }
 
   $ionicModal.fromTemplateUrl('js/modals/contributors.html', {
@@ -75,7 +77,7 @@ angular.module('treeview', [])
 
     $scope.contribs = function() {
       $scope.modal.show();
-      githubservice.getStats($scope.repo.full_name).then(function(response) {
+      githubservice.getStats($scope.repo).then(function(response) {
         console.log(response)
         $scope.contributors = response;
       })

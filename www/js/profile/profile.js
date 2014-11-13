@@ -111,30 +111,33 @@ angular.module('profile', [])
       }
     });
 
-    githubservice.userRepo($rootScope.uname).then(function(response) {
+    githubservice.userRepo($rootScope.uname).then(function(repo) {
       var recents = [];
+      for (var star in repo) {
+        var popularRepo = { "stars":  repo[star].stargazers_count, "full_name": repo[star].full_name, "fork": repo[star].fork };
+        recents.push(popularRepo)
+      }
+
       function sortNumber(a, b) {
         return a.stars - b.stars;
       }
-      for (var star in response) {
-        var popularRepo = { "stars":  response[star].stargazers_count, "reponame": response[star].full_name, "fork": response[star].fork };
-        recents.push(popularRepo)
-      }
+
+
       recents.sort(sortNumber);
-      $scope.pubRepos = recents.reverse();
+      $scope.popularRepos = recents.reverse();
     })
 
     $scope.repoinfo = function(popularRepo) {
-      mixpanel.track('Repo Click');
       mixpanel.track('Repo Click', {
-        "Repo": popularRepo.full_name
+        "Repo": popularRepo
       });
+      console.log(popularRepo)
       $rootScope.repo = popularRepo;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
 
-      githubservice.getTree(popularRepo.full_name).then(function(response) {
+      githubservice.getTree(popularRepo).then(function(response) {
         $ionicLoading.hide();
         $state.go('treeview');
         $rootScope.tree = response;

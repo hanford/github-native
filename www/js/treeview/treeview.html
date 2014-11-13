@@ -1,9 +1,9 @@
-<ion-view title="{{repo.full_name}}">
+<ion-view title="{{repo}}">
   <ion-content has-header="true">
     <div class="bar-subheader button-bar">
       <button class="button button-stable" ng-click="contribs()" style="color:#555;"><span class="octicon octicon-organization"></span></button>
-      <button class="button button-stable branch" ng-hide="starred" ng-click="starme(repo.full_name)"><i class="ion-android-star"></i></button>
-      <button class="button button-stable stargazer-starred" ng-show="starred" ng-click="unstar(repo.full_name)"><i class="ion-android-star"></i></i>
+      <button class="button button-stable branch" ng-hide="starred" ng-click="starme(repo)"><i class="ion-android-star"></i></button>
+      <button class="button button-stable stargazer-starred" ng-show="starred" ng-click="unstar(repo)"><i class="ion-android-star"></i></i>
       <button class="button button-stable branch" ng-click="branch()">master</button>
     </div>
 
