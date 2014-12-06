@@ -3,3 +3,4 @@ node_modules/
 hooks/
 www/lib/bower/*
 platforms/
+www/css/style.css

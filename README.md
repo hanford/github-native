@@ -1,12 +1,16 @@
-A small client-side mobile GitHub application for iOS (I am still working on android)
-<br />
-<br />
-<a href="http://jackhanford.com/MobileGit/">Landing Page</a>
-<br />
-<br />
-<a href="https://itunes.apple.com/us/app/mobilegit/id918733984?ls=1&mt=8">App Store Link</a>
-<br />
-<br />
+A small client-side mobile GitHub application for iOS (I am still working on android)  
+
+##From clone to simulator  
+<code>npm install</code>  
+<code>bower install</code>  
+<code>gulp</code>  
+<code>ionic platform add ios</code>  
+<code>ionic emulate ios</code> 
+
+<a href="http://jackhanford.com/MobileGit/">Landing Page</a>  
+
+<a href="https://itunes.apple.com/us/app/mobilegit/id918733984?ls=1&mt=8">App Store Link</a>  
+
 **LICENSE:**
 <br />
 Permission is hereby granted, free of charge, to any person obtaining a copy
