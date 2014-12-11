@@ -18,28 +18,28 @@ angular.module('factory', ['ionic'])
           template: 'It looks like something went wrong' + err
         });
         alertPopup.then(function (res) {
-          $state.go('info')
+          $state.go('info');
         });
       }
 
-      $http.get(route + '?access_token=' + $rootScope.access_token + query, {
+      return $http.get(route + '?access_token=' + $rootScope.access_token + query, {
         timeout: 5000
       }).then(function (response) {
-        console.log(response.data)
+        console.log(response.data);
         return response.data;
       }).catch(function (err) {
-        showAlert()
-      })
+        showAlert();
+      });
     }
   };
 
   return {
     getPerson: function (uname) {
-      var promise = $ajax.get(baseurl + 'users/' + uname)
+      var promise = $ajax.get(baseurl + 'users/' + uname);
       return promise;
     },
     getProjects: function (uname) {
-      var promise = $ajax.get(baseurl + 'search/repositories', 'q=' + uname)
+      var promise = $ajax.get(baseurl + 'search/repositories', 'q=' + uname);
       return promise;
     },
     getEvents: function (login) {
@@ -47,19 +47,19 @@ angular.module('factory', ['ionic'])
       return promise;
     },
     userRepo: function (username) {
-      var promise = $ajax.get(baseurl + 'users/' + username + '/repos')
+      var promise = $ajax.get(baseurl + 'users/' + username + '/repos');
       return promise;
     },
     getFollowers: function (username) {
-      var promise = $ajax.get(baseurl + 'users/' + username + '/followers')
+      var promise = $ajax.get(baseurl + 'users/' + username + '/followers');
       return promise;
     },
     getFollowing: function (username) {
-      var promise = $ajax.get(baseurl + 'users/' + username + '/following')
+      var promise = $ajax.get(baseurl + 'users/' + username + '/following');
       return promise;
     },
     getCommits: function (fullname) {
-      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/commits')
+      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/commits');
       return promise
     },
     getTree: function (fullname) {
@@ -67,15 +67,15 @@ angular.module('factory', ['ionic'])
       return promise
     },
     getStats: function (fullname) {
-      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors')
+      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors');
       return promise
     },
     getContents: function (fullname, path) {
-      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path)
+      var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path);
       return promise
     },
     getRate: function () {
-      var promise = $ajax.get(baseurl + 'rate_limit')
+      var promise = $ajax.get(baseurl + 'rate_limit');
       return promise
     }
   }

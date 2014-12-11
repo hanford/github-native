@@ -39,6 +39,7 @@ angular.module('search', [])
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
+    // console.log('jaquéré');
     githubservice.getPerson(uname).then(function(response) {
       $ionicLoading.hide();
       $rootScope.showBack = true;
