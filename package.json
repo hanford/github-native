@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "An Ionic project",
   "dependencies": {
+    "cors": "^2.5.2",
+    "express": "^4.10.4",
     "gulp": "^3.5.6",
-    "gulp-sass": "^0.7.1",
     "gulp-concat": "^2.2.0",
     "gulp-minify-css": "^0.3.0",
-    "gulp-rename": "^1.2.0"
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.1",
+    "request": "^2.49.0"
   },
   "devDependencies": {
     "bower": "^1.3.3",

@@ -1,4 +1,4 @@
-angular.module('MobileGit', ['ionic', 'state', 'factory', 'profile', 'search', 'info', 'commits', 'contents', 'follow', 'intro', 'searchlist', 'treeview', 'mainCtrl', 'angular-storage'])
+angular.module('MobileGit', ['ionic', 'state', 'factory', 'profile', 'search', 'info', 'commits', 'contents', 'follow', 'intro', 'searchlist', 'treeview', 'mainCtrl', 'angular-storage', 'ngCordovaOauth'])
 
 .run(function($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function() {
@@ -8,10 +8,6 @@ angular.module('MobileGit', ['ionic', 'state', 'factory', 'profile', 'search', '
     }, false);
 
     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-    if (window.OAuth) {
-      OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo')
-    }
 
     $timeout(function() {
       if (!$rootScope.access_token) {

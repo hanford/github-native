@@ -24,7 +24,7 @@ angular.module('contents', [])
       readOnly: 'nocursor',
       lineNumbers: true,
       mode: extName,
-      theme: 'dope',
+      theme: 'monokai',
       fixedGutter: false,
       indentWithTabs: true,
       indentSize: 2,
