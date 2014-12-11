@@ -5,7 +5,7 @@ A small client-side mobile GitHub application for iOS (I am still working on and
 <code>bower install</code>  
 <code>gulp</code>  
 <code>ionic platform add ios</code>  
-<code>ionic emulate ios</code> 
+<code>ionic emulate ios</code>
 
 <a href="http://jackhanford.com/MobileGit/">Landing Page</a>  
 

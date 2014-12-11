@@ -3,7 +3,7 @@
     <ul class="list">
       <div class="item item-divider">
         Github Stats
-        <span class="pull-right privacy">v1.0.9</span>
+        <span class="pull-right privacy">v1.1</span>
       </div>
       <li class="item">Authenticated <span class="pull-right" ng-class="{false: 'mild-red', true: 'mild-green'}[authenticated]">{{authenticated}}</span>
       </li>
@@ -16,7 +16,7 @@
     </ul>
     <button class="button button-assertive button-block" ng-click="removeAuth()" ng-show="authenticated">Log out of <span class="octicon octicon-logo-github"></span>
     </button>
-    <button class="button button-dark button-block" ng-click="newAuth()" ng-hide="authenticated">Login to <span class="octicon octicon-logo-github"></span>
+    <button class="button button-dark button-block" ng-click="authMe()" ng-hide="authenticated">Login to <span class="octicon octicon-logo-github"></span>
     </button>
     <p class="privacy center" ng-if="!authenticated">To use this application, you'll need either a data or wifi connection and authentication from GitHub.</p>
     <br />

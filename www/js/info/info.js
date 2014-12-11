@@ -1,19 +1,19 @@
 angular.module('info', [])
 
-.controller('infoCtrl', function($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store) {
+.controller('infoCtrl', function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {
   $rootScope.showBack = true;
 
   $ionicNavBarDelegate.setTitle('Info');
 
-  $scope.personalwebsite = function() {
+  $scope.personalwebsite = function () {
     var ref = window.open('http://jackhanford.com', '_system');
   }
 
-  $scope.mit = function() {
+  $scope.mit = function () {
     var ref = window.open('http://opensource.org/licenses/MIT', '_system');
   }
 
-  $http.get('https://status.github.com/api/status.json').then(function(response) {
+  $http.get('https://status.github.com/api/status.json').then(function (response) {
     $scope.api = response.data.status;
   })
 
@@ -25,7 +25,7 @@ angular.module('info', [])
     $scope.authenticated = false;
   }
 
-  $scope.removeAuth = function(OAuth) {
+  $scope.removeAuth = function (OAuth) {
     mixpanel.track('Removed Authentication');
     $rootScope.access_token = '';
     store.remove('access_token');
@@ -33,54 +33,44 @@ angular.module('info', [])
     store.remove('login');
     console.log('removed storage');
     $scope.authenticated = false;
-    window.OAuth.clearCache();
   }
 
-  $scope.newAuth = function() {
-    mixpanel.track('New Authentication');
-    OAuth.initialize('DhJ5nGr1cd7KBlGv47FUpYq5goo');
-    OAuth.popup('github').done(function(result) {
-      $scope.authenticated = true;
-      result.me()
-        .done(function(user_info) {
-          if (user_info.name) {
-            mixpanel.identify(user_info.alias);
-            mixpanel.people.set({
-              "$email": user_info.email,
-              "name": user_info.name,
-              "$last_login": new Date(),
-              "avatar": user_info.avatar,
-              "location": user_info.location,
-              "company": user_info.company
-            })
-            $rootScope.authname = user_info.name;
-            $rootScope.authlogin = user_info.alias;
+  $scope.authMe = function () {
+    $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
+      $rootScope.access_token = result.access_token;
+      store.set('access_token', result.access_token);
+      var userURL = 'https://api.github.com/user?access_token=' + result.access_token;
+      console.log(userURL)
+      $http.get(userURL).success(function (data) {
 
-            store.set('name', $rootScope.authname);
-            store.set('login', $rootScope.authlogin);
+        if (data.name) {
+          $rootScope.authname = data.name;
+        } else {
+          $rootScope.authname = data.login;
+        }
 
-            $state.go('search');
+        $rootScope.authlogin = data.login;
 
-          } else {
+        store.set('name', $rootScope.authname);
+        store.set('login', $rootScope.authlogin);
 
-            store.set('name', $rootScope.authlogin);
-            store.set('login', $rootScope.authlogin);
+        $scope.authlogin = true;
 
-            $rootScope.authname = user_info.alias;
-            $rootScope.authlogin = user_info.alias;
-          }
-          $rootScope.access_token = result.access_token
-        })
-    }).fail(function(error) {
-      // alert('Error authenticating!')
+        $state.go('search');
+      }).error(function (data, status) {
+        console.log(data)
+
+      })
+    }, function (error) {
+      console.log(error);
     })
   }
 
-  $scope.privacy = function() {
+  $scope.privacy = function () {
     var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
   }
 
-  githubservice.getRate().then(function(response) {
+  githubservice.getRate().then(function (response) {
     $scope.ratelimit = response.rate.remaining;
   })
 })

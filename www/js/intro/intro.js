@@ -8,9 +8,8 @@ angular.module('intro', [])
 
   $ionicNavBarDelegate.setTitle('Welcome!');
 
-  if (store.get('access_token')) {
-    // $scope.name = store.get('name');
-
+  if (store.get('access_token') && store.set('name')) {
+    $scope.name = store.get('name');
     $scope.previousUser = function () {
       mixpanel.track('Returning User');
       $rootScope.access_token = store.get('access_token');
@@ -28,23 +27,23 @@ angular.module('intro', [])
       store.set('access_token', result.access_token);
       var userURL = 'https://api.github.com/user?access_token=' + result.access_token;
       console.log(userURL)
-      $http.get(userURL).success(function(data) {
+      $http.get(userURL).success(function (data) {
 
         if (data.name) {
           $rootScope.authname = data.name;
+          store.set('name', $rootScope.authname);
         } else {
           $rootScope.authname = data.login;
         }
 
         $rootScope.authlogin = data.login;
 
-        store.set('name', $rootScope.authname);
         store.set('login', $rootScope.authlogin);
 
         $scope.authlogin = true;
 
         $state.go('search');
-      }).error(function(data, status){
+      }).error(function (data, status) {
         console.log(data)
 
       })
@@ -53,36 +52,4 @@ angular.module('intro', [])
     })
   }
 
-  $scope.authme = function () {
-    mixpanel.track('New Authorization');
-    OAuth.popup('github')
-      .done(function (result) {
-        $rootScope.access_token = result.access_token;
-        store.set('access_token', result.access_token);
-        result.me().done(function (user_info) {
-          if (user_info.name) {
-            $rootScope.authname = user_info.name;
-            $rootScope.authlogin = user_info.alias;
-
-            store.set('name', $rootScope.authname);
-            store.set('login', $rootScope.authlogin);
-
-            $state.go('search');
-
-          } else {
-
-            store.set('name', user_info.alias);
-            store.set('login', user_info.alias);
-
-            $rootScope.authname = user_info.alias;
-            $rootScope.authlogin = user_info.alias;
-
-          }
-        }).fail(function (error) {
-          // alert(error)
-        })
-      }).fail(function (error) {
-        // alert(error)
-      })
-  }
 })

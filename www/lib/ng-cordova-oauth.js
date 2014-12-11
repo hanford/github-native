@@ -20,7 +20,7 @@
             $http.defaults.headers.post['Content-Type'] = 'application/json'; //x-www-form-urlencoded';
             $http.defaults.headers.post.accept = 'application/json';
             // IP
-            $http.post('http://10.1.10.15:8200/github/auth_token', {
+            $http.post('http://pure-hollows-7935.herokuapp.com/github/auth_token', {
                 data: { //'https://github.com/login/oauth/access_token', {
                   client_id: clientId,
                   client_secret: clientSecret,
