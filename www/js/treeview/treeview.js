@@ -2,6 +2,12 @@ angular.module('treeview', [])
 
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate) {
   $scope.repo = $rootScope.repo;
+  
+  if ($rootScope.repo && !$rootScope.repo.full_name) {
+    var fullname = $rootScope.repo;
+  } else {
+    var fullname = $rootScope.repo.full_name;
+  }
   $scope.items = $rootScope.tree;
 
   if ($rootScope.repo == undefined) {
@@ -10,22 +16,17 @@ angular.module('treeview', [])
     $state.go('search')
   }
 
-  githubservice.getCommits($scope.repo).then(function(response) {
-    debugger
+  githubservice.getCommits(fullname).then(function(response) {
     $scope.commits = response.length;
   })
 
-  githubservice.getStats($scope.repo).then(function(response) {
-    debugger
-    console.log('first call for for contribs')
-  })
+  githubservice.getStats(fullname);
 
-  githubservice.getStats($scope.repo).then(function(response) {
-    debugger
+  githubservice.getStats(fullname).then(function(response) {
     $scope.contributors = response.length + ' Contributors';
   })
 
-  var starURL = 'https://api.github.com/user/starred/' + $scope.repo + '?access_token=' + $rootScope.access_token;
+  var starURL = 'https://api.github.com/user/starred/' + fullname + '?access_token=' + $rootScope.access_token;
   $http.get(starURL).success(function(data, status) {
     console.log(data, status)
     $scope.starred = true;
@@ -34,13 +35,13 @@ angular.module('treeview', [])
     $scope.starred = false;
   })
 
-  $scope.starme = function(full_name) {
+  $scope.starme = function(fullname) {
     $http.put(starURL).then(function(response) {
       $scope.starred = true;
       console.log(response.status)
     })
   }
-  $scope.unstar = function(full_name) {
+  $scope.unstar = function(fullname) {
     $http.delete(starURL).then(function(response) {
       $scope.starred = false;
       console.log(response.status)
@@ -51,7 +52,7 @@ angular.module('treeview', [])
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
-    githubservice.getContents($scope.repo, item.path).then(function(response) {
+    githubservice.getContents(fullname, item.path).then(function(response) {
       if (item.type == 'file') {
         $ionicLoading.hide();
         $rootScope.path = item.path;
@@ -66,7 +67,7 @@ angular.module('treeview', [])
   }
 
   $scope.branch = function() {
-    var ref = window.open('https://github.com/' + $scope.repo + '?files=1', '_blank', 'location=no');
+    var ref = window.open('https://github.com/' + fullname + '?files=1', '_blank', 'location=no');
   }
 
   $ionicModal.fromTemplateUrl('js/modals/contributors.html', {
@@ -77,7 +78,7 @@ angular.module('treeview', [])
 
     $scope.contribs = function() {
       $scope.modal.show();
-      githubservice.getStats($scope.repo).then(function(response) {
+      githubservice.getStats(fullname).then(function(response) {
         console.log(response)
         $scope.contributors = response;
       })

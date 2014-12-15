@@ -127,17 +127,16 @@ angular.module('profile', [])
       $scope.popularRepos = recents.reverse();
     })
 
-    $scope.repoinfo = function(popularRepo) {
+    $scope.repoinfo = function(fullname) {
       mixpanel.track('Repo Click', {
-        "Repo": popularRepo
+        "Repo": fullname
       });
-      console.log(popularRepo)
-      $rootScope.repo = popularRepo;
+      $rootScope.repo = fullname;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
 
-      githubservice.getTree(popularRepo).then(function(response) {
+      githubservice.getTree(fullname).then(function(response) {
         $ionicLoading.hide();
         $state.go('treeview');
         $rootScope.tree = response;
