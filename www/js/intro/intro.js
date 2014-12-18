@@ -6,7 +6,7 @@ angular.module('intro', [])
     $state.go('search')
   }
 
-  $ionicNavBarDelegate.setTitle('Welcome!');
+  $ionicNavBarDelegate.title('Welcome!');
 
   if (store.get('access_token') && store.set('name')) {
     $scope.name = store.get('name');

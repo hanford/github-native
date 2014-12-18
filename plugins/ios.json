@@ -23,10 +23,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<access origin=\"https://oauth.io\" />",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
                             "count": 1
                         },
@@ -48,9 +44,6 @@
         }
     },
     "installed_plugins": {
-        "com.oauthio.plugins.oauthio": {
-            "PACKAGE_NAME": "com.jackhanford.GitMobile"
-        },
         "org.apache.cordova.console": {
             "PACKAGE_NAME": "com.jackhanford.GitMobile"
         },

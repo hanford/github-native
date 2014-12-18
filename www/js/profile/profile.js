@@ -5,7 +5,7 @@ angular.module('profile', [])
       $state.go('search')
     }
 
-    $ionicNavBarDelegate.setTitle('Profile');
+    $ionicNavBarDelegate.title('Profile');
 
     if ($rootScope.ginfo.public_repos) {
       $scope.pub_count = parseInt($rootScope.ginfo.public_repos);

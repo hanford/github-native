@@ -1,11 +1,13 @@
-A small client-side mobile GitHub application for iOS (I am still working on android)  
-
-##From clone to simulator  
+##MobileGit  
+This is a github application for iOS, it's written in Javascript using angularJS and ionic framework
+  
+###From clone to simulator
 <code>npm install</code>  
 <code>bower install</code>  
 <code>gulp</code>  
 <code>ionic platform add ios</code>  
-<code>ionic emulate ios</code>
+<code>ionic emulate ios</code>  
+
 
 <a href="http://jackhanford.com/MobileGit/">Landing Page</a>  
 
