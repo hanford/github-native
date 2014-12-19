@@ -1,12 +1,15 @@
 angular.module('intro', [])
 
-.controller('introCtrl', function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http) {
+.controller('introCtrl', function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout) {
 
   if ($rootScope.access_token) {
     $state.go('search')
   }
 
-  $ionicNavBarDelegate.title('Welcome!');
+  $timeout(function(){
+    $ionicNavBarDelegate.title('Welcome!');
+    $ionicNavBarDelegate.showBackButton(false);
+  }, 500);
 
   if (store.get('access_token') && store.set('name')) {
     $scope.name = store.get('name');
@@ -17,6 +20,7 @@ angular.module('intro', [])
       $rootScope.authlogin = store.get('login');
       $scope.authenticated = true;
       $scope.authlogin = true;
+      $scope.showBck = true;
       $state.go('search')
     }
   }

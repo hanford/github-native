@@ -2,9 +2,7 @@ angular.module('searchlist', [])
 
 .controller('searchviewCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice) {
   $scope.items = $rootScope.sItems;
-
-  console.log($scope.items);
-
+  
   $scope.gotoTree = function(item) {
     mixpanel.track('Project Click', {
       "Project": item.full_name

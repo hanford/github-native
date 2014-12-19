@@ -11,11 +11,9 @@ angular.module('MobileGit', ['ionic', 'state', 'factory', 'profile', 'search', '
 
     $timeout(function() {
       if (!$rootScope.access_token) {
-        $rootScope.showBack = false
-        $state.go('intro')
+        $state.go('intro');
       } else {
-        $rootScope.showBack = true
-        $state.go('search')
+        $state.go('search');
       }
     }, 500)
 

@@ -1,8 +1,6 @@
 angular.module('info', [])
 
 .controller('infoCtrl', function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {
-  $rootScope.showBack = true;
-
   $ionicNavBarDelegate.setTitle('Info');
 
   $scope.personalwebsite = function () {

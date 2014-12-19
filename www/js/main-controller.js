@@ -1,7 +1,7 @@
 angular.module('mainCtrl', [])
 
-.controller('mainCtrl', function() {
+.controller('mainCtrl', function($ionicNavBarDelegate) {
   console.log('main controller loaded')
-  // Ideally this would be useful, it's just ahead of it's time ;)
+  $ionicNavBarDelegate.showBackButton(true);
 
 })

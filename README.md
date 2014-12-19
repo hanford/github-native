@@ -6,8 +6,7 @@ This is a github application for iOS, it's written in Javascript using angularJS
 <code>bower install</code>  
 <code>gulp</code>  
 <code>ionic platform add ios</code>  
-<code>ionic emulate ios</code>  
-
+<code>ionic emulate ios</code>
 
 <a href="http://jackhanford.com/MobileGit/">Landing Page</a>  
 
