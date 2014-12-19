@@ -1,19 +1,20 @@
 angular.module('info', [])
 
 .controller('infoCtrl', function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {
-  $ionicNavBarDelegate.setTitle('Info');
+
+  $ionicNavBarDelegate.showBackButton(true);
 
   $scope.personalwebsite = function () {
     var ref = window.open('http://jackhanford.com', '_system');
-  }
+  };
 
   $scope.mit = function () {
     var ref = window.open('http://opensource.org/licenses/MIT', '_system');
-  }
+  };
 
   $http.get('https://status.github.com/api/status.json').then(function (response) {
     $scope.api = response.data.status;
-  })
+  });
 
   $scope.alias = $rootScope.authlogin;
 
@@ -31,7 +32,7 @@ angular.module('info', [])
     store.remove('login');
     console.log('removed storage');
     $scope.authenticated = false;
-  }
+  };
 
   $scope.authMe = function () {
     $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
@@ -62,13 +63,14 @@ angular.module('info', [])
     }, function (error) {
       console.log(error);
     })
-  }
+  };
 
   $scope.privacy = function () {
     var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
-  }
+  };
 
   githubservice.getRate().then(function (response) {
     $scope.ratelimit = response.rate.remaining;
-  })
+  });
+
 })
