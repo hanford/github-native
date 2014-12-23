@@ -39,18 +39,18 @@ angular.module('intro', [])
         } else {
           $rootScope.authname = data.login;
         }
-
         $rootScope.authlogin = data.login;
         store.set('login', $rootScope.authlogin);
         $scope.authlogin = true;
 
         $state.go('search');
-      }).error(function (data, status) {
-        console.log(data, status)
+
+      }).error(function (err) {
+        console.log(err)
       })
     }, function (error) {
       console.log('Error! ' + error);
     })
-  }
+  };
 
 })

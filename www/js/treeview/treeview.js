@@ -26,17 +26,22 @@ angular.module('treeview', [])
   });
 
   githubservice.getReadme(fullname).then(function(response) {
-    console.log('readme' + JSON.stringify(response));
-    $scope.hasReadMe = true;
-    $scope.name = response.name;
-    // I don't understand why I have to atob a base64 string, but it's working .. 
-    document.getElementById('mdown').innerHTML = marked(atob(response.content.replace(/\s/g, '')));
+    if (response.content) {
+      $scope.hasReadMe = true;
+      $scope.name = response.name;
+      // I don't understand why I have to atob a base64 string, but it's working .. 
+      document.getElementById('mdown').innerHTML = marked(atob(response.content.replace(/\s/g, '')));
+    } else {
+      $scope.hasReadMe = false;
+    }
   });
 
   $scope.collapse = function() {
-    $('.readme-box').css('max-height', 'none');
-    $scope.hideCol = true;
-  }
+    $timeout(function(){
+      $('.readme-box').css('max-height', 'none');
+      $scope.hideCol = true;
+    }, 0)
+  };
 
 
   githubservice.getStats(fullname);

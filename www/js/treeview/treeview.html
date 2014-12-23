@@ -1,18 +1,20 @@
 <ion-view title="{{fullname}}">
   <ion-content has-header="true">
-  <div ng-show="hasReadMe" class="top-bump readme-box">
-    <div class="bubble bubble-mdown">
+  <div ng-show="hasReadMe">
+  <div class="top-bump readme-box">
+    <div class="bubble bubble-mdown" style="margin: 0 10px 15px;">
       <h3 class="bubble-header"><span class="octicon octicon-book"></span> {{name}}</h3>
       <span class="small-repo">
         <div id="mdown" class="mdown-body"></div>
       </span>
     </div>
   </div>
-    <button class="button button-light collapse-bttn" ng-click="collapse()" ng-hide="hideCol">
+    <button class="button collapse-bttn" ng-click="collapse()" ng-hide="hideCol">
       <span class="octicon octicon-primitive-dot"></span>
       <span class="octicon octicon-primitive-dot"></span>
       <span class="octicon octicon-primitive-dot"></span>
     </button>
+    </div>
     <div class="bar-subheader button-bar">
       <button class="button button-stable" ng-click="contribs()" style="color:#555;"><span class="octicon octicon-organization"></span></button>
       <button class="button button-stable branch" ng-hide="starred" ng-click="starme(repo)"><i class="ion-android-star"></i></button>
