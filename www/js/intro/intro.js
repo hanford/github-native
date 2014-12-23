@@ -11,7 +11,7 @@ angular.module('intro', [])
     $ionicNavBarDelegate.showBackButton(false);
   }, 500);
 
-  if (store.get('access_token') && store.set('name')) {
+  if (store.get('access_token') && store.get('name')) {
     $scope.name = store.get('name');
     $scope.previousUser = function () {
       mixpanel.track('Returning User');
@@ -41,18 +41,15 @@ angular.module('intro', [])
         }
 
         $rootScope.authlogin = data.login;
-
         store.set('login', $rootScope.authlogin);
-
         $scope.authlogin = true;
 
         $state.go('search');
       }).error(function (data, status) {
-        console.log(data)
-
+        console.log(data, status)
       })
     }, function (error) {
-      console.log(error);
+      console.log('Error! ' + error);
     })
   }
 

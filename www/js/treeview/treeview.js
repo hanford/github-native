@@ -3,8 +3,6 @@ angular.module('treeview', [])
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
   $scope.repo = $rootScope.repo;
 
-  console.log($scope.repo);
-  
   if ($rootScope.repo && !$rootScope.repo.full_name) {
     var fullname = $rootScope.repo;
     // Scope variable for navbar title
