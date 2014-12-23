@@ -25,6 +25,20 @@ angular.module('treeview', [])
     $scope.commits = response.length;
   });
 
+  githubservice.getReadme(fullname).then(function(response) {
+    console.log('readme' + JSON.stringify(response));
+    $scope.hasReadMe = true;
+    $scope.name = response.name;
+    // I don't understand why I have to atob a base64 string, but it's working .. 
+    document.getElementById('mdown').innerHTML = marked(atob(response.content.replace(/\s/g, '')));
+  });
+
+  $scope.collapse = function() {
+    $('.readme-box').css('max-height', 'none');
+    $scope.hideCol = true;
+  }
+
+
   githubservice.getStats(fullname);
 
   githubservice.getStats(fullname).then(function(response) {
@@ -42,14 +56,14 @@ angular.module('treeview', [])
   $scope.starme = function(fullname) {
     $http.put(starURL).then(function(response) {
       $scope.starred = true;
-      console.log(response.status)
+      console.log(response.status);
     })
   };
 
   $scope.unstar = function(fullname) {
     $http.delete(starURL).then(function(response) {
       $scope.starred = false;
-      console.log(response.status)
+      console.log(response.status);
     })
   };
 
@@ -62,11 +76,11 @@ angular.module('treeview', [])
         $ionicLoading.hide();
         $rootScope.path = item.path;
         $rootScope.code = atob(response.content.replace(/\s/g, ''))
-        $state.go('content')
+        $state.go('content');
       } else {
         $ionicLoading.hide();
         $scope.items = response;
-        $ionicScrollDelegate.scrollTop(true)
+        $ionicScrollDelegate.scrollTop(true);
       }
     })
   };
