@@ -3,7 +3,7 @@ angular.module('intro', [])
 .controller('introCtrl', function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout) {
 
   if ($rootScope.access_token) {
-    $state.go('search')
+    $state.go('search');
   }
 
   $timeout(function(){
@@ -30,9 +30,9 @@ angular.module('intro', [])
       $rootScope.access_token = result.access_token;
       store.set('access_token', result.access_token);
       var userURL = 'https://api.github.com/user?access_token=' + result.access_token;
-      console.log(userURL)
-      $http.get(userURL).success(function (data) {
+      console.log(userURL);
 
+      $http.get(userURL).success(function (data) {
         if (data.name) {
           $rootScope.authname = data.name;
           store.set('name', $rootScope.authname);

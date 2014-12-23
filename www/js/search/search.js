@@ -1,6 +1,6 @@
 angular.module('search', [])
 
-.controller('searchCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate) {
+.controller('searchCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate, $http) {
   $timeout(function() {
     if ($rootScope.authname) {
       $scope.authname = $rootScope.authname;
