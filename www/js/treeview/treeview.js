@@ -73,6 +73,7 @@ angular.module('treeview', [])
   };
 
   $scope.file = function(item) {
+    $scope.hasReadMe = false;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });

@@ -14,7 +14,7 @@ var paths = {
 };
 
 gulp.task('watch', ['default'], function () {
-    gulp.watch('./**/*.scss', ['sass'])
+    gulp.watch(paths.sass, ['sass'])
 });
 
 gulp.task('default', ['sass']);
@@ -29,7 +29,7 @@ gulp.task('sass', function(done) {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(, ['sass']);
 });
 
 gulp.task('install', ['git-check'], function() {

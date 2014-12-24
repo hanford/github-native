@@ -1,30 +1,26 @@
 <ion-view title="{{fullname}}">
   <ion-content has-header="true">
-  <div ng-show="hasReadMe">
-  <div class="top-bump readme-box">
-    <div class="bubble bubble-mdown" style="margin: 0 10px 15px;">
-      <h3 class="bubble-header"><span class="octicon octicon-book"></span> {{name}}</h3>
-      <span class="small-repo">
-        <div id="mdown" class="mdown-body"></div>
-      </span>
-    </div>
-  </div>
-    <button class="button collapse-bttn" ng-click="collapse()" ng-hide="hideCol">
-      <span class="octicon octicon-primitive-dot"></span>
-      <span class="octicon octicon-primitive-dot"></span>
-      <span class="octicon octicon-primitive-dot"></span>
-    </button>
-    </div>
     <div class="bar-subheader button-bar">
       <button class="button button-stable" ng-click="contribs()" style="color:#555;"><span class="octicon octicon-organization"></span></button>
       <button class="button button-stable branch" ng-hide="starred" ng-click="starme(repo)"><i class="ion-android-star"></i></button>
       <button class="button button-stable stargazer-starred" ng-show="starred" ng-click="unstar(repo)"><i class="ion-android-star"></i></i>
       <button class="button button-stable branch" ng-click="branch()">master</button>
     </div>
+    <div ng-show="hasReadMe">
+      <div class="top-bump readme-box">
+        <div class="bubble bubble-mdown" style="margin: 0 10px">
+          <h3 class="bubble-header"><span class="octicon octicon-book"></span> {{name}}</h3>
+          <span class="small-repo">
+            <div id="mdown" class="mdown-body"></div>
+          </span>
+        </div>
+      </div>
+      <button class="button collapse-bttn" ng-click="collapse()" ng-hide="hideCol">View all of {{name}}</button>
+    </div>
     <br />
-
-    <ion-list>
-      <ion-item class="button-bar" ng-repeat="item in items | filter:search" ng-click="file(item)">
+    <div class="bubble" style="margin: 0 10px 15px;">
+      <h3 class="bubble-header">{{fullname}}</h3>
+      <ion-item ng-repeat="item in items | filter:search" ng-click="file(item)">
         <span class="small-repo pull-left">
           <div ng-switch="item.type">
             <span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>
@@ -36,6 +32,5 @@
         <span>{{item.name}}</span>
         <span ng-if="!item.name">{{item.path}}</span>
       </ion-item>
-    </ion-list>
   </ion-content>
 </ion-view>
