@@ -1,6 +1,6 @@
 <ion-view title="{{fullname}}">
   <ion-content has-header="true">
-    <div class="bar-subheader button-bar top-bump">
+    <div class="bar-subheader button-bar top-bump" style="margin-bottom:10px;">
       <button class="button button-stable" ng-click="contribs()" style="color:#555;"><span class="octicon octicon-organization"></span></button>
       <button class="button button-stable branch" ng-hide="starred" ng-click="starme(repo)"><i class="ion-android-star"></i></button>
       <button class="button button-stable stargazer-starred" ng-show="starred" ng-click="unstar(repo)"><i class="ion-android-star"></i></i>
@@ -17,7 +17,7 @@
       </div>
       <button class="button collapse-bttn" ng-click="collapse()" ng-hide="hideCol">View all of {{name}}</button>
     </div>
-    <div class="bubble top-bump button-full" style="margin: 0 auto 15px;">
+    <div class="bubble button-full" style="margin: 10px auto 15px;">
       <h3 class="bubble-header">{{fullname}}</h3>
       <ion-item ng-repeat="item in items | filter:search" ng-click="file(item)">
         <span class="small-repo pull-left">
