@@ -12,15 +12,12 @@ angular.module('factory', ['ionic'])
         query = '&' + args[1];
       }
 
-      showAlert = function (err) {
-        var alertPopup = $ionicPopup.alert({
-          title: 'Hmm..',
-          template: 'It looks like something went wrong' + err
-        });
-        alertPopup.then(function (res) {
-          $state.go('info');
-        });
-      }
+      // showAlert = function (err) {
+      //   var alertPopup = $ionicPopup.alert({
+      //     title: 'Hmm..',
+      //     template: 'It looks like something went wrong'
+      //   });
+      // };
 
       return $http.get(route + '?access_token=' + $rootScope.access_token + query, {
         timeout: 5000
@@ -28,7 +25,7 @@ angular.module('factory', ['ionic'])
         console.log(response.data);
         return response.data;
       }).catch(function (err) {
-        showAlert();
+        // showAlert();
       });
     }
   };

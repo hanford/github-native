@@ -313,8 +313,12 @@
 }
 
 .button-bar {
-	width:95%;
-	margin:0 auto;
+	width: 95%;
+	margin: 0 auto;
+}
+
+.small-top-margin {
+	margin-top: 10px !important;
 }
 
 .mdown-cont {
@@ -324,12 +328,12 @@
 }
 
 .top-bump {
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 .mdown-body {
-	padding:10px;
-	color:#333;
+	padding: 10px;
+	color: #333;
 }
 
 .readme-box {
@@ -342,7 +346,7 @@
 	text-align: center;
 	border: 1px solid #ddd;
 	margin: 0 auto 10px;
-	width: 94%;
+	width: 95%;
 	background-color: white !important;
 	min-height: 10px;
 	display: block;
@@ -352,4 +356,10 @@
 
 .collapse-bttn:activte {
 	color: #4183C4;
+}
+
+.bubble-mdown {
+	margin: 0 auto;
+	width: 95%;
+	min-height: 125px;
 }

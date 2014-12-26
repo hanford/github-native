@@ -28,10 +28,6 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
-gulp.task('watch', function() {
-  gulp.watch(, ['sass']);
-});
-
 gulp.task('install', ['git-check'], function() {
   return bower.commands.install()
     .on('log', function(data) {
