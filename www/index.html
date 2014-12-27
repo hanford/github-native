@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="lib/bower/angular-material/angular-material.css">
   <link rel="stylesheet" href="lib/bower/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="lib/bower/angular-material/themes/blue-grey-theme.css">
+  <link rel="stylesheet" href="lib/bower/angular-material/themes/red-theme.css">
+  <link rel="stylesheet" href="lib/bower/animate.css/animate.min.css">
 
   <!-- Plugins -->
   <script src="lib/bower/jquery/dist/jquery.min.js"></script>
@@ -70,6 +72,11 @@
       <ion-nav-view>
       </ion-nav-view>
       <div class="bottom-right">
+      <div class="profile">
+        <md-button class="md-fab md-primary big-plus" md-theme="red" ng-click="myProfie()">
+          <span class="octicon octicon-person"></span>
+        </md-button>
+      </div>
         <md-button class="md-fab md-primary big-plus" md-theme="blue-grey" ng-click="openOverlay()">
           <span rotator>
             <i class="ion-ios-plus-empty"></i>

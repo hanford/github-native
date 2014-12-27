@@ -375,6 +375,7 @@
 	// transition: transform .35s ease-out;
 	// -webkit-transition: -webkit-transform .35s ease-out;
 	pointer-events: all;
+	z-index: 100;
 
 	&.md-button:not([disabled]).md-raised:active,
 	&.md-button:not([disabled]).md-fab:active,
@@ -382,4 +383,16 @@
 		transform: rotate(45deg);
 		-webkit-transform: rotate(45deg);
 	}
+}
+
+.profile {
+	position: relative;
+	bottom: 10px;
+	display: none;
+}
+
+.scroll.blurred {
+	-webkit-transform: translate3d(0px, 0px, 0px) scale(1);
+	-webkit-filter: blur(8px);
+	-webkit-backface-visibility: hidden;
 }
