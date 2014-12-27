@@ -6,8 +6,6 @@ angular.module('mainCtrl', [])
   $scope.open = false;
 
   $scope.openOverlay = function() {
-    var scroll = angular.element('.scroll');
-
     $scope.open = !$scope.open;
 
     if ($scope.open) {
@@ -25,11 +23,12 @@ angular.module('mainCtrl', [])
     mixpanel.track('Search User', {
       "User": $rootScope.authlogin
     });
-    console.log('tracked ' + $rootScope.authlogin)
+    console.log('tracked ' + $rootScope.authlogin);
     $rootScope.uname = $rootScope.authlogin;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
+    $scope.openOverlay();
     // console.log('jaquéré');
     githubservice.getPerson($rootScope.authlogin).then(function(response) {
       $ionicLoading.hide();
