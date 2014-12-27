@@ -7,6 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var watch = require('gulp-watch');
+var inject = require('gulp-inject');
+var minifyHTML = require('gulp-minify-html');
+var mainBowerFiles = require("main-bower-files");
 var csso = require('gulp-csso');
 
 var paths = {
@@ -17,7 +20,7 @@ gulp.task('watch', ['default'], function () {
     gulp.watch(paths.sass, ['sass'])
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass']); // html
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/**.scss')
@@ -27,6 +30,19 @@ gulp.task('sass', function(done) {
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
+
+// gulp.task("html", function(){
+//     return gulp.src('./www/index.html')
+//         .pipe(inject(
+//             gulp.src(
+//                 mainBowerFiles(),
+//                 {read: false, cwd: "./www/lib/bower"}
+//             ),
+//             {name: "bower", addPrefix: "lib"}
+//         ))
+//         // .pipe(minifyHTML())
+//         .pipe(gulp.dest('./www/'));
+// });
 
 gulp.task('install', ['git-check'], function() {
   return bower.commands.install()

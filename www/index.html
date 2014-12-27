@@ -7,13 +7,15 @@
   <title>GitMobile</title>
 
   <link href="lib/bower/ionic/release/css/ionic.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/octicons.css" rel="stylesheet">
-  <link href="lib/mfizz/font-mfizz.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/octicons.css">
+  <link rel="stylesheet" href="lib/mfizz/font-mfizz.css">
   <link rel="stylesheet" href="lib/bower/codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="lib/bower/codemirror/theme/monokai.css">
-<!-- <link rel="stylesheet" href="lib/bower/codemirror/theme/eclipse.css"> -->
   <link rel="stylesheet" href="css/cm-dope.css">
+  <link rel="stylesheet" href="lib/bower/angular-material/angular-material.css">
+  <link rel="stylesheet" href="lib/bower/ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="lib/bower/angular-material/themes/blue-grey-theme.css">
 
   <!-- Plugins -->
   <script src="lib/bower/jquery/dist/jquery.min.js"></script>
@@ -22,7 +24,6 @@
   <script src="lib/bower/marked/lib/marked.js"></script>
 
   <script src="lib/base64.js"></script>
-  <script src="lib/angular-storage.min.js"></script>
   <script src="lib/bower/codemirror/lib/codemirror.js"></script>
   <script src="lib/bower/codemirror/mode/css/css.js"></script>
   <script src="lib/bower/codemirror/mode/javascript/javascript.js"></script>
@@ -31,10 +32,17 @@
   <script src="lib/bower/codemirror/mode/xml/xml.js"></script>
   <script src="lib/bower/codemirror/mode/markdown/markdown.js"></script>
 
+  <!-- Angular Files -->
+  <script src="lib/angular-storage.min.js"></script>
+  <script src="lib/bower/angular-animate/angular-animate.js"></script>
+  <script src="lib/bower/angular-aria/angular-aria.js"></script>
+  <script src="lib/bower/angular-sanitize/angular-sanitize.js"></script>
+  <script src="lib/bower/angular-material/angular-material.js"></script>
+  <script src="lib/bower/hammerjs/hammer.js"></script>
+
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
   <script src="lib/ng-cordova-oauth.js"></script>
-  <script src="js/app.js"></script>
   <script src="js/profile/profile.js"></script>
   <script src="js/info/info.js"></script>
   <script src="js/search/search.js"></script>
@@ -44,9 +52,11 @@
   <script src="js/treeview/treeview.js"></script>
   <script src="js/commits/commits.js"></script>
   <script src="js/contents/contents.js"></script>
+  <script src="js/rotator/rotator.directive.js"></script>
   <script src="js/factory.js"></script>
   <script src="js/main-controller.js"></script>
   <script src="js/state.js"></script>
+  <script src="js/app.js"></script>
 
 </head>
 
@@ -57,7 +67,15 @@
         <i class="ion-chevron-left"></i> Back
       </ion-nav-back-button>
     </ion-nav-bar>
-    <ion-nav-view></ion-nav-view>
+      <ion-nav-view>
+      </ion-nav-view>
+      <div class="bottom-right">
+        <md-button class="md-fab md-primary big-plus" md-theme="blue-grey" ng-click="openOverlay()">
+          <span rotator>
+            <i class="ion-ios-plus-empty"></i>
+          </span>
+        </md-button>
+      </div>
   </div>
 
   <script type="text/javascript">
