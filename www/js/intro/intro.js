@@ -6,6 +6,10 @@ angular.module('intro', [])
     $state.go('search');
   }
 
+  $scope.$emit('infoCtrlLoaded');
+
+  $scope.hideNavBttns = true;
+
   $timeout(function(){
     $ionicNavBarDelegate.title('Welcome!');
     $ionicNavBarDelegate.showBackButton(false);
@@ -21,7 +25,8 @@ angular.module('intro', [])
       $scope.authenticated = true;
       $scope.authlogin = true;
       $scope.showBck = true;
-      $state.go('search')
+      $scope.$emit('showNavBttns');
+      $state.go('search');
     }
   }
 
@@ -42,7 +47,7 @@ angular.module('intro', [])
         $rootScope.authlogin = data.login;
         store.set('login', $rootScope.authlogin);
         $scope.authlogin = true;
-
+        $scope.$emit('showNavBttns');
         $state.go('search');
 
       }).error(function (err) {

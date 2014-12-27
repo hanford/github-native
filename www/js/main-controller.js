@@ -1,23 +1,47 @@
 angular.module('mainCtrl', [])
 
 .controller('mainCtrl', function($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state) {
-  console.log('main controller loaded')
   $ionicNavBarDelegate.showBackButton(true);
   $scope.open = false;
+
+ $scope.$on('infoCtrlLoaded', function() {
+  console.log('infoCtrlLoaded');
+  $scope.hideNavBttns = true;
+ });
+
+$scope.$on('showNavBttns', function() {
+  console.log('showNavBttns');
+  $scope.hideNavBttns = false;
+ })
 
   $scope.openOverlay = function() {
     $scope.open = !$scope.open;
 
+    var inClassBig = 'fadeInUpBig';
+    var outClassBig = 'fadeOutDownBig';
+
+    var inClass = 'bounceIn';
+    var outClass = 'bounceOut';
+
     if ($scope.open) {
       $('.scroll').addClass('blurred');
-      $('.profile').show();
-      $('.profile').addClass('animated slideInUp');
+      $('.search').addClass(inClass).removeClass(outClass);
+      $('.profile').addClass(inClass).removeClass(outClass);
     } else {
-      $('.profile').hide();
-      $('.profile').addClass('slideOutDown');
+      console.log(inClass, outClass)
+      $('.search').removeClass(inClass).addClass(outClass);
+      $('.profile').removeClass(inClass).addClass(outClass);
+      $('.fading-btn').css({
+        opacity: 1
+      });
       $('.scroll').removeClass('blurred');
     }
   };
+
+  $scope.search = function() {
+    $scope.openOverlay();
+    $state.go('search');
+  }
 
   $scope.myProfie = function() {
     mixpanel.track('Search User', {
@@ -28,13 +52,13 @@ angular.module('mainCtrl', [])
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
-    $scope.openOverlay();
     // console.log('jaquéré');
     githubservice.getPerson($rootScope.authlogin).then(function(response) {
       $ionicLoading.hide();
       $rootScope.showBack = true;
       $rootScope.ginfo = response;
-      $state.go('profile')
+      $scope.openOverlay();
+      $state.go('profile');
     });
   };
 
