@@ -361,20 +361,20 @@
 .fading-btn {
 	opacity: 0;
 
-	&.search,
-	&.profile {
+	&.searchNav,
+	&.profileNav {
 		position: relative;
 		z-index: 150;
 	}
 }
 
-.search.animated {
+.searchNav {
 	bottom: 20px;
 	-webkit-animation-duration: .8s;
 	animation-duration: .8s;
 }
 
-.profile.animated {
+.profileNav {
 	bottom: 10px;
 }
 
@@ -408,5 +408,5 @@
 .scroll.blurred {
 	-webkit-transform: translate3d(0px, 0px, 0px) scale(1);
 	-webkit-filter: blur(8px);
-	-webkit-backface-visibility: hidden;
+	z-index: 1000;
 }

@@ -1,7 +1,9 @@
 angular.module('follow', [])
 
 .controller('followerCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
+  console.log('enter follower ctrl', $rootScope.followers);
   $scope.followers = $rootScope.followers;
+  $scope.search = '';
   
   $scope.toFollower = function(fName) {
     $rootScope.uname = fName;
@@ -16,15 +18,17 @@ angular.module('follow', [])
       $rootScope.ginfo = data;
       $ionicLoading.hide();
       $ionicHistory.clearCache();
-      $state.go('profile')
+      console.log('leave  to ', data);
+      $state.go('profile');
     }).error(function(data, headers, status, config) {
       console.log(data, headers, status)
     });
-  }
+  };
 })
 
 .controller('followingCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
   $scope.followings = $rootScope.following;
+  $scope.search = '';
   
   $scope.toFollower = function(fName) {
     $rootScope.uname = fName;
@@ -39,7 +43,8 @@ angular.module('follow', [])
       $rootScope.ginfo = data;
       $ionicLoading.hide();
       $ionicHistory.clearCache();
+      console.log('leave  to ', data);
       $state.go('profile')
     })
-  }
+  };
 })

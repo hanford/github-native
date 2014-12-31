@@ -138,6 +138,7 @@ angular.module('profile', [])
         template: '<i class="ion-loading-c"></i>'
       });
 
+      console.log(fullname)
       githubservice.getTree(fullname).then(function(response) {
         $ionicLoading.hide();
         $state.go('treeview');
@@ -157,8 +158,8 @@ angular.module('profile', [])
       });
       githubservice.getFollowers($rootScope.uname).then(function(response) {
         $ionicLoading.hide();
-        $state.go('followers')
         $rootScope.followers = response;
+        $state.go('followers');
       })
     }
 
@@ -169,8 +170,8 @@ angular.module('profile', [])
       });
       githubservice.getFollowing($rootScope.uname).then(function(response) {
         $ionicLoading.hide();
-        $state.go('following')
         $rootScope.following = response;
+        $state.go('following');
       })
     }
   })

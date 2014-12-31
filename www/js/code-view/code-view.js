@@ -1,4 +1,4 @@
-angular.module('contents', [])
+angular.module('codeView', [])
 
 .controller('contentCtrl', function($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
   $scope.code = $rootScope.code;

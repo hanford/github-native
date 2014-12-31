@@ -5,32 +5,26 @@ angular.module('mainCtrl', [])
   $scope.open = false;
 
  $scope.$on('infoCtrlLoaded', function() {
-  console.log('infoCtrlLoaded');
   $scope.hideNavBttns = true;
  });
 
 $scope.$on('showNavBttns', function() {
-  console.log('showNavBttns');
   $scope.hideNavBttns = false;
  })
 
   $scope.openOverlay = function() {
-    $scope.open = !$scope.open;
-
-    var inClassBig = 'fadeInUpBig';
-    var outClassBig = 'fadeOutDownBig';
+    $scope.openNav = !$scope.openNav;
 
     var inClass = 'bounceIn';
     var outClass = 'bounceOut';
 
-    if ($scope.open) {
+    if ($scope.openNav) {
       $('.scroll').addClass('blurred');
-      $('.search').addClass(inClass).removeClass(outClass);
-      $('.profile').addClass(inClass).removeClass(outClass);
+      $('.searchNav').addClass(inClass).removeClass(outClass);
+      $('.profileNav').addClass(inClass).removeClass(outClass);
     } else {
-      console.log(inClass, outClass)
-      $('.search').removeClass(inClass).addClass(outClass);
-      $('.profile').removeClass(inClass).addClass(outClass);
+      $('.searchNav').removeClass(inClass).addClass(outClass);
+      $('.profileNav').removeClass(inClass).addClass(outClass);
       $('.fading-btn').css({
         opacity: 1
       });
@@ -61,5 +55,9 @@ $scope.$on('showNavBttns', function() {
       $state.go('profile');
     });
   };
+
+  if (!$rootScope.access_token) {
+    $state.go('intro')
+  }
 
 })

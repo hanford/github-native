@@ -6,7 +6,7 @@
     </label>
     <ion-list>
       <ion-item ng-repeat="following in followings | filter:search" ng-click="toFollower(following.login)" class="item item-avatar">
-        <img src="{{following.avatar_url}}">
+        <img ng-src="{{following.avatar_url}}">
         <h2>{{following.login}}</h2>
         <p>{{following.html_url}}</p>
       </ion-item>

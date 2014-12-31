@@ -54,5 +54,5 @@ angular.module('state', ['ionic'])
       controller: 'introCtrl'
     })
     
-  $urlRouterProvider.otherwise("/search");
+  $urlRouterProvider.otherwise("/intro");
 })

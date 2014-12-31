@@ -2,6 +2,7 @@ angular.module('treeview', [])
 
 .controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
   $scope.repo = $rootScope.repo;
+  $scope.search = "";
 
   if ($rootScope.repo && !$rootScope.repo.full_name) {
     var fullname = $rootScope.repo;
@@ -14,6 +15,7 @@ angular.module('treeview', [])
   }
 
   $scope.items = $rootScope.tree;
+  console.log($scope.items);
 
   if ($rootScope.repo == undefined) {
     $state.go('search');
@@ -131,7 +133,7 @@ angular.module('treeview', [])
   });
 
   if (!$scope.items) {
-    $state.go('search')
+    $state.go('search');
   };
 
 })

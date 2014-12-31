@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="lib/mfizz/font-mfizz.css">
   <link rel="stylesheet" href="lib/bower/codemirror/lib/codemirror.css">
   <link rel="stylesheet" href="lib/bower/codemirror/theme/monokai.css">
-  <link rel="stylesheet" href="css/cm-dope.css">
+  <!-- <link rel="stylesheet" href="css/cm-dope.css"> -->
   <link rel="stylesheet" href="lib/bower/angular-material/angular-material.css">
   <link rel="stylesheet" href="lib/bower/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="lib/bower/angular-material/themes/blue-grey-theme.css">
@@ -54,7 +54,7 @@
   <script src="js/intro/intro.js"></script>
   <script src="js/treeview/treeview.js"></script>
   <script src="js/commits/commits.js"></script>
-  <script src="js/contents/contents.js"></script>
+  <script src="js/code-view/code-view.js"></script>
   <script src="js/rotator/rotator.directive.js"></script>
   <script src="js/factory.js"></script>
   <script src="js/main-controller.js"></script>
@@ -73,13 +73,13 @@
       <ion-nav-view>
       </ion-nav-view>
       <div class="bottom-right" ng-hide="hideNavBttns">
-        <div class="search fading-btn animated">
-          <md-button class="md-fab md-primary big-plus" md-theme="blue" ng-click="search()">
+        <div class="searchNav fading-btn animated">
+          <md-button class="md-fab md-primary big-plus" md-theme="blue" ng-click="search()" >
             <span class="ion-search"></span>
           </md-button>
         </div>
-        <div class="profile fading-btn animated">
-          <md-button class="md-fab md-primary big-plus" md-theme="red" ng-click="myProfie()">
+        <div class="profileNav fading-btn animated">
+          <md-button class="md-fab md-primary big-plus" md-theme="red" ng-click="myProfie()" >
             <span class="octicon octicon-person"></span>
           </md-button>
         </div>

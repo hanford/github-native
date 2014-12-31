@@ -1,6 +1,6 @@
 angular.module('search', [])
 
-.controller('searchCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate, $http) {
+.controller('searchCtrl', function($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate, $http, $ionicHistory) {
   $timeout(function() {
     if ($rootScope.authname) {
       $scope.authname = $rootScope.authname;
@@ -15,14 +15,15 @@ angular.module('search', [])
     mixpanel.track('Search Project', {
       "Project": uname
     });
-
+    $rootScope.uname = uname;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
     githubservice.getProjects(uname).then(function(response) {
       $ionicLoading.hide();
       $rootScope.sItems = response.items;
-      $state.go('searchlist')
+      $state.go('searchlist');
+      $ionicHistory.clearCache();
     })
   }
 
@@ -40,7 +41,8 @@ angular.module('search', [])
       $ionicLoading.hide();
       $rootScope.showBack = true;
       $rootScope.ginfo = response;
-      $state.go('profile')
+      $state.go('profile');
+      $ionicHistory.clearCache();
     });
   };
 
