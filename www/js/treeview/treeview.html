@@ -19,7 +19,7 @@
     </div>
     <div class="bubble button-full" style="margin: 10px auto 15px;">
       <h3 class="bubble-header">{{fullname}}</h3>
-      <ion-item ng-repeat="item in items | filter:search" ng-click="file(item)">
+      <ion-item ng-repeat="item in items | filter:search" ng-click="openFile(item)">
         <span class="small-repo pull-left">
           <div ng-switch="item.type">
             <span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>

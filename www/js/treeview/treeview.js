@@ -74,17 +74,17 @@ angular.module('treeview', [])
     })
   };
 
-  $scope.file = function(item) {
+  $scope.openFile = function(file) {
     $scope.hasReadMe = false;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'
     });
-    githubservice.getContents(fullname, item.path).then(function(response) {
-      if (item.type == 'file') {
+    githubservice.getCodeView(fullname, file.path).then(function(response) {
+      if (file.type == 'file') {
         $ionicLoading.hide();
-        $rootScope.path = item.path;
+        $rootScope.path = file.path;
         $rootScope.code = atob(response.content.replace(/\s/g, ''))
-        $state.go('content');
+        $state.go('codeView');
       } else {
         $ionicLoading.hide();
         $scope.items = response;

@@ -43,10 +43,10 @@ angular.module('state', ['ionic'])
       templateUrl: "js/info/info.html",
       controller: 'infoCtrl'
     })
-    .state('content', {
-      url: "/content",
-      templateUrl: "js/contents/contents.html",
-      controller: 'contentCtrl'
+    .state('codeView', {
+      url: "/codeview",
+      templateUrl: "js/code-view/code-view.html",
+      controller: 'codeViewCtrl'
     })
     .state('intro', {
       url: "/intro",

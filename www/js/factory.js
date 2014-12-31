@@ -71,7 +71,7 @@ angular.module('factory', ['ionic'])
       var promise = $ajax.get(baseurl + 'repos/' + fullname + '/readme');
       return promise
     },
-    getContents: function (fullname, path) {
+    getCodeView: function (fullname, path) {
       var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path);
       return promise
     },

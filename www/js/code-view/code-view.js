@@ -1,6 +1,6 @@
 angular.module('codeView', [])
 
-.controller('contentCtrl', function($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
+.controller('codeViewCtrl', function($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
   $scope.code = $rootScope.code;
   $scope.path = $rootScope.path;
   $ionicNavBarDelegate.title($rootScope.path);
