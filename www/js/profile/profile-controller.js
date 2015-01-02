@@ -11,7 +11,10 @@ angular.module('profile', [])
 
     if ($rootScope.ginfo.public_repos) {
       $scope.pub_count = parseInt($rootScope.ginfo.public_repos);
+    } else {
+      $scope.pub_count = 0;
     }
+
     $scope.gists = $rootScope.ginfo.public_gists;
     $scope.followers = $rootScope.ginfo.followers;
     $scope.company = $rootScope.ginfo.company;
@@ -141,7 +144,7 @@ angular.module('profile', [])
       console.log(fullname)
       githubservice.getTree(fullname).then(function(response) {
         $ionicLoading.hide();
-        $state.go('treeview');
+        $state.go('project');
         $rootScope.tree = response;
       })
     }

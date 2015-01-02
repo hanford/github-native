@@ -56,7 +56,7 @@ $scope.$on('showNavBttns', function() {
     });
   };
 
-  if (!$rootScope.access_token) {
+  if ($rootScope.access_token == undefined) {
     $state.go('intro')
   }
 

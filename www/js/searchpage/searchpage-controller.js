@@ -16,7 +16,7 @@ angular.module('searchlist', [])
     githubservice.getTree(item.full_name).then(function(response) {
       $rootScope.tree = response;
       $ionicLoading.hide();
-      $state.go('treeview')
+      $state.go('project')
     })
   }
 

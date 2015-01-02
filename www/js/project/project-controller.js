@@ -1,6 +1,6 @@
-angular.module('treeview', [])
+angular.module('project', [])
 
-.controller('treeCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
+.controller('projectCtrl', function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
   $scope.repo = $rootScope.repo;
   $scope.search = "";
 

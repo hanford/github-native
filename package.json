@@ -18,6 +18,7 @@
     "gulp-inject": "^1.1.1",
     "gulp-minify-html": "^0.1.8",
     "gulp-util": "^2.2.14",
+    "gulp-watch": "^3.0.0",
     "main-bower-files": "^2.4.1",
     "shelljs": "^0.3.0"
   }

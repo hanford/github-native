@@ -22,7 +22,7 @@ angular.module('search', [])
     githubservice.getProjects(uname).then(function(response) {
       $ionicLoading.hide();
       $rootScope.sItems = response.items;
-      $state.go('searchlist');
+      $state.go('searchpage');
       $ionicHistory.clearCache();
     })
   }
@@ -31,7 +31,7 @@ angular.module('search', [])
     mixpanel.track('Search User', {
       "User": uname
     });
-    console.log('tracked ' + uname)
+    console.log('tracked ' + uname);
     $rootScope.uname = uname;
     $ionicLoading.show({
       template: '<i class="ion-loading-c"></i>'

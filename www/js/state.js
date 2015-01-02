@@ -8,9 +8,9 @@ angular.module('state', ['ionic'])
       controller: 'searchCtrl',
       templateUrl: "js/search/search.html"
     })
-    .state('searchlist', {
+    .state('searchpage', {
       url: "/list",
-      templateUrl: "js/searchResults/searchlist.html",
+      templateUrl: "js/searchpage/searchpage.html",
       controller: 'searchviewCtrl'
     })
     .state('profile', {
@@ -33,10 +33,10 @@ angular.module('state', ['ionic'])
       templateUrl: "js/commits/commits.html",
       controller: 'commitsCtrl'
     })
-    .state('treeview', {
-      url: "/treeview",
-      templateUrl: "js/treeview/treeview.html",
-      controller: 'treeCtrl'
+    .state('project', {
+      url: "/project",
+      templateUrl: "js/project/project.html",
+      controller: 'projectCtrl'
     })
     .state('info', {
       url: "/info",

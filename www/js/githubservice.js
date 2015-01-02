@@ -1,4 +1,4 @@
-angular.module('factory', ['ionic'])
+angular.module('GithubService', ['ionic'])
 
 .factory('githubservice', function ($http, $rootScope, $ionicPopup, $state) {
   var baseurl = 'https://api.github.com/';
