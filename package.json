@@ -1,7 +1,7 @@
 {
-  "name": "ionic-project",
+  "name": "MobileGit",
   "version": "1.0.0",
-  "description": "An Ionic project",
+  "description": "Browse github from our phone",
   "dependencies": {
     "cors": "^2.5.2",
     "express": "^4.10.4",

@@ -9,6 +9,7 @@ angular.module('search', [])
     }
   }, 2000);
 
+  $ionicHistory.clearHistory();
   $ionicNavBarDelegate.showBackButton(false);
 
   $scope.searchProject = function(uname) {
