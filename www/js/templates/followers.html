@@ -1,0 +1,15 @@
+<ion-view title="Followers">
+  <ion-content has-header="true">
+    <label class="item item-input">
+      <span class="input-label">Search</span>
+      <input type="search" ng-model="search" placeholder="Search followers" />
+    </label>
+    <ion-list>
+      <ion-item ng-repeat="follower in followers | filter:search" ng-click="toFollower(follower.login)" class="item item-avatar">
+        <img ng-src="{{follower.avatar_url}}">
+        <h2>{{follower.login}}</h2>
+        <p>{{follower.html_url}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

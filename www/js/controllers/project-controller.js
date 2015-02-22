@@ -97,7 +97,7 @@ angular.module('project', [])
     var ref = window.open('https://github.com/' + fullname + '?files=1', '_blank', 'location=no');
   };
 
-  $ionicModal.fromTemplateUrl('js/modals/contributors.html', {
+  $ionicModal.fromTemplateUrl('./templates/modals/contributors.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
