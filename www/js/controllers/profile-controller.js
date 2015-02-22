@@ -50,29 +50,29 @@ angular.module('profile', [])
     $scope.login = $rootScope.ginfo.login;
 
 
-    $scope.followUser = function(login) {
+    $scope.togglefollow = function(login) {
+      // unfollow
+      if ($scope.unfollow == false) {
+        $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
+          $scope.unfollow = false;
+          $scope.half = true;
+          console.log('follow');
+          $scope.followers--;
+          $scope.notCurrent = true;
+          $scope.FollowStatus = 'Follow';
+        })
+        return;
+      }
+
       $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
-        mixpanel.track('Followed User', {
-          "followed": login
-        });
         $scope.unfollow = true;
+        console.log('unfollow');
         $scope.followers++;
         $scope.notCurrent = false;
+        $scope.FollowStatus = 'Unfollow';
         $scope.half = true;
       })
-    }
-
-    $scope.unfollowUser = function(login) {
-      mixpanel.track('unFollowed User', {
-        "unfollowed": login
-      });
-      $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
-        $scope.unfollow = false;
-        $scope.half = true;
-        $scope.followers--;
-        $scope.notCurrent = true;
-      })
-    }
+    };
 
     var currentUser = store.get('login');
     console.log('LOGIN', currentUser, $scope.login);
@@ -81,10 +81,12 @@ angular.module('profile', [])
         console.log('following');
         $scope.half = true;
         $scope.notCurrent = false;
+        $scope.FollowStatus = 'Unfollow';
         $scope.unfollow = true;
       }).catch(function(err) {
         $scope.half = true;
         $scope.unfollow = false;
+        $scope.FollowStatus = 'Follow';
         $scope.notCurrent = true;
         console.log('not following')
       })

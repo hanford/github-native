@@ -61,15 +61,15 @@ angular.module('project', [])
   })
 
   $scope.starme = function(fullname) {
+    if ($scope.starred == true) {
+      $http.delete(starURL).then(function(response) {
+        $scope.starred = false;
+      });
+      return;
+    };
+
     $http.put(starURL).then(function(response) {
       $scope.starred = true;
-      console.log(response.status);
-    })
-  };
-
-  $scope.unstar = function(fullname) {
-    $http.delete(starURL).then(function(response) {
-      $scope.starred = false;
       console.log(response.status);
     })
   };
