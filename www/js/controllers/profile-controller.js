@@ -100,7 +100,7 @@ angular.module('profile', [])
       $scope.recentEvents = response;
     });
 
-    $ionicModal.fromTemplateUrl('templates/modals/recentActivity.html', {
+    $ionicModal.fromTemplateUrl('js/templates/modals/recentActivity.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
