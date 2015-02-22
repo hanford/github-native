@@ -1,8 +1,6 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var bower = require('bower');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
@@ -10,7 +8,7 @@ var watch = require('gulp-watch');
 var inject = require('gulp-inject');
 var minifyHTML = require('gulp-minify-html');
 var mainBowerFiles = require("main-bower-files");
-var csso = require('gulp-csso');
+var $ = require("gulp-load-plugins")();
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -24,9 +22,9 @@ gulp.task('default', ['sass']); // html
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/**.scss')
-    .pipe(sass())
-    .pipe(csso())
-    .pipe(concat('style.css'))
+    .pipe($.sass())
+    .pipe($.csso())
+    .pipe($.concat('style.css'))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });

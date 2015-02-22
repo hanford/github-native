@@ -8,7 +8,7 @@ angular.module('rotator', [])
       element.toggled = false;
       var hammertime = new Hammer(element.parent()[0]);
 
-      var pfx = ["webkit", "moz", "MS", "o", ""];
+      var pfx = ["webkit", "o", ""];
       function listenTo(element, type, callback) {
         for (var p = 0; p < pfx.length; p++) {
           if (!pfx[p]) type = type.toLowerCase();;

@@ -392,11 +392,6 @@
 		-webkit-transition: -webkit-transform .35s ease-out;
 	}
 
-	// transition: transform .35s ease-out;
-	// -webkit-transition: -webkit-transform .35s ease-out;
-	pointer-events: all;
-	z-index: 420;
-
 	&.md-button:not([disabled]).md-raised:active,
 	&.md-button:not([disabled]).md-fab:active,
 	i.active-round:before {
@@ -406,7 +401,7 @@
 }
 
 .scroll.blurred {
-	-webkit-transform: translate3d(0px, 0px, 0px) scale(1);
+	-webkit-transform: translate3d(0px, 0px, 0px) scale(1.1);
 	-webkit-filter: blur(8px);
 	z-index: 1000;
 }
