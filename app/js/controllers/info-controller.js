@@ -1,6 +1,6 @@
 angular.module('info', [])
 
-.controller('infoCtrl', ['$scope', '$http', '$rootScope', '$state',' githubservice', '$ionicNavBarDelegate', 'store', '$cordovaOauth',
+.controller('infoCtrl', ['$scope', '$http', '$rootScope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$cordovaOauth',
   function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {
 
     $ionicNavBarDelegate.showBackButton(true);
