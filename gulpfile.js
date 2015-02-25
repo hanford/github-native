@@ -11,22 +11,55 @@ var mainBowerFiles = require("main-bower-files");
 var $ = require("gulp-load-plugins")();
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./app/**/*.scss'],
+  js: ['app/**/*.js']
 };
+
+gulp.task('default', ['sass', 'js', 'move-bower', 'templates', 'index', 'move-lib', 'css']);
 
 gulp.task('watch', ['default'], function () {
     gulp.watch(paths.sass, ['sass'])
+    gulp.watch(paths.js, ['js'])
 });
 
-gulp.task('default', ['sass']); // html
+gulp.task('templates', function() {
+  return gulp.src('./app/templates/**/*.html')
+    .pipe(gulp.dest('./www/dist/js/templates/'))
+});
+
+gulp.task('index', function() {
+  return gulp.src('./app/index.html')
+    .pipe(gulp.dest('./www/'))
+});
+
+gulp.task('move-lib', function() {
+  return gulp.src('./app/lib/**/*.*')
+    .pipe(gulp.dest('./www/lib/'))
+});
+
+gulp.task('css', function() {
+  return gulp.src('app/css/**.*')
+    .pipe(gulp.dest('www/css/'))
+})
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/**.scss')
+  gulp.src('./app/scss/**.scss')
     .pipe($.sass())
     .pipe($.csso())
     .pipe($.concat('style.css'))
-    .pipe(gulp.dest('./www/css/'))
+    .pipe(gulp.dest('./www/dist/css/'))
     .on('end', done);
+});
+
+gulp.task('move-bower', function() {
+  return gulp.src('./app/bower_components/**/*.*')
+    .pipe(gulp.dest('./www/bower_components/'))
+})
+
+gulp.task('js', function() {
+  return gulp.src('./app/js/**/*.js')
+    .pipe($.concat('app.js'))
+    .pipe(gulp.dest('./www/dist/js'));
 });
 
 // gulp.task("html", function(){
