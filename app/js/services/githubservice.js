@@ -1,8 +1,9 @@
-angular.module('GithubService', ['ionic'])
+angular.module('GithubService', ['ionic',  'angular-storage'])
 
-.factory('githubservice', ['$http', '$rootScope', '$ionicPopup', '$state',
-  function ($http, $rootScope, $ionicPopup, $state) {
+.factory('githubservice', ['$http', '$ionicPopup', '$state', 'store',
+  function ($http, $ionicPopup, $state, store) {
     var baseurl = 'https://api.github.com/';
+    var access_token = store.get('access_token');
 
     var $ajax = {
       get: function (route) {
@@ -13,27 +14,29 @@ angular.module('GithubService', ['ionic'])
           query = '&' + args[1];
         }
 
-        // showAlert = function (err) {
-        //   var alertPopup = $ionicPopup.alert({
-        //     title: 'Hmm..',
-        //     template: 'It looks like something went wrong'
-        //   });
-        // };
+        showAlert = function (err) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Hmm..',
+            template: 'It looks like something went wrong'
+          });
+        };
 
-        return $http.get(route + '?access_token='+ $rootScope.access_token + '/' + query, {
+        debugger
+        return $http.get(route + '?access_token='+ access_token + '/' + query, {
           timeout: 5000
         }).then(function (response) {
           console.log(response.data);
           return response.data;
         }).catch(function (err) {
-          // showAlert();
+          showAlert();
         });
       }
     };
 
     return {
-      getPerson: function (uname) {
+      getPerson: function (uname) { 
         var promise = $ajax.get(baseurl + 'users/' + uname);
+        console.log(promise)
         return promise;
       },
       getProjects: function (uname) {

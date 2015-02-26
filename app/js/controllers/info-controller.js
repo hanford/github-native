@@ -17,53 +17,19 @@ angular.module('MobileGit')
       $scope.api = response.data.status;
     });
 
-    $scope.alias = $rootScope.authlogin;
+    $scope.alias = $scope.$parent.flags.user.login;
 
-    if ($rootScope.access_token) {
+    if ($scope.$parent.flags.access_token) {
       $scope.authenticated = true;
     } else {
       $scope.authenticated = false;
     }
 
     $scope.removeAuth = function (OAuth) {
-      mixpanel.track('Removed Authentication');
-      $rootScope.access_token = '';
       store.remove('access_token');
-      store.remove('name');
-      store.remove('login');
-      console.log('removed storage');
+      store.remove('user');
       $scope.authenticated = false;
-    };
-
-    $scope.authMe = function () {
-      $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
-        $rootScope.access_token = result.access_token;
-        store.set('access_token', result.access_token);
-        var userURL = 'https://api.github.com/user?access_token=' + result.access_token;
-        console.log(userURL)
-        $http.get(userURL).success(function (data) {
-
-          if (data.name) {
-            $rootScope.authname = data.name;
-          } else {
-            $rootScope.authname = data.login;
-          }
-
-          $rootScope.authlogin = data.login;
-
-          store.set('name', $rootScope.authname);
-          store.set('login', $rootScope.authlogin);
-
-          $scope.authlogin = true;
-
-          $state.go('search');
-        }).error(function (data, status) {
-          console.log(data)
-
-        })
-      }, function (error) {
-        console.log(error);
-      })
+      $state.go('intro');
     };
 
     $scope.privacy = function () {

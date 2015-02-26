@@ -2,26 +2,37 @@ angular.module('MobileGit')
 
 .controller('searchCtrl', ['$scope', '$rootScope', '$state', '$ionicLoading', 'githubservice', '$timeout', '$ionicNavBarDelegate', '$http', '$ionicHistory',
   function ($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate, $http, $ionicHistory) {
-    $timeout(function() {
-      if ($rootScope.authname) {
-        $scope.authname = $rootScope.authname;
-      } else {
-        $scope.authname = $rootScope.authalias;
-      }
-    }, 2000);
 
     $ionicHistory.clearHistory();
     $ionicNavBarDelegate.showBackButton(false);
 
-    $scope.searchProject = function(uname) {
-      mixpanel.track('Search Project', {
-        "Project": uname
-      });
-      $rootScope.uname = uname;
+    $scope.myAccount = function() {
+      $rootScope.uname = $scope.$parent.flags.user.login;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-      githubservice.getProjects(uname).then(function(response) {
+
+      console.log($scope.$parent.flags.user.login)
+
+      githubservice.getPerson($scope.$parent.flags.user.login).then(function(response) {
+        debugger
+        $ionicLoading.hide();
+        $rootScope.showBack = true;
+        $rootScope.ginfo = response;
+        $state.go('profile');
+        $ionicHistory.clearCache();
+      });
+    }
+
+    $scope.searchProject = function(query) {
+      mixpanel.track('Search Project', {
+        "Project": query
+      });
+      $rootScope.uname = query;
+      $ionicLoading.show({
+        template: '<i class="ion-loading-c"></i>'
+      });
+      githubservice.getProjects(query).then(function(response) {
         $ionicLoading.hide();
         $rootScope.sItems = response.items;
         $state.go('searchpage');
@@ -29,17 +40,17 @@ angular.module('MobileGit')
       })
     }
 
-    $scope.searchUser = function(uname) {
+    $scope.searchUser = function(query) {
       mixpanel.track('Search User', {
-        "User": uname
+        "User": query
       });
-      console.log('tracked ' + uname);
-      $rootScope.uname = uname;
+      console.log('tracked ' + query);
+      $rootScope.uname = query;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
       // console.log('jaquéré');
-      githubservice.getPerson(uname).then(function(response) {
+      githubservice.getPerson(query).then(function(response) {
         $ionicLoading.hide();
         $rootScope.showBack = true;
         $rootScope.ginfo = response;

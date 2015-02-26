@@ -7,6 +7,8 @@ angular.module('MobileGit')
       $state.go('search')
     }
 
+    debugger
+
     $timeout(function() {
       $ionicNavBarDelegate.showBackButton(true);
     }, 0)
