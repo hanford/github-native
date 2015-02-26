@@ -1,4 +1,4 @@
-angular.module('codeView', [])
+angular.module('MobileGit')
 
 .controller('codeViewCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$ionicNavBarDelegate', 
   function ($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {

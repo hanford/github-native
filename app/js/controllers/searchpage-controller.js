@@ -1,4 +1,4 @@
-angular.module('searchlist', [])
+angular.module('MobileGit')
 
 .controller('searchviewCtrl', ['$scope', '$rootScope', '$state', '$ionicLoading', 'githubservice',
   function ($scope, $rootScope, $state, $ionicLoading, githubservice) {

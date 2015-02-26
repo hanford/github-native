@@ -1,6 +1,6 @@
-angular.module('mainCtrl', [])
+angular.module('MobileGit')
 
-.controller('mainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state',
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state',
   function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state) {
     $ionicNavBarDelegate.showBackButton(true);
     $scope.open = false;
