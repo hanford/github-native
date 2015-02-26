@@ -2,6 +2,7 @@ node_modules/
 .DS_*
 hooks/
 platforms/
+plugins/
 www.zip
 resources/ios/*
 www/*
