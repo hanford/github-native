@@ -1,4 +1,4 @@
-angular.module('rotator', [])
+angular.module('MobileGit')
 
 .directive('rotator', ['$timeout', function($timeout) {
   return {

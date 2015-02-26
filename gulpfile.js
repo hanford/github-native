@@ -8,6 +8,7 @@ var watch = require('gulp-watch');
 var inject = require('gulp-inject');
 var minifyHTML = require('gulp-minify-html');
 var mainBowerFiles = require("main-bower-files");
+var browserSync = require('browser-sync');
 var $ = require("gulp-load-plugins")();
 
 var paths = {
@@ -17,7 +18,15 @@ var paths = {
 
 gulp.task('default', ['sass', 'js', 'move-bower', 'templates', 'index', 'move-lib', 'css']);
 
-gulp.task('watch', ['default'], function () {
+  gulp.task('watch', ['default'], function () {
+    browserSync({
+      files: ['www/**'],
+      server: {
+      baseDir : ['www'],
+      index   : 'index.html'
+      }
+    })
+
     gulp.watch(paths.sass, ['sass'])
     gulp.watch(paths.js, ['js'])
 });

@@ -20,7 +20,7 @@ angular.module('GithubService', ['ionic'])
         //   });
         // };
 
-        return $http.get(route + '?access_token=' + $rootScope.access_token + query, {
+        return $http.get(route + '?access_token='+ $rootScope.access_token + '/' + query, {
           timeout: 5000
         }).then(function (response) {
           console.log(response.data);

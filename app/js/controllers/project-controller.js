@@ -1,4 +1,4 @@
-angular.module('project', [])
+angular.module('MobileGit')
 
 .controller('projectCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
   function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
@@ -98,7 +98,7 @@ angular.module('project', [])
       var ref = window.open('https://github.com/' + fullname + '?files=1', '_blank', 'location=no');
     };
 
-    $ionicModal.fromTemplateUrl('js/templates/modals/contributors.html', {
+    $ionicModal.fromTemplateUrl('./js/templates/modals/contributors.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {

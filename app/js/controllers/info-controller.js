@@ -1,4 +1,4 @@
-angular.module('info', [])
+angular.module('MobileGit')
 
 .controller('infoCtrl', ['$scope', '$http', '$rootScope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$cordovaOauth',
   function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {

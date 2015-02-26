@@ -1,4 +1,4 @@
-angular.module('intro', [])
+angular.module('MobileGit')
 
 .controller('introCtrl', ['$scope', '$rootScope', '$state', '$ionicNavBarDelegate', 'store', '$cordovaOauth', '$http', '$timeout',
   function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout) {
@@ -32,6 +32,7 @@ angular.module('intro', [])
   }
 
   $scope.authMe = function () {
+    console.log('hello');
     $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
       $rootScope.access_token = result.access_token;
       store.set('access_token', result.access_token);

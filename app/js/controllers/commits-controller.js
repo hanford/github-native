@@ -1,4 +1,4 @@
-angular.module('commits', [])
+angular.module('MobileGit')
 
 .controller('commitsCtrl', ['$scope', '$rootScope', '$state', '$ionicNavBarDelegate',
   function ($scope, $rootScope, $state, $ionicNavBarDelegate) {

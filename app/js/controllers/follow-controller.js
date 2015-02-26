@@ -1,4 +1,4 @@
-angular.module('follow', [])
+angular.module('MobileGit')
 
 .controller('followerCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory',
   function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
