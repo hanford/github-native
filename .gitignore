@@ -6,3 +6,4 @@ plugins/org*
 www.zip
 resources/ios/*
 www/*
+app/bower_components/*
