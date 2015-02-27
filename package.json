@@ -30,6 +30,7 @@
     "unique-stream": "^2.0.2"
   },
   "cordovaPlugins": [
-    "org.apache.cordova.inappbrowser"
+    "org.apache.cordova.inappbrowser",
+    "com.ionic.Keyboard"
   ]
 }
