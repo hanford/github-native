@@ -1,6 +1,6 @@
 angular.module('MobileGit')
 
-.controller('codeViewCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$ionicNavBarDelegate', 
+.controller('CodeViewCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$ionicNavBarDelegate', 
   function ($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
     $scope.code = $rootScope.code;
     $scope.path = $rootScope.path;

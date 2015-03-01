@@ -6,24 +6,20 @@ angular.module('MobileGit')
     $scope.followers = $rootScope.followers;
     $scope.search = '';
     
-    $scope.toFollower = function(fName) {
-      $rootScope.uname = fName;
+    $scope.toFollower = function(followNname) {
+      $rootScope.uname = followNname;
 
-      var url = 'https://api.github.com/users/' + fName + '?access_token=' + $rootScope.access_token;;
+      var url = 'https://api.github.com/users/' + followNname + '?access_token=' + $scope.$parent.flags.access_token;;
 
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
 
       $http.get(url).success(function(data, headers, status, config) {
-        $rootScope.ginfo = data;
         $ionicLoading.hide();
         $ionicHistory.clearCache();
-        console.log('leave  to ', data);
         $state.go('profile');
-      }).error(function(data, headers, status, config) {
-        console.log(data, headers, status)
-      });
+      })
     };
 }])
 
@@ -32,21 +28,19 @@ angular.module('MobileGit')
     $scope.followings = $rootScope.following;
     $scope.search = '';
     
-    $scope.toFollower = function(fName) {
-      $rootScope.uname = fName;
+    $scope.toFollower = function(followNname) {
+      $rootScope.uname = followNname;
 
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
 
-      var url = 'https://api.github.com/users/' + fName + '?access_token=' + $rootScope.access_token;
+      var url = 'https://api.github.com/users/' + followNname + '?access_token=' + $scope.$parent.flags.access_token;
 
       $http.get(url).success(function(data, headers, status, config) {
-        $rootScope.ginfo = data;
         $ionicLoading.hide();
         $ionicHistory.clearCache();
-        console.log('leave  to ', data);
-        $state.go('profile')
+        $state.go('profile');
       })
     };
 }])

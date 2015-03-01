@@ -37,15 +37,24 @@ angular.module('MobileGit')
           $scope.$parent.flags.user = {
             login: data.login,
             name: data.name,
+            id: data.id,
             followers: data.followers,
             following: data.following,
             email: data.email,
+            public_repos: data.public_repos,
+            PublicGists: data.public_gists,
+            company: data.company,
+            created: data.created_at,
+            avatar: data.avatar_url,
+            blog: data.blog || "",
+            location: data.location || "",
             repo: data.repos_url
           }
 
           store.set('user', $scope.$parent.flags.user)
           
           $state.go('search');
+
       }).error(function (err) {
         console.log(err)
       })

@@ -7,6 +7,10 @@ angular.module('MobileGit')
       access_token: ''
     };
 
+    window.showFlags = function() {
+      console.log('flags', $scope.flags)
+    }
+
     if (store.get('access_token') == undefined) {
       $state.go('intro');
     } else {
@@ -51,22 +55,8 @@ angular.module('MobileGit')
     }
 
     $scope.myProfie = function() {
-      mixpanel.track('Search User', {
-        "User": $scope.flags.user.login
-      });
-      console.log('tracked ' + $scope.flags.user.login);
-      $rootScope.uname = $scope.flags.user.login;
-      $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
-      });
-      // console.log('jaquéré');
-      githubservice.getPerson($scope.flags.user.login).then(function(response) {
-        $ionicLoading.hide();
-        $rootScope.showBack = true;
-        $rootScope.ginfo = response;
-        $scope.openOverlay();
-        $state.go('profile');
-      });
+      $scope.openOverlay();
+      $state.go('profile');
     };
 
 }])

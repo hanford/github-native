@@ -5,17 +5,6 @@
       <button class="button button-stable branch" ng-class="{true: 'stargazer-starred'}[starred]" ng-click="starme(repo)"><i class="ion-android-star"></i></button>
       <button class="button button-stable branch" ng-click="branch()">master</button>
     </div>
-<!--     <div ng-show="hasReadMe" style="margin-bottom:10px;">
-      <div class="top-bump readme-box">
-        <div class="bubble bubble-mdown">
-          <h3 class="bubble-header"><span class="octicon octicon-book"></span> {{name}}</h3>
-          <div class="small-repo">
-            <div id="mdown" class="mdown-body"></div>
-          </div>
-        </div>
-      </div>
-      <button class="button collapse-bttn" ng-click="collapse()" ng-hide="hideCol">View all of {{name}}</button>
-    </div> -->
     <div class="bubble button-full" style="margin: 10px auto 15px;">
       <h3 class="bubble-header">{{fullname}}</h3>
       <ion-item ng-repeat="item in items | filter:search" ng-click="openFile(item)">

@@ -12,13 +12,9 @@ angular.module('MobileGit')
         template: '<i class="ion-loading-c"></i>'
       });
 
-      console.log($scope.$parent.flags.user.login)
-
       githubservice.getPerson($scope.$parent.flags.user.login).then(function(response) {
-        debugger
         $ionicLoading.hide();
         $rootScope.showBack = true;
-        $rootScope.ginfo = response;
         $state.go('profile');
         $ionicHistory.clearCache();
       });

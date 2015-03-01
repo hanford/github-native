@@ -21,8 +21,13 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
           });
         };
 
-        debugger
-        return $http.get(route + '?access_token='+ access_token + '/' + query, {
+        if (query) {
+          var url = route + '?access_token='+ access_token + '/' + query;
+        } else {
+          var url = route + '?access_token='+ access_token
+        }
+
+        return $http.get(url, {
           timeout: 5000
         }).then(function (response) {
           console.log(response.data);
@@ -34,9 +39,8 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
     };
 
     return {
-      getPerson: function (uname) { 
-        var promise = $ajax.get(baseurl + 'users/' + uname);
-        console.log(promise)
+      getPerson: function (username) { 
+        var promise = $ajax.get(baseurl + 'users/' + username);
         return promise;
       },
       getProjects: function (uname) {
@@ -71,16 +75,12 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors');
         return promise
       },
-      getReadme: function (fullname) {
-        var promise = $ajax.get(baseurl + 'repos/' + fullname + '/readme');
-        return promise
-      },
       getCodeView: function (fullname, path) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path);
         return promise
       },
       getRate: function () {
-        var promise = $ajax.get(baseurl + 'rate_limit');
+        var promise = $http.get(baseurl + 'rate_limit');
         return promise
       }
     }
