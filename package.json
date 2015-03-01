@@ -32,6 +32,7 @@
   "cordovaPlugins": [
     "org.apache.cordova.inappbrowser",
     "com.ionic.keyboard",
-    "org.apache.cordova.console"
+    "org.apache.cordova.console",
+    "org.apache.cordova.statusbar"
   ]
 }

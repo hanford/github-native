@@ -62,23 +62,7 @@
     </ion-nav-bar>
       <ion-nav-view>
       </ion-nav-view>
-      <div class="bottom-right" ng-hide="hideNavBttns">
-        <div class="searchNav fading-btn animated">
-          <md-button class="md-fab md-primary big-plus" md-theme="blue" ng-click="search()">
-            <span class="ion-search"></span>
-          </md-button>
-        </div>
-        <div class="profileNav fading-btn animated">
-          <md-button class="md-fab md-primary big-plus" md-theme="red" ng-click="myProfie()">
-            <span class="octicon octicon-person"></span>
-          </md-button>
-        </div>
-        <md-button class="md-fab md-primary big-plus" md-theme="blue-grey" ng-click="openOverlay()">
-          <span rotator>
-            <i class="ion-ios-plus-empty"></i>
-          </span>
-        </md-button>
-      </div>
+    <rotator class="bottom-right" ng-hide="hideNavBttns"></rotator>
   </div>
 
   <script type="text/javascript">

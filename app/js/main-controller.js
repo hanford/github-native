@@ -2,11 +2,17 @@ angular.module('MobileGit')
 
 .controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state', 'store',
   function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state, store) {
+
+    // Base Object used in most controllers containing logged in users information
     $scope.flags = {
+      // Logged in users info 
       user: {},
-      access_token: ''
+      access_token: '',
+      // From Search determines if we should use the user object, or fetch a different users object
+      FromSearch: false
     };
 
+    // Utility function
     window.showFlags = function() {
       console.log('flags', $scope.flags)
     }
