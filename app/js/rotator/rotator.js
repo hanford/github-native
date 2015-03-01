@@ -3,6 +3,7 @@ angular.module('MobileGit')
 .directive('rotator', ['$timeout', function($timeout) {
   return {
     restrict: 'A',
+    templateUrl: './dist/js/templates/rotator.html',
     link: function(scope, element, attrs) {
       console.log('rot');
       element.toggled = false;

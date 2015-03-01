@@ -3,34 +3,30 @@ angular.module('MobileGit')
 .controller('profileCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'store', '$timeout',
   function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store, $timeout) {
 
-    if (!$rootScope.ginfo) {
-      $state.go('search')
-    }
-
     $timeout(function() {
       $ionicNavBarDelegate.showBackButton(true);
     }, 0)
 
-    if ($rootScope.ginfo.public_repos) {
-      $scope.pub_count = parseInt($rootScope.ginfo.public_repos);
+    if ($scope.$parent.flags.user.public_repos) {
+      $scope.public_repos = parseInt($scope.$parent.flags.user.public_repos);
     } else {
-      $scope.pub_count = 0;
+      $scope.public_repos = 0;
     }
 
-    $scope.gists = $rootScope.ginfo.public_gists;
-    $scope.followers = $rootScope.ginfo.followers;
-    $scope.company = $rootScope.ginfo.company;
-    // $scope.hireable = $rootScope.ginfo.hireable;
+    $scope.gists = $scope.$parent.flags.user.public_gists;
+    $scope.followers = $scope.$parent.flags.user.followers;
+    $scope.company = $scope.$parent.flags.user.company;
+    // $scope.hireable = $scope.$parent.flags.user.hireable;
 
-    var created = $rootScope.ginfo.created_at;
+    var created = $scope.$parent.flags.user.created;
     $scope.created_at = created.substring(0, 10);
 
-    $scope.following = $rootScope.ginfo.following;
-    $scope.ava = $rootScope.ginfo.avatar_url;
+    $scope.following = $scope.$parent.flags.user.following;
+    $scope.avatar = $scope.$parent.flags.user.avatar;
 
-    if ($rootScope.ginfo.blog) {
+    if ($scope.$parent.flags.user.blog) {
       $scope.hideLink = false;
-      $scope.blog = $rootScope.ginfo.blog;
+      $scope.blog = $scope.$parent.flags.user.blog;
     } else {
       $scope.hideLink = true;
     }
@@ -40,16 +36,16 @@ angular.module('MobileGit')
       var ref = window.open(blog, '_system');
     }
 
-    if ($rootScope.ginfo.location) {
+    if ($scope.$parent.flags.user.location) {
       $scope.hideLocation = false;
-      $scope.location = $rootScope.ginfo.location;
+      $scope.location = $scope.$parent.flags.user.location;
     } else {
       $scope.hideLocation = true;
     }
 
-    $scope.name = $rootScope.ginfo.name;
-    $scope.id = $rootScope.ginfo.id;
-    $scope.login = $rootScope.ginfo.login;
+    $scope.name = $scope.$parent.flags.user.name;
+    $scope.id = $scope.$parent.flags.user.id;
+    $scope.login = $scope.$parent.flags.user.login;
 
 
     $scope.togglefollow = function(login) {
@@ -97,7 +93,7 @@ angular.module('MobileGit')
     $scope.unfollow = false;
 
     if ($scope.name == null) {
-      $scope.name = $rootScope.ginfo.login;
+      $scope.name = $scope.$parent.flags.user.login;
     }
 
     githubservice.getEvents($scope.login).then(function(response) {
@@ -120,7 +116,7 @@ angular.module('MobileGit')
       }
     });
 
-    githubservice.userRepo($rootScope.uname).then(function(repo) {
+    githubservice.userRepo($scope.$parent.flags.user.login).then(function(repo) {
       var recents = [];
       for (var star in repo) {
         var popularRepo = { "stars":  repo[star].stargazers_count, "full_name": repo[star].full_name, "fork": repo[star].fork };
@@ -163,7 +159,7 @@ angular.module('MobileGit')
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-      githubservice.getFollowers($rootScope.uname).then(function(response) {
+      githubservice.getFollowers($scope.$parent.flags.user.login).then(function(response) {
         $ionicLoading.hide();
         $rootScope.followers = response;
         $state.go('followers');
@@ -175,7 +171,7 @@ angular.module('MobileGit')
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-      githubservice.getFollowing($rootScope.uname).then(function(response) {
+      githubservice.getFollowing($scope.$parent.flags.user.login).then(function(response) {
         $ionicLoading.hide();
         $rootScope.following = response;
         $state.go('following');

@@ -18,42 +18,15 @@ angular.module('MobileGit')
     $scope.items = $rootScope.tree;
     console.log($scope.items);
 
-    if ($rootScope.repo == undefined) {
-      $state.go('search');
-    } else if ($rootScope.tree == undefined) {
-      $state.go('search');
-    }
-
     githubservice.getCommits(fullname).then(function(response) {
       $scope.commits = response.length;
     });
-
-    githubservice.getReadme(fullname).then(function(response) {
-      if (response.content) {
-        $scope.hasReadMe = true;
-        $scope.name = response.name;
-        // I don't understand why I have to atob a base64 string, but it's working .. 
-        document.getElementById('mdown').innerHTML = marked(atob(response.content.replace(/\s/g, '')));
-      } else {
-        $scope.hasReadMe = false;
-      }
-    });
-
-    $scope.collapse = function() {
-      $timeout(function(){
-        $('.readme-box').css('max-height', 'none');
-        $scope.hideCol = true;
-      }, 0)
-    };
-
-
-    githubservice.getStats(fullname);
 
     githubservice.getStats(fullname).then(function(response) {
       $scope.contributors = response.length + ' Contributors';
     });
 
-    var starURL = 'https://api.github.com/user/starred/' + fullname + '?access_token=' + $rootScope.access_token;
+    var starURL = 'https://api.github.com/user/starred/' + fullname + '?access_token=' + $scope.$parent.flags.access_token;
 
     $http.get(starURL).success(function(data, status) {
       $scope.starred = true;
@@ -85,7 +58,7 @@ angular.module('MobileGit')
           $ionicLoading.hide();
           $rootScope.path = file.path;
           $rootScope.code = atob(response.content.replace(/\s/g, ''))
-          $state.go('codeView');
+          $state.go('CodeView');
         } else {
           $ionicLoading.hide();
           $scope.items = response;
@@ -98,7 +71,10 @@ angular.module('MobileGit')
       var ref = window.open('https://github.com/' + fullname + '?files=1', '_blank', 'location=no');
     };
 
-    $ionicModal.fromTemplateUrl('./js/templates/modals/contributors.html', {
+    // Called twice because Githubs API sometimes requires it to...
+    githubservice.getStats(fullname);
+    githubservice.getStats(fullname);
+    $ionicModal.fromTemplateUrl('./dist/js/templates/modals/contributors.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {

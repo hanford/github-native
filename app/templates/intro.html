@@ -3,7 +3,7 @@
     <div class="hero-person"><i class="ion-ios7-people"></i>
     </div>
     <p class="intro">First we will need to authenticate with Github, otherwise we won't be able to take full advantage of their API.</p>
-    <button class="button githubgreen button-block action-button" ng-click="authMe()" ng-hide="authenticated">
+    <button class="button githubgreen button-block action-button" ng-click="authMe()">
       Login to <span class="octicon octicon-logo-github"></span>
     </button>
     <button class="button button-block githubgrey action-button" ng-click="previousUser()" ng-if="name">Continue as {{name}}</button>

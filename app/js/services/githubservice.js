@@ -1,8 +1,9 @@
-angular.module('GithubService', ['ionic'])
+angular.module('GithubService', ['ionic',  'angular-storage'])
 
-.factory('githubservice', ['$http', '$rootScope', '$ionicPopup', '$state',
-  function ($http, $rootScope, $ionicPopup, $state) {
+.factory('githubservice', ['$http', '$ionicPopup', '$state', 'store',
+  function ($http, $ionicPopup, $state, store) {
     var baseurl = 'https://api.github.com/';
+    var access_token = store.get('access_token');
 
     var $ajax = {
       get: function (route) {
@@ -13,27 +14,33 @@ angular.module('GithubService', ['ionic'])
           query = '&' + args[1];
         }
 
-        // showAlert = function (err) {
-        //   var alertPopup = $ionicPopup.alert({
-        //     title: 'Hmm..',
-        //     template: 'It looks like something went wrong'
-        //   });
-        // };
+        showAlert = function (err) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Hmm..',
+            template: 'It looks like something went wrong'
+          });
+        };
 
-        return $http.get(route + '?access_token='+ $rootScope.access_token + '/' + query, {
+        if (query) {
+          var url = route + '?access_token='+ access_token + '/' + query;
+        } else {
+          var url = route + '?access_token='+ access_token
+        }
+
+        return $http.get(url, {
           timeout: 5000
         }).then(function (response) {
           console.log(response.data);
           return response.data;
         }).catch(function (err) {
-          // showAlert();
+          showAlert();
         });
       }
     };
 
     return {
-      getPerson: function (uname) {
-        var promise = $ajax.get(baseurl + 'users/' + uname);
+      getPerson: function (username) { 
+        var promise = $ajax.get(baseurl + 'users/' + username);
         return promise;
       },
       getProjects: function (uname) {
@@ -68,16 +75,12 @@ angular.module('GithubService', ['ionic'])
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors');
         return promise
       },
-      getReadme: function (fullname) {
-        var promise = $ajax.get(baseurl + 'repos/' + fullname + '/readme');
-        return promise
-      },
       getCodeView: function (fullname, path) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path);
         return promise
       },
       getRate: function () {
-        var promise = $ajax.get(baseurl + 'rate_limit');
+        var promise = $http.get(baseurl + 'rate_limit');
         return promise
       }
     }

@@ -1,7 +1,29 @@
 angular.module('MobileGit')
 
-.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state',
-  function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state) {
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state', 'store',
+  function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state, store) {
+
+    // Base Object used in most controllers containing logged in users information
+    $scope.flags = {
+      // Logged in users info 
+      user: {},
+      access_token: '',
+      // From Search determines if we should use the user object, or fetch a different users object
+      FromSearch: false
+    };
+
+    // Utility function
+    window.showFlags = function() {
+      console.log('flags', $scope.flags)
+    }
+
+    if (store.get('access_token') == undefined) {
+      $state.go('intro');
+    } else {
+      $scope.flags.access_token = store.get('access_token');
+      $scope.flags.user = store.get('user');
+    }
+
     $ionicNavBarDelegate.showBackButton(true);
     $scope.open = false;
 
@@ -39,26 +61,8 @@ angular.module('MobileGit')
     }
 
     $scope.myProfie = function() {
-      mixpanel.track('Search User', {
-        "User": $rootScope.authlogin
-      });
-      console.log('tracked ' + $rootScope.authlogin);
-      $rootScope.uname = $rootScope.authlogin;
-      $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
-      });
-      // console.log('jaquéré');
-      githubservice.getPerson($rootScope.authlogin).then(function(response) {
-        $ionicLoading.hide();
-        $rootScope.showBack = true;
-        $rootScope.ginfo = response;
-        $scope.openOverlay();
-        $state.go('profile');
-      });
+      $scope.openOverlay();
+      $state.go('profile');
     };
-
-    if ($rootScope.access_token == undefined) {
-      $state.go('intro')
-    }
 
 }])
