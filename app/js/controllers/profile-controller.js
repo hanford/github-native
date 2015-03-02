@@ -3,30 +3,41 @@ angular.module('MobileGit')
 .controller('profileCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'store', '$timeout',
   function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store, $timeout) {
 
+    var user;
+
+    if (!$scope.$parent.flags.FromSearch) { 
+      user = $scope.$parent.flags.user;
+    } else {
+      user = $scope.$parent.otherUser; 
+    }
+
+    console.log(user);
+
     $timeout(function() {
       $ionicNavBarDelegate.showBackButton(true);
     }, 0)
 
-    if ($scope.$parent.flags.user.public_repos) {
-      $scope.public_repos = parseInt($scope.$parent.flags.user.public_repos);
+    if (user.public_repos) {
+      console.log(user.public_repos);
+      $scope.public_repos = parseInt(user.public_repos);
     } else {
       $scope.public_repos = 0;
     }
 
-    $scope.gists = $scope.$parent.flags.user.public_gists;
-    $scope.followers = $scope.$parent.flags.user.followers;
-    $scope.company = $scope.$parent.flags.user.company;
-    // $scope.hireable = $scope.$parent.flags.user.hireable;
+    $scope.gists = user.public_gists;
+    $scope.followers = user.followers;
+    $scope.company = user.company;
+    // $scope.hireable = user.hireable;
 
-    var created = $scope.$parent.flags.user.created;
-    $scope.created_at = created.substring(0, 10);
+    // var created = user.created_at;
+    // $scope.created_at = created_at.substring(0, 10);
 
-    $scope.following = $scope.$parent.flags.user.following;
-    $scope.avatar = $scope.$parent.flags.user.avatar;
+    $scope.following = user.following;
+    $scope.avatar = user.avatar_url;
 
-    if ($scope.$parent.flags.user.blog) {
+    if (user.blog) {
       $scope.hideLink = false;
-      $scope.blog = $scope.$parent.flags.user.blog;
+      $scope.blog = user.blog;
     } else {
       $scope.hideLink = true;
     }
@@ -36,16 +47,16 @@ angular.module('MobileGit')
       var ref = window.open(blog, '_system');
     }
 
-    if ($scope.$parent.flags.user.location) {
+    if (user.location) {
       $scope.hideLocation = false;
-      $scope.location = $scope.$parent.flags.user.location;
+      $scope.location = user.location;
     } else {
       $scope.hideLocation = true;
     }
 
-    $scope.name = $scope.$parent.flags.user.name;
-    $scope.id = $scope.$parent.flags.user.id;
-    $scope.login = $scope.$parent.flags.user.login;
+    $scope.name = user.name;
+    $scope.id = user.id;
+    $scope.login = user.login;
 
 
     $scope.togglefollow = function(login) {
@@ -72,7 +83,7 @@ angular.module('MobileGit')
       })
     };
 
-    var currentUser = store.get('login');
+    var currentUser = $scope.$parent.flags.user.login;
     console.log('LOGIN', currentUser, $scope.login);
     if (currentUser != $scope.login) {
       $http.get('https://api.github.com/user/following/' + $scope.login + '?access_token=' + $rootScope.access_token).then(function(response) {
@@ -93,7 +104,7 @@ angular.module('MobileGit')
     $scope.unfollow = false;
 
     if ($scope.name == null) {
-      $scope.name = $scope.$parent.flags.user.login;
+      $scope.name = user.login;
     }
 
     githubservice.getEvents($scope.login).then(function(response) {
@@ -116,7 +127,7 @@ angular.module('MobileGit')
       }
     });
 
-    githubservice.userRepo($scope.$parent.flags.user.login).then(function(repo) {
+    githubservice.userRepo(user.login).then(function(repo) {
       var recents = [];
       for (var star in repo) {
         var popularRepo = { "stars":  repo[star].stargazers_count, "full_name": repo[star].full_name, "fork": repo[star].fork };
@@ -159,7 +170,7 @@ angular.module('MobileGit')
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-      githubservice.getFollowers($scope.$parent.flags.user.login).then(function(response) {
+      githubservice.getFollowers(user.login).then(function(response) {
         $ionicLoading.hide();
         $rootScope.followers = response;
         $state.go('followers');
@@ -171,7 +182,7 @@ angular.module('MobileGit')
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
-      githubservice.getFollowing($scope.$parent.flags.user.login).then(function(response) {
+      githubservice.getFollowing(user.login).then(function(response) {
         $ionicLoading.hide();
         $rootScope.following = response;
         $state.go('following');

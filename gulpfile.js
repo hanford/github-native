@@ -14,23 +14,25 @@ var $ = require("gulp-load-plugins")();
 var paths = {
   sass: ['./app/**/*.scss'],
   js: ['app/**/*.js'],
+  html: ['app/templates/*.html'],
   app: ['app/**/*.*']
 };
 
 gulp.task('default', ['sass', 'js', 'move-bower', 'templates', 'index', 'move-lib', 'css']);
 
   gulp.task('watch', ['default'], function () {
-    //browserSync({
-    //  files: ['www/**'],
-    //  server: {
-    //  baseDir : ['www'],
-    //  index   : 'index.html'
-    //  }
-    //})
+    browserSync({
+      notify: false,
+      server: {
+        baseDir: ['www']
+      },
+      port: "8000"
+    });
 
-    //gulp.watch(paths.sass, ['sass'])
-    //gulp.watch(paths.js, ['js'])
-    gulp.watch(paths.app, ['default'])
+    gulp.watch(paths.sass, ['sass'])
+    gulp.watch(paths.js, ['js'])
+    gulp.watch(paths.html, ['templates'])
+    // gulp.watch(paths.app, ['default'])
 });
 
 gulp.task('templates', function() {

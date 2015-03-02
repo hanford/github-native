@@ -27,10 +27,6 @@
                         {
                             "xml": "<preference name=\"StatusBarOverlaysWebView\" value=\"true\" />",
                             "count": 1
-                        },
-                        {
-                            "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
-                            "count": 1
                         }
                     ]
                 }

@@ -7,27 +7,21 @@ angular.module('MobileGit')
     $ionicNavBarDelegate.showBackButton(false);
 
     $scope.myAccount = function() {
-      $rootScope.uname = $scope.$parent.flags.user.login;
-      $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
-      });
-
-      githubservice.getPerson($scope.$parent.flags.user.login).then(function(response) {
-        $ionicLoading.hide();
-        $rootScope.showBack = true;
-        $state.go('profile');
-        $ionicHistory.clearCache();
-      });
+      $scope.$parent.FromSearch = false;
+      $rootScope.showBack = true;
+      $state.go('profile');
+      $ionicHistory.clearCache();
     }
 
     $scope.searchProject = function(query) {
       mixpanel.track('Search Project', {
         "Project": query
       });
-      $rootScope.uname = query;
+
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
       });
+
       githubservice.getProjects(query).then(function(response) {
         $ionicLoading.hide();
         $rootScope.sItems = response.items;
@@ -37,22 +31,24 @@ angular.module('MobileGit')
     }
 
     $scope.searchUser = function(query) {
-      mixpanel.track('Search User', {
-        "User": query
-      });
-      console.log('tracked ' + query);
-      $rootScope.uname = query;
-      $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
-      });
-      // console.log('jaquéré');
-      githubservice.getPerson(query).then(function(response) {
-        $ionicLoading.hide();
-        $rootScope.showBack = true;
-        $rootScope.ginfo = response;
-        $state.go('profile');
-        $ionicHistory.clearCache();
-      });
+      console.log($scope.$parent.OtherProfile(query));
+
+      // mixpanel.track('Search User', {
+      //   "User": query
+      // });
+
+      // $rootScope.uname = query;
+      // $ionicLoading.show({
+      //   template: '<i class="ion-loading-c"></i>'
+      // });
+      // // console.log('jaquéré');
+      // githubservice.getPerson(query).then(function(response) {
+      //   $ionicLoading.hide();
+      //   $rootScope.showBack = true;
+      //   $rootScope.ginfo = response;
+      //   $state.go('profile');
+      //   $ionicHistory.clearCache();
+      // });
     };
 
     $scope.info = function() {

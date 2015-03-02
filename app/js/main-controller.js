@@ -1,14 +1,12 @@
 angular.module('MobileGit')
 
-.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state', 'store',
-  function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state, store) {
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory',
+  function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state, store, $ionicHistory) {
 
     // Base Object used in most controllers containing logged in users information
     $scope.flags = {
-      // Logged in users info 
       user: {},
       access_token: '',
-      // From Search determines if we should use the user object, or fetch a different users object
       FromSearch: false
     };
 
@@ -35,13 +33,13 @@ angular.module('MobileGit')
     $scope.hideNavBttns = false;
    })
 
-    $scope.openOverlay = function() {
-      $scope.openNav = !$scope.openNav;
+    $scope.toggleOverlay = function() {
+      $scope.overlay = !$scope.overlay;
 
       var inClass = 'bounceIn';
       var outClass = 'bounceOut';
 
-      if ($scope.openNav) {
+      if ($scope.overlay) {
         $('.scroll').addClass('blurred');
         $('.searchNav').addClass(inClass).removeClass(outClass);
         $('.profileNav').addClass(inClass).removeClass(outClass);
@@ -56,13 +54,23 @@ angular.module('MobileGit')
     };
 
     $scope.search = function() {
-      $scope.openOverlay();
+      $scope.toggleOverlay();
       $state.go('search');
     }
 
     $scope.myProfie = function() {
-      $scope.openOverlay();
+      $scope.toggleOverlay();
       $state.go('profile');
+    };
+
+    $scope.OtherProfile = function (user) {
+      $scope.flags.FromSearch = true;
+      console.log(githubservice.getPerson(user));
+      githubservice.getPerson(user).then(function(response) {
+        $scope.otherUser = response;
+        $ionicHistory.clearCache();
+        $state.go('profile');
+      });
     };
 
 }])
