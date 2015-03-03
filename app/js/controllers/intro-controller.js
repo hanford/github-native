@@ -3,14 +3,7 @@ angular.module('MobileGit')
 .controller('introCtrl', ['$scope', '$rootScope', '$state', '$ionicNavBarDelegate', 'store', '$cordovaOauth', '$http', '$timeout', '$window',
   function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout, $window) {
 
-    $scope.$emit('infoCtrlLoaded');
-
-    $scope.hideNavBttns = true;
-
-    $timeout(function(){
-      $ionicNavBarDelegate.title('Welcome!');
-      $ionicNavBarDelegate.showBackButton(false);
-    }, 500);
+    $ionicNavBarDelegate.title('Welcome!');
 
     if (store.get('access_token') && store.get('user')) {
       $scope.$parent.flags.user = store.get('user');
@@ -20,9 +13,7 @@ angular.module('MobileGit')
 
       $scope.authenticated = true;
       $scope.authlogin = true;
-      $scope.showBck = true;
-
-      $scope.$emit('showNavBttns');
+      $scope.$parent.flags.showNavBttns = true;
       $state.go('search');
     }
 
@@ -40,7 +31,7 @@ angular.module('MobileGit')
           $scope.$parent.flags.user = data;
 
           store.set('user', $scope.$parent.flags.user)
-          
+          $scope.$parent.flags.showNavBttns = true;          
           $state.go('search');
 
         }).error(function (err) {
