@@ -270,7 +270,7 @@
 	top: 2px;
 }
 .activity {
-	max-width: 290px;
+	max-width: 90%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -404,4 +404,7 @@
 	-webkit-transform: translate3d(0px, 0px, 0px) scale(1.1);
 	-webkit-filter: blur(8px);
 	z-index: 1000;
+}
+.pane, .view, .view-container {
+	top: 0;
 }

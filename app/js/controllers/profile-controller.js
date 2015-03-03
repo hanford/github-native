@@ -11,11 +11,7 @@ angular.module('MobileGit')
       user = $scope.$parent.otherUser; 
     }
 
-    console.log(user);
-
-    $timeout(function() {
-      $ionicNavBarDelegate.showBackButton(true);
-    }, 0)
+    $ionicNavBarDelegate.showBackButton(true)
 
     if (user.public_repos) {
       console.log(user.public_repos);
@@ -24,14 +20,18 @@ angular.module('MobileGit')
       $scope.public_repos = 0;
     }
 
-    $scope.gists = user.public_gists;
+    $scope.update = function() {
+      githubservice.getPerson($scope.login).then(function(response) {
+        $scope.$broadcast('scroll.refreshComplete');
+        user = response;
+        $scope.followers = user.followers;
+        $scope.company = user.company;
+        $scope.following = user.following;
+      });
+    }
+
     $scope.followers = user.followers;
     $scope.company = user.company;
-    // $scope.hireable = user.hireable;
-
-    // var created = user.created_at;
-    // $scope.created_at = created_at.substring(0, 10);
-
     $scope.following = user.following;
     $scope.avatar = user.avatar_url;
 
@@ -60,22 +60,19 @@ angular.module('MobileGit')
 
 
     $scope.togglefollow = function(login) {
-
-      if ($scope.unfollow == false) {
-        $scope.FollowStatus = 'Follow';
-        $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
+      if ($scope.unfollow == true) {
+        $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $scope.$parent.flags.access_token).then(function(response) {
           $scope.unfollow = false;
           $scope.half = true;
-          console.log('follow');
           $scope.followers--;
+          $scope.FollowStatus = 'Follow';
           $scope.notCurrent = true;
         })
-        return
+        return;
       }
 
-      $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $rootScope.access_token).then(function(response) {
+      $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $scope.$parent.flags.access_token).then(function(response) {
         $scope.unfollow = true;
-        console.log('unfollow');
         $scope.followers++;
         $scope.FollowStatus = 'Unfollow';
         $scope.notCurrent = false;
@@ -83,25 +80,24 @@ angular.module('MobileGit')
       })
     };
 
-    var currentUser = $scope.$parent.flags.user.login;
-    console.log('LOGIN', currentUser, $scope.login);
-    if (currentUser != $scope.login) {
-      $http.get('https://api.github.com/user/following/' + $scope.login + '?access_token=' + $rootScope.access_token).then(function(response) {
-        console.log('following');
-        $scope.half = true;
-        $scope.notCurrent = false;
-        $scope.FollowStatus = 'Unfollow';
-        $scope.unfollow = true;
-      }).catch(function(err) {
-        $scope.half = true;
-        $scope.unfollow = false;
-        $scope.notCurrent = true;
-        $scope.FollowStatus = 'Follow';
-        console.log('not following');
-      })
-    }
+    // Determines if the current user profile is the authenticated user
+    function followStatus() {
+      if ($scope.$parent.flags.user.login != $scope.login) {
+        githubservice.amifollowing($scope.login).then(function(response) {
+          $scope.half = true;
+          $scope.notCurrent = false;
+          $scope.unfollow = true;
+          $scope.FollowStatus = 'Unfollow';
+        }).catch(function(err) {
+          $scope.half = true;
+          $scope.unfollow = false;
+          $scope.notCurrent = true;
+          $scope.FollowStatus = 'Follow';
+        })
+      }
+    };
 
-    $scope.unfollow = false;
+    followStatus();
 
     if ($scope.name == null) {
       $scope.name = user.login;

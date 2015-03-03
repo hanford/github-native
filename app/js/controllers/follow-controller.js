@@ -19,7 +19,6 @@ angular.module('MobileGit')
     
     $scope.toFollower = function(followName) {
       $rootScope.uname = followName;
-
       $scope.$parent.OtherProfile(followName);
     };
 }])

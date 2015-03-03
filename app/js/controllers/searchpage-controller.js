@@ -2,13 +2,12 @@ angular.module('MobileGit')
 
 .controller('searchviewCtrl', ['$scope', '$rootScope', '$state', '$ionicLoading', 'githubservice',
   function ($scope, $rootScope, $state, $ionicLoading, githubservice) {
-    $scope.items = $rootScope.sItems;
+    $scope.items = $scope.$parent.items;
     $scope.search = "";
 
+    console.log($scope.items);
+
     $scope.gotoTree = function(item) {
-      mixpanel.track('Project Click', {
-        "Project": item.full_name
-      });
       $rootScope.repo = item;
       $ionicLoading.show({
         template: '<i class="ion-loading-c"></i>'
@@ -21,7 +20,4 @@ angular.module('MobileGit')
       })
     }
 
-    if ($scope.items == undefined) {
-      $state.go('search')
-    }
 }])

@@ -9,6 +9,7 @@ var inject = require('gulp-inject');
 var minifyHTML = require('gulp-minify-html');
 var mainBowerFiles = require("main-bower-files");
 var browserSync = require('browser-sync');
+var templateCache = require('gulp-angular-templatecache');
 var $ = require("gulp-load-plugins")();
 
 var paths = {
@@ -72,6 +73,7 @@ gulp.task('move-bower', function() {
 gulp.task('js', function() {
   return gulp.src('./app/js/**/*.js')
     .pipe($.concat('app.js'))
+    .pipe($.size())
     .pipe(gulp.dest('./www/dist/js'));
 });
 

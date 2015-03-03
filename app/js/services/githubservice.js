@@ -30,7 +30,6 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         return $http.get(url, {
           timeout: 5000
         }).then(function (response) {
-          console.log(response.data);
           return response.data;
         }).catch(function (err) {
           showAlert();
@@ -43,8 +42,8 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         var promise = $ajax.get(baseurl + 'users/' + username);
         return promise;
       },
-      getProjects: function (uname) {
-        var promise = $ajax.get(baseurl + 'search/repositories', 'q=' + uname);
+      getProjects: function (project) {
+        var promise = $http.get(baseurl + 'search/repositories?q=' + project);
         return promise;
       },
       getEvents: function (login) {
@@ -81,6 +80,10 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
       },
       getRate: function () {
         var promise = $http.get(baseurl + 'rate_limit');
+        return promise
+      },
+      amifollowing: function (login) {
+        var promise = $http.get(baseurl + 'user/following/' + login + '?access_token='+ access_token);
         return promise
       }
     }

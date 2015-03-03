@@ -1,14 +1,23 @@
 angular.module('MobileGit')
 
-.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$rootScope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory',
-  function ($ionicNavBarDelegate, $scope, $rootScope, $ionicLoading, githubservice, $state, store, $ionicHistory) {
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading',
+  function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading) {
+
+    var intro = $state.current.name === "intro";
 
     // Base Object used in most controllers containing logged in users information
     $scope.flags = {
       user: {},
       access_token: '',
-      FromSearch: false
+      FromSearch: false,
+      showNavBttns: intro
     };
+
+    if ($state.current.name === "search" || intro) {
+      $ionicNavBarDelegate.showBackButton(false);
+    } else {
+      $ionicNavBarDelegate.showBackButton(true);
+    }
 
     // Utility function
     window.showFlags = function() {
@@ -25,21 +34,13 @@ angular.module('MobileGit')
     $ionicNavBarDelegate.showBackButton(true);
     $scope.open = false;
 
-   $scope.$on('infoCtrlLoaded', function() {
-    $scope.hideNavBttns = true;
-   });
-
-  $scope.$on('showNavBttns', function() {
-    $scope.hideNavBttns = false;
-   })
-
-    $scope.toggleOverlay = function() {
-      $scope.overlay = !$scope.overlay;
+    $scope.openOverlay = function() {
+      $scope.openNav = !$scope.openNav;
 
       var inClass = 'bounceIn';
       var outClass = 'bounceOut';
 
-      if ($scope.overlay) {
+      if ($scope.openNav) {
         $('.scroll').addClass('blurred');
         $('.searchNav').addClass(inClass).removeClass(outClass);
         $('.profileNav').addClass(inClass).removeClass(outClass);
@@ -54,23 +55,47 @@ angular.module('MobileGit')
     };
 
     $scope.search = function() {
-      $scope.toggleOverlay();
+      $scope.openOverlay();
       $state.go('search');
     }
 
     $scope.myProfie = function() {
-      $scope.toggleOverlay();
+      $scope.openOverlay();
       $state.go('profile');
     };
 
+    $scope.FindProject = function(project) {
+      $ionicLoading.show({
+        template: '<i class="ion-loading-c"></i>'
+      });
+      githubservice.getProjects(project).then(function(response) {
+        $ionicLoading.hide();
+        $scope.items = response.data.items;
+        $ionicNavBarDelegate.showBackButton(true);
+        $state.go('searchpage');
+      })
+    }
+
     $scope.OtherProfile = function (user) {
       $scope.flags.FromSearch = true;
-      console.log(githubservice.getPerson(user));
+      $ionicLoading.show({
+        template: '<i class="ion-loading-c"></i>'
+      });
       githubservice.getPerson(user).then(function(response) {
+        $ionicLoading.hide();
         $scope.otherUser = response;
         $ionicHistory.clearCache();
         $state.go('profile');
       });
     };
+
+    $scope.UpdateUser = function() {
+      githubservice.getPerson($scope.flags.user.login).then(function(response) {
+        console.log('updated!')
+        $ionicHistory.clearCache();
+        $scope.flags.user = reponse;
+        store.set('user', reponse)
+      });
+    }
 
 }])
