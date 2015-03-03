@@ -29,13 +29,13 @@ angular.module('MobileGit')
       $scope.info = function() {
         setTimeout(function() {
           $scope.modal.show();
-        }, 300);
+        }, 150);
       };
 
       $scope.CloseModal = function() {
         setTimeout(function() {
           $scope.modal.hide();
-        }, 300);
+        }, 150);
       }
     });
 

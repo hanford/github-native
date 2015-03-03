@@ -2,7 +2,7 @@ angular.module('MobileGit')
 
 .controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading',
   function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading) {
-
+    
     var intro = $state.current.name === "intro";
 
     // Base Object used in most controllers containing logged in users information
@@ -89,13 +89,13 @@ angular.module('MobileGit')
       });
     };
 
-    $scope.UpdateUser = function() {
-      githubservice.getPerson($scope.flags.user.login).then(function(response) {
-        console.log('updated!')
-        $ionicHistory.clearCache();
-        $scope.flags.user = reponse;
-        store.set('user', reponse)
-      });
-    }
+    // $scope.UpdateUser = function() {
+    //   githubservice.getPerson($scope.flags.user.login).then(function(response) {
+    //     console.log('updated!')
+    //     $ionicHistory.clearCache();
+    //     $scope.flags.user = reponse;
+    //     store.set('user', reponse)
+    //   });
+    // }
 
 }])
