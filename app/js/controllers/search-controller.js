@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('searchCtrl', ['$scope', '$rootScope', '$state', '$ionicLoading', 'githubservice', '$timeout', '$ionicNavBarDelegate', '$http', '$ionicHistory',
-  function ($scope, $rootScope, $state, $ionicLoading, githubservice, $timeout, $ionicNavBarDelegate, $http, $ionicHistory) {
+.controller('searchCtrl', ['$scope', '$rootScope', '$state', 'githubservice', '$ionicNavBarDelegate', '$http', '$ionicHistory', '$ionicModal',
+  function ($scope, $rootScope, $state, githubservice, $ionicNavBarDelegate, $http, $ionicHistory, $ionicModal) {
 
     $ionicHistory.clearHistory();
     $ionicNavBarDelegate.showBackButton(false);
@@ -20,8 +20,23 @@ angular.module('MobileGit')
       $scope.$parent.OtherProfile(query);
     };
 
-    $scope.info = function() {
-      $state.go('info')
-    };
+    $ionicModal.fromTemplateUrl('./dist/js/templates/modals/info-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+
+      $scope.info = function() {
+        setTimeout(function() {
+          $scope.modal.show();
+        }, 300);
+      };
+
+      $scope.CloseModal = function() {
+        setTimeout(function() {
+          $scope.modal.hide();
+        }, 300);
+      }
+    });
 
 }])

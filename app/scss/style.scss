@@ -221,7 +221,6 @@
 	margin: 0 auto;
 }
 .about-button {
-	margin-top: 8px;
 	text-align: center;
 	width: 100%;
 	font-style: 16px;
@@ -407,4 +406,38 @@
 }
 .pane, .view, .view-container {
 	top: 0;
+}
+
+.md-white {
+	background-color: white !important;
+	width: 95% !important;
+	margin: 0 auto !important;
+	font-weight: 900 !important;
+}
+
+.md-reset {
+	margin: 5px !important;
+	border: none !important;
+	margin: 0 auto !important;
+	border-color: white !important;
+}
+
+.top-bump {
+	position: relative !important;
+	top: 20px !important;
+	width: 100% !important;
+	display: block;
+}
+
+.search-container {
+	padding: 20px;
+}
+
+.bar {
+	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.signout-button {
+	margin-bottom: 20px;
+	padding:10px 0;
 }

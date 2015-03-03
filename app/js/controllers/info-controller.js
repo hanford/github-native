@@ -1,9 +1,7 @@
 angular.module('MobileGit')
 
-.controller('infoCtrl', ['$scope', '$http', '$rootScope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$cordovaOauth',
-  function ($scope, $http, $rootScope, $state, githubservice, $ionicNavBarDelegate, store, $cordovaOauth) {
-
-    $ionicNavBarDelegate.showBackButton(true);
+.controller('InfoCtrl', ['$scope', '$http', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup', '$timeout',
+  function ($scope, $http, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup, $timeout) {
 
     $scope.personalwebsite = function () {
       var ref = window.open('http://jackhanford.com', '_system');
@@ -14,22 +12,27 @@ angular.module('MobileGit')
     };
 
     $http.get('https://status.github.com/api/status.json').then(function (response) {
-      $scope.api = response.data.status;
+      $scope.api = response.status;
     });
 
     $scope.alias = $scope.$parent.flags.user.login;
 
-    if ($scope.$parent.flags.access_token) {
-      $scope.authenticated = true;
-    } else {
-      $scope.authenticated = false;
-    }
+    $scope.version = '1.4';
 
-    $scope.removeAuth = function (OAuth) {
-      store.remove('access_token');
-      store.remove('user');
-      $scope.authenticated = false;
-      $state.go('intro');
+    $scope.SignOut = function () {
+      var alertPopup = $ionicPopup.confirm({
+        title: 'Are you sure?',
+        template: 'You must be signed in to a GitHub account to use this application.'
+      }).then(function(response) {
+        if (response == true) {
+          store.remove('access_token');
+          store.remove('user');
+          $scope.$parent.CloseModal();
+          $state.go('intro');
+        } else {
+          return;
+        }
+      });
     };
 
     $scope.privacy = function () {

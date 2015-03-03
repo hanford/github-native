@@ -107,13 +107,13 @@ angular.module('MobileGit')
       $scope.recentEvents = response;
     });
 
-    $ionicModal.fromTemplateUrl('./dist/js/templates/modals/recentActivity.html', {
+    $ionicModal.fromTemplateUrl('./dist/js/templates/modals/recent-activity.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
       $scope.modal = modal;
 
-      $scope.acitivty = function() {
+      $scope.activity = function() {
         mixpanel.track('Recent Activity Modal')
         $scope.modal.show();
       };

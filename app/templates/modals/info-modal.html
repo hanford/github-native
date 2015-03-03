@@ -1,0 +1,31 @@
+<ion-modal-view ng-controller="InfoCtrl">
+  <ion-header-bar>
+    <h1 class="title">Info</h1>
+  </ion-header-bar>
+  <ion-content has-header="true">
+    <ul class="list">
+      <div class="item item-divider">
+        Github Stats
+      </div>
+      <li class="item">Github Rate limit <span class="pull-right"> {{ratelimit}}</span>
+      </li>
+      <li class="item" ng-show="api">Github API <span ng-class="{good: 'mild-green', minor: 'mild-yellow', major: 'mild-red'}[api]" class="pull-right">{{api}}</span>
+      </li>
+      <li class="item">Username <span class="pull-right">{{alias}}</span>
+      </li>
+    </ul>
+    <md-button class="md-warn md-hue-2 md-button md-default-theme button-block signout-button" ng-click="SignOut()">Sign Out
+    </md-button>
+    <p class="privacy center">To use this application, you'll need either a data or wifi connection and authentication from GitHub.</p>
+    <br />
+    <ul class="center">
+      <li>Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a></li>
+      <li>Open Sourced under <a class="positive" ng-click="mit()">MIT</a></li>
+      <li><a class="positive" ng-click="privacy()">Privacy Policy</a></li>
+      <li>GitMobile - {{version}}</li>
+    </ul>
+  </ion-content>
+  <ion-footer-bar class="no-padding">
+    <md-button class="full-width" ng-click="CloseModal()">Close</md-button>
+  </ion-footer-bar>
+</ion-modal-view>

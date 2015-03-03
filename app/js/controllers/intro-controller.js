@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('introCtrl', ['$scope', '$rootScope', '$state', '$ionicNavBarDelegate', 'store', '$cordovaOauth', '$http', '$timeout', '$window',
-  function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout, $window) {
+.controller('introCtrl', ['$scope', '$rootScope', '$state', '$ionicNavBarDelegate', 'store', '$cordovaOauth', '$http', '$timeout', '$window', '$ionicLoading',
+  function ($scope, $rootScope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, $timeout, $window, $ionicLoading) {
 
     $ionicNavBarDelegate.title('Welcome!');
 
@@ -17,8 +17,12 @@ angular.module('MobileGit')
       $state.go('search');
     }
 
-    $scope.authMe = function () {
+    $scope.login = function () {
       $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
+        $ionicLoading.show({
+          template: '<i class="ion-loading-c"></i>'
+        });
+
         $scope.$parent.flags.access_token = result.access_token;
         store.set('access_token', $scope.$parent.flags.access_token)
 
@@ -27,6 +31,8 @@ angular.module('MobileGit')
         var userURL = 'https://api.github.com/user?access_token=' + result.access_token;
 
         $http.get(userURL).success(function (data) {
+          $ionicLoading.hide();
+
           console.log(data);
           $scope.$parent.flags.user = data;
 
@@ -35,11 +41,12 @@ angular.module('MobileGit')
           $state.go('search');
 
         }).error(function (err) {
-          console.log(err)
+          $ionicLoading.hide();
+          console.log(err);
         })
-      }, function (error) {
-        console.log('Error! ' + error);
+      }, function (err) {
+        console.log(err);
       })
-};
+    };
 
 }])

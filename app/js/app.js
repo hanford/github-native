@@ -51,11 +51,6 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'GithubSer
       templateUrl: "./dist/js/templates/project.html",
       controller: 'projectCtrl'
     })
-    .state('info', {
-      url: "/info",
-      templateUrl: "./dist/js/templates/info.html",
-      controller: 'infoCtrl'
-    })
     .state('CodeView', {
       url: "/codeview",
       templateUrl: "./dist/js/templates/code-view.html",
