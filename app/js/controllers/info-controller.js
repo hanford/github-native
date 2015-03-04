@@ -12,7 +12,7 @@ angular.module('MobileGit')
     };
 
     $http.get('https://status.github.com/api/status.json').then(function (response) {
-      $scope.api = response.status;
+      $scope.api = response.data.status;
     });
 
     $scope.alias = $scope.$parent.flags.user.login;
@@ -20,17 +20,18 @@ angular.module('MobileGit')
     $scope.version = '1.4';
 
     $scope.logout = function () {
-      var alertPopup = $ionicPopup.confirm({
+      var confirmPopup = $ionicPopup.confirm({
         title: 'Are you sure?',
         template: 'You must be signed in to a GitHub account to use this application.'
-      }).then(function(response) {
-        if (response == true) {
+      });
+      confirmPopup.then(function(res) {
+        if(res) {
           store.remove('access_token');
           store.remove('user');
           $scope.$parent.CloseModal();
           $state.go('intro');
         } else {
-          return;
+          return
         }
       });
     };

@@ -5,16 +5,16 @@ angular.module('MobileGit')
 
     $ionicNavBarDelegate.title('Welcome!');
 
-      if (store.get('access_token') && store.get('user')) {
-        $scope.$parent.flags.user = store.get('user');
-        $scope.$parent.flags.access_token = store.get('access_token');
-        $scope.name = $scope.$parent.flags.user.name
-        $scope.authlogin = true;
-        $scope.$parent.flags.showNavBttns = true;
-        $scope.returning = function () {
-          $state.go('search');
-        }
+    if (store.get('access_token') && store.get('user')) {
+      $scope.$parent.flags.user = store.get('user');
+      $scope.$parent.flags.access_token = store.get('access_token');
+      $scope.name = $scope.$parent.flags.user.name
+      $scope.authlogin = true;
+      $scope.$parent.flags.showNavBttns = true;
+      $scope.returning = function () {
+        $state.go('search');
       }
+    }
 
     $scope.login = function () {
       $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
