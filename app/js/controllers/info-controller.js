@@ -19,7 +19,7 @@ angular.module('MobileGit')
 
     $scope.version = '1.4';
 
-    $scope.SignOut = function () {
+    $scope.logout = function () {
       var alertPopup = $ionicPopup.confirm({
         title: 'Are you sure?',
         template: 'You must be signed in to a GitHub account to use this application.'

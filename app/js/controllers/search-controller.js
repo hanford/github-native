@@ -32,7 +32,7 @@ angular.module('MobileGit')
         }, 150);
       };
 
-      $scope.CloseModal = function() {
+      $scope.close = function() {
         setTimeout(function() {
           $scope.modal.hide();
         }, 150);
