@@ -187,7 +187,7 @@
 }
 .small-repo {
 	font-size: 14px;
-	max-width: 210px;
+	max-width: 85%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
@@ -422,7 +422,7 @@
 	border-color: white !important;
 }
 
-.top-bump {
+.bump-top {
 	position: relative !important;
 	top: 20px !important;
 	width: 100% !important;

@@ -79,7 +79,7 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         return promise
       },
       getRate: function () {
-        var promise = $http.get(baseurl + 'rate_limit');
+        var promise = $ajax.get(baseurl + 'rate_limit');
         return promise
       },
       amifollowing: function (login) {
