@@ -1,7 +1,7 @@
 <ion-view title="{{fullname}}">
   <ion-content has-header="true">
-    <div class="bar-subheader button-bar top-bump" style="margin-bottom:10px; width:100%;">
-      <button class="button button-stable" ng-click="contribs()" style="color:#555;display:inline-block;"><span class="octicon octicon-organization"></span></button>
+    <div class="bar-subheader button-bar top-bump">
+      <button class="button button-stable" ng-click="contribs()"><span class="octicon octicon-organization"></span></button>
       <button class="button button-stable branch" ng-class="{true: 'stargazer-starred'}[starred]" ng-click="starme(repo)" style="display:inline-block;"><i class="ion-android-star"></i></button>
       <button class="button button-stable branch" ng-click="branch()" style="display:inline-block;">master</button>
     </div>
