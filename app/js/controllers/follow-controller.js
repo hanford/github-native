@@ -1,8 +1,7 @@
 angular.module('MobileGit')
 
-.controller('followerCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory',
-  function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
-    console.log('enter follower ctrl', $rootScope.followers);
+.controller('followerCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicNavBarDelegate', '$ionicHistory',
+  function ($scope, $http, $rootScope, $state, $ionicNavBarDelegate, $ionicHistory) {
     $scope.followers = $rootScope.followers;
     $scope.search = '';
     
@@ -12,8 +11,8 @@ angular.module('MobileGit')
     };
 }])
 
-.controller('followingCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicNavBarDelegate', '$ionicHistory',
-  function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicNavBarDelegate, $ionicHistory) {
+.controller('followingCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicNavBarDelegate', '$ionicHistory',
+  function ($scope, $http, $rootScope, $state, $ionicNavBarDelegate, $ionicHistory) {
     $scope.followings = $rootScope.following;
     $scope.search = '';
     

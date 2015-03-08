@@ -4,6 +4,7 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
   function ($http, $ionicPopup, $state, store) {
     var baseurl = 'https://api.github.com/';
     var access_token = store.get('access_token');
+    var user = store.get('user');
 
     var $ajax = {
       get: function (route) {
@@ -84,6 +85,10 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
       },
       amifollowing: function (login) {
         var promise = $http.get(baseurl + 'user/following/' + login + '?access_token='+ access_token);
+        return promise
+      },
+      getRecievedEvents: function() {
+        var promise = $http.get(baseurl + 'users/' + user.login + '/received_events?access_token='+ access_token);
         return promise
       }
     }

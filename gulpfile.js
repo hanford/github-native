@@ -15,7 +15,7 @@ var $ = require("gulp-load-plugins")();
 var paths = {
   sass: ['./app/**/*.scss'],
   js: ['app/**/*.js'],
-  html: ['app/templates/*.html'],
+  html: ['app/templates/**/*.html'],
   app: ['app/**/*.*']
 };
 

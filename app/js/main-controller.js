@@ -64,9 +64,9 @@ angular.module('MobileGit')
       $state.go('profile');
     };
 
-    $scope.FindProject = function(project) {
+    $scope.searchRepos = function(project) {
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
       githubservice.getProjects(project).then(function(response) {
         $ionicLoading.hide();
@@ -79,7 +79,7 @@ angular.module('MobileGit')
     $scope.OtherProfile = function (user) {
       $scope.flags.FromSearch = true;
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
       githubservice.getPerson(user).then(function(response) {
         $ionicLoading.hide();
@@ -88,6 +88,23 @@ angular.module('MobileGit')
         $state.go('profile');
       });
     };
+
+    $scope.formatEvents = function(data) {
+      var events = [];
+      for (var i = data.length - 1; i >= 0; i--) {
+        var instance = {};
+        var evt = data[i];
+        if (evt.type.indexOf("Event") > -1) {
+          var eType = evt.type.substring(0, evt.type.indexOf("Event"));
+          instance.type = eType;
+        }
+        instance.repo = evt.repo.name;
+        instance.name = evt.actor.login;
+        instance.avatar = evt.actor.avatar_url;
+        events.push(instance);
+      };
+      return events;
+    }
 
     // $scope.UpdateUser = function() {
     //   githubservice.getPerson($scope.flags.user.login).then(function(response) {

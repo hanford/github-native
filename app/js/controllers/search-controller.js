@@ -13,11 +13,15 @@ angular.module('MobileGit')
     }
 
     $scope.searchProject = function(query) {
-      $scope.$parent.FindProject(query);
+      $scope.$parent.searchRepos(query);
     };
 
     $scope.searchUser = function(query) {
       $scope.$parent.OtherProfile(query);
+    };
+
+    $scope.myFeed = function() {
+      $state.go('feed');
     };
 
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/info-modal.html', {

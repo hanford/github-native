@@ -43,7 +43,6 @@ angular.module('MobileGit')
     }
 
     $scope.blogClick = function(blog) {
-      mixpanel.track('Personal Website Click')
       var ref = window.open(blog, '_system');
     }
 
@@ -109,12 +108,12 @@ angular.module('MobileGit')
 
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/recent-activity.html', {
       scope: $scope,
+      id: '2',
       animation: 'slide-in-up'
     }).then(function(modal) {
       $scope.modal = modal;
 
       $scope.activity = function() {
-        mixpanel.track('Recent Activity Modal')
         $scope.modal.show();
       };
 
@@ -129,23 +128,17 @@ angular.module('MobileGit')
         var popularRepo = { "stars":  repo[star].stargazers_count, "full_name": repo[star].full_name, "fork": repo[star].fork };
         recents.push(popularRepo)
       }
-
       function sortNumber(a, b) {
         return a.stars - b.stars;
       }
-
-
       recents.sort(sortNumber);
       $scope.popularRepos = recents.reverse();
     })
 
     $scope.repoinfo = function(fullname) {
-      mixpanel.track('Repo Click', {
-        "Repo": fullname
-      });
       $rootScope.repo = fullname;
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
 
       console.log(fullname)
@@ -156,15 +149,13 @@ angular.module('MobileGit')
       })
     }
 
-
     $scope.bottom = function() {
       $ionicScrollDelegate.scrollBottom(true)
     }
 
     $scope.toFollowerState = function() {
-      mixpanel.track('Click Follower');
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
       githubservice.getFollowers(user.login).then(function(response) {
         $ionicLoading.hide();
@@ -174,9 +165,8 @@ angular.module('MobileGit')
     }
 
     $scope.toFollowingState = function() {
-      mixpanel.track('Click Following');
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
       githubservice.getFollowing(user.login).then(function(response) {
         $ionicLoading.hide();

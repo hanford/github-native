@@ -185,9 +185,9 @@
 	background-color: #FAFAFA;
 	padding-top: 10px;
 }
-.small-repo {
+.repo-name {
 	font-size: 14px;
-	max-width: 85%;
+	max-width: 80%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-weight: bold;
@@ -440,4 +440,9 @@
 .signout-button {
 	margin-bottom: 20px;
 	padding:10px 0;
+}
+
+.create-repo-bttn {
+	bottom: 10px;
+	font-size: 18px;
 }

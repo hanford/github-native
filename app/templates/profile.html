@@ -23,13 +23,12 @@
         </div>
       </div>
       <div class="mid-profile">
-        <!-- <div class="button-bar"> -->
         <div class="full-width">
           <div ng-class="{true: 'button-cont', false: 'button-full'}[half]">
             <button class="button githubgreen button-block action-button" ng-click="activity()">Recent Activity</button>
           </div>
-          <div class="button-cont">
-            <button class="button githubgrey button-block action-button" ng-show="half" ng-click="togglefollow(login)">{{FollowStatus}}</button>
+          <div class="button-cont" ng-show="half">
+            <button class="button githubgrey button-block action-button" ng-click="togglefollow(login)">{{FollowStatus}}</button>
           </div>
         </div>
         <div class="row">
@@ -48,7 +47,7 @@
         <div class="bubble button-full">
           <h3 class="bubble-header">Public Repositories</h3>
           <ion-item ng-repeat="popularRepo in popularRepos" ng-click="repoinfo(popularRepo.full_name)">
-            <span class="small-repo pull-left">
+            <span class="repo-name pull-left">
               <span ng-switch="popularRepo.fork">
                 <span ng-switch-when="true" class="octicon octicon-repo-forked grey-icon"></span>
                 <span ng-switch-when="false" class="octicon octicon-repo grey-icon"></span>

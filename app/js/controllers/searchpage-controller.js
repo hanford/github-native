@@ -10,9 +10,8 @@ angular.module('MobileGit')
     $scope.gotoTree = function(item) {
       $rootScope.repo = item;
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
-
       githubservice.getTree(item.full_name).then(function(response) {
         $rootScope.tree = response;
         $ionicLoading.hide();

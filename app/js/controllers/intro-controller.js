@@ -19,7 +19,7 @@ angular.module('MobileGit')
     $scope.login = function () {
       $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
         $ionicLoading.show({
-          template: '<i class="ion-loading-c"></i>'
+          template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
         });
 
         $scope.$parent.flags.access_token = result.access_token;

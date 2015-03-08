@@ -51,7 +51,7 @@ angular.module('MobileGit')
     $scope.openFile = function(file) {
       $scope.hasReadMe = false;
       $ionicLoading.show({
-        template: '<i class="ion-loading-c"></i>'
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
       });
       githubservice.getCodeView(fullname, file.path).then(function(response) {
         if (file.type == 'file') {

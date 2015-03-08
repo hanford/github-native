@@ -4,11 +4,12 @@
       <button class="button button-stable" ng-click="contribs()"><span class="octicon octicon-organization"></span></button>
       <button class="button button-stable branch" ng-class="{true: 'stargazer-starred'}[starred]" ng-click="starme(repo)" style="display:inline-block;"><i class="ion-android-star"></i></button>
       <button class="button button-stable branch" ng-click="branch()" style="display:inline-block;">master</button>
+      <!-- <button class="button button-stable branch" ng-click="edit()">edit</button> -->
     </div>
     <div class="bubble button-full" style="margin: 10px auto 15px;">
       <h3 class="bubble-header">{{fullname}}</h3>
       <ion-item ng-repeat="item in items | filter:search" ng-click="openFile(item)">
-        <span class="small-repo pull-left">
+        <span class="repo-name pull-left">
           <div ng-switch="item.type">
             <span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>
             <span ng-switch-when="file" class="octicon octicon-file-text icon"></span>
