@@ -2,28 +2,25 @@ angular.module('MobileGit')
 
 .controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading',
   function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading) {
-    
-    var intro = $state.current.name === "intro";
 
-    // Base Object used in most controllers containing logged in users information
+    // Base Object used in most controllers containing logged in users information along with a few other things
     $scope.flags = {
       user: {},
       access_token: '',
       FromSearch: false,
-      showNavBttns: intro,
       repo: {}
     };
 
-    if ($state.current.name === "search" || intro) {
+    if ($state.current.name == ("search" || "intro")) {
       $ionicNavBarDelegate.showBackButton(false);
     } else {
       $ionicNavBarDelegate.showBackButton(true);
     }
 
-    // Utility function
+    // Utility function for debugging
     window.flags = function() {
       console.log('flags', $scope.flags)
-    }
+    };
 
     if (store.get('access_token') == undefined) {
       $state.go('intro');
@@ -33,37 +30,37 @@ angular.module('MobileGit')
     }
 
     $ionicNavBarDelegate.showBackButton(true);
-    $scope.open = false;
+    // $scope.open = false;
 
-    $scope.openOverlay = function() {
-      $scope.openNav = !$scope.openNav;
+    // $scope.openOverlay = function() {
+    //   $scope.openNav = !$scope.openNav;
 
-      var inClass = 'bounceIn';
-      var outClass = 'bounceOut';
+    //   var inClass = 'bounceIn';
+    //   var outClass = 'bounceOut';
 
-      if ($scope.openNav) {
-        $('.scroll').addClass('blurred');
-        $('.searchNav').addClass(inClass).removeClass(outClass);
-        $('.profileNav').addClass(inClass).removeClass(outClass);
-      } else {
-        $('.searchNav').removeClass(inClass).addClass(outClass);
-        $('.profileNav').removeClass(inClass).addClass(outClass);
-        $('.fading-btn').css({
-          opacity: 1
-        });
-        $('.scroll').removeClass('blurred');
-      }
-    };
+    //   if ($scope.openNav) {
+    //     $('.scroll').addClass('blurred');
+    //     $('.searchNav').addClass(inClass).removeClass(outClass);
+    //     $('.profileNav').addClass(inClass).removeClass(outClass);
+    //   } else {
+    //     $('.searchNav').removeClass(inClass).addClass(outClass);
+    //     $('.profileNav').removeClass(inClass).addClass(outClass);
+    //     $('.fading-btn').css({
+    //       opacity: 1
+    //     });
+    //     $('.scroll').removeClass('blurred');
+    //   }
+    // };
 
-    $scope.search = function() {
-      $scope.openOverlay();
-      $state.go('search');
-    }
+    // $scope.search = function() {
+    //   $scope.openOverlay();
+    //   $state.go('search');
+    // }
 
-    $scope.myProfie = function() {
-      $scope.openOverlay();
-      $state.go('profile');
-    };
+    // $scope.myProfie = function() {
+    //   $scope.openOverlay();
+    //   $state.go('profile');
+    // };
 
     $scope.searchRepos = function(project) {
       $ionicLoading.show({

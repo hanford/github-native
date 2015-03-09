@@ -15,7 +15,11 @@ angular.module('MobileGit')
       $scope.$parent.getRepo(repo);
     };
 
+    $ionicLoading.show({
+      template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
+    });
     githubservice.getRecievedEvents().then(function(response) {
+      $ionicLoading.hide();
       $scope.events = $scope.$parent.formatEvents(response.data);
     });
 
