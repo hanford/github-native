@@ -11,7 +11,7 @@ angular.module('MobileGit')
       user = $scope.$parent.otherUser; 
     }
 
-    $ionicNavBarDelegate.showBackButton(true)
+    $ionicNavBarDelegate.showBackButton(true);
 
     if (user.public_repos) {
       console.log(user.public_repos);

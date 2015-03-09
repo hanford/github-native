@@ -18,7 +18,7 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'GithubSer
   $stateProvider
     .state('search', {
       url: "/search",
-      controller: 'searchCtrl',
+      controller: 'searchCtrl as search',
       templateUrl: "./dist/js/templates/search.html"
     })
     .state('searchpage', {

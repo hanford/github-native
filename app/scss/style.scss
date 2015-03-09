@@ -237,9 +237,11 @@
 .authorize {
 	color: #555;
 }
-.hero-person {
+.hero-person span {
 	text-align: center;
-	font-size: 100px;
+	font-size: 80px;
+	margin: 40px auto;
+	display: block;
 }
 .intro {
 	width: 80%;

@@ -98,6 +98,7 @@ angular.module('MobileGit')
           var eType = evt.type.substring(0, evt.type.indexOf("Event"));
           instance.type = eType;
         }
+        instance.date = evt.created_at;
         instance.repo = evt.repo.name;
         instance.name = evt.actor.login;
         instance.avatar = evt.actor.avatar_url;

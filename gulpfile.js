@@ -73,7 +73,7 @@ gulp.task('move-bower', function() {
 gulp.task('js', function() {
   return gulp.src('./app/js/**/*.js')
     .pipe($.concat('app.js'))
-    .pipe($.size())
+    .pipe($.size());
     .pipe(gulp.dest('./www/dist/js'));
 });
 

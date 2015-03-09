@@ -3,20 +3,20 @@
     <form name="form">
       <md-input-container class="search-container">
         <label>Search Github Users or Repositories</label>
-        <input ng-model="query" class="bigput">
+        <input ng-model="search.query" class="bigput">
       </md-input-container>
       <div class="button-bar">
-        <md-button type="submit" ng-click="searchUser(query)" ng-disabled="form.$invalid" class="button md-reset">
+        <md-button type="submit" ng-click="search.searchUser(search.query)" ng-disabled="form.$invalid" class="button md-reset">
           <i class="octicon octicon-organization search-icon"></i>
         </md-button>
-        <md-button type="submit" ng-click="searchProject(query)" ng-disabled="form.$invalid" class="button md-reset">
+        <md-button type="submit" ng-click="search.searchProject(search.query)" ng-disabled="form.$invalid" class="button md-reset">
           <i class="octicon octicon-file-code search-icon"></i>
         </md-button>
       </div>
     </form>
-    <md-button class="button bump-top md-reset button-bar" ng-click="myAccount()">Your Account</md-button>
+    <md-button class="button bump-top md-reset button-bar" ng-click="search.myAccount()">Your Account</md-button>
     <br />
-    <md-button class="button bump-top md-reset button-bar" ng-click="myFeed()">GitHub Feed</md-button>
+    <md-button class="button bump-top md-reset button-bar" ng-click="search.myFeed()">GitHub Feed</md-button>
   </ion-content>
   <ion-footer-bar align-title="center" class="no-padding">
     <md-button class="about-button md-reset" ng-click="info()">Info</md-button>

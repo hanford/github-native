@@ -6,21 +6,21 @@ angular.module('MobileGit')
     $ionicHistory.clearHistory();
     $ionicNavBarDelegate.showBackButton(false);
 
-    $scope.myAccount = function() {
+    this.myAccount = function() {
       $scope.$parent.flags.FromSearch = false;
       $ionicHistory.clearCache();
       $state.go('profile');
     }
 
-    $scope.searchProject = function(query) {
+    this.searchProject = function(query) {
       $scope.$parent.searchRepos(query);
     };
 
-    $scope.searchUser = function(query) {
+    this.searchUser = function(query) {
       $scope.$parent.OtherProfile(query);
     };
 
-    $scope.myFeed = function() {
+    this.myFeed = function() {
       $state.go('feed');
     };
 
