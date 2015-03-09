@@ -10,7 +10,8 @@ angular.module('MobileGit')
       user: {},
       access_token: '',
       FromSearch: false,
-      showNavBttns: intro
+      showNavBttns: intro,
+      repo: {}
     };
 
     if ($state.current.name === "search" || intro) {
@@ -20,7 +21,7 @@ angular.module('MobileGit')
     }
 
     // Utility function
-    window.showFlags = function() {
+    window.flags = function() {
       console.log('flags', $scope.flags)
     }
 
@@ -70,7 +71,7 @@ angular.module('MobileGit')
       });
       githubservice.getProjects(project).then(function(response) {
         $ionicLoading.hide();
-        $scope.items = response.data.items;
+        $scope.repos = response.data.items;
         $ionicNavBarDelegate.showBackButton(true);
         $state.go('searchpage');
       })
@@ -86,6 +87,18 @@ angular.module('MobileGit')
         $scope.otherUser = response;
         $ionicHistory.clearCache();
         $state.go('profile');
+      });
+    };
+
+    $scope.getRepo = function (repo) {
+      $ionicLoading.show({
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
+      });
+      githubservice.getTree(repo).then(function(response) {
+        $ionicLoading.hide();
+        $scope.flags.repo.fullname = repo;
+        $scope.flags.repo.files = response;
+        $state.go('repo');
       });
     };
 

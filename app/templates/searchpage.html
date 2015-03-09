@@ -5,9 +5,9 @@
       <input type="search" ng-model="search" placeholder="Filter Projects" />
     </label>
     <ion-list>
-      <ion-item ng-repeat="item in items | filter:search" ng-click="gotoTree(item)">
-        <span class="repo-name pull-left"><span class="octicon octicon-repo grey-icon"></span> {{item.full_name}}</span>
-        <span class="pull-right stargazer">{{item.stargazers_count}} <i class="ion-android-star"></i></span>
+      <ion-item ng-repeat="repo in repos | filter:search" ng-click="gotoTree(repo)">
+        <span class="repo-name pull-left"><span class="octicon octicon-repo grey-icon"></span> {{repo.full_name}}</span>
+        <span class="pull-right stargazer">{{repo.stargazers_count}} <i class="ion-android-star"></i></span>
       </ion-item>
     </ion-list>
   </ion-content>

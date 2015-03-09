@@ -135,19 +135,23 @@ angular.module('MobileGit')
       $scope.popularRepos = recents.reverse();
     })
 
-    $scope.repoinfo = function(fullname) {
-      $rootScope.repo = fullname;
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+    $scope.gotoTree = function(repo) {
+      $scope.$parent.getRepo(repo);
+    };
 
-      console.log(fullname)
-      githubservice.getTree(fullname).then(function(response) {
-        $ionicLoading.hide();
-        $state.go('project');
-        $rootScope.tree = response;
-      })
-    }
+    // $scope.repoinfo = function(fullname) {
+    //   $rootScope.repo = fullname;
+    //   $ionicLoading.show({
+    //     template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
+    //   });
+
+    //   console.log(fullname)
+    //   githubservice.getTree(fullname).then(function(response) {
+    //     $ionicLoading.hide();
+    //     $state.go('repo');
+    //     $rootScope.tree = response;
+    //   })
+    // }
 
     $scope.bottom = function() {
       $ionicScrollDelegate.scrollBottom(true)

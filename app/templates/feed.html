@@ -4,7 +4,7 @@
       <ion-item ng-repeat="event in events" ng-click="user(event.name)" class="item item-avatar">
         <img ng-src="{{event.avatar}}">
         <h2>{{event.name}}</h2>
-        <p>{{event.type}} on {{event.repo}}</p>
+        <p>{{event.type}} on <span ng-click="repo($event, event.repo)">{{event.repo}}</span></p>
       </ion-item>
     </ion-list>
   </ion-content>

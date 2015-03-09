@@ -8,17 +8,17 @@
     </div>
     <div class="bubble button-full" style="margin: 10px auto 15px;">
       <h3 class="bubble-header">{{fullname}}</h3>
-      <ion-item ng-repeat="item in items | filter:search" ng-click="openFile(item)">
+      <ion-item ng-repeat="file in files | filter:search" ng-click="openFile(file)">
         <span class="repo-name pull-left">
-          <div ng-switch="item.type">
+          <div ng-switch="file.type">
             <span ng-switch-when="dir" class="octicon octicon-file-directory icon"></span>
             <span ng-switch-when="file" class="octicon octicon-file-text icon"></span>
             <span ng-switch-when="tree" class="octicon octicon-file-directory icon"></span>
             <span ng-switch-when="blob" class="octicon octicon-file-text icon"></span>
           </div>
         </span>
-        <span>{{item.name}}</span>
-        <span ng-if="!item.name">{{item.path}}</span>
+        <span>{{file.name}}</span>
+        <span ng-show="!file.name">{{file.path}}</span>
       </ion-item>
   </ion-content>
 </ion-view>

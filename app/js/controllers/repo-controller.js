@@ -1,22 +1,13 @@
 angular.module('MobileGit')
 
-.controller('projectCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
+.controller('RepoCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
   function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
-    $scope.repo = $rootScope.repo;
+
     $scope.search = "";
+    $scope.fullname = $scope.$parent.flags.repo.fullname;
+    var fullname = $scope.$parent.flags.repo.fullname;
 
-    if ($rootScope.repo && !$rootScope.repo.full_name) {
-      var fullname = $rootScope.repo;
-      // Scope variable for navbar title
-      $scope.fullname = $rootScope.repo;
-    } else {
-      var fullname = $rootScope.repo.full_name;
-      // Scope variable for navbar title
-      $scope.fullname = $rootScope.repo.full_name;
-    }
-
-    $scope.items = $rootScope.tree;
-    console.log($scope.items);
+    $scope.files = $scope.$parent.flags.repo.files;
 
     githubservice.getCommits(fullname).then(function(response) {
       $scope.commits = response.length;
@@ -26,26 +17,23 @@ angular.module('MobileGit')
       $scope.contributors = response.length + ' Contributors';
     });
 
-    var starURL = 'https://api.github.com/user/starred/' + fullname + '?access_token=' + $scope.$parent.flags.access_token;
-
-    $http.get(starURL).success(function(data, status) {
-      $scope.starred = true;
-    }).error(function(data, status) {
-      $scope.starred = false;
-    })
+    githubservice.starred(fullname).then(function(response) {
+      if (response.status == 204) {
+        $scope.starred = true;
+      } else {
+        $scope.starred = false;
+      }
+    });
 
     $scope.starme = function(fullname) {
-      if ($scope.starred == true) {
-        $http.delete(starURL).then(function(response) {
-          $scope.starred = false;
-        });
+      if ($scope.starred) {
+        githubservice.removeStar($scope.$parent.flags.repo.fullname);
+        $scope.starred = false;
         return;
-      };
-
-      $http.put(starURL).then(function(response) {
+      } else {
+        githubservice.addStar($scope.$parent.flags.repo.fullname);
         $scope.starred = true;
-        console.log(response.status);
-      })
+      }
     };
 
     $scope.openFile = function(file) {
@@ -61,7 +49,7 @@ angular.module('MobileGit')
           $state.go('CodeView');
         } else {
           $ionicLoading.hide();
-          $scope.items = response;
+          $scope.files = response;
           $ionicScrollDelegate.scrollTop(true);
         }
       })
@@ -108,9 +96,5 @@ angular.module('MobileGit')
         });
       }
     });
-
-    if (!$scope.items) {
-      $state.go('search');
-    };
 
 }])

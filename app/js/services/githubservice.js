@@ -65,31 +65,43 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
       },
       getCommits: function (fullname) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/commits');
-        return promise
+        return promise;
       },
       getTree: function (fullname) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents')
-        return promise
+        return promise;
       },
       getStats: function (fullname) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/stats/contributors');
-        return promise
+        return promise;
       },
       getCodeView: function (fullname, path) {
         var promise = $ajax.get(baseurl + 'repos/' + fullname + '/contents/' + path);
-        return promise
+        return promise;
       },
       getRate: function () {
         var promise = $ajax.get(baseurl + 'rate_limit');
-        return promise
+        return promise;
+      },
+      starred: function(fullname) {
+        var promise = $http.get(baseurl + 'user/starred/' + fullname + '?access_token='+ access_token);
+        return promise;
+      },
+      removeStar: function(fullname) {
+        var promise = $http.delete(baseurl + 'user/starred/' + fullname + '?access_token='+ access_token);
+        return promise;
+      },
+      addStar: function(fullname) {
+        var promise = $http.put(baseurl + 'user/starred/' + fullname + '?access_token='+ access_token);
+        return promise;
       },
       amifollowing: function (login) {
         var promise = $http.get(baseurl + 'user/following/' + login + '?access_token='+ access_token);
-        return promise
+        return promise;
       },
       getRecievedEvents: function() {
         var promise = $http.get(baseurl + 'users/' + user.login + '/received_events?access_token='+ access_token);
-        return promise
+        return promise;
       }
     }
 }]);

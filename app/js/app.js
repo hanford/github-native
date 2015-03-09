@@ -46,10 +46,10 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'GithubSer
       templateUrl: "./dist/js/templates/commits.html",
       controller: 'commitsCtrl'
     })
-    .state('project', {
-      url: "/project",
-      templateUrl: "./dist/js/templates/project.html",
-      controller: 'projectCtrl'
+    .state('repo', {
+      url: "/repo",
+      templateUrl: "./dist/js/templates/repo.html",
+      controller: 'RepoCtrl'
     })
     .state('feed', {
       url: "/feed",

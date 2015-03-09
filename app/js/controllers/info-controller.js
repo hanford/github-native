@@ -11,8 +11,19 @@ angular.module('MobileGit')
       var ref = window.open('http://opensource.org/licenses/MIT', '_system');
     };
 
-    $http.get('https://status.github.com/api/status.json').then(function (response) {
-      $scope.api = response.data.status;
+
+    // Hack to get bypass some CORS shit
+    $.ajax({
+      url:"https://www.kimonolabs.com/api/6na25jk0?apikey=t5bx5g73sfMRO5BRMVeABoZT4Ihtpx2F&authorization=8g56ihD7krjSHr2XKZe2dCxwApycO8CJ",
+      crossDomain: true,
+      dataType: "jsonp",
+      beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 8g56ihD7krjSHr2XKZe2dCxwApycO8CJ'); },
+      success: function (response) {
+        $scope.api = response.results.collection1[0].status;
+      },
+      error: function (xhr, status) {
+        console.log(status)
+      }
     });
 
     $scope.alias = $scope.$parent.flags.user.login;
@@ -25,7 +36,7 @@ angular.module('MobileGit')
         template: 'You must be signed in to a GitHub account to use this application.'
       });
       confirmPopup.then(function(res) {
-        if(res) {
+        if (res) {
           store.remove('access_token');
           store.remove('user');
           $scope.$parent.CloseModal();
@@ -41,7 +52,9 @@ angular.module('MobileGit')
     };
 
     githubservice.getRate().then(function (response) {
-      $scope.ratelimit = response.rate.remaining;
+      if (response && response.rate) {
+        $scope.ratelimit = response.rate.remaining;
+      }
     });
 
 }])
