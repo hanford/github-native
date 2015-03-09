@@ -12,6 +12,8 @@ This is a github application for iOS, it's written in Javascript using angularJS
 <a href="http://jackhanford.com/MobileGit/">Landing Page</a>  
 
 <a href="https://itunes.apple.com/us/app/mobilegit/id918733984?ls=1&mt=8">App Store Link</a>  
+<br />
+To get things up and running you might also want to take a look at the <a href="https://github.com/hanford/MobileGit-Server">auth proxy</a>.
 
 **LICENSE:**
 <br />
