@@ -20,7 +20,7 @@ angular.module('MobileGit')
 
     $scope.$on('loading', function() {
       $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
+        template: '<ion-spinner icon="ripple" class="spinner"></ion-spinner>'
       })
     });
 
