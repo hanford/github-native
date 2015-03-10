@@ -1,11 +1,12 @@
 angular.module('MobileGit')
 
-.controller('CodeViewCtrl', ['$scope', '$rootScope', '$state', '$timeout', '$ionicNavBarDelegate', 
-  function ($scope, $rootScope, $state, $timeout, $ionicNavBarDelegate) {
-    $scope.code = $rootScope.code;
-    $scope.path = $rootScope.path;
-    $ionicNavBarDelegate.title($rootScope.path);
-    console.log($scope.code);
+.controller('EditorCtrl', ['$scope', '$state', '$timeout', '$ionicNavBarDelegate', 
+  function ($scope, $state, $timeout, $ionicNavBarDelegate) {
+
+    $scope.path = $scope.$parent.flags.code.path;
+    $scope.code = $scope.$parent.flags.code.formattedCode;
+
+    $ionicNavBarDelegate.title($scope.path);
 
     var ext = $scope.path.split('.').pop();
     var extName = 'shell';
@@ -42,7 +43,4 @@ angular.module('MobileGit')
       editor.swapDoc(doc);
     }, 0);
 
-    if (!$rootScope.code) {
-      $state.go('search')
-    }
 }])

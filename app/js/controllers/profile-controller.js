@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('profileCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'store', '$timeout',
-  function($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store, $timeout) {
+.controller('profileCtrl', ['$scope', '$rootScope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'store',
+  function($scope, $rootScope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store) {
 
     var user;
 
@@ -14,7 +14,6 @@ angular.module('MobileGit')
     $ionicNavBarDelegate.showBackButton(true);
 
     if (user.public_repos) {
-      console.log(user.public_repos);
       $scope.public_repos = parseInt(user.public_repos);
     } else {
       $scope.public_repos = 0;
@@ -60,17 +59,20 @@ angular.module('MobileGit')
 
     $scope.togglefollow = function(login) {
       if ($scope.unfollow == true) {
-        $http.delete('https://api.github.com/user/following/' + login + '?access_token=' + $scope.$parent.flags.access_token).then(function(response) {
+        $scope.$emit('loading');
+        githubservice.follow(login).then(function(response) {
+          $scope.$emit('done-loading');
           $scope.unfollow = false;
           $scope.half = true;
           $scope.followers--;
           $scope.FollowStatus = 'Follow';
           $scope.notCurrent = true;
-        })
+        });
         return;
       }
-
-      $http.put('https://api.github.com/user/following/' + login + '?access_token=' + $scope.$parent.flags.access_token).then(function(response) {
+      $scope.$emit('loading');
+      githubservice.unfollow(login).then(function(response) {
+        $scope.$emit('done-loading');
         $scope.unfollow = true;
         $scope.followers++;
         $scope.FollowStatus = 'Unfollow';
@@ -108,7 +110,6 @@ angular.module('MobileGit')
 
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/recent-activity.html', {
       scope: $scope,
-      id: '2',
       animation: 'slide-in-up'
     }).then(function(modal) {
       $scope.modal = modal;
@@ -139,41 +140,23 @@ angular.module('MobileGit')
       $scope.$parent.getRepo(repo);
     };
 
-    // $scope.repoinfo = function(fullname) {
-    //   $rootScope.repo = fullname;
-    //   $ionicLoading.show({
-    //     template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-    //   });
-
-    //   console.log(fullname)
-    //   githubservice.getTree(fullname).then(function(response) {
-    //     $ionicLoading.hide();
-    //     $state.go('repo');
-    //     $rootScope.tree = response;
-    //   })
-    // }
-
     $scope.bottom = function() {
       $ionicScrollDelegate.scrollBottom(true)
     }
 
     $scope.toFollowerState = function() {
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      $scope.$emit('loading');
       githubservice.getFollowers(user.login).then(function(response) {
-        $ionicLoading.hide();
+        $scope.$emit('done-loading');
         $rootScope.followers = response;
         $state.go('followers');
       })
     }
 
     $scope.toFollowingState = function() {
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      $scope.$emit('loading');
       githubservice.getFollowing(user.login).then(function(response) {
-        $ionicLoading.hide();
+        $scope.$emit('done-loading');
         $rootScope.following = response;
         $state.go('following');
       })

@@ -1,7 +1,7 @@
-angular.module('GithubService', ['ionic',  'angular-storage'])
+angular.module('MobileGit')
 
-.factory('githubservice', ['$http', '$ionicPopup', '$state', 'store',
-  function ($http, $ionicPopup, $state, store) {
+.factory('githubservice', ['$http', '$mdToast', '$state', 'store',
+  function ($http, $mdToast, $state, store) {
     var baseurl = 'https://api.github.com/';
     var access_token = store.get('access_token');
     var user = store.get('user');
@@ -16,10 +16,12 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         }
 
         showAlert = function (err) {
-          var alertPopup = $ionicPopup.alert({
-            title: 'Hmm..',
-            template: 'It looks like something went wrong'
-          });
+          $mdToast.show(
+            $mdToast.simple()
+              .content('It looks like one of the requests didn\'t make it back, please try again when you have a better connection.')
+              .position("top right")
+              .hideDelay(3000)
+          );
         };
 
         if (query) {
@@ -29,7 +31,7 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
         }
 
         return $http.get(url, {
-          timeout: 5000
+          timeout: 10000
         }).then(function (response) {
           return response.data;
         }).catch(function (err) {
@@ -81,6 +83,14 @@ angular.module('GithubService', ['ionic',  'angular-storage'])
       },
       getRate: function () {
         var promise = $ajax.get(baseurl + 'rate_limit');
+        return promise;
+      },
+      follow: function(user) {
+        var promise = $http.put(baseurl + 'user/following/' + user + '?access_token='+ access_token);
+        return promise;
+      },
+      unfollow: function(user) {
+        var promise = $http.delete(baseurl + 'user/following/' + user + '?access_token='+ access_token);
         return promise;
       },
       starred: function(fullname) {

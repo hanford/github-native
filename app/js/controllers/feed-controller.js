@@ -2,6 +2,7 @@ angular.module('MobileGit')
 
 .controller('FeedCtrl', ['$scope', 'githubservice', '$ionicNavBarDelegate',
   function ($scope, githubservice, $ionicNavBarDelegate) {
+
     $ionicNavBarDelegate.showBackButton(true);
 
     $scope.user = function(name) {
@@ -11,15 +12,12 @@ angular.module('MobileGit')
     $scope.repo = function(e, repo) {
       e.preventDefault();
       e.stopPropagation();
-
       $scope.$parent.getRepo(repo);
     };
 
-    $ionicLoading.show({
-      template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-    });
+    $scope.$emit('loading');
     githubservice.getRecievedEvents().then(function(response) {
-      $ionicLoading.hide();
+      $scope.$emit('done-loading');
       $scope.events = $scope.$parent.formatEvents(response.data);
     });
 

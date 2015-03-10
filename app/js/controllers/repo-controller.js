@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('RepoCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicLoading', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
-  function ($scope, $http, $rootScope, $state, $ionicLoading, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
+.controller('RepoCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
+  function ($scope, $http, $rootScope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
 
     $scope.search = "";
     $scope.fullname = $scope.$parent.flags.repo.fullname;
@@ -10,11 +10,15 @@ angular.module('MobileGit')
     $scope.files = $scope.$parent.flags.repo.files;
 
     githubservice.getCommits(fullname).then(function(response) {
-      $scope.commits = response.length;
+      if (response.length) {
+        $scope.commits = response.length;
+      }
     });
 
     githubservice.getStats(fullname).then(function(response) {
-      $scope.contributors = response.length + ' Contributors';
+      if (response.length) {
+        $scope.contributors = response.length + ' Contributors';
+      }
     });
 
     githubservice.starred(fullname).then(function(response) {
@@ -37,22 +41,20 @@ angular.module('MobileGit')
     };
 
     $scope.openFile = function(file) {
-      $scope.hasReadMe = false;
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      // $scope.hasReadMe = false;
+      $scope.$emit('loading');
       githubservice.getCodeView(fullname, file.path).then(function(response) {
+        $scope.$emit('done-loading');
         if (file.type == 'file') {
-          $ionicLoading.hide();
-          $rootScope.path = file.path;
-          $rootScope.code = atob(response.content.replace(/\s/g, ''))
-          $state.go('CodeView');
+          $scope.$parent.flags.code.path = file.path;
+          $scope.$parent.flags.code.formattedCode = atob(response.content.replace(/\s/g, ''));
+          $state.go('editor');
         } else {
-          $ionicLoading.hide();
           $scope.files = response;
           $ionicScrollDelegate.scrollTop(true);
         }
       })
+
     };
 
     $scope.branch = function() {
@@ -62,6 +64,7 @@ angular.module('MobileGit')
     // Called twice because Githubs API sometimes requires it to...
     githubservice.getStats(fullname);
     githubservice.getStats(fullname);
+
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/contributors.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -81,19 +84,8 @@ angular.module('MobileGit')
       };
 
       $scope.toContrib = function(login) {
-        $rootScope.uname = login;
-        var url = 'https://api.github.com/users/' + login;
-        $ionicLoading.show({
-          template: '<i class="ion-loading-c"></i>'
-        });
-        $http.get(url).success(function(data, headers, status, config) {
-          $rootScope.ginfo = data;
-          $ionicLoading.hide();
-          $scope.modal.hide();
-          $state.go('profile')
-        }).error(function(data, headers, status, config) {
-          console.log(data, headers, status)
-        });
+        $scope.$parent.OtherProfile(login);
+        $scope.modal.hide();
       }
     });
 

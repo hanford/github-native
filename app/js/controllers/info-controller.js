@@ -19,7 +19,9 @@ angular.module('MobileGit')
       dataType: "jsonp",
       beforeSend: function(xhr) { xhr.setRequestHeader('authorization', 'Bearer 8g56ihD7krjSHr2XKZe2dCxwApycO8CJ'); },
       success: function (response) {
-        $scope.api = response.results.collection1[0].status;
+        if (response.results && response.results.collection1) {
+          $scope.api = response.results.collection1[0].status;
+        }
       },
       error: function (xhr, status) {
         console.log(status)

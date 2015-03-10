@@ -1,4 +1,4 @@
-angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'GithubService', 'angular-storage'])
+angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-storage'])
 
 .run(function ($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
   $ionicPlatform.ready(function () {
@@ -56,10 +56,10 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'GithubSer
       templateUrl: "./dist/js/templates/feed.html",
       controller: 'FeedCtrl'
     })
-    .state('CodeView', {
-      url: "/codeview",
-      templateUrl: "./dist/js/templates/code-view.html",
-      controller: 'CodeViewCtrl'
+    .state('editor', {
+      url: "/editor",
+      templateUrl: "./dist/js/templates/editor.html",
+      controller: 'EditorCtrl'
     })
     .state('intro', {
       url: "/intro",

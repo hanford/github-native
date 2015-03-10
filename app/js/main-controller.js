@@ -1,14 +1,15 @@
 angular.module('MobileGit')
 
-.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading',
-  function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading) {
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading', '$timeout',
+  function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading, $timeout) {
 
     // Base Object used in most controllers containing logged in users information along with a few other things
     $scope.flags = {
       user: {},
       access_token: '',
       FromSearch: false,
-      repo: {}
+      repo: {},
+      code: {}
     };
 
     if ($state.current.name == ("search" || "intro")) {
@@ -16,6 +17,16 @@ angular.module('MobileGit')
     } else {
       $ionicNavBarDelegate.showBackButton(true);
     }
+
+    $scope.$on('loading', function() {
+      $ionicLoading.show({
+        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
+      })
+    });
+
+    $scope.$on('done-loading', function() {
+      $ionicLoading.hide();
+    })
 
     // Utility function for debugging
     window.flags = function() {
@@ -30,44 +41,11 @@ angular.module('MobileGit')
     }
 
     $ionicNavBarDelegate.showBackButton(true);
-    // $scope.open = false;
-
-    // $scope.openOverlay = function() {
-    //   $scope.openNav = !$scope.openNav;
-
-    //   var inClass = 'bounceIn';
-    //   var outClass = 'bounceOut';
-
-    //   if ($scope.openNav) {
-    //     $('.scroll').addClass('blurred');
-    //     $('.searchNav').addClass(inClass).removeClass(outClass);
-    //     $('.profileNav').addClass(inClass).removeClass(outClass);
-    //   } else {
-    //     $('.searchNav').removeClass(inClass).addClass(outClass);
-    //     $('.profileNav').removeClass(inClass).addClass(outClass);
-    //     $('.fading-btn').css({
-    //       opacity: 1
-    //     });
-    //     $('.scroll').removeClass('blurred');
-    //   }
-    // };
-
-    // $scope.search = function() {
-    //   $scope.openOverlay();
-    //   $state.go('search');
-    // }
-
-    // $scope.myProfie = function() {
-    //   $scope.openOverlay();
-    //   $state.go('profile');
-    // };
 
     $scope.searchRepos = function(project) {
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      $scope.$emit('loading');
       githubservice.getProjects(project).then(function(response) {
-        $ionicLoading.hide();
+        $scope.$emit('done-loading');
         $scope.repos = response.data.items;
         $ionicNavBarDelegate.showBackButton(true);
         $state.go('searchpage');
@@ -76,11 +54,9 @@ angular.module('MobileGit')
 
     $scope.OtherProfile = function (user) {
       $scope.flags.FromSearch = true;
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      $scope.$emit('loading');
       githubservice.getPerson(user).then(function(response) {
-        $ionicLoading.hide();
+        $scope.$emit('done-loading');
         $scope.otherUser = response;
         $ionicHistory.clearCache();
         $state.go('profile');
@@ -88,10 +64,9 @@ angular.module('MobileGit')
     };
 
     $scope.getRepo = function (repo) {
-      $ionicLoading.show({
-        template: '<md-progress-circular md-mode="indeterminate"></md-progress-circular>'
-      });
+      $scope.$emit('loading');
       githubservice.getTree(repo).then(function(response) {
+        $scope.$emit('done-loading');
         $ionicLoading.hide();
         $scope.flags.repo.fullname = repo;
         $scope.flags.repo.files = response;
@@ -101,6 +76,7 @@ angular.module('MobileGit')
 
     $scope.formatEvents = function(data) {
       var events = [];
+      $scope.flags.loading = true;
       for (var i = data.length - 1; i >= 0; i--) {
         var instance = {};
         var evt = data[i];
@@ -115,7 +91,7 @@ angular.module('MobileGit')
         events.push(instance);
       };
       return events;
-    }
+    };
 
     // $scope.UpdateUser = function() {
     //   githubservice.getPerson($scope.flags.user.login).then(function(response) {
