@@ -1,6 +1,6 @@
 angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-storage'])
 
-.run(function ($ionicPlatform, $rootScope, $state, $timeout, $ionicPopup) {
+.run(function ($ionicPlatform, $state) {
   $ionicPlatform.ready(function () {
     window.addEventListener('load', function () {
       FastClick.attach(document.body);

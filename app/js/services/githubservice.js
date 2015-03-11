@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.factory('githubservice', ['$http', '$mdToast', '$state', 'store',
-  function ($http, $mdToast, $state, store) {
+.factory('githubservice', ['$http', '$mdToast', 'store',
+  function ($http, $mdToast, store) {
     var baseurl = 'https://api.github.com/';
     var access_token = store.get('access_token');
     var user = store.get('user');

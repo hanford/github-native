@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('RepoCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
-  function ($scope, $http, $rootScope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
+.controller('RepoCtrl', ['$scope', '$http', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
+  function ($scope, $http, $state, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
 
     $scope.search = "";
     $scope.fullname = $scope.$parent.flags.repo.fullname;

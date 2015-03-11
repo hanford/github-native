@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('searchCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', '$http', '$ionicHistory', '$ionicModal', '$timeout',
-  function ($scope, $state, githubservice, $ionicNavBarDelegate, $http, $ionicHistory, $ionicModal, $timeout) {
+.controller('searchCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', '$http', '$ionicHistory', '$ionicModal',
+  function ($scope, $state, githubservice, $ionicNavBarDelegate, $http, $ionicHistory, $ionicModal) {
 
     $ionicHistory.clearHistory();
     $ionicNavBarDelegate.showBackButton(false);

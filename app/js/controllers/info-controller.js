@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('InfoCtrl', ['$scope', '$http', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup', '$timeout',
-  function ($scope, $http, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup, $timeout) {
+.controller('InfoCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup', '$timeout',
+  function ($scope, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup, $timeout) {
 
     $scope.personalwebsite = function () {
       var ref = window.open('http://jackhanford.com', '_system');
