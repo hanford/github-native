@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('InfoCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup',
-  function ($scope, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup) {
+.controller('InfoCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup', 'userservice',
+  function ($scope, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup, userservice) {
 
     $scope.personalwebsite = function () {
       var ref = window.open('http://jackhanford.com', '_system');
@@ -28,8 +28,15 @@ angular.module('MobileGit')
       }
     });
 
-    var user = githubservice.me();
-    $scope.alias = user.me.login;
+    userservice.me().then(function(response) {
+      $scope.alias = response.me.login;
+
+      githubservice.getRate().then(function (response) {
+        if (response && response.rate) {
+          $scope.ratelimit = response.rate.remaining;
+        }
+      });
+    });
 
     $scope.version = '1.4';
 
@@ -40,10 +47,10 @@ angular.module('MobileGit')
       });
       confirmPopup.then(function(res) {
         if (res) {
-          store.remove('access_token');
-          store.remove('user');
-          $scope.$parent.close();
-          $state.go('intro');
+          userservice.logout().then(function(response) {
+            $scope.$parent.close();
+            $state.go('intro');
+          });
         } else {
           return;
         }
@@ -53,11 +60,5 @@ angular.module('MobileGit')
     $scope.privacy = function () {
       var ref = window.open('http://jackhanford.com/MobileGit/privacy-policy/', '_blank', 'location=no');
     };
-
-    githubservice.getRate().then(function (response) {
-      if (response && response.rate) {
-        $scope.ratelimit = response.rate.remaining;
-      }
-    });
 
 }])

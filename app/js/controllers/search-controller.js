@@ -13,10 +13,12 @@ angular.module('MobileGit')
     }
 
     this.searchProject = function(query) {
+      if (!query) return;
       $scope.$parent.searchRepos(query);
     };
 
     this.searchUser = function(query) {
+      if (!query) return;
       $scope.$parent.OtherProfile(query);
     };
 

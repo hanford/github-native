@@ -27,7 +27,7 @@ gulp.task('default', ['sass', 'js', 'move-bower', 'templates', 'index', 'move-li
       server: {
         baseDir: ['www']
       },
-      port: "8000"
+      port: "8100"
     });
 
     gulp.watch(paths.sass, ['sass'])

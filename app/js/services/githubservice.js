@@ -3,6 +3,7 @@ angular.module('MobileGit')
 .factory('githubservice', ['$http', '$mdToast', 'store', '$cordovaOauth', '$q',
   function ($http, $mdToast, store, $cordovaOauth, $q) {
     var baseurl = 'https://api.github.com/';
+
     var access_token = store.get('access_token');
     var user = store.get('user');
 
@@ -44,29 +45,6 @@ angular.module('MobileGit')
       getPerson: function (username) {
         var promise = $ajax.get(baseurl + 'users/' + username);
         return promise;
-      },
-      login: function() {
-        var data = {};
-        var promise = $cordovaOauth.github('5ceeb35418106a4caf27', '737851deaa4c8bf6148c1776958c905f05e80a3d', ['user', 'repo']).then(function (result) {
-          store.set('access_token', result.access_token);
-          return $http.get('https://api.github.com/user?access_token=' + result.access_token).success(function (data) {
-            data.me = data;
-            store.set('user', data.me);
-          }).error(function (err) {
-            console.log(err);
-          });
-        }, function (err) {
-          console.log(err);
-        });
-        return promise;      
-      },
-      me: function() {
-        if (user && access_token) {
-          var data = {};
-          data.me = user;
-          data.access_token = access_token;
-          return data;
-        }
       },
       getProjects: function (project) {
         var promise = $http.get(baseurl + 'search/repositories?q=' + project);

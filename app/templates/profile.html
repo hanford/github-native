@@ -27,7 +27,7 @@
           <div ng-class="{true: 'button-cont', false: 'button-full'}[half]">
             <button class="button githubgreen button-block action-button" ng-click="activity()">Recent Activity</button>
           </div>
-          <div class="button-cont" ng-show="half">
+          <div class="button-cont" ng-if="half">
             <button class="button githubgrey button-block action-button" ng-click="togglefollow(login)">{{FollowStatus}}</button>
           </div>
         </div>
@@ -38,7 +38,7 @@
           <div class="col action-numbers center" ng-click="bottom()">{{public_repos}}
             <br /><span class="center action-text">Public Repos</span>
           </div>
-          <div class="col action-numbers center" ng-click="toFollowingState()">{{following}}
+          <div class="col action-numbers center" ng-click="toFollowingState()">{{followingNumber}}
             <br /><span class="center action-text">Following</span>
           </div>
         </div>

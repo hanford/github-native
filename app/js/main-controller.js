@@ -1,8 +1,8 @@
 angular.module('MobileGit')
 
-.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading', '$timeout',
-  function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading, $timeout) {
-    var user = githubservice.me();
+.controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading', '$timeout', 'userservice',
+  function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading, $timeout, userservice) {
+    var user = userservice.me();
 
     // Base Object used in most controllers containing logged in users information along with a few other things
     $scope.flags = {
