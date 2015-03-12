@@ -4,11 +4,14 @@ angular.module('MobileGit')
   function($scope, $rootScope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, store) {
 
     var user;
+    var current;
 
-    if (!$scope.$parent.flags.FromSearch) { 
-      user = $scope.$parent.flags.user;
-    } else {
+    if ($scope.$parent.flags.FromSearch) { 
+      notCurrent = true;
       user = $scope.$parent.otherUser; 
+    } else {
+      notCurrent = false;
+      user = githubservice.me().me;
     }
 
     $ionicNavBarDelegate.showBackButton(true);
@@ -83,7 +86,7 @@ angular.module('MobileGit')
 
     // Determines if the current user profile is the authenticated user
     function followStatus() {
-      if ($scope.$parent.flags.user.login != $scope.login) {
+      if (notCurrent) {
         githubservice.amifollowing($scope.login).then(function(response) {
           $scope.half = true;
           $scope.notCurrent = false;

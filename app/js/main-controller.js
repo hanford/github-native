@@ -2,10 +2,10 @@ angular.module('MobileGit')
 
 .controller('MainCtrl', ['$ionicNavBarDelegate', '$scope', '$ionicLoading', 'githubservice', '$state', 'store', '$ionicHistory', '$ionicLoading', '$timeout',
   function ($ionicNavBarDelegate, $scope, $ionicLoading, githubservice, $state, store, $ionicHistory, $ionicLoading, $timeout) {
+    var user = githubservice.me();
 
     // Base Object used in most controllers containing logged in users information along with a few other things
     $scope.flags = {
-      user: {},
       access_token: '',
       FromSearch: false,
       repo: {},
@@ -35,9 +35,6 @@ angular.module('MobileGit')
 
     if (store.get('access_token') == undefined) {
       $state.go('intro');
-    } else {
-      $scope.flags.access_token = store.get('access_token');
-      $scope.flags.user = store.get('user');
     }
 
     $ionicNavBarDelegate.showBackButton(true);
@@ -92,14 +89,5 @@ angular.module('MobileGit')
       };
       return events;
     };
-
-    // $scope.UpdateUser = function() {
-    //   githubservice.getPerson($scope.flags.user.login).then(function(response) {
-    //     console.log('updated!')
-    //     $ionicHistory.clearCache();
-    //     $scope.flags.user = reponse;
-    //     store.set('user', reponse)
-    //   });
-    // }
 
 }])

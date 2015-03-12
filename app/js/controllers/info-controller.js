@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('InfoCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup', '$timeout',
-  function ($scope, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup, $timeout) {
+.controller('InfoCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', 'store', '$ionicPopup',
+  function ($scope, $state, githubservice, $ionicNavBarDelegate, store, $ionicPopup) {
 
     $scope.personalwebsite = function () {
       var ref = window.open('http://jackhanford.com', '_system');
@@ -28,7 +28,8 @@ angular.module('MobileGit')
       }
     });
 
-    $scope.alias = $scope.$parent.flags.user.login;
+    var user = githubservice.me();
+    $scope.alias = user.me.login;
 
     $scope.version = '1.4';
 
@@ -41,10 +42,10 @@ angular.module('MobileGit')
         if (res) {
           store.remove('access_token');
           store.remove('user');
-          $scope.$parent.CloseModal();
+          $scope.$parent.close();
           $state.go('intro');
         } else {
-          return
+          return;
         }
       });
     };
