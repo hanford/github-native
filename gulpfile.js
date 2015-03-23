@@ -37,7 +37,13 @@ gulp.task('default', ['sass', 'js', 'move-bower', 'templates', 'index', 'move-li
 });
 
 gulp.task('templates', function() {
+  var opts = {
+    conditionals: true,
+    spare:true
+  };
+
   return gulp.src('./app/templates/**/*.html')
+    .pipe(minifyHTML(opts))
     .pipe(gulp.dest('./www/dist/js/templates/'))
 });
 
