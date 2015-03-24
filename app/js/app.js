@@ -22,32 +22,27 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-s
       templateUrl: "./dist/js/templates/search.html"
     })
     .state('searchpage', {
-      url: "/list",
+      url: "/search/:query",
       templateUrl: "./dist/js/templates/searchpage.html",
       controller: 'searchviewCtrl'
     })
     .state('profile', {
-      url: "/profile",
+      url: "/profile/:login",
       templateUrl: "./dist/js/templates/profile.html",
       controller: 'profileCtrl'
     })
     .state('followers', {
-      url: "/followers",
+      url: "/followers/:login",
       templateUrl: "./dist/js/templates/followers.html",
       controller: 'followerCtrl'
     })
     .state('following', {
-      url: "/following",
+      url: "/following/:login",
       templateUrl: "./dist/js/templates/following.html",
       controller: 'followingCtrl'
     })
-    .state('commits', {
-      url: "/commits",
-      templateUrl: "./dist/js/templates/commits.html",
-      controller: 'commitsCtrl'
-    })
     .state('repo', {
-      url: "/repo",
+      url: "/repo/:name",
       templateUrl: "./dist/js/templates/repo.html",
       controller: 'RepoCtrl'
     })

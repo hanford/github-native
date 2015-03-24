@@ -1,18 +1,18 @@
 angular.module('MobileGit')
 
-.controller('FeedCtrl', ['$scope', 'githubservice', '$ionicNavBarDelegate',
-  function ($scope, githubservice, $ionicNavBarDelegate) {
+.controller('FeedCtrl', ['$scope', 'githubservice', '$ionicNavBarDelegate', '$state',
+  function ($scope, githubservice, $ionicNavBarDelegate, $state) {
 
     $ionicNavBarDelegate.showBackButton(true);
 
     $scope.user = function(name) {
-      $scope.$parent.OtherProfile(name);
+      $state.go('profile', {login: name})
     };
 
     $scope.repo = function(e, repo) {
       e.preventDefault();
       e.stopPropagation();
-      $scope.$parent.getRepo(repo);
+      $state.go('repo', {name: repo})
     };
 
     $scope.$emit('loading');

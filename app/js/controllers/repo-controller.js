@@ -1,27 +1,31 @@
 angular.module('MobileGit')
 
-.controller('RepoCtrl', ['$scope', '$http', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$timeout',
-  function ($scope, $http, $state, $ionicModal, githubservice, $ionicScrollDelegate, $timeout) {
+.controller('RepoCtrl', ['$scope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$stateParams',
+  function ($scope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $stateParams) {
+
+    var name = $stateParams.name;
+
+    githubservice.getTree(name).then(function(response) {
+      $scope.$emit('done-loading');
+      $scope.files = response;
+    });
 
     $scope.search = "";
-    $scope.fullname = $scope.$parent.flags.repo.fullname;
-    var fullname = $scope.$parent.flags.repo.fullname;
+    $scope.fullname = name;
 
-    $scope.files = $scope.$parent.flags.repo.files;
-
-    githubservice.getCommits(fullname).then(function(response) {
+    githubservice.getCommits(name).then(function(response) {
       if (response.length) {
         $scope.commits = response.length;
       }
     });
 
-    githubservice.getStats(fullname).then(function(response) {
+    githubservice.getStats(name).then(function(response) {
       if (response.length) {
         $scope.contributors = response.length + ' Contributors';
       }
     });
 
-    githubservice.starred(fullname).then(function(response) {
+    githubservice.starred(name).then(function(response) {
       if (response.status == 204) {
         $scope.starred = true;
       } else {
@@ -29,13 +33,13 @@ angular.module('MobileGit')
       }
     });
 
-    $scope.starme = function(fullname) {
+    $scope.starme = function() {
       if ($scope.starred) {
-        githubservice.removeStar($scope.$parent.flags.repo.fullname);
+        githubservice.removeStar(name);
         $scope.starred = false;
         return;
       } else {
-        githubservice.addStar($scope.$parent.flags.repo.fullname);
+        githubservice.addStar(name);
         $scope.starred = true;
       }
     };
@@ -43,7 +47,7 @@ angular.module('MobileGit')
     $scope.openFile = function(file) {
       // $scope.hasReadMe = false;
       $scope.$emit('loading');
-      githubservice.getCodeView(fullname, file.path).then(function(response) {
+      githubservice.getCodeView(name, file.path).then(function(response) {
         $scope.$emit('done-loading');
         if (file.type == 'file') {
           $scope.$parent.flags.code.path = file.path;
@@ -58,12 +62,12 @@ angular.module('MobileGit')
     };
 
     $scope.branch = function() {
-      var ref = window.open('https://github.com/' + fullname + '?files=1', '_blank', 'location=no');
+      var ref = window.open('https://github.com/' + name + '?files=1', '_blank', 'location=no');
     };
 
     // Called twice because Githubs API sometimes requires it to...
-    githubservice.getStats(fullname);
-    githubservice.getStats(fullname);
+    githubservice.getStats(name);
+    githubservice.getStats(name);
 
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/contributors.html', {
       scope: $scope,
@@ -73,7 +77,7 @@ angular.module('MobileGit')
 
       $scope.contribs = function() {
         $scope.modal.show();
-        githubservice.getStats(fullname).then(function(response) {
+        githubservice.getStats(name).then(function(response) {
           console.log(response)
           $scope.contributors = response;
         })

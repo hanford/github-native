@@ -1,11 +1,17 @@
 angular.module('MobileGit')
 
-.controller('searchviewCtrl', ['$scope',
-  function ($scope) {
+.controller('searchviewCtrl', ['$scope', 'githubservice', '$stateParams', '$state',
+  function ($scope, githubservice, $stateParams, $state) {
     $scope.search = "";
-    $scope.repos = $scope.$parent.repos;
+
+    githubservice.getProjects($stateParams.query).then(function(response) {
+      $scope.$emit('done-loading');
+      $scope.repos = response.data.items;
+    })
 
     $scope.gotoTree = function(repo) {
-      $scope.$parent.getRepo(repo.full_name);
+      $scope.$emit('loading');
+      $state.go('repo', {name: repo.full_name});
     };
+
 }])

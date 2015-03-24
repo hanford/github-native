@@ -4,7 +4,7 @@
   </ion-header-bar>
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="contributor in contributors | filter:search" class="item item-avatar" ng-click="toContrib(contributor.author.login)">
+      <ion-item ng-repeat="contributor in contributors track by $index" class="item item-avatar" ng-click="toContrib(contributor.author.login)">
         <img src="{{contributor.author.avatar_url}}">
         <h2>{{contributor.author.login}}</h2>
         <p><i class="octicon octicon-history"></i> {{contributor.total}} commits to this repo</p>

@@ -1,25 +1,29 @@
 angular.module('MobileGit')
 
-.controller('searchCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', '$http', '$ionicHistory', '$ionicModal',
-  function ($scope, $state, githubservice, $ionicNavBarDelegate, $http, $ionicHistory, $ionicModal) {
+.controller('searchCtrl', ['$scope', '$state', 'githubservice', '$ionicNavBarDelegate', '$ionicHistory', '$ionicModal', 'userservice',
+  function ($scope, $state, githubservice, $ionicNavBarDelegate, $ionicHistory, $ionicModal, userservice) {
 
-    $ionicHistory.clearHistory();
+    // $ionicHistory.clearHistory();
     $ionicNavBarDelegate.showBackButton(false);
-
-    this.myAccount = function() {
-      $scope.$parent.flags.FromSearch = false;
-      $ionicHistory.clearCache();
-      $state.go('profile');
-    }
 
     this.searchProject = function(query) {
       if (!query) return;
-      $scope.$parent.searchRepos(query);
+      $scope.$emit('loading');
+      $ionicNavBarDelegate.showBackButton(true);
+      $state.go('searchpage', {query: query});
     };
 
     this.searchUser = function(query) {
+      $scope.$emit('loading');
       if (!query) return;
-      $scope.$parent.OtherProfile(query);
+      $state.go('profile', {login: query})
+    };
+
+    this.myAccount = function() {
+      $scope.$emit('loading');
+      userservice.me().then(function(response) {
+        $state.go('profile', {login: response.me.login})
+      });
     };
 
     this.myFeed = function() {

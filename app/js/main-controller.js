@@ -7,7 +7,6 @@ angular.module('MobileGit')
     // Base Object used in most controllers containing logged in users information along with a few other things
     $scope.flags = {
       access_token: '',
-      FromSearch: false,
       repo: {},
       code: {}
     };
@@ -39,37 +38,6 @@ angular.module('MobileGit')
 
     $ionicNavBarDelegate.showBackButton(true);
 
-    $scope.searchRepos = function(project) {
-      $scope.$emit('loading');
-      githubservice.getProjects(project).then(function(response) {
-        $scope.$emit('done-loading');
-        $scope.repos = response.data.items;
-        $ionicNavBarDelegate.showBackButton(true);
-        $state.go('searchpage');
-      })
-    }
-
-    $scope.OtherProfile = function (user) {
-      $scope.flags.FromSearch = true;
-      $scope.$emit('loading');
-      githubservice.getPerson(user).then(function(response) {
-        $scope.$emit('done-loading');
-        $scope.otherUser = response;
-        $ionicHistory.clearCache();
-        $state.go('profile');
-      });
-    };
-
-    $scope.getRepo = function (repo) {
-      $scope.$emit('loading');
-      githubservice.getTree(repo).then(function(response) {
-        $scope.$emit('done-loading');
-        $ionicLoading.hide();
-        $scope.flags.repo.fullname = repo;
-        $scope.flags.repo.files = response;
-        $state.go('repo');
-      });
-    };
 
     $scope.formatEvents = function(data) {
       var events = [];

@@ -1,27 +1,34 @@
 angular.module('MobileGit')
 
-.controller('profileCtrl', ['$scope', '$rootScope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'userservice',
-  function($scope, $rootScope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, userservice) {
-
-    var user;
-    var notCurrent;
-
-    if ($scope.$parent.flags.FromSearch) { 
-      notCurrent = true;
-      user = $scope.$parent.otherUser; 
-      setUpProfile(user);
-    } else {
-      notCurrent = false;
-      userservice.update();
-      userservice.me().then(function(response) {
-        user = response.me;
-        setUpProfile(user);
-      });
-    }
+.controller('profileCtrl', ['$scope', '$state', '$ionicModal', 'githubservice', '$ionicScrollDelegate', '$ionicNavBarDelegate', 'userservice', '$stateParams',
+  function($scope, $state, $ionicModal, githubservice, $ionicScrollDelegate, $ionicNavBarDelegate, userservice, $stateParams) {
 
     $ionicNavBarDelegate.showBackButton(true);
 
+    var notCurrent, me, user;
+    var userName = $stateParams.login;
+
+    userservice.me().then(function(response) {
+      me = response.me;
+    })
+
+    githubservice.getPerson(userName).then(function(response) {
+
+      if (userName != me.login) {
+        notCurrent = true;
+        user = response;
+        setUpProfile(user);
+      } else {
+        userservice.update().then(function(response) {
+          user = response;
+          notCurrent = false;
+          setUpProfile(user);
+        });
+      }
+    })
+
     function setUpProfile(user) {
+      $scope.$emit('done-loading');
       if (user && user.public_repos) {
         $scope.public_repos = parseInt(user.public_repos);
       } else {
@@ -60,6 +67,7 @@ angular.module('MobileGit')
       }
       getRepos(user);
       events(user);
+      followStatus();
     }
 
 
@@ -107,8 +115,6 @@ angular.module('MobileGit')
       }
     };
 
-    followStatus();
-
     function events(user) {
       githubservice.getEvents($scope.login).then(function(response) {
         $scope.recentEvents = response;
@@ -145,8 +151,9 @@ angular.module('MobileGit')
       })
     }
 
-    $scope.gotoTree = function(repo) {
-      $scope.$parent.getRepo(repo);
+    $scope.gotoTree = function(repoName) {
+      $scope.$emit('loading');
+      $state.go('repo', {name: repoName})
     };
 
     $scope.bottom = function() {
@@ -155,19 +162,11 @@ angular.module('MobileGit')
 
     $scope.toFollowerState = function() {
       $scope.$emit('loading');
-      githubservice.getFollowers(user.login).then(function(response) {
-        $scope.$emit('done-loading');
-        $rootScope.followers = response;
-        $state.go('followers');
-      })
+      $state.go('followers', {login: user.login})
     }
 
     $scope.toFollowingState = function() {
       $scope.$emit('loading');
-      githubservice.getFollowing(user.login).then(function(response) {
-        $scope.$emit('done-loading');
-        $rootScope.following = response;
-        $state.go('following');
-      })
+      $state.go('following', {login: user.login});
     }
 }])

@@ -1,23 +1,32 @@
 angular.module('MobileGit')
 
-.controller('followerCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicNavBarDelegate', '$ionicHistory',
-  function ($scope, $http, $rootScope, $state, $ionicNavBarDelegate, $ionicHistory) {
-    $scope.followers = $rootScope.followers;
+.controller('followerCtrl', ['$scope', '$state', 'githubservice', '$stateParams',
+  function ($scope, $state, githubservice, $stateParams) {
     $scope.search = '';
+    var user = $stateParams.login;
+
+    githubservice.getFollowers(user).then(function(response) {
+      $scope.$emit('done-loading');
+      $scope.followers = response;
+    })
     
     $scope.toFollower = function(followName) {
-      $rootScope.uname = followName;
-      $scope.$parent.OtherProfile(followName);
+      $state.go('profile', {login: followName})
     };
 }])
 
-.controller('followingCtrl', ['$scope', '$http', '$rootScope', '$state', '$ionicNavBarDelegate', '$ionicHistory',
-  function ($scope, $http, $rootScope, $state, $ionicNavBarDelegate, $ionicHistory) {
-    $scope.followings = $rootScope.following;
+.controller('followingCtrl', ['$scope', '$state', '$ionicNavBarDelegate', '$ionicHistory', '$stateParams', 'githubservice',
+  function ($scope, $state, $ionicNavBarDelegate, $ionicHistory, $stateParams, githubservice) {
     $scope.search = '';
+    var user = $stateParams.login;
+
+    githubservice.getFollowing(user).then(function(response) {
+      $scope.$emit('done-loading');
+      console.log(response);
+      $scope.following = response;
+    })
     
     $scope.toFollower = function(followName) {
-      $rootScope.uname = followName;
-      $scope.$parent.OtherProfile(followName);
+      $state.go('profile', {login: followName})
     };
 }])

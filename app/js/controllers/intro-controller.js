@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.controller('introCtrl', ['$scope', '$state', '$ionicNavBarDelegate', 'store', '$cordovaOauth', '$http', 'githubservice', 'userservice',
-  function ($scope, $state, $ionicNavBarDelegate, store, $cordovaOauth, $http, githubservice, userservice) {
+.controller('introCtrl', ['$scope', '$state', '$ionicNavBarDelegate', 'store',  'githubservice', 'userservice',
+  function ($scope, $state, $ionicNavBarDelegate, store, githubservice, userservice) {
 
     $ionicNavBarDelegate.title('Welcome!');
 
