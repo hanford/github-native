@@ -14,8 +14,8 @@ angular.module('MobileGit')
     };
 
     this.searchUser = function(query) {
-      $scope.$emit('loading');
       if (!query) return;
+      $scope.$emit('loading');
       $state.go('profile', {login: query})
     };
 
