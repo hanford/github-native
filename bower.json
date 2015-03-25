@@ -7,14 +7,14 @@
     "codemirror": "4.6.0",
     "jquery": "2.1.1",
     "angular-sanitize": "1.2.17",
-    "angular-ui-router": "0.2.10",
     "fastclick": "1.0.3",
     "angular-material": "0.8.2",
     "marked": "0.3.2",
     "hammerjs": "2.0.4",
     "ionicons": "2.0.0",
     "animate.css": "3.2.0",
-    "a0-angular-storage": "~0.0.9"
+    "a0-angular-storage": "~0.0.9",
+    "router": "angular/router#~0.5.0"
   },
   "resolutions": {
     "angular-animate": "1.3.6",
