@@ -2,10 +2,6 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-s
 
 .run(function ($ionicPlatform, $state) {
   $ionicPlatform.ready(function () {
-    window.addEventListener('load', function () {
-      FastClick.attach(document.body);
-    }, false);
-
     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
     if (window.StatusBar) {
@@ -61,6 +57,6 @@ angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-s
       templateUrl: "./dist/js/templates/intro.html",
       controller: 'introCtrl'
     })
-    
+
   $urlRouterProvider.otherwise("/intro");
 })
