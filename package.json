@@ -31,6 +31,9 @@
     "org.apache.cordova.inappbrowser",
     "com.ionic.keyboard",
     "org.apache.cordova.console",
-    "org.apache.cordova.statusbar"
+    "org.apache.cordova.statusbar",
+    "cordova-plugin-crosswalk-webview",
+    "cordova-plugin-whitelist",
+    "cordova-plugin-splashscreen"
   ]
 }

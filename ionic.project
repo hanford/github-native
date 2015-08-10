@@ -1,4 +1,11 @@
 {
   "name": "MobileGit",
-  "app_id": "8da95e3c"
+  "app_id": "8da95e3c",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }
