@@ -1,24 +1,25 @@
 <ion-view title="<i class='github-icon ion-pull-request'></i>">
   <ion-content has-header="true">
     <form name="form">
-      <md-input-container class="search-container">
-        <label>Search Github Users or Repositories</label>
-        <input ng-model="search.query" class="bigput">
-      </md-input-container>
-      <div class="button-bar">
-        <md-button type="submit" ng-click="search.searchUser(search.query)" ng-disabled="form.$invalid" class="button md-reset">
+      <div layout layout-margin>
+        <input ng-model="search.query" class="input-large" placeholder="Search Github Users or Repositories" flex>
+      </div>
+      <div class="button-bar" layout layout-margin>
+        <button type="submit" ng-click="search.searchUser(search.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-organization search-icon"></i>
-        </md-button>
-        <md-button type="submit" ng-click="search.searchProject(search.query)" ng-disabled="form.$invalid" class="button md-reset">
+        </button>
+        <button type="submit" ng-click="search.searchProject(search.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-file-code search-icon"></i>
-        </md-button>
+        </button>
       </div>
     </form>
-    <md-button class="button bump-top md-reset button-bar" ng-click="search.myAccount()">Your Account</md-button>
-    <br />
-    <md-button class="button bump-top md-reset button-bar" ng-click="search.myFeed()">GitHub Feed</md-button>
+    <div layout="column" layout-padding>
+      <button class="bump-top btn" flex ng-click="search.myAccount()">Your Account</button>
+      <br />
+      <button class="bump-top btn" flex ng-click="search.myFeed()">GitHub Feed</button>
+    </div>
   </ion-content>
   <ion-footer-bar align-title="center" class="no-padding">
-    <md-button class="about-button md-reset" ng-click="info()">Info</md-button>
+    <button class="about-button btn" ng-click="info()">Info</button>
   </ion-footer-bar>
 </ion-view>

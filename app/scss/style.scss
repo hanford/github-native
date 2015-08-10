@@ -1,8 +1,13 @@
+@import 'layout';
+
 .pull-right {
 	float: right;
 }
 .pull-left {
 	float: left;
+}
+.text-center {
+	text-align: center;
 }
 .center {
 	text-align: center;
@@ -141,21 +146,6 @@
 	background-image: linear-gradient(#79d858, #569e3d);
 	background-repeat: repeat-x;
 	border-color: #4a993e;
-}
-.githubgrey {
-	font-size: 16px;
-	position: relative;
-	font-weight: bold;
-	color: #333;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
-	vertical-align: middle;
-	cursor: pointer;
-	background-color: #eee;
-	background-image: -webkit-linear-gradient(#fcfcfc, #eee);
-	background-image: linear-gradient(#fcfcfc, #eee);
-	background-repeat: repeat-x;
-	border: 1px solid #d5d5d5;
-	border-radius: 3px;
 }
 .bar-github-color {
 	background-color: #F5F5F5 !important;
@@ -393,12 +383,6 @@
 		-webkit-transition: -webkit-transform .35s ease-out;
 	}
 
-	&.md-button:not([disabled]).md-raised:active,
-	&.md-button:not([disabled]).md-fab:active,
-	i.active-round:before {
-		transform: rotate(45deg);
-		-webkit-transform: rotate(45deg);
-	}
 }
 
 .scroll.blurred {
@@ -408,20 +392,6 @@
 }
 .pane, .view, .view-container {
 	top: 0;
-}
-
-.md-white {
-	background-color: white !important;
-	width: 95% !important;
-	margin: 0 auto !important;
-	font-weight: 900 !important;
-}
-
-.md-reset {
-	margin: 5px !important;
-	border: none !important;
-	margin: 0 auto !important;
-	border-color: white !important;
 }
 
 .bump-top {
