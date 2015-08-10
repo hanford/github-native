@@ -1,4 +1,4 @@
-angular.module('MobileGit', ['ionic', 'ngMaterial', 'ngCordovaOauth', 'angular-storage'])
+angular.module('MobileGit', ['ionic', 'ngCordovaOauth', 'angular-storage'])
 
 .run(function ($ionicPlatform, $state) {
   $ionicPlatform.ready(function () {

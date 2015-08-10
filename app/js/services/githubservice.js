@@ -1,7 +1,7 @@
 angular.module('MobileGit')
 
-.factory('githubservice', ['$http', '$mdToast', 'store', '$cordovaOauth', '$q',
-  function ($http, $mdToast, store, $cordovaOauth, $q) {
+.factory('githubservice', ['$http', 'store', '$cordovaOauth', '$q',
+  function ($http, store, $cordovaOauth, $q) {
     var baseurl = 'https://api.github.com/';
 
     var access_token = store.get('access_token');
@@ -17,12 +17,8 @@ angular.module('MobileGit')
         }
 
         showAlert = function (err) {
-          $mdToast.show(
-            $mdToast.simple()
-            .content('It looks like one of the requests didn\'t make it back, please try again when you have a better connection.')
-            .position("top right")
-            .hideDelay(3000)
-            );
+          //TODO: fix
+          alert(err)
         };
 
         if (query) {

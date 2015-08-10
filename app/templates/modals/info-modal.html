@@ -14,8 +14,8 @@
       <li class="item">Username <span class="pull-right">{{alias}}</span>
       </li>
     </ul>
-    <md-button class="md-warn md-hue-2 md-button md-default-theme button-block signout-button" ng-click="logout()">Sign Out
-    </md-button>
+    <button class="btn btn-danger button-block signout-button" ng-click="logout()">Sign Out
+    </button>
     <ul class="center privacy">
       <li>Made by <a class="positive" ng-click="personalwebsite()">Jack Hanford</a></li>
       <li>Open Sourced under <a class="positive" ng-click="mit()">MIT</a></li>
@@ -23,7 +23,7 @@
       <li>GitMobile - {{version}}</li>
     </ul>
   </ion-content>
-  <ion-footer-bar class="no-padding">
-    <md-button class="full-width md-warn" ng-click="close()">Close</md-button>
+  <ion-footer-bar class="no-padding" layout>
+    <button flex class="btn" ng-click="close()">Close</button>
   </ion-footer-bar>
 </ion-modal-view>
