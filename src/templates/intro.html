@@ -5,11 +5,11 @@
     </div>
     <p class="intro text-center">First we will need to authenticate with Github, otherwise we won't be able to take full advantage of their API.</p>
     <div layout="column">
-      <button class="btn action-button" ng-click="login()" flex>
+      <button class="btn" ng-click="login()" flex>
         Login to <span class="octicon octicon-logo-github"></span>
       </button>
       <!-- <button class="button button-block githubgrey action-button" ng-click="test()">test</button> -->
-      <button class="btn btn-primary action-button" ng-click="returning()" ng-if="name" flex>Continue as {{name}}</button>
+      <button class="btn btn-primary" ng-click="returning()" ng-if="name" flex>Continue as {{name}}</button>
     </div>
   </ion-content>
 </ion-view>
