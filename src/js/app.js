@@ -1,20 +1,29 @@
 angular.module('MobileGit', ['ionic', 'ngCordovaOauth', 'angular-storage'])
 
-.run(function ($ionicPlatform, $state) {
-  $ionicPlatform.ready(function () {
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+.run(function ($ionicPlatform, $state, store, userservice) {
 
+  $ionicPlatform.ready(function () {
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
     if (window.StatusBar) {
-      StatusBar.styleDefault();
+      StatusBar.styleDefault()
     }
   })
+
+  if (store.get('access_token') || store.get('user')) {
+    userservice.me().then(function(response) {
+      $state.go('search') // User found, redirect to Search
+    })
+  } else {
+    console.log('Nothing in store')
+  }
+
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('search', {
       url: "/search",
-      controller: 'searchCtrl as search',
+      controller: 'searchCtrl as vm',
       templateUrl: "./dist/js/templates/search.html"
     })
     .state('searchpage', {
@@ -41,11 +50,6 @@ angular.module('MobileGit', ['ionic', 'ngCordovaOauth', 'angular-storage'])
       url: "/repo/:name",
       templateUrl: "./dist/js/templates/repo.html",
       controller: 'RepoCtrl'
-    })
-    .state('feed', {
-      url: "/feed",
-      templateUrl: "./dist/js/templates/feed.html",
-      controller: 'FeedCtrl'
     })
     .state('editor', {
       url: "/editor",

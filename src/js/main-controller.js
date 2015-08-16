@@ -32,10 +32,6 @@ angular.module('MobileGit')
       console.log('flags', $scope.flags)
     };
 
-    if (store.get('access_token') == undefined) {
-      $state.go('intro');
-    }
-
     $ionicNavBarDelegate.showBackButton(true);
 
 

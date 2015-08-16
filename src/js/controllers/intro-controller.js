@@ -1,27 +1,16 @@
 angular.module('MobileGit')
 
-.controller('introCtrl', ['$scope', '$state', '$ionicNavBarDelegate', 'store',  'githubservice', 'userservice',
-  function ($scope, $state, $ionicNavBarDelegate, store, githubservice, userservice) {
+.controller('introCtrl', ['$scope', '$state', '$ionicNavBarDelegate', 'githubservice', 'userservice',
+  function ($scope, $state, $ionicNavBarDelegate, githubservice, userservice) {
 
-    $ionicNavBarDelegate.title('Welcome!');
-
-    if (store.get('access_token') && store.get('user')) {
-      userservice.me().then(function(response) {
-        $scope.name = response.me.name;
-        $scope.authlogin = true;
-        $scope.returning = function () {
-          $state.go('search');
-        }
-      });
-    }
+    $ionicNavBarDelegate.title('Welcome!')
 
     $scope.login = function () {
-      $scope.$emit('loading');
+      $scope.$emit('loading')
       userservice.login().then(function(res) {
-        console.log(res);
-        $scope.$emit('done-loading');
-        $state.go('search');
-      });
-    };
+        $scope.$emit('done-loading')
+        $state.go('search')
+      })
+    }
 
 }])

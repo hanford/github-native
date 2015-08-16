@@ -26,9 +26,21 @@ angular.module('MobileGit')
       });
     };
 
-    this.myFeed = function() {
-      $state.go('feed');
+    this.user = function(name) {
+      $state.go('profile', {login: name})
     };
+
+    this.repo = function(e, repo) {
+      e.preventDefault();
+      e.stopPropagation();
+      $state.go('repo', {name: repo})
+    };
+
+    $scope.$emit('loading')
+    githubservice.getRecievedEvents().then(function(response) {
+      $scope.recievedEvents = $scope.$parent.formatEvents(response.data);
+      $scope.$emit('done-loading')
+    });
 
     $ionicModal.fromTemplateUrl('./dist/js/templates/modals/info-modal.html', {
       scope: $scope,

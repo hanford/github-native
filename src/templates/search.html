@@ -2,22 +2,29 @@
   <ion-content has-header="true">
     <form name="form">
       <div layout layout-margin>
-        <input ng-model="search.query" class="input-large" placeholder="Search Github Users or Repositories" flex>
+        <input ng-model="vm.query" class="input-large" placeholder="Search Github Users or Repositories" flex>
       </div>
       <div class="button-bar" layout layout-margin>
-        <button type="submit" ng-click="search.searchUser(search.query)" ng-disabled="form.$invalid" class="btn" flex>
+        <button type="submit" ng-click="vm.searchUser(vm.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-organization search-icon"></i>
         </button>
-        <button type="submit" ng-click="search.searchProject(search.query)" ng-disabled="form.$invalid" class="btn" flex>
+        <button type="submit" ng-click="vm.searchProject(vm.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-file-code search-icon"></i>
         </button>
       </div>
     </form>
     <div layout="column" layout-padding>
-      <button class="bump-top btn" flex ng-click="search.myAccount()">Your Account</button>
-      <br />
-      <button class="bump-top btn" flex ng-click="search.myFeed()">GitHub Feed</button>
+      <button class="bump-top btn" flex ng-click="vm.myAccount()">Your Account</button>
     </div>
+    <br />
+    <!-- Feed -->
+    <ion-list layout="column">
+      <ion-item ng-repeat="recievedEvent in recievedEvents" ng-click="vm.user(recievedEvent.name)" class="item item-avatar" flex>
+        <img ng-src="{{recievedEvent.avatar}}">
+        <h2>{{recievedEvent.name}}</h2>
+        <p>{{recievedEvent.type}} on <span ng-click="vm.repo($event, recievedEvent.repo)">{{recievedEvent.repo}}</span></p>
+      </ion-item>
+    </ion-list>
   </ion-content>
   <ion-footer-bar align-title="center" class="no-padding">
     <button class="about-button btn" ng-click="info()">Info</button>
