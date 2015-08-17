@@ -42,6 +42,10 @@ angular.module('MobileGit')
         var promise = $ajax.get(baseurl + 'users/' + username);
         return promise;
       },
+      searchUsers: function(username) {
+        var promise = $http.get(baseurl + 'search/users?q=' + username + '&access_token='+ access_token);
+        return promise;
+      },
       getProjects: function (project) {
         var promise = $http.get(baseurl + 'search/repositories?q=' + project);
         return promise;
@@ -107,6 +111,7 @@ angular.module('MobileGit')
         return promise;
       },
       getRecievedEvents: function() {
+        if (!user.login) return;
         var promise = $http.get(baseurl + 'users/' + user.login + '/received_events?access_token='+ access_token);
         return promise;
       }

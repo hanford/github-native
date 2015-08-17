@@ -1,6 +1,6 @@
 angular.module('MobileGit', ['ionic', 'ngCordovaOauth', 'angular-storage'])
 
-.run(function ($ionicPlatform, $state, store, userservice) {
+.run(function ($ionicPlatform, $state, store, userservice, $timeout) {
 
   $ionicPlatform.ready(function () {
     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true)
@@ -11,7 +11,9 @@ angular.module('MobileGit', ['ionic', 'ngCordovaOauth', 'angular-storage'])
 
   if (store.get('access_token') || store.get('user')) {
     userservice.me().then(function(response) {
-      $state.go('search') // User found, redirect to Search
+      $timeout(function(){
+        $state.go('search') // User found, redirect to Search
+      }, 0)
     })
   } else {
     console.log('Nothing in store')

@@ -1,31 +1,49 @@
 <ion-view title="<i class='github-icon ion-pull-request'></i>">
   <ion-content has-header="true">
-    <form name="form">
+    <form name="form" ng-submit="search(vm.query)">
       <div layout layout-margin>
-        <input ng-model="vm.query" class="input-large" placeholder="Search Github Users or Repositories" flex>
+        <input ng-model="vm.query"
+               class="input-large"
+               placeholder="Search Github Users or Repositories"
+               ng-change="vm.search(vm.query)"
+               ng-model-options="{debounce: 500}" flex>
       </div>
       <div class="button-bar" layout layout-margin>
-        <button type="submit" ng-click="vm.searchUser(vm.query)" ng-disabled="form.$invalid" class="btn" flex>
+        <button type="submit" ng-click="vm.search(vm.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-organization search-icon"></i>
         </button>
         <button type="submit" ng-click="vm.searchProject(vm.query)" ng-disabled="form.$invalid" class="btn" flex>
           <i class="octicon octicon-file-code search-icon"></i>
         </button>
+        <button type="submit" ng-show="showSearch" ng-click="showSearch = !showSearch" class="btn" flex>
+          <i class="octicon octicon-x"></i>
+        </button>
       </div>
     </form>
-    <div layout="column" layout-padding>
-      <button class="bump-top btn" flex ng-click="vm.myAccount()">Your Account</button>
+    <div ng-show="showSearch">
+      <ion-list layout="column">
+        <ion-item ng-repeat="people in peopleResult" ng-click="vm.searchUser(people.login)" class="item item-avatar" flex>
+          <img ng-src="{{people.avatar_url}}">
+          <h2>{{people.login}}</h2>
+          <!-- <p>{{recievedEvent.type}} on <span ng-click="vm.repo($event, recievedEvent.repo)">{{recievedEvent.repo}}</span></p> -->
+        </ion-item>
+      </ion-list>
     </div>
-    <br />
-    <!-- Feed -->
-    <ion-list layout="column">
-      <ion-item ng-repeat="recievedEvent in recievedEvents" ng-click="vm.user(recievedEvent.name)" class="item item-avatar" flex>
-        <img ng-src="{{recievedEvent.avatar}}">
-        <h2>{{recievedEvent.name}}</h2>
-        <p>{{recievedEvent.type}} on <span ng-click="vm.repo($event, recievedEvent.repo)">{{recievedEvent.repo}}</span></p>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <div ng-hide="showSearch">
+      <div layout="column" layout-padding>
+        <button class="bump-top btn" flex ng-click="vm.myAccount()">Your Account</button>
+      </div>
+      <br />
+      <!-- Feed -->
+      <ion-list layout="column">
+        <ion-item ng-repeat="recievedEvent in recievedEvents" ng-click="vm.user(recievedEvent.name)" class="item item-avatar" flex>
+          <img ng-src="{{recievedEvent.avatar}}">
+          <h2>{{recievedEvent.name}}</h2>
+          <p>{{recievedEvent.type}} on <span ng-click="vm.repo($event, recievedEvent.repo)">{{recievedEvent.repo}}</span></p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </div>
   <ion-footer-bar align-title="center" class="no-padding">
     <button class="about-button btn" ng-click="info()">Info</button>
   </ion-footer-bar>

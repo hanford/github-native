@@ -19,6 +19,18 @@ angular.module('MobileGit')
       $state.go('profile', {login: query})
     };
 
+    $scope.search = function(query) {
+      if (!query) return;
+      $scope.showSearch = !$scope.showSearch
+
+      githubservice.searchUsers(query).then(function(response) {
+        console.log(response)
+        $scope.peopleResult = response.data.items
+      })
+      // $state.go('profile', {login: query})
+      // $state.go('searchpage', {query: query});
+    }
+
     this.myAccount = function() {
       $scope.$emit('loading');
       userservice.me().then(function(response) {
