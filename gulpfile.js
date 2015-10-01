@@ -48,7 +48,7 @@ gulp.task('templates', function() {
 })
 
 gulp.task('index', function() {
-  return gulp.src('./app/index.html')
+  return gulp.src('./src/index.html')
     .pipe(gulp.dest('./www/'))
 })
 
@@ -58,7 +58,7 @@ gulp.task('move-lib', function() {
 })
 
 gulp.task('css', function() {
-  return gulp.src('app/css/**.*')
+  return gulp.src('src/css/**.*')
     .pipe(gulp.dest('www/css/'))
 })
 
