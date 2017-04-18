@@ -1,7 +1,7 @@
-##MobileGit  
+## MobileGit  
 This is a github application for iOS, it's written in Javascript using angularJS and ionic framework
 
-###Getting things running
+### Getting things running
 <code>npm install</code>  
 <code>bower install</code>  
 <code>gulp</code>  
