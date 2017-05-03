@@ -1,4 +1,4 @@
-const api = 'http://localhost:3000'
+const api = 'http://192.168.107.224:3000'
 
 export async function fetchNotifications () {
   return fetch(`${api}/notifications`)

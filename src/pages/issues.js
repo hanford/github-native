@@ -77,6 +77,7 @@ export class Issues extends PureComponent {
               <View style={styles.item} key={index}>
                 <Text style={styles.title}>{n.title}</Text>
                 <Text style={styles.issue}>{n.state}</Text>
+                <Text>Assigned: {n.assignee.login}</Text>
               </View>
             ))
           }

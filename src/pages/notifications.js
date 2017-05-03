@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl, Linking, TouchableOpacity } from 'react-native'
 import { partial } from 'ap'
+import fecha from 'fecha'
 
 import { fetchNotifications } from '../api/github-api'
 import { Header } from '../components'
@@ -16,7 +17,9 @@ const styles = StyleSheet.create({
   item: {
     width: '100%',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    // borderBottomWidth: 1,
+    // borderColor: '#DDD'
   },
   title: {
     fontSize: 24
@@ -83,6 +86,7 @@ export class Notifications extends PureComponent {
                 <View style={styles.item}>
                   <Text style={styles.title}>{n.subject.title}</Text>
                   <Text style={styles.repo}>{n.repository.full_name}</Text>
+                  <Text>{fecha.format(new Date(n.updated_at), 'M/D/YY h:mm A')} </Text>
                 </View>
               </TouchableOpacity>
             ))
