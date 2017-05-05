@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     textAlign: 'left',
-    marginTop: 10,
-    marginBottom: 10,
+    paddingTop: 20,
+    paddingBottom: 10,
     fontWeight: 'bold'
   }
 })

@@ -3,13 +3,9 @@ import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'r
 import { partial } from 'ap'
 
 import { fetchIssues } from '../api/github-api'
-import { Header } from '../components'
+import { Header, Page } from '../components'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20
-  },
   list: {
     flex: 1
   },
@@ -55,7 +51,7 @@ export class Issues extends PureComponent {
     if (!issues) return null
 
     return (
-      <View style={styles.container}>
+      <Page>
         <Header>Issues ({issues.length})</Header>
 
         <ScrollView
@@ -82,7 +78,7 @@ export class Issues extends PureComponent {
             ))
           }
         </ScrollView>
-      </View>
+      </Page>
     )
   }
 }

@@ -1,14 +1,13 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TextInput, View, Text } from 'react-native'
+import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
 
-import { Header } from '../components'
+import { Header, Page } from '../components'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20
-  },
   pwInput: {
+    marginTop: 20
+  },
+  login: {
     marginTop: 20
   }
 })
@@ -22,7 +21,7 @@ export class Login extends PureComponent {
 
   render () {
     return (
-      <View style={styles.container}>
+      <Page>
         <Header>Login</Header>
         <TextInput
           {...this.props}
@@ -43,7 +42,13 @@ export class Login extends PureComponent {
           style={[{height: 40, borderColor: '#DDD', borderWidth: 1, padding: 8}, styles.pwInput]}
           onChangeText={(password) => this.setState({ password })}
         />
-      </View>
+        <View style={styles.login}>
+          <Button
+            onPress={() => {}}
+            title='Login'
+          />
+        </View>
+      </Page>
     )
   }
 }

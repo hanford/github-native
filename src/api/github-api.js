@@ -1,4 +1,4 @@
-const api = 'http://192.168.107.224:3000'
+const api = 'http://192.168.10.60:3000'
 
 export async function fetchNotifications () {
   return fetch(`${api}/notifications`)
@@ -17,7 +17,6 @@ export async function fetchNotifications () {
       // })
 
       return {
-        // sorted,
         data
       }
     })

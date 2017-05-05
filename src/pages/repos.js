@@ -2,14 +2,10 @@ import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'react-native'
 import sortOn from 'sort-on'
 
-import { RepoItem, Header } from '../components'
+import { RepoItem, Header, Page } from '../components'
 import { fetchRepos } from '../api/github-api'
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20
-  },
   list: {
     flex: 1
   }
@@ -47,7 +43,7 @@ export class Repos extends PureComponent {
     if (!repos) return null
 
     return (
-      <View style={styles.container}>
+      <Page>
         <Header>Repos ({repos.length})</Header>
 
         <ScrollView
@@ -69,7 +65,7 @@ export class Repos extends PureComponent {
           }
         </ScrollView>
 
-      </View>
+      </Page>
     )
   }
 }
