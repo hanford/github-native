@@ -5,10 +5,10 @@ import { Header, Page } from '../components'
 
 const styles = StyleSheet.create({
   login: {
-    marginTop: 20
+    margin: 20
   },
   pwInput: {
-    marginTop: 20
+    margin: 20
   }
 })
 

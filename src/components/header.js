@@ -5,9 +5,9 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 30,
     textAlign: 'left',
-    paddingTop: 20,
-    paddingBottom: 10,
-    fontWeight: 'bold'
+    padding: 20,
+    fontWeight: 'bold',
+    // borderWidth: 1
   }
 })
 

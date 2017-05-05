@@ -4,8 +4,10 @@ import { Text, View, StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
   item: {
     width: '100%',
-    paddingTop: 10,
-    paddingBottom: 10
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingBottom: 10,
+    paddingTop: 10
   },
   title: {
     fontSize: 18,

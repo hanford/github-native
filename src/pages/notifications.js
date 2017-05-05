@@ -12,10 +12,10 @@ const styles = StyleSheet.create({
   },
   item: {
     width: '100%',
+    paddingLeft: 20,
+    paddingRight: 20,
     paddingTop: 10,
-    paddingBottom: 10,
-    // borderBottomWidth: 1,
-    // borderColor: '#DDD'
+    paddingBottom: 10
   },
   title: {
     fontSize: 20,
