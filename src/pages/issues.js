@@ -15,11 +15,14 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   },
   title: {
-    fontSize: 22
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   issue: {
     fontSize: 16,
-    color: '#00bf8b'
+    color: '#00bf8b',
+    fontWeight: 'bold',
+    paddingRight: 10
   }
 })
 
@@ -71,9 +74,13 @@ export class Issues extends PureComponent {
           {
             issues.map((n, index) => (
               <View style={styles.item} key={index}>
-                <Text style={styles.title}>{n.title}</Text>
-                <Text style={styles.issue}>{n.state}</Text>
-                <Text>Assigned: {n.assignee.login}</Text>
+                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                  <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
+                  <View style={{display: 'flex'}}>
+                    <Text style={styles.title}>{n.title}</Text>
+                    <Text>Assigned: {n.assignee.login}</Text>
+                  </View>
+                </View>
               </View>
             ))
           }

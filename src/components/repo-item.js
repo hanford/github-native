@@ -8,20 +8,19 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   },
   title: {
-    fontSize: 24
+    fontSize: 18,
+    fontWeight: 'bold'
   },
   repo: {
-    fontSize: 16,
-    color: '#b3b6bf'
+    fontSize: 16
   }
 })
 
 export const RepoItem = (n) => (
   <View style={styles.item}>
     <Text style={styles.title}>{n.name}</Text>
-    <Text style={styles.repo}>{n.language}</Text>
     <Text>{n.description}</Text>
-    <Text>⭐️ {n.stars}</Text>
+    <Text>⭐️ {n.stars} - <Text style={styles.repo}>{n.language}</Text></Text>
   </View>
 )
 

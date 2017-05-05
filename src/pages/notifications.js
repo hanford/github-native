@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     // borderColor: '#DDD'
   },
   title: {
-    fontSize: 24
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   repo: {
-    fontSize: 16,
-    color: '#b3b6bf'
+    fontSize: 16
   }
 })
 

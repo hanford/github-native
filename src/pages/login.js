@@ -4,10 +4,10 @@ import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
 import { Header, Page } from '../components'
 
 const styles = StyleSheet.create({
-  pwInput: {
+  login: {
     marginTop: 20
   },
-  login: {
+  pwInput: {
     marginTop: 20
   }
 })
