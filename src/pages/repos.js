@@ -18,6 +18,10 @@ export class Repos extends PureComponent {
     loading: true
   }
 
+  componentWillMount () {
+    this.getRepos()
+  }
+
   getRepos = () => {
     this.setState({ loading: true })
 
@@ -29,11 +33,7 @@ export class Repos extends PureComponent {
       })
   }
 
-  componentWillMount () {
-    this.getRepos()
-  }
-
-  _onRefresh = () => {
+  onRefresh = () => {
     this.getRepos()
   }
 
@@ -51,7 +51,7 @@ export class Repos extends PureComponent {
           refreshControl={
             <RefreshControl
               refreshing={this.state.loading}
-              onRefresh={this._onRefresh}
+              onRefresh={this.onRefresh}
               tintColor='black'
               title='Loading...'
               titleColor='black'

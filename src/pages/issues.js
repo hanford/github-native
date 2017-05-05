@@ -30,19 +30,19 @@ export class Issues extends PureComponent {
     loading: true
   }
 
-  getissues = () => {
+  componentWillMount () {
+    this.getIssues()
+  }
+
+  getIssues = () => {
     this.setState({ loading: true })
 
     return fetchIssues()
       .then(({ data }) => this.setState({ issues: data, loading: false }))
   }
 
-  componentWillMount () {
-    this.getissues()
-  }
-
-  _onRefresh = () => {
-    this.getissues()
+  onRefresh = () => {
+    this.getIssues()
   }
 
   render () {
@@ -59,7 +59,7 @@ export class Issues extends PureComponent {
           refreshControl={
             <RefreshControl
               refreshing={this.state.loading}
-              onRefresh={this._onRefresh}
+              onRefresh={this.onRefresh}
               tintColor='black'
               title='Loading...'
               titleColor='black'

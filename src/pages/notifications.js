@@ -34,6 +34,10 @@ export class Notifications extends PureComponent {
     url: null
   }
 
+  componentWillMount () {
+    this.getNotifications()
+  }
+
   getNotifications = () => {
     this.setState({ loading: true })
 
@@ -41,11 +45,7 @@ export class Notifications extends PureComponent {
       .then(({ data }) => this.setState({ notifications: data, loading: false }))
   }
 
-  componentWillMount () {
-    this.getNotifications()
-  }
-
-  _onRefresh = () => {
+  onRefresh = () => {
     this.getNotifications()
   }
 
@@ -67,7 +67,7 @@ export class Notifications extends PureComponent {
           refreshControl={
             <RefreshControl
               refreshing={this.state.loading}
-              onRefresh={this._onRefresh}
+              onRefresh={this.onRefresh}
               tintColor='black'
               title='Loading...'
               titleColor='black'
