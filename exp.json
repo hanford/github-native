@@ -1,0 +1,15 @@
+ {
+   "name": "github-companion",
+   "icon": "https://s3.amazonaws.com/exp-us-standard/rnplay/app-icon.png",
+   "version": "2.0.0",
+   "slug": "github-companion",
+   "sdkVersion": "16.0.0",
+   "orientation": "portrait",
+   "scheme": "GithubCompanion",
+   "ios": {
+     "bundleIdentifier": "com.jackhanford.githubnative"
+   },
+   "android": {
+     "package": "com.jackhanford.github-companion"
+   }
+ }
