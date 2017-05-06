@@ -1,0 +1,6 @@
+framework module Pods_githubnative {
+  umbrella header "Pods-githubnative-umbrella.h"
+
+  export *
+  module * { export * }
+}

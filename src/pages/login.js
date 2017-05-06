@@ -1,7 +1,12 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
+import OAuthManager from 'react-native-oauth'
+import config from '../../config.json'
 
 import { Header, Page } from '../components'
+
+const manager = new OAuthManager('githubnative')
+manager.configure(config)
 
 const styles = StyleSheet.create({
   login: {
@@ -15,36 +20,30 @@ const styles = StyleSheet.create({
 export class Login extends PureComponent {
 
   state = {
-    username: null,
-    password: null
+    token: null,
+  }
+
+  beginAuth = () => {
+    console.log('begin auth!')
+    console.log('begin auth!##################################')
+
+    manager.authorize('github', {scopes: 'user repo notifications'})
+      .then(({ response }) => {
+        console.log('Your users ID', response)
+        this.setState({token: response.credentials.accessToken})
+      })
+      .catch(err => console.log('There was an error'))
   }
 
   render () {
     return (
       <Page>
         <Header>Login</Header>
-        <TextInput
-          {...this.props}
-          placeholder='Username'
-          value={this.state.setUsername}
-          editable={true}
-          returnKeyType='next'
-          style={{height: 40, borderColor: '#DDD', borderWidth: 1, padding: 8}}
-          onChangeText={(username) => this.setState({ username })}
-        />
-        <TextInput
-          {...this.props}
-          style={styles.pwInput}
-          value={this.state.setUsername}
-          placeholder='Password'
-          editable={true}
-          returnKeyType='go'
-          style={[{height: 40, borderColor: '#DDD', borderWidth: 1, padding: 8}, styles.pwInput]}
-          onChangeText={(password) => this.setState({ password })}
-        />
+        <Text>{this.state.token}</Text>
+
         <View style={styles.login}>
           <Button
-            onPress={() => {}}
+            onPress={this.beginAuth}
             title='Login'
           />
         </View>

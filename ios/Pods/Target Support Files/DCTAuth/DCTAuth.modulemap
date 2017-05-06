@@ -1,0 +1,6 @@
+framework module DCTAuth {
+  umbrella header "DCTAuth-umbrella.h"
+
+  export *
+  module * { export * }
+}

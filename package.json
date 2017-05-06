@@ -20,6 +20,7 @@
     "fecha": "~2.3.0",
     "react": "16.0.0-alpha.6",
     "react-native": "~0.43.4",
+    "react-native-oauth": "~2.1.16",
     "react-native-swiper-grid": "~1.7.0",
     "sort-on": "~2.0.0"
   }

@@ -1,0 +1,37 @@
+{
+  "name": "DCTAuth",
+  "version": "3.0",
+  "summary": "A library to connect to services using OAuth, OAuth 2.0 or basic authentication.",
+  "description": "A library to handle authorised web requests using an account-based approach similar \nto the Accounts framework on iOS. Comes with OAuth, OAuth 2.0 and basic \nauthentication accounts.",
+  "homepage": "https://github.com/danielctull/DCTAuth",
+  "license": {
+    "type": "BSD",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Tull": "dt@danieltull.co.uk"
+  },
+  "social_media_url": "http://twitter.com/danielctull",
+  "platforms": {
+    "ios": "8.0",
+    "osx": "10.10"
+  },
+  "source": {
+    "git": "https://github.com/danielctull/DCTAuth.git",
+    "tag": "3.0",
+    "submodules": true
+  },
+  "source_files": "DCTAuth/*.{h,m}",
+  "public_header_files": [
+    "DCTAuth/DCTAuth.h",
+    "DCTAuth/DCTAuthAccount.h",
+    "DCTAuth/DCTAuthAccountCredential.h",
+    "DCTAuth/DCTAuthAccountStore.h",
+    "DCTAuth/DCTAuthAccountSubclass.h",
+    "DCTAuth/DCTAuthPlatform.h",
+    "DCTAuth/DCTAuthRequest.h",
+    "DCTAuth/DCTAuthRequestMethod.h",
+    "DCTAuth/DCTAuthResponse.h"
+  ],
+  "requires_arc": true
+}
