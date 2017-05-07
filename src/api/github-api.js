@@ -7,9 +7,9 @@ export const getToken = (t) => token
 
 export async function fetchNotifications () {
   try {
-    const res = await fetchData('notifications')
+    const res = await fetchData('notifications?all=true')
     const data = await res.json()
-
+    console.log(data)
     return { data }
   }
   catch (err) {
@@ -43,7 +43,16 @@ export async function fetchIssues () {
 }
 
 function fetchData (url) {
-  return fetch(`${api}/${url}?access_token=${token}`)
+  let ghUrl = `${api}/${url}`
+  let authedUrl = ''
+
+  if (url.indexOf('?') > -1) {
+    authedUrl = `${ghUrl}&access_token=${token}`
+  } else {
+    authedUrl = `${ghUrl}?access_token=${token}`
+  }
+
+  return fetch(authedUrl)
 }
 
 // export function searchRepos (query) {

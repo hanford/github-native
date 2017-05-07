@@ -18,7 +18,7 @@ export default class App extends PureComponent {
   }
 
   beginAuth = () => {
-    manager.authorize('github', {scopes: 'user repo'})
+    manager.authorize('github', {scopes: 'user repo notifications'})
       .then(({ response }) => {
         const token = response.credentials.accessToken
 
@@ -26,6 +26,12 @@ export default class App extends PureComponent {
         this.setState({ token })
       })
       .catch(err => console.log('There was an error'))
+  }
+
+  removeAuth = () => {
+    manager.deauthorize('github')
+
+    this.setState({ token: null })
   }
 
   render () {
@@ -39,13 +45,13 @@ export default class App extends PureComponent {
         index={1}
         activeDotColor='black'
       >
-        <Login token={token} beginAuth={this.beginAuth} />
+        <Login token={token} beginAuth={this.beginAuth} removeAuth={this.removeAuth} />
         <Notifications />
         <Issues />
         <Repos />
       </Swiper>
     )
 
-    return token ? app : (<Login beginAuth={this.beginAuth} token={token} />)
+    return token ? app : (<Login beginAuth={this.beginAuth} token={token} removeAuth={this.removeAuth} />)
   }
 }

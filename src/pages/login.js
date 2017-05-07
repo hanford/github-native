@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 export class Login extends PureComponent {
 
   render () {
-    const { beginAuth, token } = this.props
+    const { beginAuth, token, removeAuth } = this.props
     return (
       <Page>
         <Header>Login</Header>
@@ -23,6 +23,11 @@ export class Login extends PureComponent {
           <Button
             onPress={beginAuth}
             title='Login'
+          />
+          <Button
+            onPress={removeAuth}
+            title='Logout'
+            color='red'
           />
         </View>
       </Page>
