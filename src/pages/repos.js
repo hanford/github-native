@@ -18,7 +18,7 @@ export class Repos extends PureComponent {
     loading: true
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.getRepos()
   }
 

@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl, Linking,
 import { partial } from 'ap'
 import fecha from 'fecha'
 
-import { fetchNotifications } from '../api/github-api'
+import { fetchNotifications, getToken } from '../api/github-api'
 import { Header, Page } from '../components'
 
 const styles = StyleSheet.create({
@@ -34,7 +34,7 @@ export class Notifications extends PureComponent {
     url: null
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.getNotifications()
   }
 

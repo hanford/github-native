@@ -1,32 +1,14 @@
 const api = 'http://192.168.10.60:3000'
 
-export async function fetchNotifications () {
-  return fetch(`${api}/notifications`)
-    .then(r => r.json())
-    .then(data => {
-      // const sorted = {}
+let token = ''
 
-      // data.forEach(data => {
-      //   const { repository } = data
+export const setToken = (t) => token = t
+export const getToken = (t) => token
 
-      //   if (sorted[repository.full_name]) {
-      //     sorted[repository.full_name].push(data)
-      //   } else {
-      //     sorted[repository.full_name] = [ data ]
-      //   }
-      // })
+export function fetchNotifications () {
+  console.log(`${api}/notifications?access_token=${token}`)
 
-      return {
-        data
-      }
-    })
-    .catch(err => {
-      throw err
-    })
-}
-
-export async function fetchRepos () {
-  return fetch(`${api}/repos`)
+  return fetch(`${api}/notifications?access_token=${token}`)
     .then(r => r.json())
     .then(data => {
 
@@ -39,9 +21,10 @@ export async function fetchRepos () {
     })
 }
 
+export function fetchRepos () {
+  console.log(`${api}/repos?access_token=${token}`)
 
-export async function fetchIssues () {
-  return fetch(`${api}/issues`)
+  return fetch(`${api}/repos?access_token=${token}`)
     .then(r => r.json())
     .then(data => {
 
@@ -54,7 +37,24 @@ export async function fetchIssues () {
     })
 }
 
-// export async function searchRepos (query) {
+
+export function fetchIssues () {
+  console.log(`${api}/issues?access_token=${token}`)
+
+  return fetch(`${api}/issues?access_token=${token}`)
+    .then(r => r.json())
+    .then(data => {
+
+      return {
+        data
+      }
+    })
+    .catch(err => {
+      throw err
+    })
+}
+
+// export function searchRepos (query) {
 //   console.log('searching', query)
 //   return fetch(`${api}/repo/search/${query}`)
 //     .then(r => r.json())

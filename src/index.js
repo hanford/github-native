@@ -1,25 +1,50 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Swiper from 'react-native-swiper-grid'
+import OAuthManager from 'react-native-oauth'
 
 import { Login, Notifications, Repos, RepoSearch, Issues } from './pages'
+import config from '../config.json'
+import { setToken } from './api/github-api'
 
-export default class App extends React.Component {
+const manager = new OAuthManager('githubnative')
+
+manager.configure(config)
+
+
+export default class App extends PureComponent {
+  state = {
+    token: null,
+  }
+
+  beginAuth = () => {
+    manager.authorize('github', {scopes: 'user repo notifications'})
+      .then(({ response }) => {
+        const token = response.credentials.accessToken
+
+        setToken(token)
+        this.setState({ token })
+      })
+      .catch(err => console.log('There was an error'))
+  }
 
   render () {
-    return (
+    const { token } = this.state
+
+    const app = (
       <Swiper
         loop={false}
         bounces={true}
         showsButtons={false}
-        index={1}
+        index={0}
         activeDotColor='black'
       >
-        <Login />
         <Notifications />
         <Issues />
         <Repos />
       </Swiper>
     )
+
+    return token ? app : (<Login beginAuth={this.beginAuth} token={token} />)
   }
 }

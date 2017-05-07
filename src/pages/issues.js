@@ -37,7 +37,7 @@ export class Issues extends PureComponent {
     loading: true
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.getIssues()
   }
 
