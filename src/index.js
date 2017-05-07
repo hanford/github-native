@@ -18,7 +18,7 @@ export default class App extends PureComponent {
   }
 
   beginAuth = () => {
-    manager.authorize('github', {scopes: 'user repo notifications'})
+    manager.authorize('github', {scopes: 'user repo'})
       .then(({ response }) => {
         const token = response.credentials.accessToken
 
@@ -36,9 +36,10 @@ export default class App extends PureComponent {
         loop={false}
         bounces={true}
         showsButtons={false}
-        index={0}
+        index={1}
         activeDotColor='black'
       >
+        <Login token={token} beginAuth={this.beginAuth} />
         <Notifications />
         <Issues />
         <Repos />
