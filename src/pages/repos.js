@@ -27,7 +27,7 @@ export class Repos extends PureComponent {
 
     return fetchRepos()
       .then(({ data }) => {
-        const repos = sortOn(data, '-stargazers_count')
+        let repos = sortOn(data, '-stargazers_count')
 
         this.setState({ repos, loading: false })
       })

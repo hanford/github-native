@@ -19,7 +19,7 @@ export async function fetchNotifications () {
 
 export async function fetchRepos () {
   try {
-    const res = await fetchData('user/repos')
+    const res = await fetchData('user/repos?per_page=1000')
     const data = await res.json()
 
     return { data }
