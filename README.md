@@ -27,7 +27,7 @@ $ react-native log-ios
 
 <br />
 
-Questions? Feedback? [Please let me know](https://github.com/hanford/Instachrome/issues/new)
+Questions? Feedback? [Please let me know](https://github.com/hanford/github-native/issues/new)
 
 ## License (MIT)
 
