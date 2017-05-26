@@ -19,9 +19,9 @@ You'll need a `config.json` file in the root, that looks something like this:
 ```
 
 ```sh
-$ yarn install
-$ yarn start
-$ yarn ios
+$ npm install
+$ npm start
+$ npm run ios
 $ react-native log-ios
 ```
 
