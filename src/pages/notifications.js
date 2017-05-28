@@ -50,7 +50,7 @@ export class Notifications extends PureComponent {
   }
 
   focusNotification = ({ url }) => {
-    Linking.openURL(`https://github.com/notifications`)
+    // Linking.openURL(`https://github.com/notifications`)
   }
 
   render () {

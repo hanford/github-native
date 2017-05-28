@@ -9,7 +9,7 @@ export async function fetchNotifications () {
   try {
     const res = await fetchData('notifications?all=true')
     const data = await res.json()
-    console.log(data)
+
     return { data }
   }
   catch (err) {
@@ -29,6 +29,17 @@ export async function fetchRepos () {
   }
 }
 
+export async function fetchTimeline () {
+  try {
+    const res = await fetchData('users/hanford/received_events')
+    const data = await res.json()
+
+    return { data }
+  }
+  catch (err) {
+    throw err
+  }
+}
 
 export async function fetchIssues () {
   try {

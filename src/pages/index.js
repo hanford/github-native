@@ -1,5 +1,7 @@
 export * from './login'
 export * from './notifications'
 export * from './repos'
+export * from './timeline'
 export * from './issues'
 export * from './repo-search'
+export * from './swiper'

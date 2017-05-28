@@ -61,7 +61,15 @@ export class Repos extends PureComponent {
           }
         >
           {
-            repos.map((n, index) => <RepoItem key={index} name={n.name} language={n.language} description={n.description} stars={n.stargazers_count} />)
+            repos.map((n, index) => (
+              <RepoItem
+                key={index}
+                name={n.name}
+                language={n.language}
+                description={n.description}
+                stars={n.stargazers_count}
+              />
+            ))
           }
         </ScrollView>
 
@@ -71,4 +79,3 @@ export class Repos extends PureComponent {
 }
 
 export default Repos
-
