@@ -38,6 +38,7 @@
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A49AF84AC31629EBF4EE442E /* Pods_githubnative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69B37AF11EA523C5983BE73 /* Pods_githubnative.framework */; };
+		B37E7D811EDB5D2C00027AF7 /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B37E7D801EDB5CBC00027AF7 /* libReactNativeNavigation.a */; };
 		B3B45F9D1EBE7360003E872F /* libOAuthManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B314A12A1EBE72DB00264879 /* libOAuthManager.a */; };
 		CE452A453FECCB0970ABE5C5 /* Pods_githubnative_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0689D735C1B75455E8F76BA /* Pods_githubnative_tvOSTests.framework */; };
 /* End PBXBuildFile section */
@@ -267,6 +268,13 @@
 			remoteGlobalIDString = D7B037D1913826535E8333B45233AA2A;
 			remoteInfo = "Pods-githubnativeTests";
 		};
+		B37E7D7F1EDB5CBC00027AF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B37E7D5D1EDB5CBB00027AF7 /* ReactNativeNavigation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8AFADBD1BEE6F3F00A4592D;
+			remoteInfo = ReactNativeNavigation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -301,6 +309,7 @@
 		B0689D735C1B75455E8F76BA /* Pods_githubnative_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githubnative_tvOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30C90A31EBE73770005AB7A /* githubnative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = githubnative.entitlements; path = githubnative/githubnative.entitlements; sourceTree = "<group>"; };
 		B33E58981EBE7D38005C06C5 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		B37E7D5D1EDB5CBB00027AF7 /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		B71FDE1B6DC3DE9E1DA58477 /* Pods-githubnative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubnative.release.xcconfig"; path = "Pods/Target Support Files/Pods-githubnative/Pods-githubnative.release.xcconfig"; sourceTree = "<group>"; };
 		C1A6C6F2EC4662D6E7660EBD /* Pods_githubnativeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githubnativeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3E36B49AAADE0F38DD3FCB3 /* Pods-githubnative-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubnative-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-githubnative-tvOSTests/Pods-githubnative-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -322,6 +331,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B37E7D811EDB5D2C00027AF7 /* libReactNativeNavigation.a in Frameworks */,
 				B3B45F9D1EBE7360003E872F /* libOAuthManager.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -516,6 +526,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				B37E7D5D1EDB5CBB00027AF7 /* ReactNativeNavigation.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -581,6 +592,14 @@
 				B33E58A21EBE7D38005C06C5 /* Pods_githubnative.framework */,
 				B33E58A41EBE7D38005C06C5 /* Pods_githubnative_tvOSTests.framework */,
 				B33E58A61EBE7D38005C06C5 /* Pods_githubnativeTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B37E7D5E1EDB5CBB00027AF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B37E7D801EDB5CBC00027AF7 /* libReactNativeNavigation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -766,6 +785,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = B37E7D5E1EDB5CBB00027AF7 /* Products */;
+					ProjectRef = B37E7D5D1EDB5CBB00027AF7 /* ReactNativeNavigation.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -987,6 +1010,13 @@
 			fileType = wrapper.framework;
 			path = Pods_githubnativeTests.framework;
 			remoteRef = B33E58A51EBE7D38005C06C5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B37E7D801EDB5CBC00027AF7 /* libReactNativeNavigation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeNavigation.a;
+			remoteRef = B37E7D7F1EDB5CBC00027AF7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1316,7 +1346,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-oauth/ios/OAuthManager",
-					"$(SRCROOT)/../node_modules/react-native/Libraries/LinkingIOS\n",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/LinkingIOS",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = githubnative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1343,7 +1374,8 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native/React/**",
 					"$(SRCROOT)/../node_modules/react-native-oauth/ios/OAuthManager",
-					"$(SRCROOT)/../node_modules/react-native/Libraries/LinkingIOS\n",
+					"$(SRCROOT)/../node_modules/react-native/Libraries/LinkingIOS",
+					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 				);
 				INFOPLIST_FILE = githubnative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

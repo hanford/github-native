@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
 import OAuthManager from 'react-native-oauth'
+import { Navigation } from 'react-native-navigation'
 
 import config from '../../config.json'
 import { setToken } from '../api/github-api'
@@ -24,7 +25,6 @@ export class Login extends PureComponent {
   }
 
   beginAuth = () => {
-    const { history } = this.props
     manager.authorize('github', {scopes: 'user repo notifications'})
       .then(({ response }) => {
         const token = response.credentials.accessToken
@@ -32,13 +32,18 @@ export class Login extends PureComponent {
         setToken(token)
         this.setState({ token })
 
-        history.push('/main')
+
+        this.props.navigator.push({
+          screen: 'githubnative.Swiper',
+          title: 'Swiper'
+        })
       })
       .catch(err => console.log('There was an error'))
   }
 
   removeAuth = () => {
-    const { history } = this.props
+    console.log(this.props)
+    debugger
 
     manager.deauthorize('github')
     this.setState({ token: null })

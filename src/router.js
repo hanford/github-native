@@ -1,14 +1,14 @@
 import React from 'react'
-import { View } from 'react-native'
-import { NativeRouter, Route } from 'react-router-native'
+import { View, Text } from 'react-native'
+import { Navigation } from 'react-native-navigation'
 
-import { Login, Swiper } from './pages'
+import Screens from './screens'
 
-export default () => (
-  <NativeRouter>
-    <View style={{flex: 1}}>
-      <Route exact path='/' component={Login} />
-      <Route exact path='/main' component={Swiper} />
-    </View>
-  </NativeRouter>
-)
+Screens()
+
+Navigation.startSingleScreenApp({
+  screen: {
+    title: 'Login',
+    screen: 'githubnative.Login'
+  }
+})
