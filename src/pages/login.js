@@ -32,23 +32,19 @@ export class Login extends PureComponent {
         setToken(token)
         this.setState({ token })
 
-
-        this.props.navigator.push({
-          screen: 'githubnative.Swiper',
-          title: 'Swiper'
-        })
       })
       .catch(err => console.log('There was an error'))
   }
 
   removeAuth = () => {
-    console.log(this.props)
-    debugger
-
     manager.deauthorize('github')
     this.setState({ token: null })
 
-    history.push('/')
+    this.props.navigator.resetTo({
+      screen: 'githubnative.Login',
+      title: 'githubnative',
+      animated: true
+    })
   }
 
   render () {
@@ -58,16 +54,22 @@ export class Login extends PureComponent {
       <Page>
         <Header>Login</Header>
         <View style={styles.login}>
-          <Button
-            onPress={this.beginAuth}
-            title='Login'
-          />
-
-          <Button
-            onPress={this.removeAuth}
-            title='Logout'
-            color='red'
-          />
+          {
+            token
+            ? (
+              <Button
+                onPress={this.removeAuth}
+                title='Logout'
+                color='red'
+              />
+            )
+            : (
+              <Button
+                onPress={this.beginAuth}
+                title='Login'
+              />
+            )
+          }
         </View>
       </Page>
     )

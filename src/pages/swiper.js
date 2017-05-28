@@ -23,7 +23,6 @@ export class Swiper extends PureComponent {
         index={1}
         activeDotColor='black'
       >
-        <Login {...this.props} />
         <Timeline {...this.props} />
         <Notifications {...this.props} />
         <Issues {...this.props} />

@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'r
 import { partial } from 'ap'
 
 import { fetchIssues } from '../api/github-api'
-import { Header, Page } from '../components'
+import { Page } from '../components'
 
 const styles = StyleSheet.create({
   list: {
@@ -46,6 +46,7 @@ export class Issues extends PureComponent {
 
     return fetchIssues()
       .then(({ data }) => this.setState({ issues: data, loading: false }))
+      .catch(() => this.setState({ issues: [], loading: false }))
   }
 
   onRefresh = () => {
@@ -59,8 +60,6 @@ export class Issues extends PureComponent {
 
     return (
       <Page>
-        <Header>Issues ({issues.length})</Header>
-
         <ScrollView
           style={styles.list}
           refreshControl={

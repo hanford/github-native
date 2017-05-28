@@ -42,7 +42,19 @@ export class Notifications extends PureComponent {
     this.setState({ loading: true })
 
     return fetchNotifications()
-      .then(({ data }) => this.setState({ notifications: data, loading: false }))
+      .then(({ data }) => {
+        this.props.navigator.setTabBadge({
+          badge: data.length
+        })
+
+        this.setState(() => {
+          return {
+            notifications: data,
+            loading: false
+          }
+        })
+      })
+      .catch(() => this.setState({ notifications: [], loading: false }))
   }
 
   onRefresh = () => {
@@ -60,8 +72,6 @@ export class Notifications extends PureComponent {
 
     return (
       <Page>
-        <Header>Notifications ({notifications.length})</Header>
-
         <ScrollView
           style={styles.list}
           refreshControl={
