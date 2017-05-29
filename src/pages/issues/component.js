@@ -6,7 +6,8 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  TouchableOpacity
+  TouchableOpacity,
+  Animated
 } from 'react-native'
 import { partial } from 'ap'
 
@@ -16,30 +17,67 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 5
   },
   issue: {
     fontSize: 16,
     color: '#00bf8b',
     fontWeight: 'bold',
-    paddingRight: 10
+    textAlign: 'right',
+    display: 'flex',
   },
   item: {
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
     paddingRight: 20,
     paddingLeft: 20,
     paddingBottom: 10,
     paddingTop: 10,
     borderBottomWidth: 1,
-    borderColor: 'rgba(0,0,0,.1)'
+    borderColor: 'rgba(0,0,0,.1)',
+    flex: 1,
+    width: '100%',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })
 
 export class Issues extends PureComponent {
+  state = {
+    scaleValue: new Animated.Value(1),
+  }
+
+  constructor () {
+    super()
+
+    this.runAnimation()
+  }
+
+  runAnimation = () => {
+    this.state.scaleValue.setValue(1)
+
+    Animated.sequence([
+      Animated.timing(this.state.scaleValue, {
+        toValue: 2,
+        duration: 500,
+      }),
+      Animated.timing(this.state.scaleValue, {
+        toValue: 1.0,
+        duration: 500,
+      })
+    ]).start(() => this.runAnimation())
+  }
+
   render () {
     const { list, loading, fetchIssues } = this.props
+    const { scaleValue } = this.state
+    console.log(scaleValue)
+
 
     if (!list) return null
 
@@ -62,10 +100,21 @@ export class Issues extends PureComponent {
           list.map((n, index) => (
             <TouchableOpacity>
               <View style={styles.item} key={index}>
-                <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
-                <View style={{display: 'flex'}}>
-                  <Text style={styles.title}>{n.title}</Text>
+                <Text style={styles.title}>{n.title}</Text>
+                <View style={styles.row}>
                   <Text>Assigned: {n.assignee.login}</Text>
+                  <View>
+                  <Animated.Text
+                    style={{
+                      color: '#00bf8b',
+                      transform: [
+                        {scale: scaleValue}
+                      ]
+                    }}
+                  >
+                    {n.state === 'open' ? '•' : 'x'}
+                  </Animated.Text>
+                  </View>
                 </View>
               </View>
             </TouchableOpacity>
