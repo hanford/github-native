@@ -6,7 +6,8 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native'
 
 import fecha from 'fecha'
@@ -68,18 +69,20 @@ export class Timeline extends PureComponent {
             const parsed = compile(ti)
 
             return (
-              <View style={styles.item} key={index}>
-                <View style={styles.shadow}>
-                  <Image
-                    source={{uri: ti.actor.avatar_url}}
-                    style={styles.ava}
-                    />
+              <TouchableOpacity>
+                <View style={styles.item} key={index}>
+                  <View style={styles.shadow}>
+                    <Image
+                      source={{uri: ti.actor.avatar_url}}
+                      style={styles.ava}
+                      />
+                  </View>
+                  <View style={styles.title}>
+                    <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                    <Text>{parsed}</Text>
+                  </View>
                 </View>
-                <View style={styles.title}>
-                  <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
-                  <Text>{parsed}</Text>
-                </View>
-              </View>
+              </TouchableOpacity>
             )
           })
         }

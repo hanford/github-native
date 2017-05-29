@@ -7,10 +7,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 10,
-    paddingTop: 10
+    paddingTop: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)'
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold'
   },
   repo: {

@@ -24,12 +24,12 @@ export class Login extends PureComponent {
           token
           ? (
             <TouchableOpacity onPress={logout}>
-              <Text style={{fontSize: 18, marginTop: 30}}>Logout</Text>
+              <Text style={{fontSize: 18, marginTop: 30, color: 'red'}}>Logout</Text>
             </TouchableOpacity>
           )
           : (
             <TouchableOpacity onPress={login}>
-              <Text style={{fontSize: 18, marginTop: 30}}>Login</Text>
+              <Text style={{fontSize: 18, marginTop: 30, color: '#007aff', borderTopWidth: 1, borderColor: 'rgba(0,0,0,.1)'}}>Login</Text>
             </TouchableOpacity>
           )
         }

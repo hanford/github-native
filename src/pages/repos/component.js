@@ -6,7 +6,8 @@ import {
   View,
   Text,
   ScrollView,
-  RefreshControl
+  RefreshControl,
+  TouchableOpacity
 } from 'react-native'
 
 import { RepoItem } from '../../components'
@@ -41,13 +42,14 @@ export class Repos extends PureComponent {
       >
         {
           list && list.map((n, index) => (
-            <RepoItem
-              key={index}
-              name={n.name}
-              language={n.language}
-              description={n.description}
-              stars={n.stargazers_count}
-            />
+            <TouchableOpacity key={index}>
+              <RepoItem
+                name={n.name}
+                language={n.language}
+                description={n.description}
+                stars={n.stargazers_count}
+              />
+            </TouchableOpacity>
           ))
         }
       </ScrollView>

@@ -1,5 +1,13 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'react-native'
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  ScrollView,
+  RefreshControl,
+  TouchableOpacity
+} from 'react-native'
 import { partial } from 'ap'
 
 const styles = StyleSheet.create({
@@ -23,7 +31,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingLeft: 20,
     paddingBottom: 10,
-    paddingTop: 10
+    paddingTop: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)'
   }
 })
 
@@ -50,13 +60,15 @@ export class Issues extends PureComponent {
       >
         {
           list.map((n, index) => (
-            <View style={styles.item} key={index}>
-              <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
-              <View style={{display: 'flex'}}>
-                <Text style={styles.title}>{n.title}</Text>
-                <Text>Assigned: {n.assignee.login}</Text>
+            <TouchableOpacity>
+              <View style={styles.item} key={index}>
+                <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
+                <View style={{display: 'flex'}}>
+                  <Text style={styles.title}>{n.title}</Text>
+                  <Text>Assigned: {n.assignee.login}</Text>
+                </View>
               </View>
-            </View>
+            </TouchableOpacity>
           ))
         }
       </ScrollView>
