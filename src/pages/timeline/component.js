@@ -18,10 +18,7 @@ const styles = StyleSheet.create({
   },
   item: {
     width: '100%',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 20,
-    paddingBottom: 20,
+    padding: 20,
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,.1)',
