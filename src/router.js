@@ -9,11 +9,6 @@ Screens()
 Navigation.startTabBasedApp({
   tabs: [
     {
-      label: 'Login',
-      screen: 'githubnative.Login',
-      title: 'Login'
-    },
-    {
       label: 'Timeline',
       screen: 'githubnative.Timeline',
       title: 'Timeline',
@@ -37,5 +32,11 @@ Navigation.startTabBasedApp({
       title: 'Repos',
       icon: require('./icons/repos.png')
     },
-  ]
+  ],
+  drawer: { // optional, add this if you want a side menu drawer in your app
+    left: { // optional, define if you want a drawer from the left
+      screen: 'githubnative.Login', // unique ID registered with Navigation.registerScreen
+      passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+    }
+  }
 })
