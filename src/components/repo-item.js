@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Image } from 'react-native'
 
 const styles = StyleSheet.create({
   item: {
@@ -25,6 +25,15 @@ const styles = StyleSheet.create({
   },
   repo: {
     fontSize: 16
+  },
+  starRow: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  star: {
+    height: 15,
+    width: 15,
+    marginRight: 5
   }
 })
 
@@ -34,7 +43,10 @@ export const RepoItem = (n) => (
     <Text style={{marginBottom: 10}}>{n.description}</Text>
     <View style={styles.row}>
       <Text style={styles.repo}>{n.language}</Text>
-      <Text>⭐️ {n.stars}</Text>
+      <View style={styles.starRow}>
+        <Image source={require('../icons/star@2x.png')} style={styles.star} />
+        <Text>{n.stars}</Text>
+      </View>
     </View>
   </View>
 )
