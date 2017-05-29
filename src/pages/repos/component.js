@@ -13,7 +13,7 @@ import { RepoItem } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1,
+    flex: 1
   }
 })
 
@@ -40,7 +40,7 @@ export class Repos extends PureComponent {
         }
       >
         {
-          list.map((n, index) => (
+          list && list.map((n, index) => (
             <RepoItem
               key={index}
               name={n.name}
