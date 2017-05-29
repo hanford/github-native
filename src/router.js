@@ -1,10 +1,14 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
+import { Provider } from 'react-redux'
 
+import { configureStore } from './redux'
 import Screens from './screens'
 
-Screens()
+const store = configureStore()
+
+Screens(store, Provider)
 
 Navigation.startTabBasedApp({
   tabs: [

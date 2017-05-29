@@ -3,9 +3,9 @@ import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
 import OAuthManager from 'react-native-oauth'
 import { Navigation } from 'react-native-navigation'
 
-import config from '../../config.json'
-import { setToken } from '../api/github-api'
-import { Header, Page } from '../components'
+import config from '../../../config.json'
+import { setToken } from '../../api/github-api'
+import { Header, Page } from '../../components'
 
 const manager = new OAuthManager('githubnative')
 manager.configure(config)
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 
 export class Login extends PureComponent {
   state = {
-    token: null,
+    token: null
   }
 
   beginAuth = () => {
@@ -29,6 +29,7 @@ export class Login extends PureComponent {
       .then(({ response }) => {
         const token = response.credentials.accessToken
 
+        this.props.setToken(token)
         setToken(token)
         this.setState({ token })
 

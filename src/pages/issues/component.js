@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'react-native'
 import { partial } from 'ap'
 
-import { fetchIssues } from '../api/github-api'
-import { Page } from '../components'
+import { fetchIssues } from '../../api/github-api'
+import { Page } from '../../components'
 
 const styles = StyleSheet.create({
   list: {

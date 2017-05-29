@@ -24,6 +24,9 @@
     "react-native-navigation": "~1.1.81",
     "react-native-oauth": "~2.1.16",
     "react-native-swiper-grid": "~1.7.0",
+    "react-redux": "~5.0.5",
+    "redux": "~3.6.0",
+    "redux-thunk": "~2.2.0",
     "sort-on": "~2.0.0"
   }
 }

@@ -1,15 +1,18 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
-import { Login, Swiper, Notifications, Repos, Issues, Timeline } from './pages'
+import { Notifications, Repos, Timeline } from './pages'
 
-export default function () {
-  Navigation.registerComponent('githubnative.Login', () => Login)
-  Navigation.registerComponent('githubnative.Swiper', () => Swiper)
+import Login from './pages/login'
+import Issues from './pages/issues'
 
-  Navigation.registerComponent('githubnative.Notifications', () => Notifications)
-  Navigation.registerComponent('githubnative.Repos', () => Repos)
+export default function (store, Provider) {
+  Navigation.registerComponent('githubnative.Login', () => Login, store, Provider)
+  // Navigation.registerComponent('githubnative.Swiper', () => Swiper)
+
+  Navigation.registerComponent('githubnative.Notifications', () => Notifications, store, Provider)
+  Navigation.registerComponent('githubnative.Repos', () => Repos, store, Provider)
   // Navigation.registerComponent('githubnative.RepoSearch', () => RepoSearch)
-  Navigation.registerComponent('githubnative.Issues', () => Issues)
-  Navigation.registerComponent('githubnative.Timeline', () => Timeline)
+  Navigation.registerComponent('githubnative.Issues', () => Issues, store, Provider)
+  Navigation.registerComponent('githubnative.Timeline', () => Timeline, store, Provider)
 }
