@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
-import { Notifications, Repos, Timeline } from './pages'
+import { Repos } from './pages'
 
 import Login from './pages/login'
 import Issues from './pages/issues'
+import Notifications from './pages/notifications'
+import Timeline from './pages/timeline'
 
 export default function (store, Provider) {
   Navigation.registerComponent('githubnative.Login', () => Login, store, Provider)

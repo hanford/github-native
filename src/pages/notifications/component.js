@@ -1,10 +1,20 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl, Linking, TouchableOpacity } from 'react-native'
+
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  Text,
+  ScrollView,
+  RefreshControl,
+  Linking,
+  TouchableOpacity
+} from 'react-native'
+
 import { partial } from 'ap'
 import fecha from 'fecha'
 
-import { fetchNotifications, getToken } from '../api/github-api'
-import { Header, Page } from '../components'
+import { Page } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
@@ -29,36 +39,7 @@ const styles = StyleSheet.create({
 export class Notifications extends PureComponent {
 
   state = {
-    notifications: [],
-    loading: true,
     url: null
-  }
-
-  componentDidMount () {
-    this.getNotifications()
-  }
-
-  getNotifications = () => {
-    this.setState({ loading: true })
-
-    return fetchNotifications()
-      .then(({ data }) => {
-        this.props.navigator.setTabBadge({
-          badge: data.length
-        })
-
-        this.setState(() => {
-          return {
-            notifications: data,
-            loading: false
-          }
-        })
-      })
-      .catch(() => this.setState({ notifications: [], loading: false }))
-  }
-
-  onRefresh = () => {
-    this.getNotifications()
   }
 
   focusNotification = ({ url }) => {
@@ -66,9 +47,8 @@ export class Notifications extends PureComponent {
   }
 
   render () {
-    const { notifications, url } = this.state
-
-    if (!notifications) return null
+    // const { notifications, url } = this.state
+    const { list, loading, fetchNotifications } = this.props
 
     return (
       <Page>
@@ -76,8 +56,8 @@ export class Notifications extends PureComponent {
           style={styles.list}
           refreshControl={
             <RefreshControl
-              refreshing={this.state.loading}
-              onRefresh={this.onRefresh}
+              refreshing={loading}
+              onRefresh={fetchNotifications}
               tintColor='black'
               title='Loading...'
               titleColor='black'
@@ -87,8 +67,8 @@ export class Notifications extends PureComponent {
           }
         >
           {
-            notifications.map((n, index) => (
-              <TouchableOpacity onPress={partial(this.focusNotification, n)} key={index} >
+            list && list.map((n, index) => (
+              <TouchableOpacity onPress={partial(this.focusNotification, n)} key={index}>
                 <View style={styles.item}>
                   <Text style={styles.title}>{n.subject.title}</Text>
                   <Text style={styles.repo}>{n.repository.full_name}</Text>

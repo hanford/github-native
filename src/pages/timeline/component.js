@@ -12,8 +12,7 @@ import {
 import fecha from 'fecha'
 import { compile } from 'parse-github-event'
 
-import { fetchTimeline, getToken } from '../api/github-api'
-import { Page } from '../components'
+import { Page } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
@@ -55,32 +54,10 @@ const styles = StyleSheet.create({
 
 export class Timeline extends PureComponent {
 
-  state = {
-    timeline: [],
-    loading: true,
-    url: null
-  }
-
-  componentDidMount () {
-    this.getTimeline()
-  }
-
-  getTimeline = () => {
-    this.setState({ loading: true })
-
-    return fetchTimeline()
-      .then(({ data }) => this.setState({ timeline: data, loading: false }))
-      .catch(() => this.setState({ timeline: [], loading: false }))
-  }
-
-  onRefresh = () => {
-    this.getTimeline()
-  }
-
   render () {
-    const { timeline, url } = this.state
+    const { list, loading, fetchTimeline } = this.props
 
-    if (!timeline) return null
+    if (!list) return null
 
     return (
       <Page>
@@ -88,8 +65,8 @@ export class Timeline extends PureComponent {
           style={styles.list}
           refreshControl={
             <RefreshControl
-              refreshing={this.state.loading}
-              onRefresh={this.onRefresh}
+              refreshing={loading}
+              onRefresh={fetchTimeline}
               tintColor='black'
               title='Loading...'
               titleColor='black'
@@ -99,7 +76,7 @@ export class Timeline extends PureComponent {
           }
         >
           {
-            timeline.map((ti, index) => {
+            list && list.map((ti, index) => {
               const parsed = compile(ti)
 
               return (

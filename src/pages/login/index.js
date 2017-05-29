@@ -1,3 +1,3 @@
-import Issues from './container'
+import Login from './container'
 
-export default Issues
+export default Login

@@ -1,0 +1,4 @@
+export default {
+  FETCH_TIMELINE: 'FETCH_TIMELINE',
+  SET_TIMELINE: 'SET_TIMELINE'
+}

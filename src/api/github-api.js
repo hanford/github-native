@@ -2,10 +2,11 @@ const api = 'https://api.github.com'
 
 let token = ''
 
-export const setToken = (t) => token = t
-export const getToken = (t) => token
+export const setToken = t => token = t
+export const saveToken = t => token = t
+export const getToken = t => token
 
-export async function fetchNotifications () {
+export async function getNotifications () {
   try {
     const res = await fetchData('notifications?all=true')
     const data = await res.json()
@@ -29,7 +30,7 @@ export async function fetchRepos () {
   }
 }
 
-export async function fetchTimeline () {
+export async function getTimeline () {
   try {
     const res = await fetchData('users/hanford/received_events')
     const data = await res.json()
