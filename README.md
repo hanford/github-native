@@ -1,8 +1,7 @@
 ### Github Native
 Not really sure why nobody has done this in a reasonable way yet, guess I'll take a crack at it. ¯\_(ツ)_/¯
 
-![preview](https://github.com/hanford/github-native/blob/master/preview.gif)
-
+<img src="https://github.com/hanford/github-native/blob/master/preview.gif" alt="preview" style="width: 200px;"/>
 
 ### Installation
 
