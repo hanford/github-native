@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   title: {
-    fontSize: 14
+    fontSize: 14,
+    overflow: 'hidden',
+    width: '85%'
   },
   repo: {
     fontSize: 16
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 3,
     shadowOpacity: 0.5,
-    marginRight: 5,
+    marginRight: 10,
   }
 })
 
