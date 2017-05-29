@@ -11,9 +11,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,.1)'
   },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   title: {
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginBottom: 10
   },
   repo: {
     fontSize: 16
@@ -23,8 +30,11 @@ const styles = StyleSheet.create({
 export const RepoItem = (n) => (
   <View style={styles.item}>
     <Text style={styles.title}>{n.name}</Text>
-    <Text>{n.description}</Text>
-    <Text>⭐️ {n.stars} - <Text style={styles.repo}>{n.language}</Text></Text>
+    <Text style={{marginBottom: 10}}>{n.description}</Text>
+    <View style={styles.row}>
+      <Text style={styles.repo}>{n.language}</Text>
+      <Text>⭐️ {n.stars}</Text>
+    </View>
   </View>
 )
 
