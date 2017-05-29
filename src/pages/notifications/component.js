@@ -48,6 +48,8 @@ export class Notifications extends PureComponent {
     // const { notifications, url } = this.state
     const { list, loading, fetchNotifications } = this.props
 
+    if (!list) return null
+
     return (
       <ScrollView
         style={styles.list}

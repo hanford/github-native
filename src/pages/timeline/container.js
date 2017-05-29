@@ -17,6 +17,7 @@ function mapDispatchToProps (dispatch) {
     fetchTimeline: () => dispatch(fetchTimeline())
   }
 }
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

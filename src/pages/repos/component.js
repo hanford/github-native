@@ -13,7 +13,7 @@ import { RepoItem } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1
+    flex: 1,
   }
 })
 
@@ -21,6 +21,8 @@ export class Repos extends PureComponent {
 
   render () {
     const { list, loading, fetchRepos } = this.props
+
+    if (!list) return null
 
     return (
       <ScrollView

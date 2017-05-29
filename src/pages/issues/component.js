@@ -31,6 +31,8 @@ export class Issues extends PureComponent {
   render () {
     const { list, loading, fetchIssues } = this.props
 
+    if (!list) return null
+
     return (
       <ScrollView
         style={styles.list}

@@ -18,16 +18,8 @@ function mapDispatchToProps (dispatch) {
     fetchIssues: () => dispatch(fetchIssues())
   }
 }
-class IssuesContainer extends PureComponent {
-
-  render () {
-    return (
-      <Component {...this.props} />
-    )
-  }
-}
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(IssuesContainer)
+)(Component)
