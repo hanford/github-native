@@ -8,7 +8,7 @@ function mapStateToProps (state) {
 
   return {
     list: state.timeline.list,
-    loading: state.timeline.loading
+    loading: state.loading.timeline
   }
 }
 

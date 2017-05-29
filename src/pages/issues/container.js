@@ -9,7 +9,7 @@ function mapStateToProps (state) {
 
   return {
     list: state.issues.list,
-    loading: state.issues.loading
+    loading: state.loading.issues
   }
 }
 

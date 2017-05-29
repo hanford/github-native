@@ -8,7 +8,7 @@ function mapStateToProps (state) {
 
   return {
     list: state.repos.list,
-    loading: state.repos.loading
+    loading: state.loading.repos
   }
 }
 

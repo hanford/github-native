@@ -8,7 +8,7 @@ function mapStateToProps (state) {
 
   return {
     list: state.notifications.list,
-    loading: state.notifications.loading
+    loading: state.loading.notifications
   }
 }
 

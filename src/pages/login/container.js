@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 
 import { connect } from 'react-redux'
-import { setToken } from '../../redux/user/actions'
+import { setToken, login, logout } from '../../redux/user/actions'
 
 import Component from './component'
 
@@ -15,7 +15,9 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    setToken: (t) => dispatch(setToken(t))
+    setToken: (t) => dispatch(setToken(t)),
+    login: (t) => dispatch(login(t)),
+    logout: (t) => dispatch(logout(t))
   }
 }
 

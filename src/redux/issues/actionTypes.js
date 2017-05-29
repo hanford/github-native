@@ -1,4 +1,3 @@
 export default {
-  FETCH_ISSUES: 'FETCH_ISSUES',
   SET_ISSUES: 'SET_ISSUES'
 }

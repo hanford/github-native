@@ -1,71 +1,36 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TextInput, View, Text, Button } from 'react-native'
-import OAuthManager from 'react-native-oauth'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { Navigation } from 'react-native-navigation'
-
-import config from '../../../config.json'
-import { setToken } from '../../api/github-api'
-
-const manager = new OAuthManager('githubnative')
-manager.configure(config)
 
 const styles = StyleSheet.create({
   login: {
-    margin: 20
-  },
-  pwInput: {
-    margin: 20
+    margin: 20,
+    marginBottom: 60,
+    justifyContent: 'flex-end',
+    flex: 1
   }
 })
 
 export class Login extends PureComponent {
-  state = {
-    token: null
-  }
-
-  beginAuth = () => {
-    manager.authorize('github', {scopes: 'user repo notifications'})
-      .then(({ response }) => {
-        const token = response.credentials.accessToken
-
-        this.props.setToken(token)
-        setToken(token)
-        this.setState({ token })
-
-      })
-      .catch(err => console.log('There was an error'))
-  }
-
-  removeAuth = () => {
-    manager.deauthorize('github')
-    this.setState({ token: null })
-
-    this.props.navigator.resetTo({
-      screen: 'githubnative.Login',
-      title: 'githubnative',
-      animated: true
-    })
-  }
 
   render () {
-    const { token } = this.state
+    const { token, login, logout } = this.props
 
     return (
       <View style={styles.login}>
+        <Text>Github Native</Text>
+        <Text>Version: 0.0.4</Text>
         {
           token
           ? (
-            <Button
-              onPress={this.removeAuth}
-              title='Logout'
-              color='red'
-            />
+            <TouchableOpacity onPress={logout}>
+              <Text style={{fontSize: 18, marginTop: 30}}>Logout</Text>
+            </TouchableOpacity>
           )
           : (
-            <Button
-              onPress={this.beginAuth}
-              title='Login'
-            />
+            <TouchableOpacity onPress={login}>
+              <Text style={{fontSize: 18, marginTop: 30}}>Login</Text>
+            </TouchableOpacity>
           )
         }
       </View>

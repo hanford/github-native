@@ -20,32 +20,26 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 10,
-    paddingBottom: 10,
-    flexDirection: 'row'
+    paddingTop: 20,
+    paddingBottom: 20,
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
   },
   title: {
     fontSize: 14,
     overflow: 'hidden',
-    width: '85%'
-  },
-  repo: {
-    fontSize: 16
+    width: '85%',
+    display: 'flex',
+    flexDirection: 'column'
   },
   ava: {
-    height: 50,
-    width: 50,
-    borderRadius: 25
+    height: 36,
+    width: 36,
+    borderRadius: 4
   },
   shadow: {
-    borderRadius: 25,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 1
-    },
-    shadowRadius: 3,
-    shadowOpacity: 0.5,
+    borderRadius: 4,
     marginRight: 10,
   }
 })
@@ -84,7 +78,10 @@ export class Timeline extends PureComponent {
                     style={styles.ava}
                     />
                 </View>
-                <Text style={styles.title}>{parsed} {fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                <View style={styles.title}>
+                  <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                  <Text>{parsed}</Text>
+                </View>
               </View>
             )
           })
