@@ -18,8 +18,8 @@ export class Login extends PureComponent {
 
     return (
       <View style={styles.login}>
-        <Text>Github Native</Text>
-        <Text>Version: 0.0.4</Text>
+        <Text style={{fontSize: 18, marginTop: 10}}>Github Native</Text>
+        <Text style={{fontSize: 18, marginTop: 10}}>Version: 0.0.4</Text>
         {
           token
           ? (
