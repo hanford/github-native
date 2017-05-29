@@ -10,7 +10,6 @@ export default (state = initialState, action) => {
     case t.SET_TIMELINE:
       return {
         ...state,
-        loading: false,
         list: action.timeline
       }
 

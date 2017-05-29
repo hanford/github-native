@@ -20,9 +20,9 @@ export function fetchTrending () {
   }
 }
 
-export function setTrending (repos) {
+export function setTrending (trending) {
   return {
     type: t.SET_TRENDING,
-    repos
+    trending
   }
 }

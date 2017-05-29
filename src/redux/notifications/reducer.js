@@ -10,7 +10,6 @@ export default (state = initialState, action) => {
     case t.SET_NOTIFICATIONS:
       return {
         ...state,
-        loading: false,
         list: action.notifications
       }
 

@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
     case t.SET_TRENDING:
       return {
         ...state,
-        list: action.repos
+        list: action.trending
       }
 
     default:
