@@ -4,7 +4,8 @@ const initialState = {
   issues: false,
   repos: false,
   notifications: false,
-  timeline: false
+  timeline: false,
+  trending: false
 }
 
 export default (state = initialState, action) => {
@@ -55,6 +56,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         notifications: false
+      }
+
+    case t.REQUEST_TRENDING:
+      return {
+        ...state,
+        trending: false
+      }
+
+    case t.RECEIVE_TRENDING:
+      return {
+        ...state,
+        trending: false
       }
 
     default:

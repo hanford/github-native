@@ -7,6 +7,7 @@ import config from '../../../config.json'
 
 import { fetchNotifications } from '../notifications/actions'
 import { fetchTimeline } from '../timeline/actions'
+import { fetchTrending } from '../trending/actions'
 import { fetchIssues } from '../issues/actions'
 import { fetchRepos } from '../repos/actions'
 
@@ -40,6 +41,7 @@ export function setToken (token) {
     // get initial data
     dispatch(fetchNotifications())
     dispatch(fetchTimeline())
+    dispatch(fetchTrending())
     dispatch(fetchIssues())
     dispatch(fetchRepos())
   }

@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case t.SET_REPOS:
+    case t.SET_TRENDING:
       return {
         ...state,
         list: action.repos

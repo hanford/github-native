@@ -47,3 +47,15 @@ export function receiveNotifications () {
     type: t.RECEIVE_NOTIFICATIONS
   }
 }
+
+export function requestTrending () {
+  return {
+    type: t.REQUEST_TRENDING
+  }
+}
+
+export function receiveTrending () {
+  return {
+    type: t.RECEIVE_TRENDING
+  }
+}

@@ -4,6 +4,7 @@ import thunk from 'redux-thunk'
 import user from './user/reducer'
 import notifications from './notifications/reducer'
 import timeline from './timeline/reducer'
+import trending from './trending/reducer'
 import loading from './loading/reducer'
 import issues from './issues/reducer'
 import repos from './repos/reducer'
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   timeline,
   issues,
   repos,
-  loading
+  loading,
+  trending
 })
 
 export function configureStore () {
