@@ -2,9 +2,6 @@ import React, { PureComponent } from 'react'
 import { StyleSheet, TextInput, View, Text, ScrollView, RefreshControl } from 'react-native'
 import { partial } from 'ap'
 
-import { fetchIssues } from '../../api/github-api'
-import { Page } from '../../components'
-
 const styles = StyleSheet.create({
   list: {
     flex: 1
@@ -31,62 +28,36 @@ const styles = StyleSheet.create({
 })
 
 export class Issues extends PureComponent {
-
-  state = {
-    issues: [],
-    loading: true
-  }
-
-  componentDidMount () {
-    this.getIssues()
-  }
-
-  getIssues = () => {
-    this.setState({ loading: true })
-
-    return fetchIssues()
-      .then(({ data }) => this.setState({ issues: data, loading: false }))
-      .catch(() => this.setState({ issues: [], loading: false }))
-  }
-
-  onRefresh = () => {
-    this.getIssues()
-  }
-
   render () {
-    const { issues, url } = this.state
-
-    if (!issues) return null
+    const { list, loading, fetchIssues } = this.props
 
     return (
-      <Page>
-        <ScrollView
-          style={styles.list}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.loading}
-              onRefresh={this.onRefresh}
-              tintColor='black'
-              title='Loading...'
-              titleColor='black'
-              colors={['#ff0000', '#00ff00', '#0000ff']}
-              progressBackgroundColor='#ffff00'
-            />
-          }
-        >
-          {
-            issues.map((n, index) => (
-              <View style={styles.item} key={index}>
-                <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
-                <View style={{display: 'flex'}}>
-                  <Text style={styles.title}>{n.title}</Text>
-                  <Text>Assigned: {n.assignee.login}</Text>
-                </View>
+      <ScrollView
+        style={styles.list}
+        refreshControl={
+          <RefreshControl
+            refreshing={loading}
+            onRefresh={fetchIssues}
+            tintColor='black'
+            title='Loading...'
+            titleColor='black'
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor='#ffff00'
+          />
+        }
+      >
+        {
+          list.map((n, index) => (
+            <View style={styles.item} key={index}>
+              <Text style={styles.issue}>{n.state === 'open' ? '◉' : 'x'}</Text>
+              <View style={{display: 'flex'}}>
+                <Text style={styles.title}>{n.title}</Text>
+                <Text>Assigned: {n.assignee.login}</Text>
               </View>
-            ))
-          }
-        </ScrollView>
-      </Page>
+            </View>
+          ))
+        }
+      </ScrollView>
     )
   }
 }

@@ -12,8 +12,6 @@ import {
 import fecha from 'fecha'
 import { compile } from 'parse-github-event'
 
-import { Page } from '../../components'
-
 const styles = StyleSheet.create({
   list: {
     flex: 1
@@ -60,40 +58,38 @@ export class Timeline extends PureComponent {
     if (!list) return null
 
     return (
-      <Page>
-        <ScrollView
-          style={styles.list}
-          refreshControl={
-            <RefreshControl
-              refreshing={loading}
-              onRefresh={fetchTimeline}
-              tintColor='black'
-              title='Loading...'
-              titleColor='black'
-              colors={['#ff0000', '#00ff00', '#0000ff']}
-              progressBackgroundColor='#ffff00'
-            />
-          }
-        >
-          {
-            list && list.map((ti, index) => {
-              const parsed = compile(ti)
+      <ScrollView
+        style={styles.list}
+        refreshControl={
+          <RefreshControl
+            refreshing={loading}
+            onRefresh={fetchTimeline}
+            tintColor='black'
+            title='Loading...'
+            titleColor='black'
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor='#ffff00'
+          />
+        }
+      >
+        {
+          list && list.map((ti, index) => {
+            const parsed = compile(ti)
 
-              return (
-                <View style={styles.item} key={index}>
-                  <View style={styles.shadow}>
-                    <Image
-                      source={{uri: ti.actor.avatar_url}}
-                      style={styles.ava}
-                      />
-                  </View>
-                  <Text style={styles.title}>{parsed} {fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+            return (
+              <View style={styles.item} key={index}>
+                <View style={styles.shadow}>
+                  <Image
+                    source={{uri: ti.actor.avatar_url}}
+                    style={styles.ava}
+                    />
                 </View>
-              )
-            })
-          }
-        </ScrollView>
-      </Page>
+                <Text style={styles.title}>{parsed} {fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+              </View>
+            )
+          })
+        }
+      </ScrollView>
     )
   }
 }

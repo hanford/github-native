@@ -5,7 +5,6 @@ import { Navigation } from 'react-native-navigation'
 
 import config from '../../../config.json'
 import { setToken } from '../../api/github-api'
-import { Header, Page } from '../../components'
 
 const manager = new OAuthManager('githubnative')
 manager.configure(config)
@@ -52,27 +51,24 @@ export class Login extends PureComponent {
     const { token } = this.state
 
     return (
-      <Page>
-        <Header>Login</Header>
-        <View style={styles.login}>
-          {
-            token
-            ? (
-              <Button
-                onPress={this.removeAuth}
-                title='Logout'
-                color='red'
-              />
-            )
-            : (
-              <Button
-                onPress={this.beginAuth}
-                title='Login'
-              />
-            )
-          }
-        </View>
-      </Page>
+      <View style={styles.login}>
+        {
+          token
+          ? (
+            <Button
+              onPress={this.removeAuth}
+              title='Logout'
+              color='red'
+            />
+          )
+          : (
+            <Button
+              onPress={this.beginAuth}
+              title='Login'
+            />
+          )
+        }
+      </View>
     )
   }
 }

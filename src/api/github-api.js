@@ -18,7 +18,7 @@ export async function getNotifications () {
   }
 }
 
-export async function fetchRepos () {
+export async function getRepos () {
   try {
     const res = await fetchData('user/repos?per_page=1000')
     const data = await res.json()
@@ -42,7 +42,7 @@ export async function getTimeline () {
   }
 }
 
-export async function fetchIssues () {
+export async function getIssues () {
   try {
     const res = await fetchData('user/issues')
     const data = await res.json()

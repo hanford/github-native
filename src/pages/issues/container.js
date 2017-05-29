@@ -1,21 +1,23 @@
 import React, { PureComponent } from 'react'
 
 import { connect } from 'react-redux'
-import { fetchData } from '../../redux/user/actions'
+import { fetchIssues } from '../../redux/issues/actions'
 
 import Component from './component'
 
 function mapStateToProps (state) {
+
   return {
-    user: state.user
+    list: state.issues.list,
+    loading: state.issues.loading
   }
 }
 
 function mapDispatchToProps (dispatch) {
   return {
+    fetchIssues: () => dispatch(fetchIssues())
   }
 }
-
 class IssuesContainer extends PureComponent {
 
   render () {
