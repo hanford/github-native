@@ -38,5 +38,8 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Login', // unique ID registered with Navigation.registerScreen
       passProps: {} // simple serializable object that will pass as props to all top screens (optional)
     }
+  },
+  tabsStyle: { // optional, **iOS Only** add this if you want to style the tab bar beyond the defaults
+    tabBarTranslucent: false
   }
 })
