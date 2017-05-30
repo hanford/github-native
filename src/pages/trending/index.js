@@ -1,3 +1,3 @@
-import Timeline from './container'
+import Trending from './container'
 
-export default Timeline
+export default Trending
