@@ -98,8 +98,8 @@ export class Issues extends PureComponent {
       >
         {
           list.map((n, index) => (
-            <TouchableOpacity>
-              <View style={styles.item} key={index}>
+            <TouchableOpacity key={index}>
+              <View style={styles.item}>
                 <Text style={styles.title}>{n.title}</Text>
                 <View style={styles.row}>
                   <Text>Assigned: {n.assignee.login}</Text>

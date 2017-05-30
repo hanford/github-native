@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0,0,0,.1)',
   },
   title: {
-    fontSize: 14,
     overflow: 'hidden',
     width: '85%',
     display: 'flex',
@@ -69,7 +68,7 @@ export class Timeline extends PureComponent {
             const parsed = compile(ti)
 
             return (
-              <TouchableOpacity>
+              <TouchableOpacity key={index}>
                 <View style={styles.item} key={index}>
                   <View style={styles.shadow}>
                     <Image
