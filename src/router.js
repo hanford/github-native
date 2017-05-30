@@ -13,12 +13,6 @@ Screens(store, Provider)
 Navigation.startTabBasedApp({
   tabs: [
     {
-      label: 'Trending',
-      screen: 'githubnative.Trending',
-      title: 'Trending',
-      icon: require('./icons/trending.png')
-    },
-    {
       label: 'Timeline',
       screen: 'githubnative.Timeline',
       title: 'Timeline',
@@ -29,6 +23,12 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Notifications',
       title: 'Notifications',
       icon: require('./icons/notifications.png')
+    },
+    {
+      label: 'Trending',
+      screen: 'githubnative.Trending',
+      title: 'Trending',
+      icon: require('./icons/trending.png')
     },
     {
       label: 'Issues',
