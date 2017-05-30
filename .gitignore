@@ -2,6 +2,8 @@ node_modules/
 *.log
 config.json
 
+ios/main.jsbundle*
+
 # OSX
 #
 .DS_Store
