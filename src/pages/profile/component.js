@@ -47,7 +47,9 @@ const styles = StyleSheet.create({
   closeButton: {
     width: '100%',
     height: 50,
-    backgroundColor: 'red',
+    borderTopWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    backgroundColor: '#fafbfc',
     alignItems: 'center',
     justifyContent: 'center'
   }
@@ -122,7 +124,7 @@ export class Profile extends PureComponent {
         <Repos />
 
         <TouchableOpacity onPress={this.closeModal} style={styles.closeButton}>
-          <Text style={{color: 'white'}}>Close</Text>
+          <Text style={{fontWeight: 'bold'}}>Close</Text>
         </TouchableOpacity>
       </View>
     )
