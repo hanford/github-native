@@ -29,7 +29,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: 'gray'
   },
+  count: {
+    fontWeight: 'bold',
+    fontSize: 22
+  },
   sub: {
+    fontSize: 16
+  },
+  label: {
     fontSize: 16
   },
   statItem: {
@@ -39,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     padding: 10,
     borderColor: 'rgba(0,0,0,.1)',
     borderBottomWidth: 1
@@ -105,18 +112,18 @@ export class Profile extends PureComponent {
 
         <View style={styles.statRow}>
           <View style={styles.statItem}>
-            <Text style={{fontWeight: 'bold'}}>{public_repos}</Text>
-            <Text>Repos</Text>
+            <Text style={styles.count}>{public_repos}</Text>
+            <Text style={styles.label}>Repos</Text>
           </View>
 
           <View style={styles.statItem}>
-            <Text style={{fontWeight: 'bold'}}>{followers}</Text>
-            <Text>Followers</Text>
+            <Text style={styles.count}>{followers}</Text>
+            <Text style={styles.label}>Followers</Text>
           </View>
 
           <View style={styles.statItem}>
-            <Text style={{fontWeight: 'bold'}}>{following}</Text>
-            <Text>Following</Text>
+            <Text style={styles.count}>{following}</Text>
+            <Text style={styles.label}>Following</Text>
           </View>
         </View>
 

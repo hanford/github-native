@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, Button } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 
 const styles = StyleSheet.create({
@@ -35,30 +35,41 @@ export class Login extends PureComponent {
 
   render () {
     const { token, login, logout } = this.props
+    // <Text style={{fontSize: 18, marginTop: 10}}>Github Native</Text>
+    // <Text style={{fontSize: 18, marginTop: 10}}>Version: 0.0.4</Text>
+
+    // <Button
+    //   onPress={this.viewTrending}
+    //   title='Trending'
+    //   style={{fontSize: 18, marginTop: 10}}
+    // />
+
 
     return (
       <View style={styles.login}>
-        <Text style={{fontSize: 18, marginTop: 10}}>Github Native</Text>
-        <Text style={{fontSize: 18, marginTop: 10}}>Version: 0.0.4</Text>
-        <TouchableOpacity onPress={this.visitProfile}>
-          <Text style={{fontSize: 18, marginTop: 10}}>Profile</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.viewTrending}>
-          <Text style={{fontSize: 18, marginTop: 10}}>Trending</Text>
-        </TouchableOpacity>
+        <Button
+          onPress={this.visitProfile}
+          title='Profile'
+          style={{fontSize: 18, marginTop: 10}}
+        />
 
         {
           token
           ? (
-            <TouchableOpacity onPress={logout}>
-              <Text style={{fontSize: 18, marginTop: 30, color: 'red'}}>Logout</Text>
-            </TouchableOpacity>
+            <Button
+              onPress={logout}
+              style={{fontSize: 18, marginTop: 10}}
+              color='red'
+              title='Logout'
+            />
           )
           : (
-            <TouchableOpacity onPress={login}>
-              <Text style={{fontSize: 18, marginTop: 30, color: '#007aff', borderTopWidth: 1, borderColor: 'rgba(0,0,0,.1)'}}>Login</Text>
-            </TouchableOpacity>
+            <Button
+              onPress={login}
+              style={{fontSize: 18, marginTop: 10}}
+              color='#007aff'
+              title='Login'
+            />
           )
         }
       </View>

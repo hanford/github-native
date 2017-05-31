@@ -17,6 +17,12 @@ store.dispatch(login())
 Navigation.startTabBasedApp({
   tabs: [
     {
+      label: 'Trending',
+      screen: 'githubnative.Trending',
+      title: 'Trending',
+      icon: require('./icons/trending.png')
+    },
+    {
       label: 'Timeline',
       screen: 'githubnative.Timeline',
       title: 'Timeline',
@@ -35,13 +41,12 @@ Navigation.startTabBasedApp({
       icon: require('./icons/issues.png')
     }
   ],
-  drawer: { // optional, add this if you want a side menu drawer in your app
-    left: { // optional, define if you want a drawer from the left
-      screen: 'githubnative.Login', // unique ID registered with Navigation.registerScreen
-      passProps: {} // simple serializable object that will pass as props to all top screens (optional)
+  drawer: {
+    left: {
+      screen: 'githubnative.Login'
     }
   },
-  tabsStyle: { // optional, **iOS Only** add this if you want to style the tab bar beyond the defaults
+  tabsStyle: {
     tabBarTranslucent: false
   }
 })

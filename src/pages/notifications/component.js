@@ -48,7 +48,11 @@ export class Notifications extends PureComponent {
 
   render () {
     // const { notifications, url } = this.state
-    const { list, loading, fetchNotifications } = this.props
+    const { list, loading, fetchNotifications, navigator } = this.props
+
+    navigator.setTabBadge({
+      badge: list.length
+    })
 
     if (!list) return null
 
