@@ -57,32 +57,34 @@ export class Notifications extends PureComponent {
     if (!list) return null
 
     return (
-      <ScrollView
-        style={styles.list}
-        refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={fetchNotifications}
-            tintColor='black'
-            title='Loading...'
-            titleColor='black'
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor='#ffff00'
-          />
-        }
-      >
-        {
-          list.map((n, index) => (
-            <TouchableOpacity onPress={partial(this.focusNotification, n)} key={index}>
-              <View style={styles.item}>
-                <Text style={styles.title}>{n.subject.title}</Text>
-                <Text style={styles.repo}>{n.repository.full_name}</Text>
-                <Text>{fecha.format(new Date(n.updated_at), 'M/D/YY h:mm A')} </Text>
-              </View>
-            </TouchableOpacity>
-          ))
-        }
-      </ScrollView>
+      <View style={styles.list}>
+        <ScrollView
+          style={{height: 0}}
+          refreshControl={
+            <RefreshControl
+              refreshing={loading}
+              onRefresh={fetchNotifications}
+              tintColor='black'
+              title='Loading...'
+              titleColor='black'
+              colors={['#ff0000', '#00ff00', '#0000ff']}
+              progressBackgroundColor='#ffff00'
+            />
+          }
+        >
+          {
+            list.map((n, index) => (
+              <TouchableOpacity onPress={partial(this.focusNotification, n)} key={index}>
+                <View style={styles.item}>
+                  <Text style={styles.title}>{n.subject.title}</Text>
+                  <Text style={styles.repo}>{n.repository.full_name}</Text>
+                  <Text>{fecha.format(new Date(n.updated_at), 'M/D/YY h:mm A')} </Text>
+                </View>
+              </TouchableOpacity>
+            ))
+          }
+        </ScrollView>
+      </View>
     )
   }
 }

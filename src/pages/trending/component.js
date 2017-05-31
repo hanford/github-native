@@ -26,9 +26,9 @@ export class Trending extends PureComponent {
     if (!list) return null
 
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.list}>
         <ScrollView
-          style={styles.list}
+          style={{height: 0}}
           refreshControl={
             <RefreshControl
               refreshing={loading}

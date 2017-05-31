@@ -49,43 +49,45 @@ export class Timeline extends PureComponent {
     if (!list) return null
 
     return (
-      <ScrollView
-        style={styles.list}
-        refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={fetchTimeline}
-            tintColor='black'
-            title='Loading...'
-            titleColor='black'
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor='#ffff00'
-          />
-        }
-      >
-        {
-          list && list.map((ti, index) => {
-            const parsed = compile(ti)
+      <View style={styles.list}>
+        <ScrollView
+          style={{height: 0}}
+          refreshControl={
+            <RefreshControl
+              refreshing={loading}
+              onRefresh={fetchTimeline}
+              tintColor='black'
+              title='Loading...'
+              titleColor='black'
+              colors={['#ff0000', '#00ff00', '#0000ff']}
+              progressBackgroundColor='#ffff00'
+            />
+          }
+        >
+          {
+            list && list.map((ti, index) => {
+              const parsed = compile(ti)
 
-            return (
-              <TouchableOpacity key={index}>
-                <View style={styles.item} key={index}>
-                  <View style={styles.shadow}>
-                    <Image
-                      source={{uri: ti.actor.avatar_url}}
-                      style={styles.ava}
-                      />
+              return (
+                <TouchableOpacity key={index}>
+                  <View style={styles.item} key={index}>
+                    <View style={styles.shadow}>
+                      <Image
+                        source={{uri: ti.actor.avatar_url}}
+                        style={styles.ava}
+                        />
+                    </View>
+                    <View style={styles.title}>
+                      <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                      <Text>{parsed}</Text>
+                    </View>
                   </View>
-                  <View style={styles.title}>
-                    <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
-                    <Text>{parsed}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            )
-          })
-        }
-      </ScrollView>
+                </TouchableOpacity>
+              )
+            })
+          }
+        </ScrollView>
+      </View>
     )
   }
 }

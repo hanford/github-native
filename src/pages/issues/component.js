@@ -82,45 +82,47 @@ export class Issues extends PureComponent {
     if (!list) return null
 
     return (
-      <ScrollView
-        style={styles.list}
-        refreshControl={
-          <RefreshControl
-            refreshing={loading}
-            onRefresh={fetchIssues}
-            tintColor='black'
-            title='Loading...'
-            titleColor='black'
-            colors={['#ff0000', '#00ff00', '#0000ff']}
-            progressBackgroundColor='#ffff00'
-          />
-        }
-      >
-        {
-          list.map((n, index) => (
-            <TouchableOpacity key={index}>
-              <View style={styles.item}>
-                <Text style={styles.title}>{n.title}</Text>
-                <View style={styles.row}>
-                  <Text>Assigned: {n.assignee.login}</Text>
-                  <View>
-                  <Animated.Text
-                    style={{
-                      color: '#00bf8b',
-                      transform: [
-                        {scale: scaleValue}
-                      ]
-                    }}
-                  >
-                    {n.state === 'open' ? '•' : 'x'}
-                  </Animated.Text>
+      <View style={styles.list}>
+        <ScrollView
+          style={{height: 0}}
+          refreshControl={
+            <RefreshControl
+              refreshing={loading}
+              onRefresh={fetchIssues}
+              tintColor='black'
+              title='Loading...'
+              titleColor='black'
+              colors={['#ff0000', '#00ff00', '#0000ff']}
+              progressBackgroundColor='#ffff00'
+            />
+          }
+        >
+          {
+            list.map((n, index) => (
+              <TouchableOpacity key={index}>
+                <View style={styles.item}>
+                  <Text style={styles.title}>{n.title}</Text>
+                  <View style={styles.row}>
+                    <Text>Assigned: {n.assignee.login}</Text>
+                    <View>
+                    <Animated.Text
+                      style={{
+                        color: '#00bf8b',
+                        transform: [
+                          {scale: scaleValue}
+                        ]
+                      }}
+                    >
+                      {n.state === 'open' ? '•' : 'x'}
+                    </Animated.Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </TouchableOpacity>
-          ))
-        }
-      </ScrollView>
+              </TouchableOpacity>
+            ))
+          }
+        </ScrollView>
+      </View>
     )
   }
 }
