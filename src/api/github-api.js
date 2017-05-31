@@ -11,7 +11,9 @@ export async function getNotifications () {
     const res = await fetchData('notifications?all=true')
     const data = await res.json()
 
-    return { data }
+    return {
+      data
+    }
   }
   catch (err) {
     throw err
@@ -23,7 +25,9 @@ export async function getRepos () {
     const res = await fetchData('user/repos?per_page=1000')
     const data = await res.json()
 
-    return { data }
+    return {
+      data
+    }
   }
   catch (err) {
     throw err
@@ -35,7 +39,9 @@ export async function getTimeline () {
     const res = await fetchData('users/hanford/received_events')
     const data = await res.json()
 
-    return { data }
+    return {
+      data
+    }
   }
   catch (err) {
     throw err
@@ -47,7 +53,23 @@ export async function getIssues () {
     const res = await fetchData('user/issues')
     const data = await res.json()
 
-    return { data }
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function getUserProfile () {
+  try {
+    const res = await fetchData('user')
+    const data = await res.json()
+
+    return {
+      data
+    }
   }
   catch (err) {
     throw err

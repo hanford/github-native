@@ -59,3 +59,15 @@ export function receiveTrending () {
     type: t.RECEIVE_TRENDING
   }
 }
+
+export function requestProfile () {
+  return {
+    type: t.REQUEST_PROFILE
+  }
+}
+
+export function receiveProfile () {
+  return {
+    type: t.RECEIVE_PROFILE
+  }
+}

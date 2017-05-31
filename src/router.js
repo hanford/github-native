@@ -4,11 +4,15 @@ import { Navigation } from 'react-native-navigation'
 import { Provider } from 'react-redux'
 
 import { configureStore } from './redux'
+import { login } from './redux/user/actions'
 import Screens from './screens'
 
 const store = configureStore()
 
 Screens(store, Provider)
+
+// login first thing!
+store.dispatch(login())
 
 Navigation.startTabBasedApp({
   tabs: [
@@ -23,12 +27,6 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Notifications',
       title: 'Notifications',
       icon: require('./icons/notifications.png')
-    },
-    {
-      label: 'Trending',
-      screen: 'githubnative.Trending',
-      title: 'Trending',
-      icon: require('./icons/trending.png')
     },
     {
       label: 'Issues',

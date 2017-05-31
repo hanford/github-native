@@ -8,9 +8,11 @@ import Notifications from './pages/notifications'
 import Timeline from './pages/timeline'
 import Repos from './pages/repos'
 import Trending from './pages/trending'
+import Profile from './pages/profile'
 
 export default function (store, Provider) {
   Navigation.registerComponent('githubnative.Login', () => Login, store, Provider)
+  Navigation.registerComponent('githubnative.Profile', () => Profile, store, Provider)
   // Navigation.registerComponent('githubnative.Swiper', () => Swiper)
 
   Navigation.registerComponent('githubnative.Notifications', () => Notifications, store, Provider)

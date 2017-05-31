@@ -1,7 +1,8 @@
 import t from './actionTypes'
 
 const initialState = {
-  token: ''
+  token: '',
+  profile: {}
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +12,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         token: action.token
+      }
+
+    case t.SET_USER_PROFILE:
+      return {
+        ...state,
+        profile: action.profile
       }
 
     default:

@@ -2,9 +2,10 @@ import OAuthManager from 'react-native-oauth'
 
 import t from './actionTypes'
 
-import { saveToken } from '../../api/github-api'
+import { saveToken, getUserProfile } from '../../api/github-api'
 import config from '../../../config.json'
 
+import { requestProfile, receiveProfile } from '../loading/actions'
 import { fetchNotifications } from '../notifications/actions'
 import { fetchTimeline } from '../timeline/actions'
 import { fetchTrending } from '../trending/actions'
@@ -13,6 +14,28 @@ import { fetchRepos } from '../repos/actions'
 
 const manager = new OAuthManager('githubnative')
 manager.configure(config)
+
+export function fetchProfile () {
+  return dispatch => {
+    dispatch(requestProfile())
+
+    getUserProfile()
+      .then(({ data }) => {
+        dispatch(receiveProfile())
+        dispatch(setUserProfile(data))
+      })
+      .catch(err => {
+        dispatch(receiveProfile())
+      })
+  }
+}
+
+function setUserProfile (profile) {
+  return {
+    type: t.SET_USER_PROFILE,
+    profile
+  }
+}
 
 export function login () {
   return dispatch => {
@@ -44,5 +67,6 @@ export function setToken (token) {
     dispatch(fetchTrending())
     dispatch(fetchIssues())
     dispatch(fetchRepos())
+    dispatch(fetchProfile())
   }
 }

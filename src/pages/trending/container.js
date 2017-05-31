@@ -5,7 +5,6 @@ import { fetchTrending } from '../../redux/trending/actions'
 import Component from './component'
 
 function mapStateToProps (state) {
-  console.log(state)
   return {
     list: state.trending.list,
     loading: state.loading.trending

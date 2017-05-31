@@ -13,6 +13,26 @@ const styles = StyleSheet.create({
 
 export class Login extends PureComponent {
 
+  visitProfile = () => {
+    const { navigator } = this.props
+
+    navigator.showModal({
+      screen: 'githubnative.Profile',
+      title: 'Profile',
+      animationType: 'slide-up'
+    })
+  }
+
+  viewTrending = () => {
+    const { navigator } = this.props
+
+    navigator.showModal({
+      screen: 'githubnative.Trending',
+      title: 'Trending',
+      animationType: 'slide-up'
+    })
+  }
+
   render () {
     const { token, login, logout } = this.props
 
@@ -20,6 +40,14 @@ export class Login extends PureComponent {
       <View style={styles.login}>
         <Text style={{fontSize: 18, marginTop: 10}}>Github Native</Text>
         <Text style={{fontSize: 18, marginTop: 10}}>Version: 0.0.4</Text>
+        <TouchableOpacity onPress={this.visitProfile}>
+          <Text style={{fontSize: 18, marginTop: 10}}>Profile</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={this.viewTrending}>
+          <Text style={{fontSize: 18, marginTop: 10}}>Trending</Text>
+        </TouchableOpacity>
+
         {
           token
           ? (

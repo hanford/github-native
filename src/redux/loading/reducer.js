@@ -5,7 +5,8 @@ const initialState = {
   repos: false,
   notifications: false,
   timeline: false,
-  trending: false
+  trending: false,
+  profile: false
 }
 
 export default (state = initialState, action) => {
@@ -68,6 +69,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         trending: false
+      }
+
+    case t.REQUEST_PROFILE:
+      return {
+        ...state,
+        profile: true
+      }
+
+    case t.RECEIVE_PROFILE:
+      return {
+        ...state,
+        profile: false
       }
 
     default:
