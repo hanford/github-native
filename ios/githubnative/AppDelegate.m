@@ -30,7 +30,7 @@
   NSURL *jsCodeLocation;
 
 //  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil]; 
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
   
   [OAuthManager setupOAuthHandler:application];
   [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation];

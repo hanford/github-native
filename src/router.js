@@ -33,13 +33,7 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Issues',
       title: 'Issues',
       icon: require('./icons/issues.png')
-    },
-    {
-      label: 'Repos',
-      screen: 'githubnative.Repos',
-      title: 'Repos',
-      icon: require('./icons/repos.png')
-    },
+    }
   ],
   drawer: { // optional, add this if you want a side menu drawer in your app
     left: { // optional, define if you want a drawer from the left

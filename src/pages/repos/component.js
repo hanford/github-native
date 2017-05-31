@@ -23,8 +23,6 @@ export class Repos extends PureComponent {
   render () {
     const { list, loading, fetchRepos } = this.props
 
-    if (!list) return null
-
     return (
       <ScrollView
         style={styles.list}
@@ -41,7 +39,7 @@ export class Repos extends PureComponent {
         }
       >
         {
-          list && list.map((n, index) => (
+          list.map((n, index) => (
             <TouchableOpacity key={index}>
               <RepoItem
                 name={n.name}

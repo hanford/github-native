@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 
+import Repos from '../repos/container'
 import { RepoItem } from '../../components'
 
 const styles = StyleSheet.create({
@@ -116,6 +117,9 @@ export class Profile extends PureComponent {
             <Text>Following</Text>
           </View>
         </View>
+
+
+        <Repos />
 
         <TouchableOpacity onPress={this.closeModal} style={styles.closeButton}>
           <Text style={{color: 'white'}}>Close</Text>
