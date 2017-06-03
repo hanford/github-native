@@ -6,7 +6,8 @@ import {
   Text,
   ScrollView,
   SegmentedControlIOS,
-  ActivityIndicator
+  ActivityIndicator,
+  TouchableOpacity
 } from 'react-native'
 
 import { RepoItem, UserItem } from '../../components'
@@ -29,6 +30,18 @@ const styles = StyleSheet.create({
 
 export class Search extends PureComponent {
 
+  visitProfile = (login) => {
+    const { fetchUser, navigator } = this.props
+
+    fetchUser(login)
+
+    navigator.push({
+      screen: 'githubnative.Profile',
+      title: login,
+      animated: true
+    })
+  }
+
   renderResultList = () => {
     const { results, category, loading } = this.props
 
@@ -48,10 +61,11 @@ export class Search extends PureComponent {
         <ScrollView>
           {
             results.map((n, index) => (
-              <UserItem
-                key={index}
-                user={n}
-              />
+              <TouchableOpacity key={index} onPress={() => this.visitProfile(n.login)}>
+                <UserItem
+                  user={n}
+                />
+              </TouchableOpacity>
             ))
           }
         </ScrollView>

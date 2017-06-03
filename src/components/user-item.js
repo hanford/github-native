@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Image } from 'react-native'
 
 const styles = StyleSheet.create({
   item: {
@@ -30,15 +30,13 @@ const styles = StyleSheet.create({
 
 // onPress={() => this.visitProfile(ti.actor)}
 export const UserItem = ({ user }) => (
-  <TouchableOpacity>
-    <View style={styles.item}>
-      <Image
-        source={{uri: user.avatar_url}}
-        style={styles.ava}
-      />
-      <Text style={styles.title}>{user.login}</Text>
-    </View>
-  </TouchableOpacity>
+  <View style={styles.item}>
+    <Image
+      source={{uri: user.avatar_url}}
+      style={styles.ava}
+    />
+    <Text style={styles.title}>{user.login}</Text>
+  </View>
 )
 
 export default UserItem
