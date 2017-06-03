@@ -1,23 +1,16 @@
 import t from './actionTypes'
 
 const initialState = {
-  token: '',
-  login: ''
+  profile: {}
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case t.SET_TOKEN:
+    case t.SET_USER_PROFILE:
       return {
         ...state,
-        token: action.token
-      }
-
-    case t.SET_LOGIN:
-      return {
-        ...state,
-        login: action.login
+        profile: action.profile
       }
 
     default:

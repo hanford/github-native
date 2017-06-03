@@ -11,7 +11,6 @@ export function fetchRepos () {
     getRepos()
       .then(({ data }) => {
         dispatch(receiveRepos())
-        const repos = sortOn(data, '-stargazers_count')
         dispatch(setRepos(repos))
       })
       .catch(err => {
@@ -20,7 +19,12 @@ export function fetchRepos () {
   }
 }
 
+function sortRepos (repos) {
+  return sortOn(repos, '-stargazers_count')
+}
+
 export function setRepos (repos) {
+  repos = sortRepos(repos)
   return {
     type: t.SET_REPOS,
     repos

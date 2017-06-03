@@ -9,6 +9,7 @@ import Timeline from './pages/timeline'
 import Repos from './pages/repos'
 import Trending from './pages/trending'
 import Profile from './pages/profile'
+import Search from './pages/search'
 
 export default function (store, Provider) {
   Navigation.registerComponent('githubnative.Login', () => Login, store, Provider)
@@ -20,5 +21,6 @@ export default function (store, Provider) {
   // Navigation.registerComponent('githubnative.RepoSearch', () => RepoSearch)
   Navigation.registerComponent('githubnative.Trending', () => Trending, store, Provider)
   Navigation.registerComponent('githubnative.Issues', () => Issues, store, Provider)
+  Navigation.registerComponent('githubnative.Search', () => Search, store, Provider)
   Navigation.registerComponent('githubnative.Timeline', () => Timeline, store, Provider)
 }

@@ -1,23 +1,23 @@
 import t from './actionTypes'
 
 const initialState = {
-  token: '',
-  login: ''
+  text: '',
+  category: 0
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case t.SET_TOKEN:
+    case t.SET_SEARCH_TEXT:
       return {
         ...state,
-        token: action.token
+        text: action.text
       }
 
-    case t.SET_LOGIN:
+    case t.SET_SEARCH_CATEGORY:
       return {
         ...state,
-        login: action.login
+        category: action.category
       }
 
     default:

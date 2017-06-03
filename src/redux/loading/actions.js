@@ -71,3 +71,15 @@ export function receiveProfile () {
     type: t.RECEIVE_PROFILE
   }
 }
+
+export function requestSearch () {
+  return {
+    type: t.REQUEST_SEARCH
+  }
+}
+
+export function receiveSearch () {
+  return {
+    type: t.RECEIVE_SEARCH
+  }
+}

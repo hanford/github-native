@@ -62,9 +62,65 @@ export async function getIssues () {
   }
 }
 
-export async function getUserProfile () {
+export async function getUsersProfile (login) {
+  try {
+    const res = await fetchData(`users/${login}`)
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function getUsersRepos (login) {
+  try {
+    const res = await fetchData(`users/${login}/repos?per_page=1000`)
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function getCurrentUserProfile () {
   try {
     const res = await fetchData('user')
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function searchRepos (query) {
+  try {
+    const res = await fetchData(`search/repositories?q=${query}`)
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function searchUsers (query) {
+  try {
+    const res = await fetchData(`search/users?q=${query}`)
     const data = await res.json()
 
     return {

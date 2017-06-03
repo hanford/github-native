@@ -5,7 +5,8 @@ import {
   Image,
   View,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native'
 
 import Repos from '../repos/container'
@@ -64,14 +65,8 @@ const styles = StyleSheet.create({
 
 export class Profile extends PureComponent {
 
-  closeModal = () => {
-    this.props.navigator.dismissModal({
-      animationType: 'slide-down'
-    })
-  }
-
   render () {
-    const { profile } = this.props
+    const { profile, loading } = this.props
 
     const {
       name,
@@ -85,6 +80,8 @@ export class Profile extends PureComponent {
       followers,
       following
     } = profile
+
+    if (loading) return <ActivityIndicator style={{marginTop: 30}}/>
 
     return (
       <View
@@ -129,10 +126,6 @@ export class Profile extends PureComponent {
 
 
         <Repos />
-
-        <TouchableOpacity onPress={this.closeModal} style={styles.closeButton}>
-          <Text style={{fontWeight: 'bold'}}>Close</Text>
-        </TouchableOpacity>
       </View>
     )
   }

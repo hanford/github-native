@@ -16,34 +16,17 @@ export class Login extends PureComponent {
   visitProfile = () => {
     const { navigator } = this.props
 
-    navigator.showModal({
+    navigator.push({
       screen: 'githubnative.Profile',
       title: 'Profile',
-      animationType: 'slide-up'
+      animated: true
     })
-  }
 
-  viewTrending = () => {
-    const { navigator } = this.props
-
-    navigator.showModal({
-      screen: 'githubnative.Trending',
-      title: 'Trending',
-      animationType: 'slide-up'
-    })
+    navigator.toggleDrawer()
   }
 
   render () {
     const { token, login, logout } = this.props
-    // <Text style={{fontSize: 18, marginTop: 10}}>Github Native</Text>
-    // <Text style={{fontSize: 18, marginTop: 10}}>Version: 0.0.4</Text>
-
-    // <Button
-    //   onPress={this.viewTrending}
-    //   title='Trending'
-    //   style={{fontSize: 18, marginTop: 10}}
-    // />
-
 
     return (
       <View style={styles.login}>

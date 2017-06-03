@@ -2,11 +2,11 @@ import OAuthManager from 'react-native-oauth'
 
 import t from './actionTypes'
 
-import { saveToken, getUserProfile } from '../../api/github-api'
+import { saveToken, getCurrentUserProfile } from '../../api/github-api'
 import config from '../../../config.json'
 
-import { requestProfile, receiveProfile } from '../loading/actions'
 import { fetchNotifications } from '../notifications/actions'
+import { setUserProfile } from '../profile/actions'
 import { fetchTimeline } from '../timeline/actions'
 import { fetchTrending } from '../trending/actions'
 import { fetchIssues } from '../issues/actions'
@@ -19,9 +19,10 @@ export function fetchProfile () {
   return dispatch => {
     dispatch(requestProfile())
 
-    getUserProfile()
+    getCurrentUserProfile()
       .then(({ data }) => {
         dispatch(receiveProfile())
+        dispatch(setLogin(data.login))
         dispatch(setUserProfile(data))
       })
       .catch(err => {
@@ -30,10 +31,10 @@ export function fetchProfile () {
   }
 }
 
-function setUserProfile (profile) {
+function setLogin (login) {
   return {
-    type: t.SET_USER_PROFILE,
-    profile
+    type: t.SET_LOGIN,
+    login
   }
 }
 

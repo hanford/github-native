@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import { fetchTrending } from '../../redux/trending/actions'
 import Component from './component'
 
-const mapStateToProps = ({ user, repos }) => ({
-  profile: user.profile,
-  repos: repos.list
+const mapStateToProps = ({ profile, repos, loading }) => ({
+  profile: profile.profile,
+  repos: repos.list,
+  loading: loading.profile
 })
 
 // function mapDispatchToProps (dispatch) {

@@ -6,7 +6,8 @@ const initialState = {
   notifications: false,
   timeline: false,
   trending: false,
-  profile: false
+  profile: false,
+  search: false
 }
 
 export default (state = initialState, action) => {
@@ -81,6 +82,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         profile: false
+      }
+
+    case t.REQUEST_SEARCH:
+      return {
+        ...state,
+        search: true,
+      }
+
+    case t.RECEIVE_SEARCH:
+      return {
+        ...state,
+        search: false,
       }
 
     default:

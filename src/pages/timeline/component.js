@@ -43,6 +43,18 @@ const styles = StyleSheet.create({
 
 export class Timeline extends PureComponent {
 
+  visitProfile = ({ login }) => {
+    const { fetchUser, navigator } = this.props
+
+    fetchUser(login)
+
+    navigator.push({
+      screen: 'githubnative.Profile',
+      title: login,
+      animated: true
+    })
+  }
+
   render () {
     const { list, loading, fetchTimeline } = this.props
 
@@ -69,20 +81,20 @@ export class Timeline extends PureComponent {
               const parsed = compile(ti)
 
               return (
-                <TouchableOpacity key={index}>
-                  <View style={styles.item} key={index}>
-                    <View style={styles.shadow}>
-                      <Image
-                        source={{uri: ti.actor.avatar_url}}
-                        style={styles.ava}
-                        />
-                    </View>
-                    <View style={styles.title}>
-                      <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
-                      <Text>{parsed}</Text>
-                    </View>
+                <View style={styles.item} key={index}>
+                  <View style={styles.shadow}>
+                  <TouchableOpacity onPress={() => this.visitProfile(ti.actor)}>
+                    <Image
+                      source={{uri: ti.actor.avatar_url}}
+                      style={styles.ava}
+                      />
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
+                  <View style={styles.title}>
+                    <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                    <Text>{parsed}</Text>
+                  </View>
+                </View>
               )
             })
           }

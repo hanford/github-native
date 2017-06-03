@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
+import { fetchUser } from '../../redux/profile/actions'
 import { fetchTimeline } from '../../redux/timeline/actions'
+
 import Component from './component'
 
 function mapStateToProps (state) {
@@ -14,7 +16,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    fetchTimeline: () => dispatch(fetchTimeline())
+    fetchTimeline: () => dispatch(fetchTimeline()),
+    fetchUser: (login) => dispatch(fetchUser(login))
   }
 }
 

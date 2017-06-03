@@ -6,6 +6,8 @@ import notifications from './notifications/reducer'
 import timeline from './timeline/reducer'
 import trending from './trending/reducer'
 import loading from './loading/reducer'
+import profile from './profile/reducer'
+import search from './search/reducer'
 import issues from './issues/reducer'
 import repos from './repos/reducer'
 
@@ -16,7 +18,9 @@ const reducers = combineReducers({
   issues,
   repos,
   loading,
-  trending
+  trending,
+  profile,
+  search
 })
 
 export function configureStore () {
