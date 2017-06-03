@@ -5,11 +5,11 @@ import {
   View,
   Text,
   ScrollView,
-  RefreshControl,
   SegmentedControlIOS,
+  ActivityIndicator
 } from 'react-native'
 
-import { RepoItem } from '../../components'
+import { RepoItem, UserItem } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
@@ -28,9 +28,51 @@ const styles = StyleSheet.create({
 })
 
 export class Search extends PureComponent {
-  state = {
-    selectedIndex: 1,
-    text: ''
+
+  renderResultList = () => {
+    const { results, category, loading } = this.props
+
+    if (!loading && !results.length) return
+
+    console.log(results)
+
+    if (loading) {
+      return (
+        <ActivityIndicator />
+      )
+    }
+
+    if (category === 0) {
+      console.log('at user')
+      return (
+        <ScrollView>
+          {
+            results.map((n, index) => (
+              <UserItem
+                key={index}
+                user={n}
+              />
+            ))
+          }
+        </ScrollView>
+      )
+    } else {
+      return (
+        <ScrollView>
+          {
+            results.map((n, index) => (
+              <RepoItem
+                key={index}
+                name={n.name}
+                language={n.language}
+                description={n.description}
+                stars={n.stargazers_count}
+              />
+            ))
+          }
+        </ScrollView>
+      )
+    }
   }
 
   render () {
@@ -65,6 +107,10 @@ export class Search extends PureComponent {
           onChange={({ nativeEvent: { selectedSegmentIndex } }) => setSearchCategory(selectedSegmentIndex)}
           tintColor='#373838'
         />
+
+        <View style={{marginTop: 10}}>
+          {this.renderResultList()}
+        </View>
       </View>
     )
   }

@@ -2,7 +2,8 @@ import t from './actionTypes'
 
 const initialState = {
   text: '',
-  category: 0
+  category: 0,
+  results: []
 }
 
 export default (state = initialState, action) => {
@@ -18,6 +19,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         category: action.category
+      }
+
+    case t.SET_SEARCH_RESULTS:
+      return {
+        ...state,
+        results: action.results
       }
 
     default:

@@ -4,10 +4,12 @@ import { connect } from 'react-redux'
 import { setSearchText, setSearchCategory, searchUsersOrRepos } from '../../redux/search/actions'
 import Component from './component'
 
-function mapStateToProps ({ search }) {
+function mapStateToProps ({ search, loading }) {
   return {
     text: search.text,
-    category: search.category
+    category: search.category,
+    results: search.results,
+    loading: loading.search
   }
 }
 
