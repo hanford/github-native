@@ -11,9 +11,10 @@ export function setSearchText (text) {
 }
 
 export function setSearchCategory (category) {
-  return {
-    type: t.SET_SEARCH_CATEGORY,
-    category
+  return dispatch => {
+    dispatch(setSearchText(''))
+    dispatch(setSearchResults([]))
+    dispatch({ type: t.SET_SEARCH_CATEGORY, category })
   }
 }
 
