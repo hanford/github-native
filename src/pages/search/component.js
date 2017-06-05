@@ -109,7 +109,6 @@ export class Search extends PureComponent {
             value={text}
             returnKeyType='search'
             enablesReturnKeyAutomatically={true}
-            autoFocus={true}
             editable={true}
           />
         </View>

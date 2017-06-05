@@ -6,11 +6,11 @@ import { fetchTimeline } from '../../redux/timeline/actions'
 
 import Component from './component'
 
-function mapStateToProps (state) {
-
+function mapStateToProps ({ timeline, loading, user }) {
   return {
-    list: state.timeline.list,
-    loading: state.loading.timeline
+    list: timeline.list,
+    loading: loading.timeline,
+    user: user.login
   }
 }
 

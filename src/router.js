@@ -39,20 +39,16 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Issues',
       title: 'Issues',
       icon: require('./icons/issues.png')
-    },
-    {
-      label: 'Search',
-      screen: 'githubnative.Search',
-      title: 'Search',
-      icon: require('./icons/search.png')
     }
-  ],
-  drawer: {
-    left: {
-      screen: 'githubnative.Login'
-    }
-  },
-  tabsStyle: {
-    tabBarTranslucent: false
-  }
+  ]
 })
+
+//
+// drawer: {
+//   left: {
+//     screen: 'githubnative.Login'
+//   }
+// },
+// tabsStyle: {
+//   tabBarTranslucent: false
+// }

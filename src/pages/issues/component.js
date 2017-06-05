@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
 })
 
 export class Issues extends PureComponent {
+
   state = {
-    scaleValue: new Animated.Value(1),
+    scaleValue: new Animated.Value(1)
   }
 
   constructor () {
@@ -76,10 +77,8 @@ export class Issues extends PureComponent {
   render () {
     const { list, loading, fetchIssues } = this.props
     const { scaleValue } = this.state
+
     console.log(scaleValue)
-
-
-    if (!list) return null
 
     return (
       <View style={styles.list}>

@@ -43,6 +43,22 @@ const styles = StyleSheet.create({
 
 export class Timeline extends PureComponent {
 
+  // static navigatorButtons = {
+  //   rightButtons: [
+  //     {
+  //       title: 'Profile',
+  //       id: 'profile'
+  //     }
+  //   ]
+  // }
+  //
+  // constructor(props) {
+  //   super(props)
+  //
+  //   this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+  // }
+
+
   visitProfile = ({ login }) => {
     const { fetchUser, navigator } = this.props
 
@@ -55,10 +71,18 @@ export class Timeline extends PureComponent {
     })
   }
 
+  // onNavigatorEvent = ({ type, id }) => {
+  //   const { user } = this.props
+  //
+  //   if (type === 'NavBarButtonPress') {
+  //     if (id === 'profile') {
+  //       this.visitProfile({ login: user })
+  //     }
+  //   }
+  // }
+
   render () {
     const { list, loading, fetchTimeline } = this.props
-
-    if (!list) return null
 
     return (
       <View style={styles.list}>
@@ -77,7 +101,7 @@ export class Timeline extends PureComponent {
           }
         >
           {
-            list && list.map((ti, index) => {
+            list.map((ti, index) => {
               const parsed = compile(ti)
 
               return (

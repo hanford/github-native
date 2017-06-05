@@ -17,14 +17,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 10
+    fontWeight: 'bold'
   },
   ava: {
     height: 36,
     width: 36,
     borderRadius: 4,
-    marginRight: 4
+    marginRight: 10
   }
 })
 

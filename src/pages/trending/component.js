@@ -7,7 +7,8 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator
 } from 'react-native'
 
 import { RepoItem } from '../../components'
@@ -20,10 +21,49 @@ const styles = StyleSheet.create({
 
 export class Trending extends PureComponent {
 
+  static navigatorButtons = {
+    leftButtons: [
+      {
+        title: 'Edit',
+        id: 'edit'
+      }
+    ],
+    rightButtons: [
+      {
+        title: 'Search',
+        id: 'search',
+        icon: require('../../icons/search.png')
+      }
+    ]
+  }
+
+
+    constructor(props) {
+      super(props)
+
+      this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+    }
+
+    onNavigatorEvent = ({ type, id }) => {
+      const { user, navigator } = this.props
+
+      if (type === 'NavBarButtonPress') {
+        if (id === 'search') {
+          navigator.push({
+            screen: 'githubnative.Search',
+            title: 'Search',
+            animated: true
+          })
+        }
+      }
+    }
+
   render () {
     const { list, loading, fetchRepos } = this.props
 
-    if (!list) return null
+    if (!list.length) return (
+      <ActivityIndicator style={{marginTop: 50}} />
+    )
 
     return (
       <View style={styles.list}>

@@ -18,7 +18,6 @@ export default function (store, Provider) {
 
   Navigation.registerComponent('githubnative.Notifications', () => Notifications, store, Provider)
   Navigation.registerComponent('githubnative.Repos', () => Repos, store, Provider)
-  // Navigation.registerComponent('githubnative.RepoSearch', () => RepoSearch)
   Navigation.registerComponent('githubnative.Trending', () => Trending, store, Provider)
   Navigation.registerComponent('githubnative.Issues', () => Issues, store, Provider)
   Navigation.registerComponent('githubnative.Search', () => Search, store, Provider)
