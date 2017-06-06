@@ -47,9 +47,10 @@ Navigation.startTabBasedApp({
       icon: require('./icons/search.png')
     },
     {
-      label: 'Login',
-      screen: 'githubnative.Login',
-      title: 'Login'
+      label: 'Account',
+      screen: 'githubnative.Account',
+      title: 'Account',
+      icon: require('./icons/account.png')
     }
   ]
 })

@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 
-import Login from './pages/login'
+import Account from './pages/account'
 import Issues from './pages/issues'
 import Notifications from './pages/notifications'
 import Timeline from './pages/timeline'
@@ -13,7 +13,7 @@ import Profile from './pages/profile'
 import Search from './pages/search'
 
 export default function (store, Provider) {
-  Navigation.registerComponent('githubnative.Login', () => Login, store, Provider)
+  Navigation.registerComponent('githubnative.Account', () => Account, store, Provider)
 
   Navigation.registerComponent('githubnative.Profile', () => Profile, store, Provider)
   Navigation.registerComponent('githubnative.Notifications', () => Notifications, store, Provider)

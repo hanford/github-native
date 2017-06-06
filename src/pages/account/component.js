@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   }
 })
 
-export class Login extends PureComponent {
+export class Account extends PureComponent {
 
   visitProfile = () => {
     const { navigator } = this.props
@@ -60,4 +60,4 @@ export class Login extends PureComponent {
   }
 }
 
-export default Login
+export default Account
