@@ -104,16 +104,16 @@ export class Issues extends PureComponent {
                   <View style={styles.row}>
                     <Text>Assigned: {n.assignee.login}</Text>
                     <View>
-                    <Animated.Text
-                      style={{
-                        color: '#00bf8b',
-                        transform: [
-                          {scale: scaleValue}
-                        ]
-                      }}
-                    >
-                      {n.state === 'open' ? '•' : 'x'}
-                    </Animated.Text>
+                      <Animated.Text
+                        style={{
+                          color: '#00bf8b',
+                          transform: [
+                            {scale: scaleValue}
+                          ]
+                        }}
+                      >
+                        {n.state === 'open' ? '•' : 'x'}
+                      </Animated.Text>
                     </View>
                   </View>
                 </View>
