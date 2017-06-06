@@ -43,7 +43,7 @@ export class Search extends PureComponent {
   }
 
   renderResultList = () => {
-    const { results, category, loading } = this.props
+    const { results, category, loading, navigator } = this.props
 
     if (!loading && !results.length) return
 
@@ -77,10 +77,7 @@ export class Search extends PureComponent {
             results.map((n, index) => (
               <RepoItem
                 key={index}
-                name={n.name}
-                language={n.language}
-                description={n.description}
-                stars={n.stargazers_count}
+                Repo={n}
               />
             ))
           }

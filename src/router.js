@@ -39,6 +39,17 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Issues',
       title: 'Issues',
       icon: require('./icons/issues.png')
+    },
+    {
+      label: 'Search',
+      screen: 'githubnative.Search',
+      title: 'Search',
+      icon: require('./icons/search.png')
+    },
+    {
+      label: 'Login',
+      screen: 'githubnative.Login',
+      title: 'Login'
     }
   ]
 })

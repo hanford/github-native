@@ -1,3 +1,3 @@
-import Timeline from './container'
+import Repos from './container'
 
-export default Timeline
+export default Repos

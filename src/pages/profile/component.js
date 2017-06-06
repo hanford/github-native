@@ -10,7 +10,6 @@ import {
 } from 'react-native'
 
 import Repos from '../repos/container'
-import { RepoItem } from '../../components'
 
 const styles = StyleSheet.create({
   list: {
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
 export class Profile extends PureComponent {
 
   render () {
-    const { profile, loading } = this.props
+    const { profile, loading, navigator } = this.props
 
     const {
       name,

@@ -71,6 +71,18 @@ export class Timeline extends PureComponent {
     })
   }
 
+  visitRepo = ({ repo: { name } }) => {
+    const { fetchRepo, navigator } = this.props
+
+    fetchRepo(name)
+
+    navigator.push({
+      screen: 'githubnative.Repo',
+      title: name,
+      animated: true
+    })
+  }
+
   // onNavigatorEvent = ({ type, id }) => {
   //   const { user } = this.props
   //
@@ -114,10 +126,12 @@ export class Timeline extends PureComponent {
                       />
                     </TouchableOpacity>
                   </View>
+                  <TouchableOpacity onPress={() => this.visitRepo(ti)}>
                   <View style={styles.title}>
                     <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
                     <Text>{parsed}</Text>
                   </View>
+                  </TouchableOpacity>
                 </View>
               )
             })

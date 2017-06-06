@@ -34,6 +34,20 @@ export async function getRepos () {
   }
 }
 
+export async function getRepo (name) {
+  try {
+    const res = await fetchData(`repos/${name}`)
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
 export async function getTimeline () {
   try {
     const res = await fetchData('users/hanford/received_events')

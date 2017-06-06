@@ -7,7 +7,6 @@ import {
   Text,
   ScrollView,
   RefreshControl,
-  TouchableOpacity,
   ActivityIndicator
 } from 'react-native'
 
@@ -59,11 +58,13 @@ export class Trending extends PureComponent {
     }
 
   render () {
-    const { list, loading, fetchRepos } = this.props
+    const { list, loading, fetchRepos, navigator } = this.props
 
-    if (!list.length) return (
-      <ActivityIndicator style={{marginTop: 50}} />
-    )
+    if (!list.length) {
+      return (
+        <ActivityIndicator style={{marginTop: 50}} />
+      )
+    }
 
     return (
       <View style={styles.list}>
@@ -82,15 +83,12 @@ export class Trending extends PureComponent {
           }
         >
           {
-            list && list.map((n, index) => (
-              <TouchableOpacity key={index}>
-                <RepoItem
-                  name={n.name}
-                  language={n.language}
-                  description={n.description}
-                  stars={n.stargazers_count}
-                />
-              </TouchableOpacity>
+            list.map((n, index) => (
+              <RepoItem
+                key={index}
+                repo={n}
+                navigator={navigator}
+              />
             ))
           }
         </ScrollView>

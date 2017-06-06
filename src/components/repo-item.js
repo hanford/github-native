@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, Image } from 'react-native'
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 
 const styles = StyleSheet.create({
   item: {
@@ -37,18 +37,31 @@ const styles = StyleSheet.create({
   }
 })
 
-export const RepoItem = (n) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{n.name}</Text>
-    <Text style={{marginBottom: 10}}>{n.description}</Text>
-    <View style={styles.row}>
-      <Text style={styles.repo}>{n.language}</Text>
-      <View style={styles.starRow}>
-        <Image source={require('../icons/star@2x.png')} style={styles.star} />
-        <Text>{n.stars}</Text>
+export const RepoItem = ({ repo, navigator, setRepo }) => {
+  console.log(navigator)
+  const visitRepo = () => {
+    navigator.push({
+      screen: 'githubnative.Repo',
+      title: repo.name || repo.full_name,
+      animated: true
+    })
+  }
+
+  return (
+    <TouchableOpacity onPress={visitRepo}>
+      <View style={styles.item}>
+        <Text style={styles.title}>{repo.name}</Text>
+        <Text style={{marginBottom: 10}}>{repo.description}</Text>
+        <View style={styles.row}>
+          <Text style={styles.repo}>{repo.language}</Text>
+          <View style={styles.starRow}>
+            <Image source={require('../icons/star@2x.png')} style={styles.star} />
+            <Text>{repo.stargazers_count}</Text>
+          </View>
+        </View>
       </View>
-    </View>
-  </View>
-)
+    </TouchableOpacity>
+  )
+}
 
 export default RepoItem
