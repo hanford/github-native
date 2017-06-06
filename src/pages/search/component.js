@@ -42,6 +42,16 @@ export class Search extends PureComponent {
     })
   }
 
+  visitRepo = repo => {
+    const { navigator } = this.props
+
+    navigator.push({
+      screen: 'githubnative.Repo',
+      title: repo.name || repo.full_name,
+      animated: true
+    })
+  }
+
   renderResultList = () => {
     const { results, category, loading, navigator } = this.props
 
@@ -75,10 +85,11 @@ export class Search extends PureComponent {
         <ScrollView>
           {
             results.map((n, index) => (
-              <RepoItem
-                key={index}
-                Repo={n}
-              />
+              <TouchableOpacity onPress={() => this.visitRepo(n)} key={index}>
+                <RepoItem
+                  repo={n}
+                />
+              </TouchableOpacity>
             ))
           }
         </ScrollView>

@@ -20,6 +20,16 @@ const styles = StyleSheet.create({
 
 export class Repos extends PureComponent {
 
+  visitRepo = repo => {
+    const { navigator } = this.props
+
+    navigator.push({
+      screen: 'githubnative.Repo',
+      title: repo.name || repo.full_name,
+      animated: true
+    })
+  }
+
   render () {
     const { list, loading, fetchRepos, navigator } = this.props
 
@@ -41,11 +51,11 @@ export class Repos extends PureComponent {
         >
           {
             list.map((n, index) => (
-              <RepoItem
-                repo={n}
-                key={index}
-                navigator={navigator}
-              />
+              <TouchableOpacity onPress={() => this.visitRepo(n)} key={index}>
+                <RepoItem
+                  repo={n}
+                />
+              </TouchableOpacity>
             ))
           }
         </ScrollView>

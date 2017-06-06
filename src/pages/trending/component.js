@@ -7,6 +7,7 @@ import {
   Text,
   ScrollView,
   RefreshControl,
+  TouchableOpacity,
   ActivityIndicator
 } from 'react-native'
 
@@ -36,29 +37,38 @@ export class Trending extends PureComponent {
     ]
   }
 
+  constructor(props) {
+    super(props)
 
-    constructor(props) {
-      super(props)
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+  }
 
-      this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
-    }
+  visitRepo = repo => {
+    const { navigator } = this.props
 
-    onNavigatorEvent = ({ type, id }) => {
-      const { user, navigator } = this.props
+    navigator.push({
+      screen: 'githubnative.Repo',
+      title: repo.name || repo.full_name,
+      animated: true
+    })
+  }
 
-      if (type === 'NavBarButtonPress') {
-        if (id === 'search') {
-          navigator.push({
-            screen: 'githubnative.Search',
-            title: 'Search',
-            animated: true
-          })
-        }
+  onNavigatorEvent = ({ type, id }) => {
+    const { user, navigator } = this.props
+
+    if (type === 'NavBarButtonPress') {
+      if (id === 'search') {
+        navigator.push({
+          screen: 'githubnative.Search',
+          title: 'Search',
+          animated: true
+        })
       }
     }
+  }
 
   render () {
-    const { list, loading, fetchRepos, navigator } = this.props
+    const { list, loading, fetchRepos } = this.props
 
     if (!list.length) {
       return (
@@ -84,11 +94,11 @@ export class Trending extends PureComponent {
         >
           {
             list.map((n, index) => (
-              <RepoItem
-                key={index}
-                repo={n}
-                navigator={navigator}
-              />
+              <TouchableOpacity key={index} onPress={() => this.visitRepo(n)}>
+                <RepoItem
+                  repo={n}
+                />
+              </TouchableOpacity>
             ))
           }
         </ScrollView>

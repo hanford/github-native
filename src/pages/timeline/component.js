@@ -127,10 +127,10 @@ export class Timeline extends PureComponent {
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity onPress={() => this.visitRepo(ti)}>
-                  <View style={styles.title}>
-                    <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
-                    <Text>{parsed}</Text>
-                  </View>
+                    <View style={styles.title}>
+                      <Text>{fecha.format(new Date(ti.created_at), 'M/D/YY h:mm A')}</Text>
+                      <Text>{parsed}</Text>
+                    </View>
                   </TouchableOpacity>
                 </View>
               )
