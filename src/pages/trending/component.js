@@ -44,11 +44,14 @@ export class Trending extends PureComponent {
   }
 
   visitRepo = repo => {
-    const { navigator } = this.props
+    const { navigator, fetchRepo } = this.props
+    const name = repo.full_name || repo.name
+
+    fetchRepo(name)
 
     navigator.push({
       screen: 'githubnative.Repo',
-      title: repo.name || repo.full_name,
+      title: name,
       animated: true
     })
   }

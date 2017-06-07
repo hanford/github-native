@@ -10,6 +10,7 @@ import profile from './profile/reducer'
 import search from './search/reducer'
 import issues from './issues/reducer'
 import repos from './repos/reducer'
+import repo from './repo/reducer'
 
 const reducers = combineReducers({
   user,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   timeline,
   issues,
   repos,
+  repo,
   loading,
   trending,
   profile,

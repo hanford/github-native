@@ -16,7 +16,20 @@ function mapDispatchToProps (dispatch) {
     fetchRepos: () => dispatch(fetchRepos())
   }
 }
+
+class ComponentContainer extends PureComponent {
+  componentWillMount () {
+    this.props.fetchRepos()
+  }
+
+  render () {
+    return (
+      <Component {...this.props} />
+    )
+  }
+}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Component)
+)(ComponentContainer)

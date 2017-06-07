@@ -51,6 +51,12 @@ Navigation.startTabBasedApp({
       screen: 'githubnative.Account',
       title: 'Account',
       icon: require('./icons/account.png')
+    },
+    {
+      label: 'Repos',
+      screen: 'githubnative.Repos',
+      title: 'Repos',
+      icon: require('./icons/repos.png')
     }
   ]
 })

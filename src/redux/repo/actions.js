@@ -11,7 +11,7 @@ export function fetchRepo (name) {
     getRepo(name)
       .then(({ data }) => {
         dispatch(receiveRepos())
-        console.log(data)
+
         dispatch(setRepo(data))
       })
       .catch(err => {

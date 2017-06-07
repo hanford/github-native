@@ -71,14 +71,13 @@ export class Timeline extends PureComponent {
     })
   }
 
-  visitRepo = ({ repo: { name } }) => {
+  visitRepo = ({ repo }) => {
     const { fetchRepo, navigator } = this.props
-
-    fetchRepo(name)
+    fetchRepo(repo.name)
 
     navigator.push({
       screen: 'githubnative.Repo',
-      title: name,
+      title: repo.name,
       animated: true
     })
   }

@@ -3,8 +3,13 @@ import { connect } from 'react-redux'
 
 import Component from './component'
 
-function mapStateToProps (state) {
-  return {}
+function mapStateToProps ({ repo, loading }) {
+  console.log(repo)
+
+  return {
+    repo: repo.data,
+    loading: loading.repos
+  }
 }
 
 function mapDispatchToProps (dispatch) {

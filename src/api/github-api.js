@@ -38,7 +38,6 @@ export async function getRepo (name) {
   try {
     const res = await fetchData(`repos/${name}`)
     const data = await res.json()
-
     return {
       data
     }
@@ -149,6 +148,7 @@ export async function searchUsers (query) {
 function fetchData (url) {
   let ghUrl = `${api}/${url}`
   let authedUrl = ''
+  console.log(ghUrl)
 
   if (url.indexOf('?') > -1) {
     authedUrl = `${ghUrl}&access_token=${token}`
