@@ -22,8 +22,8 @@ export class Repo extends PureComponent {
     const { navigator } = this.props
 
     navigator.push({
-      screen: 'githubnative.Code',
-      title: 'Code',
+      screen: 'githubnative.Tree',
+      title: 'Tree',
       animated: true
     })
   }

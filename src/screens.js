@@ -11,6 +11,7 @@ import Repo from './pages/repo'
 import Trending from './pages/trending'
 import Profile from './pages/profile'
 import Search from './pages/search'
+import Tree from './pages/tree'
 import Code from './pages/code'
 
 export default function (store, Provider) {
@@ -26,5 +27,6 @@ export default function (store, Provider) {
   Navigation.registerComponent('githubnative.Issues', () => Issues, store, Provider)
   Navigation.registerComponent('githubnative.Timeline', () => Timeline, store, Provider)
   Navigation.registerComponent('githubnative.Trending', () => Trending, store, Provider)
+  Navigation.registerComponent('githubnative.Tree', () => Tree, store, Provider)
   Navigation.registerComponent('githubnative.Code', () => Code, store, Provider)
 }

@@ -17,6 +17,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "abab": "~1.0.3",
     "ap": "~0.2.0",
     "fecha": "~2.3.0",
     "is-empty-object": "~1.1.1",
@@ -25,6 +26,7 @@
     "react-native": "~0.43.4",
     "react-native-navigation": "~1.1.81",
     "react-native-oauth": "~2.1.16",
+    "react-native-syntax-highlighter": "~1.2.1",
     "react-redux": "~5.0.5",
     "redux": "~3.6.0",
     "redux-thunk": "~2.2.0",

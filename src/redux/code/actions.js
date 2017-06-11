@@ -20,19 +20,22 @@ export function fetchRepoContent (name) {
   }
 }
 
-
-export function fetchNestedRepoContent (path) {
+export function fetchNestedRepoContent (path, isDirectory) {
   return (dispatch, getState) => {
     const state = getState()
-    console.log('fetchNestedRepoContent')
     const { repo: { data: { full_name }}} = state
+
     dispatch(requestRepos())
 
     getNestedRepoContent(full_name, path)
       .then(({ data }) => {
         dispatch(receiveRepos())
-        console.log(data)
-        dispatch(setRepoContent(data))
+
+        if (isDirectory) {
+          dispatch(setRepoContent(data))
+        } else {
+          dispatch(setRawContent(data))
+        }
       })
       .catch(err => {
         dispatch(receiveRepos())
@@ -40,9 +43,9 @@ export function fetchNestedRepoContent (path) {
   }
 }
 
-function setRepoContent (content) {
+function setRawContent (content) {
   return {
-    type: t.SET_REPO_CONTENT,
+    type: t.SET_RAW_CONTENT,
     content
   }
 }
@@ -52,5 +55,11 @@ function setRepoContent (content) {
   return {
     type: t.SET_REPO_CONTENT,
     content
+  }
+}
+
+export function goBack () {
+  return {
+    type: t.GO_BACK
   }
 }
