@@ -1,7 +1,8 @@
 import t from './actionTypes'
 
 const initialState = {
-  data: {}
+  data: {},
+  content: {}
 }
 
 export default (state = initialState, action) => {
@@ -11,6 +12,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         data: action.repo
+      }
+
+    case t.SET_REPO_CONTENT:
+      return {
+        ...state,
+        content: action.content
       }
 
     default:

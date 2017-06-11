@@ -11,57 +11,6 @@ import {
 
 import Repos from '../repos/container'
 
-const styles = StyleSheet.create({
-  list: {
-    flex: 1
-  },
-  topSection: {
-    paddingBottom: 10,
-    borderBottomWidth: 1,
-    borderColor: 'rgba(0,0,0,.1)',
-    backgroundColor: '#fafbfc',
-    padding: 10
-  },
-  row: {
-    flexDirection: 'row'
-  },
-  name: {
-    fontSize: 16,
-    color: 'gray'
-  },
-  count: {
-    fontWeight: 'bold',
-    fontSize: 22
-  },
-  sub: {
-    fontSize: 16
-  },
-  label: {
-    fontSize: 16
-  },
-  statItem: {
-    alignItems: 'center'
-  },
-  statRow: {
-    flexDirection: 'row',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    padding: 10,
-    borderColor: 'rgba(0,0,0,.1)',
-    borderBottomWidth: 1
-  },
-  closeButton: {
-    width: '100%',
-    height: 50,
-    borderTopWidth: 1,
-    borderColor: 'rgba(0,0,0,.1)',
-    backgroundColor: '#fafbfc',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
-
 export class Profile extends PureComponent {
 
   render () {
@@ -128,5 +77,57 @@ export class Profile extends PureComponent {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  list: {
+    flex: 1
+  },
+  topSection: {
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    backgroundColor: '#fafbfc',
+    padding: 10
+  },
+  row: {
+    flexDirection: 'row'
+  },
+  name: {
+    fontSize: 16,
+    color: 'gray'
+  },
+  count: {
+    fontWeight: 'bold',
+    fontSize: 22
+  },
+  sub: {
+    fontSize: 16
+  },
+  label: {
+    fontSize: 16
+  },
+  statItem: {
+    alignItems: 'center'
+  },
+  statRow: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: 10,
+    borderColor: 'rgba(0,0,0,.1)',
+    borderBottomWidth: 1
+  },
+  closeButton: {
+    width: '100%',
+    height: 50,
+    borderTopWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    backgroundColor: '#fafbfc',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+
 
 export default Profile

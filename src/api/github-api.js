@@ -38,6 +38,21 @@ export async function getRepo (name) {
   try {
     const res = await fetchData(`repos/${name}`)
     const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
+export async function getRepoContent (name) {
+  try {
+    const res = await fetchData(`repos/${name}/contents`)
+    const data = await res.json()
+
     return {
       data
     }

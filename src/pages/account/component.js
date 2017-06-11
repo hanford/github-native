@@ -21,8 +21,6 @@ export class Account extends PureComponent {
       title: 'Profile',
       animated: true
     })
-
-    navigator.toggleDrawer()
   }
 
   render () {

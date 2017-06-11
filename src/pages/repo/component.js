@@ -1,35 +1,32 @@
 import React, { PureComponent } from 'react'
+import fecha from 'fecha'
 
 import {
+  ActivityIndicator,
+  TouchableOpacity,
+  ScrollView,
   StyleSheet,
+  Button,
+  Image,
   View,
   Text,
-  ActivityIndicator,
-  Image
 } from 'react-native'
 
 import isEmptyObject from 'is-empty-object'
 
 import { RepoItem } from '../../components'
 
-const styles = StyleSheet.create({
-  repo: {
-    flex: 1,
-    padding: 20
-  },
-  name: {
-    fontSize: 20
-  },
-  avatar: {
-    height: 60,
-    width: 60,
-    marginBottom: 10,
-    borderRadius: 30,
-    marginRight: 10
-  }
-})
-
 export class Repo extends PureComponent {
+
+  viewCode = () => {
+    const { navigator } = this.props
+
+    navigator.push({
+      screen: 'githubnative.Code',
+      title: 'Code',
+      animated: true
+    })
+  }
 
   render () {
     const { repo, loading } = this.props
@@ -37,34 +34,96 @@ export class Repo extends PureComponent {
     if (loading || isEmptyObject(repo)) {
       return (
         <ActivityIndicator style={{marginTop: 40}}/>
-      ) 
+      )
     }
 
     return (
       <View style={styles.repo}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={styles.breakdown}>
           <Image
             source={{uri: repo.owner.avatar_url}}
             style={styles.avatar}
           />
-          <View>
+          <View style={styles.repoDescription}>
             <Text style={styles.name}>{repo.name}</Text>
-            <Text style={{fontSize: 16, color: 'gray'}}>{repo.owner.login}</Text>
+            <Text style={styles.description}>{repo.description}</Text>
           </View>
         </View>
 
-        <Text>watchers: {repo.watchers}</Text>
-        <Text>watcher_count: {repo.watcher_count}</Text>
-        <Text>updated_at: {repo.updated_at}</Text>
-        <Text>stargazers_count: {repo.stargazers_count}</Text>
-        <Text>open_issues: {repo.open_issues}</Text>
-        <Text>language: {repo.language}</Text>
-        <Text>full_name: {repo.full_name}</Text>
-        <Text>forks_count: {repo.forks_count}</Text>
-        <Text>created_at: {repo.created_at}</Text>
+        <View style={styles.detailRow}>
+          <Text style={styles.statItem}>Stars {repo.stargazers_count}</Text>
+          <Text style={styles.statItem}>Issues {repo.open_issues}</Text>
+          <Text style={styles.statItem}>Forks {repo.forks_count}</Text>
+        </View>
+
+        <View style={styles.detailItem}>
+          <Text>Updated</Text>
+          <Text>{fecha.format(new Date(repo.updated_at), 'M/D/YY h:mm A')}</Text>
+        </View>
+
+        <TouchableOpacity onPress={this.viewCode}>
+          <View style={styles.detailItem}>
+            <Text>View Code</Text>
+            <Text>{repo.language}</Text>
+          </View>
+        </TouchableOpacity>
+
       </View>
     )
   }
 }
 
 export default Repo
+
+const styles = StyleSheet.create({
+  repo: {
+    flex: 1,
+    padding: 20
+  },
+  avatar: {
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    marginRight: 10
+  },
+  repoDescription: {
+    flex: 1
+  },
+  name: {
+    fontSize: 20
+  },
+  description: {
+    fontSize: 14,
+    color: 'gray'
+  },
+  breakdown: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    paddingBottom: 10
+  },
+  detailRow: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    paddingBottom: 10
+  },
+  detailItem: {
+    flexDirection: 'row',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: 'rgba(0,0,0,.1)',
+    paddingBottom: 10
+  },
+  statItem: {
+    alignItems: 'center'
+  }
+})
