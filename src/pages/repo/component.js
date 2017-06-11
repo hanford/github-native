@@ -19,6 +19,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 20
+  },
+  avatar: {
+    height: 60,
+    width: 60,
+    marginBottom: 10,
+    borderRadius: 30,
+    marginRight: 10
   }
 })
 
@@ -30,7 +37,7 @@ export class Repo extends PureComponent {
     if (loading || isEmptyObject(repo)) {
       return (
         <ActivityIndicator style={{marginTop: 40}}/>
-      )
+      ) 
     }
 
     return (
@@ -38,7 +45,7 @@ export class Repo extends PureComponent {
         <View style={{flexDirection: 'row'}}>
           <Image
             source={{uri: repo.owner.avatar_url}}
-            style={{height: 60, width: 60, marginBottom: 10, borderRadius: 30, marginRight: 10}}
+            style={styles.avatar}
           />
           <View>
             <Text style={styles.name}>{repo.name}</Text>
