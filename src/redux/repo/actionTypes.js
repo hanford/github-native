@@ -1,4 +1,3 @@
 export default {
-  SET_REPO: 'SET_REPO',
-  SET_REPO_CONTENT: 'SET_REPO_CONTENT'
+  SET_REPO: 'SET_REPO'
 }

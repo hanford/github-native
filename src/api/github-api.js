@@ -62,6 +62,20 @@ export async function getRepoContent (name) {
   }
 }
 
+export async function getNestedRepoContent (name, path) {
+  try {
+    const res = await fetchData(`repos/${name}/contents/${path}`)
+    const data = await res.json()
+
+    return {
+      data
+    }
+  }
+  catch (err) {
+    throw err
+  }
+}
+
 export async function getTimeline () {
   try {
     const res = await fetchData('users/hanford/received_events')

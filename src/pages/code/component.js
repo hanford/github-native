@@ -18,11 +18,14 @@ const styles = StyleSheet.create({
   },
   contentLink: {
     width: '100%',
-    padding: 10,
+    padding: 16,
     borderBottomWidth: 1,
     borderColor: 'rgba(0,0,0,.1)',
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  fileName: {
+    fontSize: 16
   },
   typeIcon: {
     marginRight: 10
@@ -30,6 +33,18 @@ const styles = StyleSheet.create({
 })
 
 export class Code extends PureComponent {
+
+  goNested = path => {
+    const { navigator, fetchNestedRepoContent } = this.props
+
+    fetchNestedRepoContent(path)
+
+    navigator.push({
+      screen: 'githubnative.Code',
+      title: 'Code',
+      animated: true
+    })
+  }
 
   render () {
     const { content } = this.props
@@ -41,8 +56,12 @@ export class Code extends PureComponent {
           style={{flex: 1}}
         >
           {
-            content.map(({ name, type }, index) => (
-              <TouchableOpacity key={index} style={styles.contentLink}>
+            content.map(({ name, type, path }, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.contentLink}
+                onPress={() => this.goNested(path)}
+              >
                 <Image
                   style={styles.typeIcon}
                   source={
@@ -51,7 +70,7 @@ export class Code extends PureComponent {
                     : require('../../icons/file@2x.png')
                   }
                 />
-                <Text>{name}</Text>
+                <Text style={styles.fileName}>{name}</Text>
               </TouchableOpacity>
             ))
           }

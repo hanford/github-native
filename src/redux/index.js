@@ -11,9 +11,11 @@ import search from './search/reducer'
 import issues from './issues/reducer'
 import repos from './repos/reducer'
 import repo from './repo/reducer'
+import code from './code/reducer'
 
 const reducers = combineReducers({
   user,
+  code,
   notifications,
   timeline,
   issues,

@@ -30,6 +30,7 @@ export class Repo extends PureComponent {
 
   render () {
     const { repo, loading } = this.props
+    console.log(repo)
 
     if (loading || isEmptyObject(repo)) {
       return (

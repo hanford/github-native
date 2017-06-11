@@ -1,16 +1,16 @@
 import t from './actionTypes'
 
 const initialState = {
-  data: {}
+  content: []
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-    case t.SET_REPO:
+    case t.SET_REPO_CONTENT:
       return {
         ...state,
-        data: action.repo
+        content: [...state.content, action.content]
       }
 
     default:
