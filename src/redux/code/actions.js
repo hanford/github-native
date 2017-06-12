@@ -31,6 +31,7 @@ export function fetchNestedRepoContent (path, isDirectory) {
       .then(({ data }) => {
         dispatch(receiveRepos())
 
+        console.log(data, isDirectory)
         if (isDirectory) {
           dispatch(setRepoContent(data))
         } else {
@@ -49,7 +50,6 @@ function setRawContent (content) {
     content
   }
 }
-
 
 function setRepoContent (content) {
   return {

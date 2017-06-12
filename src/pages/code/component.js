@@ -2,12 +2,14 @@ import React, { PureComponent } from 'react'
 import SyntaxHighlighter from 'react-native-syntax-highlighter'
 import { docco } from 'react-syntax-highlighter/dist/styles'
 import { atob } from 'abab'
+import isEmptyObject from 'is-empty-object'
 
 import {
   ScrollView,
   View,
   Text,
   StyleSheet,
+  ActivityIndicator
 } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -19,7 +21,13 @@ const styles = StyleSheet.create({
 export class Code extends PureComponent {
 
   render () {
-    const { raw } = this.props
+    const { raw, loading } = this.props
+
+    if (loading === true || isEmptyObject(raw)) {
+      return (
+        <ActivityIndicator style={{marginTop: 50}} />
+      )
+    }
 
     return (
       <View style={styles.list}>

@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { fetchNestedRepoContent, goBack } from '../../redux/code/actions'
 import Component from './component'
 
-function mapStateToProps ({ code: { raw }}) {
-
+function mapStateToProps ({ code, loading }) {
   return {
-    raw
+    loading: loading.repos,
+    raw: code.raw
   }
 }
 
