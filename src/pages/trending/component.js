@@ -66,7 +66,6 @@ export class Trending extends PureComponent {
           animated: true
         })
       } else if (id === 'edit') {
-        console.log('here')
         navigator.showModal({
           screen: 'githubnative.EditTrending',
           title: 'Edit Trending',
@@ -80,7 +79,7 @@ export class Trending extends PureComponent {
   render () {
     const { list, loading, fetchRepos } = this.props
 
-    if (!list.length) {
+    if (loading) {
       return (
         <ActivityIndicator style={{marginTop: 50}} />
       )
