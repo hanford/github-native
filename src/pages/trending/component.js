@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import sortOn from 'sort-on'
 import {
   StyleSheet,
-  TextInput,
   View,
   Text,
   ScrollView,
@@ -66,7 +65,15 @@ export class Trending extends PureComponent {
           title: 'Search',
           animated: true
         })
+      } else if (id === 'edit') {
+        console.log('here')
+        navigator.showModal({
+          screen: 'githubnative.EditTrending',
+          title: 'Edit Trending',
+          animationType: 'slide-up'
+        })
       }
+
     }
   }
 

@@ -8,6 +8,7 @@ import Notifications from './pages/notifications'
 import Timeline from './pages/timeline'
 import Repos from './pages/repos'
 import Repo from './pages/repo'
+import EditTrending from './pages/edit-trending'
 import Trending from './pages/trending'
 import Profile from './pages/profile'
 import Search from './pages/search'
@@ -26,6 +27,7 @@ export default function (store, Provider) {
 
   Navigation.registerComponent('githubnative.Issues', () => Issues, store, Provider)
   Navigation.registerComponent('githubnative.Timeline', () => Timeline, store, Provider)
+  Navigation.registerComponent('githubnative.EditTrending', () => EditTrending, store, Provider)
   Navigation.registerComponent('githubnative.Trending', () => Trending, store, Provider)
   Navigation.registerComponent('githubnative.Tree', () => Tree, store, Provider)
   Navigation.registerComponent('githubnative.Code', () => Code, store, Provider)
